@@ -45,3 +45,79 @@
 </p>
   
 <a href="#inicio">[Voltar ao início]</a>
+ 
+span id="arquitetura">
+
+### :triangular_ruler: Arquitetura de Software
+![Arquitetura de Software]()
+
+<a href="#inicio">[Voltar ao início]</a> 
+ 
+  
+<span id="backlog"> 
+
+### :bar_chart: Backlog
+ 
+#### Backlog do Produto
+ 
+##### Requisitos Funcionais
+ID | Sprint | Requisitos | Prioridade | Status 
+---|--------|------------|------------|--------
+RF-1 | 1 |  |  | 
+RF-2 | 1 | |  | 
+RF-3 | 1 | |  | 
+
+##### Requisitos Não Funcionais
+ID | Sprint | Requisitos | Prioridade | Status 
+---|--------|------------|------------|--------
+RNF-1 | 1 |  |  | 
+
+
+
+##### Timeline
+![Timeline]()
+ 
+<a href="#inicio">[Voltar ao início]</a> 
+ 
+<span id="estrutura-pastas">
+ 
+### :clipboard: Estruturação das pastas
+```bash
+```
+ 
+<a href="#inicio">[Voltar ao início]</a>
+ 
+<span id="entregas">
+
+### :dart: Entregas
+
+Sprint ID | Data | Tag | Vídeo | Status
+----------|------|-----|-------|--------
+#1 | 25.03.22 - 14.04.22 | <a href="https://github.com/TheAchieversDSM/API-2022.1/releases/tag/%231">Aqui</a> | <a href="https://www.youtube.com/watch?v=tuS3RCgVZbA&t=1s">Link</a> | :heavy_check_mark:
+#2 | 25.04.22 - 15.05.22 | <a href="https://github.com/TheAchieversDSM/API-2022.1/releases/tag/%232">Aqui</a> | <a href="https://www.youtube.com/watch?v=CyJ4mKuv6E0">Link</a> | :heavy_check_mark:
+#3 | 16.05.22 - 05.06.22 | <a href="https://github.com/TheAchieversDSM/API-2022.1/releases/tag/%233">Aqui</a> | :stop_sign: | :heavy_check_mark:
+Update | 06.06.22 - 12.06.22 | <a href="https://github.com/TheAchieversDSM/API-2022.1/releases/tag/Update">Aqui!</a> | :stop_sign: | :heavy_check_mark:
+ 
+<a href="#inicio">[Voltar ao início]</a>
+
+<span id="equipe">
+
+### :busts_in_silhouette: Equipe:
+Função | Nome | GitHub & LinkedIn
+-------|------|-------------------
+Scrum Master | | [<img src="https://img.shields.io/badge/github%20-%23121011.svg?&style=for-the-badge&logo=github&logoColor=54C5CE&color=292A2D"/>]() [<img src="https://img.shields.io/badge/linkedin-%230077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=54C5CE&color=292A2D" />]()
+Product Owner |  | [<img src="https://img.shields.io/badge/github%20-%23121011.svg?&style=for-the-badge&logo=github&logoColor=54C5CE&color=292A2D"/>]()
+Dev Team |  | [<img src="https://img.shields.io/badge/github%20-%23121011.svg?&style=for-the-badge&logo=github&logoColor=54C5CE&color=292A2D"/>]() [<img src="https://img.shields.io/badge/linkedin-%230077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=54C5CE&color=292A2D" />]()
+Dev Team |  | [<img src="https://img.shields.io/badge/github%20-%23121011.svg?&style=for-the-badge&logo=github&logoColor=54C5CE&color=292A2D"/>]() [<img src="https://img.shields.io/badge/linkedin-%230077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=54C5CE&color=292A2D" />]()
+Dev Team |  | [<img src="https://img.shields.io/badge/github%20-%23121011.svg?&style=for-the-badge&logo=github&logoColor=54C5CE&color=292A2D"/>]() [<img src="https://img.shields.io/badge/linkedin-%230077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=54C5CE&color=292A2D" />]()
+Dev Team |  | [<img src="https://img.shields.io/badge/github%20-%23121011.svg?&style=for-the-badge&logo=github&logoColor=54C5CE&color=292A2D"/>]() [<img src="https://img.shields.io/badge/linkedin-%230077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=54C5CE&color=292A2D" />]()
+Dev Team |  | [<img src="https://img.shields.io/badge/github%20-%23121011.svg?&style=for-the-badge&logo=github&logoColor=54C5CE&color=292A2D"/>]() [<img src="https://img.shields.io/badge/linkedin-%230077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=54C5CE&color=292A2D" />]()
+Dev Team |  | [<img src="https://img.shields.io/badge/github%20-%23121011.svg?&style=for-the-badge&logo=github&logoColor=54C5CE&color=292A2D"/>]() [<img src="https://img.shields.io/badge/linkedin-%230077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=54C5CE&color=292A2D" />]()
+
+
+> Instituição: Fatec São José dos Campos - Prof. Jessen Vidal
+> 
+> Curso: Análise e Desenvolvimento de Sistemas / 2º Semestre
+ 
+<a href="#inicio">[Voltar ao início]</a>
+
