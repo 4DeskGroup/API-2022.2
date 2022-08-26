@@ -46,7 +46,7 @@
   
 <a href="#inicio">[Voltar ao início]</a>
  
-span id="arquitetura">
+<span id="arquitetura">
 
 ### :triangular_ruler: Arquitetura de Software
 ![Arquitetura de Software]()
