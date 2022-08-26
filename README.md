@@ -24,6 +24,8 @@
  <span id="status">
 
  ### :bookmark_tabs: Status do projeto:  Em andamento. :construction:	
+  
+ <a href="#inicio">[Voltar ao início]</a>
 
 <span id="techtools">
  
