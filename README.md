@@ -63,7 +63,7 @@
 ##### Requisitos Funcionais
 ID | Sprint | Requisitos | Prioridade | Status 
 ---|--------|------------|------------|--------
-RF-1 | 1 |  |  | 
+RF-1 | 1 | |  | 
 RF-2 | 1 | |  | 
 RF-3 | 1 | |  | 
 
@@ -93,10 +93,10 @@ RNF-1 | 1 |  |  |
 
 Sprint ID | Data | Tag | Vídeo | Status
 ----------|------|-----|-------|--------
-#1 | 29.08.2022 - 18.09.2022 | <a href="">Aqui</a> | <a href="">Link</a> | 
-#2 | 19.09.2022 - 09.10.2022 | <a href="">Aqui</a> | <a href="">Link</a> |
-#3 | 13.10.2022 - 06.11.2022 | <a href="">Aqui</a> | <a href="">Link</a> |
-#4 | 07.11.2022 - 27.11.2022 | <a href="">Aqui</a> | <a href="">Link</a> |
+#1 | 29.08.2022 - 18.09.2022 |  |  | :construction:	
+#2 | 19.09.2022 - 09.10.2022 |  |  | :construction:	
+#3 | 13.10.2022 - 06.11.2022 |  |  | :construction:	
+#4 | 07.11.2022 - 27.11.2022 |  |  | :construction:	
 
  
 <a href="#inicio">[Voltar ao início]</a>
