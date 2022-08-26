@@ -93,10 +93,11 @@ RNF-1 | 1 |  |  |
 
 Sprint ID | Data | Tag | Vídeo | Status
 ----------|------|-----|-------|--------
-#1 | 25.03.22 - 14.04.22 | <a href="https://github.com/TheAchieversDSM/API-2022.1/releases/tag/%231">Aqui</a> | <a href="https://www.youtube.com/watch?v=tuS3RCgVZbA&t=1s">Link</a> | :heavy_check_mark:
-#2 | 25.04.22 - 15.05.22 | <a href="https://github.com/TheAchieversDSM/API-2022.1/releases/tag/%232">Aqui</a> | <a href="https://www.youtube.com/watch?v=CyJ4mKuv6E0">Link</a> | :heavy_check_mark:
-#3 | 16.05.22 - 05.06.22 | <a href="https://github.com/TheAchieversDSM/API-2022.1/releases/tag/%233">Aqui</a> | :stop_sign: | :heavy_check_mark:
-Update | 06.06.22 - 12.06.22 | <a href="https://github.com/TheAchieversDSM/API-2022.1/releases/tag/Update">Aqui!</a> | :stop_sign: | :heavy_check_mark:
+#1 | 29.08.2022 - 18.09.2022 | <a href="">Aqui</a> | <a href="">Link</a> | 
+#2 | 19.09.2022 - 09.10.2022 | <a href="">Aqui</a> | <a href="">Link</a> |
+#3 | 13.10.2022 - 06.11.2022 | <a href="">Aqui</a> | <a href="">Link</a> |
+#4 | 07.11.2022 - 27.11.2022 | <a href="">Aqui</a> | <a href="">Link</a> |
+
  
 <a href="#inicio">[Voltar ao início]</a>
 
