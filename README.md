@@ -22,7 +22,7 @@
  <img src="https://img.shields.io/badge/Discord-292A2D?style=for-the-badge&logo=discord&logoColor=54C5CE"/> 
  <img src="https://img.shields.io/badge/Trello-292A2D?style=for-the-badge&logo=trello&logoColor=54C5CE"/> 
  <img src="https://img.shields.io/badge/Figma-292A2D?style=for-the-badge&logo=figma&logoColor=54C5CE"/> 
- <img src="https://img.shields.io/badge/Java-CED4DA?style=for-the-badge&logo=java&logoColor=54C5CE" />
+ <img src="https://img.shields.io/badge/Java-292A2D?style=for-the-badge&logo=java&logoColor=54C5CE" />
  <img src="https://img.shields.io/badge/NetBeans-292A2D?style=for-the-badge&logo=netbeans&logoColor=54C5CE"/> 
  <img src="https://img.shields.io/badge/MySQL-292A2D?style=for-the-badge&logo=mysql&logoColor=54C5CE"/>
 </p>
