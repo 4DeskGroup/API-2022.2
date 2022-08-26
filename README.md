@@ -13,6 +13,18 @@
      <a href="#equipe">Equipe</a> 
 </p>
 
+<span id="sobre">
+
+### :mag_right: Sobre o projeto:
+<p></p>
+ 
+<a href="#inicio">[Voltar ao início]</a>
+
+ 
+ <span id="status">
+
+ ### :bookmark_tabs: Status do projeto:  Em andamento. :construction:	
+
 <span id="techtools">
  
  ### :hammer_and_wrench: Ferramentas e Tecnologias
