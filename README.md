@@ -16,7 +16,7 @@
 <span id="sobre">
 
 ### 📋 Sobre o projeto:
-<p>A Track Cash é uma empresa que tem em sua tese conciliar financeiramente o seu negócio com uma interface intuitiva e totalmente automatizada, e através de melhorias tem como o objetivo de otimizar o tempo dos clientes para priorizar a experiência de usabilidade do usuário.</p>
+<p>A Track Cash é uma empresa que tem em sua missão conciliar financeiramente o seu negócio com uma interface intuitiva e totalmente automatizada, e através de melhorias tem como o objetivo de otimizar o tempo dos clientes para priorizar a experiência de usabilidade do usuário.</p>
 <p>O processo dessas melhorias é a integração de registros de canais de vendas; em lojas físicas ou online; com o cliente que quer acessar a plataforma, afim de interagir as informações de vendas desses canais.</p>
 <p>Vários fatores dessa integração tem a sua sugestão de cadastrar, autorizar os meios de segurança, configurar e acessar os canais junto com a plataforma, e com a responsabilidade de salvar as informações de registros de canais ativos com a facilidade de acesso as vendas que o cliente está percorrendo, ou seja, um controle de vendas automatizado com a plataforma.</p>
  
