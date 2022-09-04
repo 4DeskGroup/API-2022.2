@@ -8,12 +8,12 @@ package View;
  *
  * @author rodri
  */
-public class Login extends javax.swing.JFrame {
+public class LoginUser extends javax.swing.JFrame {
 
     /**
      * Creates new form Login1
      */
-    public Login() {
+    public LoginUser() {
         initComponents();
     }
 
@@ -73,7 +73,8 @@ public class Login extends javax.swing.JFrame {
         btn_cadastreUser = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setMinimumSize(new java.awt.Dimension(850, 530));
+        setTitle("Login");
+        setMinimumSize(new java.awt.Dimension(850, 600));
         setPreferredSize(new java.awt.Dimension(1200, 630));
 
         jPanel1.setBackground(new java.awt.Color(255, 62, 21));
@@ -299,7 +300,7 @@ public class Login extends javax.swing.JFrame {
         jPanel9.setPreferredSize(new java.awt.Dimension(850, 50));
         jPanel9.setLayout(new java.awt.GridBagLayout());
 
-        jCheckBox_VisualizarSenha.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jCheckBox_VisualizarSenha.setFont(new java.awt.Font("Segoe UI", 1, 17)); // NOI18N
         jCheckBox_VisualizarSenha.setForeground(new java.awt.Color(45, 18, 75));
         jCheckBox_VisualizarSenha.setText("Visualizar a Senha");
         jCheckBox_VisualizarSenha.addActionListener(new java.awt.event.ActionListener() {
@@ -315,7 +316,7 @@ public class Login extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(6, 180, 15, 0);
         jPanel9.add(jCheckBox_VisualizarSenha, gridBagConstraints);
 
-        lbl_EsqueceuSenha.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        lbl_EsqueceuSenha.setFont(new java.awt.Font("Segoe UI", 1, 17)); // NOI18N
         lbl_EsqueceuSenha.setForeground(new java.awt.Color(45, 18, 75));
         lbl_EsqueceuSenha.setText("Esqueceu sua Senha?");
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -414,6 +415,7 @@ public class Login extends javax.swing.JFrame {
         getContentPane().add(jPanel2, java.awt.BorderLayout.CENTER);
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void txt_usuarioLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_usuarioLoginActionPerformed
@@ -426,6 +428,8 @@ public class Login extends javax.swing.JFrame {
 
     private void btn_EntrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_EntrarActionPerformed
         // TODO add your handling code here:
+        new PaginaCadastrosAtivos().setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_btn_EntrarActionPerformed
 
     private void btn_cadastreUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_cadastreUserActionPerformed
@@ -451,21 +455,35 @@ public class Login extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(LoginUser.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(LoginUser.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(LoginUser.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(LoginUser.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Login().setVisible(true);
+                new LoginUser().setVisible(true);
             }
         });
     }

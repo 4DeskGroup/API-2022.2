@@ -6,12 +6,12 @@ package View;
 
 /**
  *
- * @author justx
+ * @author rodri
  */
 public class PaginaCadastrosAtivos extends javax.swing.JFrame {
 
     /**
-     * Creates new form PaginaCadastroVagas
+     * Creates new form Login1
      */
     public PaginaCadastrosAtivos() {
         initComponents();
@@ -25,82 +25,124 @@ public class PaginaCadastrosAtivos extends javax.swing.JFrame {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
+        java.awt.GridBagConstraints gridBagConstraints;
 
-        jPanel2 = new javax.swing.JPanel();
-        lbl_4dGroupCadas = new javax.swing.JLabel();
-        lbl_companyCadas = new javax.swing.JLabel();
-        lbl_confAtivas2 = new javax.swing.JLabel();
-        lbl_filtros = new javax.swing.JLabel();
-        lbl_canaisAtivo = new javax.swing.JLabel();
-        panel_quadLarCadas = new javax.swing.JPanel();
-        lbl_logoCadas = new javax.swing.JLabel();
-        lbl_confAtivas1 = new javax.swing.JLabel();
-        txt_filtros = new javax.swing.JFormattedTextField();
-        jLabel_filtros = new javax.swing.JLabel();
+        buttonGroup1 = new javax.swing.ButtonGroup();
+        jPanel1 = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
+        jLabel_LogoTelaPrincipal = new javax.swing.JLabel();
+        jPanel2 = new javax.swing.JPanel();
+        jPanel4 = new javax.swing.JPanel();
+        lbl_4dGroupCadas = new javax.swing.JLabel();
+        jPanel5 = new javax.swing.JPanel();
+        jPanel6 = new javax.swing.JPanel();
+        lbl_companyCadas = new javax.swing.JLabel();
+        jPanel7 = new javax.swing.JPanel();
+        jPanel8 = new javax.swing.JPanel();
+        lbl_confAtivas1 = new javax.swing.JLabel();
+        jPanel9 = new javax.swing.JPanel();
+        jPanel10 = new javax.swing.JPanel();
+        jLabel_filtros = new javax.swing.JLabel();
+        txt_filtros = new javax.swing.JFormattedTextField();
+        lbl_filtros = new javax.swing.JLabel();
+        jPanel11 = new javax.swing.JPanel();
+        jPanel12 = new javax.swing.JPanel();
+        lbl_canaisAtivo = new javax.swing.JLabel();
+        jPanel13 = new javax.swing.JPanel();
+        jPanel14 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable_canaisAtivos = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setBackground(new java.awt.Color(255, 255, 255));
-        setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        setTitle("Login");
+        setMinimumSize(new java.awt.Dimension(850, 600));
+        setPreferredSize(new java.awt.Dimension(1200, 630));
 
-        jPanel2.setPreferredSize(new java.awt.Dimension(1200, 630));
-        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        jPanel1.setBackground(new java.awt.Color(255, 62, 21));
+        jPanel1.setPreferredSize(new java.awt.Dimension(250, 100));
+        jPanel1.setLayout(new java.awt.BorderLayout());
+
+        jPanel3.setBackground(new java.awt.Color(255, 62, 21));
+        jPanel3.setPreferredSize(new java.awt.Dimension(250, 200));
+        jPanel3.setLayout(new java.awt.GridBagLayout());
+
+        jLabel_LogoTelaPrincipal.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/imagens/Untitled-removebg-preview.png"))); // NOI18N
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(40, 50, 27, 67);
+        jPanel3.add(jLabel_LogoTelaPrincipal, gridBagConstraints);
+
+        jPanel1.add(jPanel3, java.awt.BorderLayout.PAGE_START);
+
+        getContentPane().add(jPanel1, java.awt.BorderLayout.LINE_START);
+
+        jPanel2.setBackground(new java.awt.Color(241, 241, 241));
+        jPanel2.setLayout(new java.awt.BorderLayout());
+
+        jPanel4.setBackground(new java.awt.Color(241, 241, 241));
+        jPanel4.setLayout(new java.awt.GridBagLayout());
 
         lbl_4dGroupCadas.setFont(new java.awt.Font("Segoe UI", 1, 70)); // NOI18N
         lbl_4dGroupCadas.setForeground(new java.awt.Color(45, 18, 75));
         lbl_4dGroupCadas.setText("4D Group");
-        jPanel2.add(lbl_4dGroupCadas, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 20, -1, -1));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(10, 330, 0, 303);
+        jPanel4.add(lbl_4dGroupCadas, gridBagConstraints);
+
+        jPanel2.add(jPanel4, java.awt.BorderLayout.PAGE_START);
+
+        jPanel5.setBackground(new java.awt.Color(241, 241, 241));
+        jPanel5.setLayout(new java.awt.BorderLayout());
+
+        jPanel6.setBackground(new java.awt.Color(241, 241, 241));
+        jPanel6.setPreferredSize(new java.awt.Dimension(100, 30));
+        jPanel6.setLayout(new java.awt.GridBagLayout());
 
         lbl_companyCadas.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         lbl_companyCadas.setForeground(new java.awt.Color(45, 18, 75));
         lbl_companyCadas.setText("Company");
-        jPanel2.add(lbl_companyCadas, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 100, -1, -1));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(0, 420, 0, 428);
+        jPanel6.add(lbl_companyCadas, gridBagConstraints);
 
-        lbl_confAtivas2.setFont(new java.awt.Font("Segoe UI", 1, 48)); // NOI18N
-        lbl_confAtivas2.setForeground(new java.awt.Color(45, 18, 75));
-        lbl_confAtivas2.setText("Ativas");
-        jPanel2.add(lbl_confAtivas2, new org.netbeans.lib.awtextra.AbsoluteConstraints(910, 120, -1, -1));
+        jPanel5.add(jPanel6, java.awt.BorderLayout.PAGE_START);
 
-        lbl_filtros.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        lbl_filtros.setForeground(new java.awt.Color(45, 18, 75));
-        lbl_filtros.setText("Filtros");
-        jPanel2.add(lbl_filtros, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 210, -1, -1));
+        jPanel7.setBackground(new java.awt.Color(241, 241, 241));
+        jPanel7.setLayout(new java.awt.BorderLayout());
 
-        lbl_canaisAtivo.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        lbl_canaisAtivo.setForeground(new java.awt.Color(45, 18, 75));
-        lbl_canaisAtivo.setText("Canais");
-        jPanel2.add(lbl_canaisAtivo, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 310, -1, -1));
+        jPanel8.setBackground(new java.awt.Color(241, 241, 241));
+        jPanel8.setPreferredSize(new java.awt.Dimension(100, 50));
+        jPanel8.setLayout(new java.awt.GridBagLayout());
 
-        panel_quadLarCadas.setBackground(new java.awt.Color(255, 62, 21));
-
-        lbl_logoCadas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/imagens/Untitled-removebg-preview.png"))); // NOI18N
-
-        javax.swing.GroupLayout panel_quadLarCadasLayout = new javax.swing.GroupLayout(panel_quadLarCadas);
-        panel_quadLarCadas.setLayout(panel_quadLarCadasLayout);
-        panel_quadLarCadasLayout.setHorizontalGroup(
-            panel_quadLarCadasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panel_quadLarCadasLayout.createSequentialGroup()
-                .addGap(90, 90, 90)
-                .addComponent(lbl_logoCadas, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(120, Short.MAX_VALUE))
-        );
-        panel_quadLarCadasLayout.setVerticalGroup(
-            panel_quadLarCadasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panel_quadLarCadasLayout.createSequentialGroup()
-                .addGap(27, 27, 27)
-                .addComponent(lbl_logoCadas, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(483, Short.MAX_VALUE))
-        );
-
-        jPanel2.add(panel_quadLarCadas, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
-
-        lbl_confAtivas1.setFont(new java.awt.Font("Segoe UI", 1, 48)); // NOI18N
+        lbl_confAtivas1.setFont(new java.awt.Font("Segoe UI", 1, 30)); // NOI18N
         lbl_confAtivas1.setForeground(new java.awt.Color(45, 18, 75));
-        lbl_confAtivas1.setText("Configurações");
-        jPanel2.add(lbl_confAtivas1, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 50, -1, -1));
+        lbl_confAtivas1.setText("Configurações Ativas");
+        jPanel8.add(lbl_confAtivas1, new java.awt.GridBagConstraints());
+
+        jPanel7.add(jPanel8, java.awt.BorderLayout.PAGE_START);
+
+        jPanel9.setBackground(new java.awt.Color(241, 241, 241));
+        jPanel9.setLayout(new java.awt.BorderLayout());
+
+        jPanel10.setBackground(new java.awt.Color(241, 241, 241));
+        jPanel10.setPreferredSize(new java.awt.Dimension(100, 80));
+        jPanel10.setLayout(new java.awt.GridBagLayout());
+
+        jLabel_filtros.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/imagens/icons8-pesquisar-30.png"))); // NOI18N
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(5, 10, 0, 360);
+        jPanel10.add(jLabel_filtros, gridBagConstraints);
 
         txt_filtros.setFont(new java.awt.Font("Segoe UI", 0, 22)); // NOI18N
         txt_filtros.addActionListener(new java.awt.event.ActionListener() {
@@ -108,10 +150,53 @@ public class PaginaCadastrosAtivos extends javax.swing.JFrame {
                 txt_filtrosActionPerformed(evt);
             }
         });
-        jPanel2.add(txt_filtros, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 240, 230, 40));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.gridheight = 2;
+        gridBagConstraints.ipadx = 306;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(5, 180, 14, 0);
+        jPanel10.add(txt_filtros, gridBagConstraints);
 
-        jLabel_filtros.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/imagens/icons8-pesquisar-30.png"))); // NOI18N
-        jPanel2.add(jLabel_filtros, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 240, 40, 40));
+        lbl_filtros.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        lbl_filtros.setForeground(new java.awt.Color(45, 18, 75));
+        lbl_filtros.setText("Filtros");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(0, 180, 0, 0);
+        jPanel10.add(lbl_filtros, gridBagConstraints);
+
+        jPanel9.add(jPanel10, java.awt.BorderLayout.PAGE_START);
+
+        jPanel11.setBackground(new java.awt.Color(241, 241, 241));
+        jPanel11.setLayout(new java.awt.BorderLayout());
+
+        jPanel12.setBackground(new java.awt.Color(241, 241, 241));
+        jPanel12.setPreferredSize(new java.awt.Dimension(100, 40));
+        jPanel12.setLayout(new java.awt.GridBagLayout());
+
+        lbl_canaisAtivo.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        lbl_canaisAtivo.setForeground(new java.awt.Color(45, 18, 75));
+        lbl_canaisAtivo.setText("Canais");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(10, 200, 5, 695);
+        jPanel12.add(lbl_canaisAtivo, gridBagConstraints);
+
+        jPanel11.add(jPanel12, java.awt.BorderLayout.PAGE_START);
+
+        jPanel13.setBackground(new java.awt.Color(241, 241, 241));
+        jPanel13.setLayout(new java.awt.BorderLayout());
+
+        jPanel14.setBackground(new java.awt.Color(241, 241, 241));
+        jPanel14.setPreferredSize(new java.awt.Dimension(100, 250));
+        jPanel14.setLayout(new java.awt.GridBagLayout());
 
         jTable_canaisAtivos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -131,40 +216,35 @@ public class PaginaCadastrosAtivos extends javax.swing.JFrame {
             }
         ));
         jScrollPane1.setViewportView(jTable_canaisAtivos);
-        if (jTable_canaisAtivos.getColumnModel().getColumnCount() > 0) {
-            jTable_canaisAtivos.getColumnModel().getColumn(0).setMinWidth(50);
-            jTable_canaisAtivos.getColumnModel().getColumn(0).setPreferredWidth(50);
-            jTable_canaisAtivos.getColumnModel().getColumn(0).setMaxWidth(50);
-            jTable_canaisAtivos.getColumnModel().getColumn(2).setMinWidth(100);
-            jTable_canaisAtivos.getColumnModel().getColumn(2).setPreferredWidth(100);
-            jTable_canaisAtivos.getColumnModel().getColumn(2).setMaxWidth(100);
-            jTable_canaisAtivos.getColumnModel().getColumn(3).setMinWidth(100);
-            jTable_canaisAtivos.getColumnModel().getColumn(3).setPreferredWidth(100);
-            jTable_canaisAtivos.getColumnModel().getColumn(3).setMaxWidth(100);
-        }
 
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                .addContainerGap(55, Short.MAX_VALUE)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 670, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(45, 45, 45))
-        );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(28, 28, 28)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(72, Short.MAX_VALUE))
-        );
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.ipadx = 714;
+        gridBagConstraints.ipady = 180;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(20, 60, 30, 160);
+        jPanel14.add(jScrollPane1, gridBagConstraints);
 
-        jPanel2.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 350, 770, 290));
+        jPanel13.add(jPanel14, java.awt.BorderLayout.PAGE_START);
 
-        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 630));
+        jPanel11.add(jPanel13, java.awt.BorderLayout.CENTER);
+
+        jPanel9.add(jPanel11, java.awt.BorderLayout.CENTER);
+
+        jPanel7.add(jPanel9, java.awt.BorderLayout.CENTER);
+
+        jPanel5.add(jPanel7, java.awt.BorderLayout.CENTER);
+
+        jPanel2.add(jPanel5, java.awt.BorderLayout.CENTER);
+
+        getContentPane().add(jPanel2, java.awt.BorderLayout.CENTER);
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void txt_filtrosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_filtrosActionPerformed
@@ -334,19 +414,30 @@ public class PaginaCadastrosAtivos extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.ButtonGroup buttonGroup1;
+    private javax.swing.JLabel jLabel_LogoTelaPrincipal;
     private javax.swing.JLabel jLabel_filtros;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel10;
+    private javax.swing.JPanel jPanel11;
+    private javax.swing.JPanel jPanel12;
+    private javax.swing.JPanel jPanel13;
+    private javax.swing.JPanel jPanel14;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
+    private javax.swing.JPanel jPanel5;
+    private javax.swing.JPanel jPanel6;
+    private javax.swing.JPanel jPanel7;
+    private javax.swing.JPanel jPanel8;
+    private javax.swing.JPanel jPanel9;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable_canaisAtivos;
     private javax.swing.JLabel lbl_4dGroupCadas;
     private javax.swing.JLabel lbl_canaisAtivo;
     private javax.swing.JLabel lbl_companyCadas;
     private javax.swing.JLabel lbl_confAtivas1;
-    private javax.swing.JLabel lbl_confAtivas2;
     private javax.swing.JLabel lbl_filtros;
-    private javax.swing.JLabel lbl_logoCadas;
-    private javax.swing.JPanel panel_quadLarCadas;
     private javax.swing.JFormattedTextField txt_filtros;
     // End of variables declaration//GEN-END:variables
 }
