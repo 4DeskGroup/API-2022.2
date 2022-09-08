@@ -4,6 +4,8 @@
  */
 package View;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author rodri
@@ -60,7 +62,7 @@ public class LoginUser extends javax.swing.JFrame {
         txt_senhaLogin = new javax.swing.JPasswordField();
         jPanel8 = new javax.swing.JPanel();
         jPanel9 = new javax.swing.JPanel();
-        jCheckBox_VisualizarSenha = new javax.swing.JCheckBox();
+        cb_viewPass = new javax.swing.JCheckBox();
         lbl_EsqueceuSenha = new javax.swing.JLabel();
         jPanel10 = new javax.swing.JPanel();
         jPanel11 = new javax.swing.JPanel();
@@ -76,6 +78,11 @@ public class LoginUser extends javax.swing.JFrame {
         setTitle("Login");
         setMinimumSize(new java.awt.Dimension(850, 600));
         setPreferredSize(new java.awt.Dimension(1200, 630));
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowOpened(java.awt.event.WindowEvent evt) {
+                formWindowOpened(evt);
+            }
+        });
 
         jPanel1.setBackground(new java.awt.Color(255, 62, 21));
         jPanel1.setPreferredSize(new java.awt.Dimension(350, 630));
@@ -88,7 +95,7 @@ public class LoginUser extends javax.swing.JFrame {
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/imagens/Untitled-removebg-preview.png"))); // NOI18N
         jPanel16.add(jLabel1, new java.awt.GridBagConstraints());
 
-        jPanel1.add(jPanel16, java.awt.BorderLayout.PAGE_START);
+        jPanel1.add(jPanel16, java.awt.BorderLayout.LINE_START);
 
         jPanel17.setBackground(new java.awt.Color(255, 62, 21));
         jPanel17.setLayout(new java.awt.BorderLayout());
@@ -300,12 +307,12 @@ public class LoginUser extends javax.swing.JFrame {
         jPanel9.setPreferredSize(new java.awt.Dimension(850, 50));
         jPanel9.setLayout(new java.awt.GridBagLayout());
 
-        jCheckBox_VisualizarSenha.setFont(new java.awt.Font("Segoe UI", 1, 17)); // NOI18N
-        jCheckBox_VisualizarSenha.setForeground(new java.awt.Color(45, 18, 75));
-        jCheckBox_VisualizarSenha.setText("Visualizar a Senha");
-        jCheckBox_VisualizarSenha.addActionListener(new java.awt.event.ActionListener() {
+        cb_viewPass.setFont(new java.awt.Font("Segoe UI", 1, 17)); // NOI18N
+        cb_viewPass.setForeground(new java.awt.Color(45, 18, 75));
+        cb_viewPass.setText("Visualizar a Senha");
+        cb_viewPass.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckBox_VisualizarSenhaActionPerformed(evt);
+                cb_viewPassActionPerformed(evt);
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -314,7 +321,7 @@ public class LoginUser extends javax.swing.JFrame {
         gridBagConstraints.gridheight = 2;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(6, 180, 15, 0);
-        jPanel9.add(jCheckBox_VisualizarSenha, gridBagConstraints);
+        jPanel9.add(cb_viewPass, gridBagConstraints);
 
         lbl_EsqueceuSenha.setFont(new java.awt.Font("Segoe UI", 1, 17)); // NOI18N
         lbl_EsqueceuSenha.setForeground(new java.awt.Color(45, 18, 75));
@@ -419,24 +426,67 @@ public class LoginUser extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void txt_usuarioLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_usuarioLoginActionPerformed
-        // TODO add your handling code here:
+
     }//GEN-LAST:event_txt_usuarioLoginActionPerformed
 
-    private void jCheckBox_VisualizarSenhaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox_VisualizarSenhaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jCheckBox_VisualizarSenhaActionPerformed
+    private void cb_viewPassActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cb_viewPassActionPerformed
+        if(viewPass == false){
+            
+        }else{
+            
+        }
+    }//GEN-LAST:event_cb_viewPassActionPerformed
 
     private void btn_EntrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_EntrarActionPerformed
-        // TODO add your handling code here:
+        
+        
+        if(txt_usuarioLogin.getText().equals("4Desk")&&txt_senhaLogin.getText().equals("1234")){ 
+            
+            // Usuario fictício enquanto não temos o 'db' 
+            // Senha fictícia enquanto nao temos o 'db'
+            
+            /*
+                Só precisa ter uma tela inicial para o cliente
+            */
+            
+            new PaginaCadastrosAtivos().setVisible(true);
+            this.dispose();
+            
+        }else if(txt_usuarioLogin.getText().equals("admin") && txt_senhaLogin.getText().equals("admin")){
+            
+            /*
+                Só precisa ter uma tela inicial para o ADM
+            */
+            
+           new PaginaInfoCaTo().setVisible(true);
+           this.dispose();
+           
+        }else{
+            JOptionPane.showMessageDialog(null, "Usuário ou senha incorretos!");
+        }
+        
+        /*
+        Precisa criar uma pagina inicial para os clientes
+        
         new PaginaCadastrosAtivos().setVisible(true);
         this.dispose();
+        
+        */
+        
     }//GEN-LAST:event_btn_EntrarActionPerformed
 
     private void btn_cadastreUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_cadastreUserActionPerformed
-        // TODO add your handling code here:
+        
         new CadastroUsuario().setVisible(true);
         this.dispose();
+        
     }//GEN-LAST:event_btn_cadastreUserActionPerformed
+
+    private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
+        
+        boolean viewPass = false;   //      Padroniza o visualizar senha como Falso
+        
+    }//GEN-LAST:event_formWindowOpened
 
     /**
      * @param args the command line arguments
@@ -492,7 +542,7 @@ public class LoginUser extends javax.swing.JFrame {
     private javax.swing.JButton btn_Entrar;
     private javax.swing.JButton btn_cadastreUser;
     private javax.swing.ButtonGroup buttonGroup1;
-    private javax.swing.JCheckBox jCheckBox_VisualizarSenha;
+    private javax.swing.JCheckBox cb_viewPass;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel10;
