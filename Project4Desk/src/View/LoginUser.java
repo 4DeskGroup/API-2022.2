@@ -437,8 +437,11 @@ public class LoginUser extends javax.swing.JFrame {
 
     private void btn_EntrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_EntrarActionPerformed
         
+        String strPass = new String(txt_senhaLogin.getPassword()).trim();
         
-        if(txt_usuarioLogin.getText().equals("4Desk")&&txt_senhaLogin.getText().equals("1234")){ 
+        if(txt_usuarioLogin.getText().equals("4Desk") && strPass.equals("1234")){ 
+            
+            strPass = null;      // Para não ficar salvo a senha na String
             
             /*
                 Só precisa ter uma tela inicial para o cliente
@@ -447,8 +450,9 @@ public class LoginUser extends javax.swing.JFrame {
             new HomeCliente().setVisible(true);
             this.dispose();
             
-        }else if(txt_usuarioLogin.getText().equals("admin") && txt_senhaLogin.getText().equals("admin")){
+        }else if(txt_usuarioLogin.getText().equals("admin") && strPass.equals("admin")){
             
+           strPass = null;       // Para não ficar salvo a senha na String
             /*
                 Só precisa ter uma tela inicial para o ADM
             */
@@ -460,13 +464,7 @@ public class LoginUser extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Usuário ou senha incorretos!");
         }
         
-        /*
-        Precisa criar uma pagina inicial para os clientes
-        
-        new PaginaCadastrosAtivos().setVisible(true);
-        this.dispose();
-        
-        */
+        strPass = null;      // Para não ficar salvo a senha na String
         
     }//GEN-LAST:event_btn_EntrarActionPerformed
 
