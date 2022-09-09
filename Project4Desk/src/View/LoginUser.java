@@ -443,19 +443,12 @@ public class LoginUser extends javax.swing.JFrame {
             
             strPass = null;      // Para não ficar salvo a senha na String
             
-            /*
-                Só precisa ter uma tela inicial para o cliente
-            */
-            
             new HomeCliente().setVisible(true);
             this.dispose();
             
         }else if(txt_usuarioLogin.getText().equals("admin") && strPass.equals("admin")){
             
            strPass = null;       // Para não ficar salvo a senha na String
-            /*
-                Só precisa ter uma tela inicial para o ADM
-            */
             
            new HomeADM().setVisible(true);
            this.dispose();
