@@ -11,10 +11,6 @@ public abstract class Usuario {
     
     private boolean active;     // Saber se a conta esta ativa ou não
     
-    private boolean permission; // Utilizadas para distinguir as permissões de user | O usuario pode ter a conta dasativada,
-                                // essa variavel faz  ele não conseguir toma nenhuma ação. É apeanas um exemplo de varias
-                                // outras funcionalidades...
-    
     private int typeAcess;        /*
                                     Utilizadas para distinguir as permissões de user | typeAcess = 0 é a conta master e não 
                                     pode ter outra com o mesmo valor; typeAcess = 1 é a conta ADM e pode haver varios ADMs;
@@ -24,27 +20,30 @@ public abstract class Usuario {
     /*
         Metodos "Setters"
     */
+    public void set(int i){
+        this.id = i;
+    }
     public void setUser(String u){
-        if(this.getPermission() == true){
-            this.user = u;
-        }else{
-            JOptionPane.showMessageDialog(null, "Sem permissão para mudar o nome de usuário");
-        }
+        this.user = u;
     }
     
     public void setEmail(String e){
-        if(this.getPermission() == true){
-            this.email = e;
-        }else{
-            JOptionPane.showMessageDialog(null, "Sem permissão para mudar o email");
-        }
+        this.email = e;
     }
     
     public void setPass(String p){
-        if(this.getPermission() == true){
-            this.pass = p;
+        this.pass = p;
+    }
+    
+    public void setActive(boolean act){
+        this.active = act;
+    }
+    
+    public void setTypeAcess(int type, boolean p){
+        if(p == true){
+            this.typeAcess = type;
         }else{
-            JOptionPane.showMessageDialog(null, "Sem permissão para mudar a senha");
+            JOptionPane.showMessageDialog(null, "Sem permissão para continuar a ação");
         }
     }
     
@@ -52,31 +51,43 @@ public abstract class Usuario {
         Metodos "Getters"
     */
     public int getId(){
-        return this.id;
+        return id;
     }
     
     public String getUser(){
-        return this.user;
+        return user;
     }
     
     public String getEmail(){
-        return this.email;
+        return email;
     }
     
     public String getPass(){
-        return this.pass;
-    }
-    
-    public boolean getPermission(){
-        return this.permission;
+        return pass;
     }
     
     public int getTypeAcess(){
-        return this.typeAcess;
+        return typeAcess;
     } 
     
     public boolean getActive(){
-        return this.active;
+        return active;
     }
     
+    /*
+        Metodo Status
+    */
+    public void statusU(){
+        
+        // Ver o status da conta...
+        
+        JOptionPane.showMessageDialog(null, "ID: " + this.getId() +
+            "\nUsuario: " + this.getUser()  +
+            "\nE-mail: "  + this.getEmail() +
+            "\nSenha: "   + this.getPass()  +
+            "\nAtiva? "   + this.getActive()+
+            "\nTipo de acesso: " + this.getTypeAcess()
+        );
+        
+    }
 }
