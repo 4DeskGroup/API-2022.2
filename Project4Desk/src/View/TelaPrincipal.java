@@ -367,13 +367,13 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
     private void btn_UserTelaPrincipalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_UserTelaPrincipalActionPerformed
         // TODO add your handling code here:
-        new View.GUI.LoginUser().setVisible(true);
+        new View.GUI.LoginGUI().setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btn_UserTelaPrincipalActionPerformed
 
     private void btn_cadastreTelaPrincipalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_cadastreTelaPrincipalActionPerformed
         // TODO add your handling code here:
-        new View.GUI.CadastroUsuario().setVisible(true);
+        new View.GUI.CadastroGUI().setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btn_cadastreTelaPrincipalActionPerformed
 
