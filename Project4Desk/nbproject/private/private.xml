@@ -3,7 +3,12 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+            <file>file:/C:/Users/Sunan/Documents/NetBeansProjects/API-2022.2/Project4Desk/src/View/GUI/LoginGUI.java</file>
+            <file>file:/C:/Users/Sunan/Documents/NetBeansProjects/API-2022.2/Project4Desk/src/DAO/ClienteDAO.java</file>
+            <file>file:/C:/Users/Sunan/Documents/NetBeansProjects/API-2022.2/Project4Desk/src/View/GUI/CadastroGUI.java</file>
+            <file>file:/C:/Users/Sunan/Documents/NetBeansProjects/API-2022.2/Project4Desk/src/Model/Cliente.java</file>
             <file>file:/C:/Users/Sunan/Documents/NetBeansProjects/API-2022.2/Project4Desk/src/Model/Usuario.java</file>
+            <file>file:/C:/Users/Sunan/Documents/NetBeansProjects/API-2022.2/Project4Desk/src/DAO/Conexao.java</file>
         </group>
     </open-files>
 </project-private>
