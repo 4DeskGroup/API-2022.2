@@ -326,18 +326,12 @@ public class CadastroGUI extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Senha tem que ter mais de 3 caracters");
         }else if(strPass.equals(strRPass) == false){
             JOptionPane.showMessageDialog(null, "Repetir senha e senha devem ser iguais!");
-        }else if(){
-            
         }else{
-            Cliente c = new Cliente(txt_User.getText(), txt_Email.getText(), strPass);
             
-            DAO.ClienteDAO cliente = new DAO.ClienteDAO();
-            
-            strPass = null;
-            strRPass = null;
             
         }
-        
+        strPass = null;
+        strRPass = null;
     }//GEN-LAST:event_btn_cadastrarActionPerformed
 
     private void btn_homeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_homeActionPerformed

@@ -3,6 +3,7 @@ package DAO;
 import Model.Cliente;
 import java.sql.*;
 import java.sql.PreparedStatement;
+import javax.swing.JOptionPane;
 
 public class ClienteDAO {
     private Connection conection;
@@ -11,7 +12,7 @@ public class ClienteDAO {
         this.conection = new Conexao().getConnection();
     }
     
-    public void addCliente(Model.Cliente cliente){
+    public void addCliente(Cliente cliente){
         
         String sql = "INSERT INTO usuarios VALUES(DEFAULT, ?, ?, ?, TRUE, 2)";
         
@@ -34,13 +35,12 @@ public class ClienteDAO {
     public Cliente searchCliente(String pk){                    // 'pk' é Primary Key
         
         String sql = "SELECT * FROM usuarios WHERE usuario = ?";
-        
         try{
             
             PreparedStatement stmt = conection.prepareStatement(sql);
             stmt.setString(1, pk);
             ResultSet rs =  stmt.executeQuery();
-            Cliente ClienteLogado = new Cliente();
+            JOptionPane.showMessageDialog(null, rs);
             stmt.close();
             
         }catch(SQLException ex){
