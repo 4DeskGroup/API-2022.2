@@ -1,6 +1,7 @@
 package View.GUI;
 
 import Model.Cliente;
+import View.TelaPrincipal;
 import javax.swing.JOptionPane;
 
 public class CadastroGUI extends javax.swing.JFrame {
@@ -37,9 +38,7 @@ public class CadastroGUI extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Cadastro");
-        setMaximumSize(new java.awt.Dimension(850, 550));
         setMinimumSize(new java.awt.Dimension(850, 550));
-        setPreferredSize(new java.awt.Dimension(850, 550));
         setResizable(false);
         setSize(new java.awt.Dimension(850, 550));
 
@@ -407,6 +406,7 @@ public class CadastroGUI extends javax.swing.JFrame {
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(CadastroGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */

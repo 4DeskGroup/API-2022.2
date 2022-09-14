@@ -1,6 +1,7 @@
 package View.GUI;
 
 import Controller.Logar;
+import View.TelaPrincipal;
 import javax.swing.JOptionPane;
 
 public class LoginGUI extends javax.swing.JFrame {
@@ -34,7 +35,6 @@ public class LoginGUI extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Login");
         setBackground(new java.awt.Color(204, 204, 204));
-        setMaximumSize(new java.awt.Dimension(810, 500));
         setMinimumSize(new java.awt.Dimension(810, 500));
         setResizable(false);
         setSize(new java.awt.Dimension(810, 500));
@@ -324,6 +324,7 @@ public class LoginGUI extends javax.swing.JFrame {
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(LoginGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */

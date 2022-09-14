@@ -1,4 +1,4 @@
-package View.GUI;
+package View;
 
 public class TelaPrincipal extends javax.swing.JFrame {
 
