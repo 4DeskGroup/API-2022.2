@@ -92,9 +92,6 @@
 4	| Revisão e correção de possíveis bugs	| Alta	
 4	| Possível melhorias no funcionamento do sistema	| Baixa	
 
-
-
-
 ##### Timeline
 ![Timeline](https://github.com/4DeskGroup/API-2022.2/blob/main/doc/geral/timeline%20geral.png)
  
