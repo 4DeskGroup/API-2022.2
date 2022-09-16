@@ -7,7 +7,7 @@
   </NonVisualComponents>
   <Properties>
     <Property name="defaultCloseOperation" type="int" value="3"/>
-    <Property name="title" type="java.lang.String" value="Login"/>
+    <Property name="title" type="java.lang.String" value="Bem Vindo"/>
     <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
       <Dimension value="[850, 600]"/>
     </Property>
@@ -795,25 +795,6 @@
 
                                           <Layout class="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout"/>
                                           <SubComponents>
-                                            <Component class="javax.swing.JButton" name="btn_AdmTelaPrincipal">
-                                              <Properties>
-                                                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                                                  <Color blue="cc" green="cc" red="cc" type="rgb"/>
-                                                </Property>
-                                                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                                                  <Font name="Segoe UI" size="30" style="1"/>
-                                                </Property>
-                                                <Property name="text" type="java.lang.String" value="Administrador"/>
-                                              </Properties>
-                                              <Events>
-                                                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_AdmTelaPrincipalActionPerformed"/>
-                                              </Events>
-                                              <Constraints>
-                                                <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
-                                                  <GridBagConstraints gridX="0" gridY="0" gridWidth="1" gridHeight="1" fill="0" ipadX="5" ipadY="13" insetsTop="20" insetsLeft="210" insetsBottom="20" insetsRight="0" anchor="18" weightX="0.0" weightY="0.0"/>
-                                                </Constraint>
-                                              </Constraints>
-                                            </Component>
                                             <Component class="javax.swing.JButton" name="btn_UserTelaPrincipal">
                                               <Properties>
                                                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
@@ -832,7 +813,7 @@
                                               </Events>
                                               <Constraints>
                                                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
-                                                  <GridBagConstraints gridX="1" gridY="0" gridWidth="1" gridHeight="1" fill="0" ipadX="62" ipadY="13" insetsTop="20" insetsLeft="40" insetsBottom="20" insetsRight="210" anchor="18" weightX="0.0" weightY="0.0"/>
+                                                  <GridBagConstraints gridX="0" gridY="0" gridWidth="1" gridHeight="1" fill="0" ipadX="62" ipadY="13" insetsTop="20" insetsLeft="349" insetsBottom="0" insetsRight="351" anchor="18" weightX="0.0" weightY="0.0"/>
                                                 </Constraint>
                                               </Constraints>
                                             </Component>

@@ -4,6 +4,8 @@
  */
 package View;
 
+import GUI.LoginGUI;
+
 /**
  *
  * @author rodri
@@ -74,11 +76,10 @@ public class TelaPrincipal extends javax.swing.JFrame {
         lbl_companyTelaPrincipal6 = new javax.swing.JLabel();
         jPanel18 = new javax.swing.JPanel();
         jPanel19 = new javax.swing.JPanel();
-        btn_AdmTelaPrincipal = new javax.swing.JButton();
         btn_UserTelaPrincipal = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Login");
+        setTitle("Bem Vindo");
         setMinimumSize(new java.awt.Dimension(850, 600));
         setPreferredSize(new java.awt.Dimension(1200, 630));
 
@@ -353,23 +354,6 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jPanel19.setBackground(new java.awt.Color(241, 241, 241));
         jPanel19.setLayout(new java.awt.GridBagLayout());
 
-        btn_AdmTelaPrincipal.setBackground(new java.awt.Color(204, 204, 204));
-        btn_AdmTelaPrincipal.setFont(new java.awt.Font("Segoe UI", 1, 30)); // NOI18N
-        btn_AdmTelaPrincipal.setText("Administrador");
-        btn_AdmTelaPrincipal.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_AdmTelaPrincipalActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 0;
-        gridBagConstraints.ipadx = 5;
-        gridBagConstraints.ipady = 13;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(20, 210, 20, 0);
-        jPanel19.add(btn_AdmTelaPrincipal, gridBagConstraints);
-
         btn_UserTelaPrincipal.setBackground(new java.awt.Color(255, 62, 21));
         btn_UserTelaPrincipal.setFont(new java.awt.Font("Segoe UI", 1, 30)); // NOI18N
         btn_UserTelaPrincipal.setForeground(new java.awt.Color(255, 255, 255));
@@ -380,12 +364,12 @@ public class TelaPrincipal extends javax.swing.JFrame {
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
         gridBagConstraints.ipadx = 62;
         gridBagConstraints.ipady = 13;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(20, 40, 20, 210);
+        gridBagConstraints.insets = new java.awt.Insets(20, 349, 0, 351);
         jPanel19.add(btn_UserTelaPrincipal, gridBagConstraints);
 
         jPanel18.add(jPanel19, java.awt.BorderLayout.PAGE_START);
@@ -412,22 +396,15 @@ public class TelaPrincipal extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btn_AdmTelaPrincipalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_AdmTelaPrincipalActionPerformed
-        // TODO add your handling code here:
-        new LoginAdministrador().setVisible(true);
-        this.dispose();
-    }//GEN-LAST:event_btn_AdmTelaPrincipalActionPerformed
-
     private void btn_UserTelaPrincipalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_UserTelaPrincipalActionPerformed
         // TODO add your handling code here:
-        new LoginUser().setVisible(true);
+        new LoginGUI().setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btn_UserTelaPrincipalActionPerformed
 
     private void btn_cadastreTelaPrincipalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_cadastreTelaPrincipalActionPerformed
         // TODO add your handling code here:
-        new CadastroUsuario().setVisible(true);
-        this.dispose();
+        
     }//GEN-LAST:event_btn_cadastreTelaPrincipalActionPerformed
 
     /**
@@ -977,7 +954,6 @@ public class TelaPrincipal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btn_AdmTelaPrincipal;
     private javax.swing.JButton btn_UserTelaPrincipal;
     private javax.swing.JButton btn_cadastreTelaPrincipal;
     private javax.swing.ButtonGroup buttonGroup1;

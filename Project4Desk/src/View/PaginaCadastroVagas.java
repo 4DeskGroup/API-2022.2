@@ -4,12 +4,21 @@
  */
 package View;
 
+import Controller.VerificarAcesso;
+import GUI.LoginGUI;
+import javax.swing.JOptionPane;
+import model.bean.CadastroCanal;
+import model.bean.Cliente;
+import model.dao.CadastroCanalDAO;
+
 /**
  *
  * @author rodri
  */
 public class PaginaCadastroVagas extends javax.swing.JFrame {
-
+    
+     private Cliente cliente;
+     
     /**
      * Creates new form Login1
      */
@@ -29,6 +38,8 @@ public class PaginaCadastroVagas extends javax.swing.JFrame {
 
         buttonGroup1 = new javax.swing.ButtonGroup();
         panel_quadLarCadas = new javax.swing.JPanel();
+        jPanel1 = new javax.swing.JPanel();
+        btn_ConfigAtivas = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
         jPanel4 = new javax.swing.JPanel();
@@ -49,15 +60,39 @@ public class PaginaCadastroVagas extends javax.swing.JFrame {
         lbl_padAutCadas = new javax.swing.JLabel();
         cmb_padAutCadas = new javax.swing.JComboBox<>();
         btn_salvarCadas = new javax.swing.JButton();
+        btn_limparCadastro = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Login");
+        setTitle("Cadastro de Canais");
         setMinimumSize(new java.awt.Dimension(850, 600));
-        setPreferredSize(new java.awt.Dimension(1200, 630));
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowOpened(java.awt.event.WindowEvent evt) {
+                formWindowOpened(evt);
+            }
+        });
 
         panel_quadLarCadas.setBackground(new java.awt.Color(255, 62, 21));
         panel_quadLarCadas.setPreferredSize(new java.awt.Dimension(250, 630));
         panel_quadLarCadas.setLayout(new java.awt.BorderLayout());
+
+        jPanel1.setBackground(new java.awt.Color(255, 62, 21));
+        jPanel1.setPreferredSize(new java.awt.Dimension(100, 200));
+        jPanel1.setLayout(null);
+
+        btn_ConfigAtivas.setBackground(new java.awt.Color(45, 18, 75));
+        btn_ConfigAtivas.setFont(new java.awt.Font("Segoe UI", 1, 23)); // NOI18N
+        btn_ConfigAtivas.setForeground(new java.awt.Color(255, 255, 255));
+        btn_ConfigAtivas.setText("Config.Ativas");
+        btn_ConfigAtivas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_ConfigAtivasActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btn_ConfigAtivas);
+        btn_ConfigAtivas.setBounds(40, 60, 180, 37);
+
+        panel_quadLarCadas.add(jPanel1, java.awt.BorderLayout.PAGE_END);
+
         getContentPane().add(panel_quadLarCadas, java.awt.BorderLayout.LINE_END);
 
         jPanel2.setBackground(new java.awt.Color(241, 241, 241));
@@ -172,7 +207,7 @@ public class PaginaCadastroVagas extends javax.swing.JFrame {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 3;
-        gridBagConstraints.gridwidth = 3;
+        gridBagConstraints.gridwidth = 4;
         gridBagConstraints.ipadx = -17;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(5, 190, 0, 0);
@@ -193,9 +228,9 @@ public class PaginaCadastroVagas extends javax.swing.JFrame {
         lbl_padAutCadas.setForeground(new java.awt.Color(45, 18, 75));
         lbl_padAutCadas.setText("Padrão de Autenticação");
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 7;
+        gridBagConstraints.gridx = 5;
         gridBagConstraints.gridy = 2;
-        gridBagConstraints.gridwidth = 7;
+        gridBagConstraints.gridwidth = 2;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(20, 80, 0, 0);
         jPanel10.add(lbl_padAutCadas, gridBagConstraints);
@@ -204,9 +239,9 @@ public class PaginaCadastroVagas extends javax.swing.JFrame {
         cmb_padAutCadas.setForeground(new java.awt.Color(45, 18, 75));
         cmb_padAutCadas.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Usuário e Senha", "Token", " " }));
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 7;
+        gridBagConstraints.gridx = 5;
         gridBagConstraints.gridy = 3;
-        gridBagConstraints.gridwidth = 8;
+        gridBagConstraints.gridwidth = 3;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(5, 80, 0, 197);
         jPanel10.add(cmb_padAutCadas, gridBagConstraints);
@@ -221,13 +256,29 @@ public class PaginaCadastroVagas extends javax.swing.JFrame {
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridx = 5;
         gridBagConstraints.gridy = 4;
-        gridBagConstraints.gridwidth = 6;
         gridBagConstraints.ipadx = 38;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(42, 84, 96, 0);
+        gridBagConstraints.insets = new java.awt.Insets(32, 110, 106, 0);
         jPanel10.add(btn_salvarCadas, gridBagConstraints);
+
+        btn_limparCadastro.setBackground(new java.awt.Color(204, 204, 204));
+        btn_limparCadastro.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
+        btn_limparCadastro.setText("Limpar");
+        btn_limparCadastro.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_limparCadastroActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 4;
+        gridBagConstraints.gridwidth = 3;
+        gridBagConstraints.ipadx = 24;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(32, 230, 106, 0);
+        jPanel10.add(btn_limparCadastro, gridBagConstraints);
 
         jPanel8.add(jPanel10, java.awt.BorderLayout.CENTER);
 
@@ -247,8 +298,57 @@ public class PaginaCadastroVagas extends javax.swing.JFrame {
 
     private void btn_salvarCadasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_salvarCadasActionPerformed
         // TODO add your handling code here:
+        
+        CadastroCanal c = new CadastroCanal();
+        
+        
+        c.setCan_empresa(txt_canalCadas.getText());
+        c.setCan_plataforma((String) cmb_TipoCanalCadas.getSelectedItem());
+        c.setCan_autentificacao((String) cmb_padAutCadas.getSelectedItem());
+        
+        if((txt_canalCadas.getText().isEmpty())){
+            JOptionPane.showMessageDialog(null,"O campo não pode retornar vazio");
+            return;
+       }else{
+        
+        CadastroCanalDAO dao= new CadastroCanalDAO();
+        dao.cradastro(c);
+        }
+        
     }//GEN-LAST:event_btn_salvarCadasActionPerformed
 
+    private void btn_ConfigAtivasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_ConfigAtivasActionPerformed
+        // TODO add your handling code here:
+        new PaginaCadastrosAtivos().setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_btn_ConfigAtivasActionPerformed
+
+    private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
+        
+        boolean a = new VerificarAcesso().acessADM(cliente);
+        
+        if(a == false){
+            JOptionPane.showMessageDialog(null, "Não tem permissão para entrar nessa pagina");
+            new LoginGUI().setVisible(true);
+            this.dispose();
+        }
+        
+    }//GEN-LAST:event_formWindowOpened
+
+    private void btn_limparCadastroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_limparCadastroActionPerformed
+        // TODO add your handling code here:
+        txt_canalCadas.setText("");
+    }//GEN-LAST:event_btn_limparCadastroActionPerformed
+
+    public Cliente getCliente(){
+            return cliente;
+       }
+       
+    public void setCliente(Cliente c){
+        cliente = c;
+        setVisible(true);
+    }
+    
     /**
      * @param args the command line arguments
      */
@@ -412,10 +512,13 @@ public class PaginaCadastroVagas extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btn_ConfigAtivas;
+    private javax.swing.JButton btn_limparCadastro;
     private javax.swing.JButton btn_salvarCadas;
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JComboBox<String> cmb_TipoCanalCadas;
     private javax.swing.JComboBox<String> cmb_padAutCadas;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel10;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
