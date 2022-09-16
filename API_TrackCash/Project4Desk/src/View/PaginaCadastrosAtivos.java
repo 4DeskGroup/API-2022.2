@@ -109,24 +109,19 @@ public class PaginaCadastrosAtivos extends javax.swing.JFrame {
 
         jPanel16.setBackground(new java.awt.Color(255, 62, 21));
         jPanel16.setPreferredSize(new java.awt.Dimension(400, 200));
-        jPanel16.setLayout(new java.awt.GridBagLayout());
+        jPanel16.setLayout(null);
 
         btn_CadastrarCanal.setBackground(new java.awt.Color(45, 18, 75));
-        btn_CadastrarCanal.setFont(new java.awt.Font("Segoe UI", 1, 30)); // NOI18N
+        btn_CadastrarCanal.setFont(new java.awt.Font("Segoe UI", 1, 28)); // NOI18N
         btn_CadastrarCanal.setForeground(new java.awt.Color(255, 255, 255));
-        btn_CadastrarCanal.setText("Cadastrar");
+        btn_CadastrarCanal.setText("Configuração");
         btn_CadastrarCanal.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_CadastrarCanalActionPerformed(evt);
             }
         });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 0;
-        gridBagConstraints.ipadx = 15;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(20, 40, 0, 30);
-        jPanel16.add(btn_CadastrarCanal, gridBagConstraints);
+        jPanel16.add(btn_CadastrarCanal);
+        btn_CadastrarCanal.setBounds(21, 20, 210, 44);
 
         btn_SairLogout.setBackground(new java.awt.Color(204, 204, 204));
         btn_SairLogout.setFont(new java.awt.Font("Segoe UI", 1, 30)); // NOI18N
@@ -136,13 +131,8 @@ public class PaginaCadastrosAtivos extends javax.swing.JFrame {
                 btn_SairLogoutActionPerformed(evt);
             }
         });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 1;
-        gridBagConstraints.ipadx = 96;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(33, 40, 53, 30);
-        jPanel16.add(btn_SairLogout, gridBagConstraints);
+        jPanel16.add(btn_SairLogout);
+        btn_SairLogout.setBounds(40, 100, 170, 47);
 
         jPanel1.add(jPanel16, java.awt.BorderLayout.PAGE_END);
 

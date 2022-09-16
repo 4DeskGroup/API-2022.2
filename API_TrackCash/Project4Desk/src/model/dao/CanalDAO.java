@@ -118,6 +118,22 @@ public class CanalDAO {
                 return null;
             }
 }
+    
+        public ResultSet listarEmpresa3(){
+        conn = ConnectionFactory.getConnection();
+        String sql = "SELECT * FROM cadastro_canal ORDER BY can_autentificacao;";
+        
+            try {
+                
+                PreparedStatement pstm = conn.prepareStatement(sql);
+                return pstm.executeQuery();
+                
+            } catch (SQLException erro) {
+                JOptionPane.showMessageDialog(null, "Erro CanalDAO ListarCargo: " + erro.getMessage());
+                return null;
+            }
+}
+    
 }
 
     

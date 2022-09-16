@@ -4,6 +4,7 @@
  */
 package View;
 
+import GUI.CadastroGUI;
 import GUI.LoginGUI;
 
 /**
@@ -404,6 +405,8 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
     private void btn_cadastreTelaPrincipalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_cadastreTelaPrincipalActionPerformed
         // TODO add your handling code here:
+        new CadastroGUI().setVisible(true);
+        this.dispose();
         
     }//GEN-LAST:event_btn_cadastreTelaPrincipalActionPerformed
 
