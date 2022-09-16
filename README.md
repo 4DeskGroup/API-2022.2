@@ -92,10 +92,9 @@
 4	| Possível melhorias no funcionamento do sistema	| Baixa	
 
 ##### Timeline
-![Timeline](
 <p float='left'>
-    <img src='https://github.com/4DeskGroup/API-2022.2/blob/main/doc/geral/timeline%20geral.png' width='90%' height='90%'>
-</p>)
+    <img src='https://github.com/4DeskGroup/API-2022.2/blob/main/doc/geral/timeline%20geral.png' width='50%' height='50%'>
+</p>
  
 <a href="#inicio">[Voltar ao início]</a> 
  
