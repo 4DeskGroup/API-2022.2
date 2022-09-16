@@ -56,16 +56,16 @@
 --------|------------|------------|--------
 1 |	Possibilidade de o administrador cadastrar canais |	Alta |	OK
 1	| Possibilidade de o usuário comum configurar canais |	Alta	| OK
-2	| Usuário comum configurar canal através de automatização de configurações pré-cadastradas	| Média	
-2	| Administrador ter acesso à uma tabela listando canais cadastrados por usuário comum. |	Alta	
-2	| Usuário comum poder alterar ou excluir configurações de um canal. |	Alta	
-2	| Usuário utilizar de mecanismo de busca para canais configurados por ele.	| Média	
-3	| Usuários são autenticados ao realizarem o login no sistema	| Alta	
-3	| Cadastro prévio de usuário e seu tipo feito pelo desenvolvedor	| Alta	
-3	| Usuário comum é filtrado na interface de login, tendo acesso apenas ao que ele deve ter. |	Alta	
-3	| Administrador é filtrado na interface de login, tendo acesso apenas ao que ele deve ter. |	Alta	
-4	| Administrador tem acesso a um sistema integrado e completamente funcional.	| Alta
-4 |	Usuário comum tem acesso a um sistema integrado e completamente funcional.|	Alta	
+2	| Usuário comum configurar canal através de automatização de configurações pré-cadastradas	| Média	|	:black_square_button:		
+2	| Administrador ter acesso à uma tabela listando canais cadastrados por usuário comum. |	Alta	|	:black_square_button:		
+2	| Usuário comum poder alterar ou excluir configurações de um canal. |	Alta |	:black_square_button:		
+2	| Usuário utilizar de mecanismo de busca para canais configurados por ele.	| Média |	:black_square_button:			
+3	| Usuários são autenticados ao realizarem o login no sistema	| Alta |	:black_square_button:			
+3	| Cadastro prévio de usuário e seu tipo feito pelo desenvolvedor	| Alta |	:black_square_button:		
+3	| Usuário comum é filtrado na interface de login, tendo acesso apenas ao que ele deve ter. |	Alta |	:black_square_button:			
+3	| Administrador é filtrado na interface de login, tendo acesso apenas ao que ele deve ter. |	Alta |	:black_square_button:			
+4	| Administrador tem acesso a um sistema integrado e completamente funcional.	| Alta |	:black_square_button:		
+4 |	Usuário comum tem acesso a um sistema integrado e completamente funcional.|	Alta |	:black_square_button:			
 
 
 ##### Requisitos Não Funcionais
