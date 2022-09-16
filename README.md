@@ -45,14 +45,6 @@
 </p>
   
 <a href="#inicio">[Voltar ao início]</a>
- 
-<span id="arquitetura">
-
-### :triangular_ruler: Arquitetura de Software
-![Arquitetura de Software]()
-
-<a href="#inicio">[Voltar ao início]</a> 
- 
   
 <span id="backlog"> 
 
