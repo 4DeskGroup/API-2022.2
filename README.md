@@ -92,8 +92,8 @@
 4	| Possível melhorias no funcionamento do sistema	| Baixa	
 
 ##### Timeline
-<p float='left'>
-    <img src='https://github.com/4DeskGroup/API-2022.2/blob/main/doc/geral/timeline%20geral.png' width='50%' height='50%'>
+<p float='left' align-items='center'>
+    <img src='https://github.com/4DeskGroup/API-2022.2/blob/main/doc/geral/timeline%20geral.png' width='70%' height='70%'>
 </p>
  
 <a href="#inicio">[Voltar ao início]</a> 
