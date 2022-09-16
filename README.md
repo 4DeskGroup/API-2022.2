@@ -96,7 +96,7 @@
 
 
 ##### Timeline
-![Timeline]()
+![Timeline](https://github.com/4DeskGroup/API-2022.2/blob/main/doc/geral/timeline%20geral.png)
  
 <a href="#inicio">[Voltar ao início]</a> 
  
