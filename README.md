@@ -125,7 +125,7 @@
 
 Sprint ID | Data | Tag | Vídeo | Status
 ----------|------|-----|-------|--------
-#1 | 29.08.2022 - 18.09.2022 |  <a href="https://github.com/4DeskGroup/API-2022.2/releases/tag/%23Sprint01">Aqui</a>  | :stop_sign: | :heavy_check_mark:	
+#1 | 29.08.2022 - 18.09.2022 | :construction: | :construction: | :black_square_button:
 #2 | 19.09.2022 - 09.10.2022 | :construction: | :construction: | :black_square_button:
 #3 | 13.10.2022 - 06.11.2022 | :construction: | :construction: | :black_square_button:
 #4 | 07.11.2022 - 27.11.2022 | :construction: | :construction: | :black_square_button:
