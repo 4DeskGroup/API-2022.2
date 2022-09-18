@@ -125,7 +125,7 @@
 
 Sprint ID | Data | Tag | Vídeo | Status
 ----------|------|-----|-------|--------
-#1 | 29.08.2022 - 18.09.2022 |  <a href="https://github.com/4DeskGroup/API-2022.2/releases/tag/%23Sprint1">Aqui</a>  | :stop_sign: | :heavy_check_mark:	
+#1 | 29.08.2022 - 18.09.2022 |  <a href="https://github.com/4DeskGroup/API-2022.2/releases/tag/%23Sprint01">Aqui</a>  | :stop_sign: | :heavy_check_mark:	
 #2 | 19.09.2022 - 09.10.2022 | :construction: | :construction: | :black_square_button:
 #3 | 13.10.2022 - 06.11.2022 | :construction: | :construction: | :black_square_button:
 #4 | 07.11.2022 - 27.11.2022 | :construction: | :construction: | :black_square_button:
@@ -138,12 +138,12 @@ Sprint ID | Data | Tag | Vídeo | Status
 ### :busts_in_silhouette: Equipe:
 Função | Nome | GitHub & LinkedIn
 -------|------|-------------------
-Scrum Master | Stefanie Heinrich| [<img src="https://img.shields.io/badge/github%20-%23121011.svg?&style=for-the-badge&logo=github&logoColor=54C5CE&color=292A2D"/>](https://github.com/ste-fa-nie) [<img src="https://img.shields.io/badge/linkedin-%230077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=54C5CE&color=292A2D" />]()
+Scrum Master | Stefanie Heinrich| [<img src="https://img.shields.io/badge/github%20-%23121011.svg?&style=for-the-badge&logo=github&logoColor=54C5CE&color=292A2D"/>](https://github.com/ste-fa-nie)
 Product Owner | Carlos Berghahn | [<img src="https://img.shields.io/badge/github%20-%23121011.svg?&style=for-the-badge&logo=github&logoColor=54C5CE&color=292A2D"/>](https://github.com/CarlosKB) [<img src="https://img.shields.io/badge/linkedin-%230077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=54C5CE&color=292A2D" />](https://www.linkedin.com/in/carlos-kau%C3%A3-berg-56164b250)
 Dev Team | Diane Moreno | [<img src="https://img.shields.io/badge/github%20-%23121011.svg?&style=for-the-badge&logo=github&logoColor=54C5CE&color=292A2D"/>](https://github.com/Diane-Moreno) [<img src="https://img.shields.io/badge/linkedin-%230077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=54C5CE&color=292A2D" />](https://www.linkedin.com/in/diane-alves-38b6761ba/)
 Dev Team | Laiza Truyts | [<img src="https://img.shields.io/badge/github%20-%23121011.svg?&style=for-the-badge&logo=github&logoColor=54C5CE&color=292A2D"/>](https://github.com/LaizaCristina) [<img src="https://img.shields.io/badge/linkedin-%230077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=54C5CE&color=292A2D" />](https://www.linkedin.com/in/laiza-cristina-machado-zaic-truyts-42a695231/)
 Dev Team | Pedro Farias | [<img src="https://img.shields.io/badge/github%20-%23121011.svg?&style=for-the-badge&logo=github&logoColor=54C5CE&color=292A2D"/>](https://github.com/Sunan16) [<img src="https://img.shields.io/badge/linkedin-%230077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=54C5CE&color=292A2D" />](https://www.linkedin.com/in/pedro-sunandev/)
-Dev Team | Raynara dos Santos | [<img src="https://img.shields.io/badge/github%20-%23121011.svg?&style=for-the-badge&logo=github&logoColor=54C5CE&color=292A2D"/>](https://github.com/raynaranasc) [<img src="https://img.shields.io/badge/linkedin-%230077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=54C5CE&color=292A2D" />]()
+Dev Team | Raynara dos Santos | [<img src="https://img.shields.io/badge/github%20-%23121011.svg?&style=for-the-badge&logo=github&logoColor=54C5CE&color=292A2D"/>](https://github.com/raynaranasc)
 Dev Team | Rodrigo de Andrade | [<img src="https://img.shields.io/badge/github%20-%23121011.svg?&style=for-the-badge&logo=github&logoColor=54C5CE&color=292A2D"/>](https://github.com/RodrigodeAndrade90) [<img src="https://img.shields.io/badge/linkedin-%230077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=54C5CE&color=292A2D" />](https://www.linkedin.com/in/rodrigo-de-andrade-a34605104/)
  
 
