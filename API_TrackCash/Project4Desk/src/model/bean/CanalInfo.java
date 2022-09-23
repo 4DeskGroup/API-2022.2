@@ -10,16 +10,12 @@ package model.bean;
  */
 public class CanalInfo {
     
-    
-    private int id;
-    
-
-    public int getId() {
-        return id;
+    public int getIdCanais() {
+        return idCanais;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setIdCanais(int idCanais) {
+        this.idCanais = idCanais;
     }
 
     public String getEmpresa() {
@@ -69,7 +65,9 @@ public class CanalInfo {
     public void setContaid(String contaid){
         this.contaid = contaid;
     }
-    
+   
+ 
+    private int idCanais;
     private String contaid;
     private String empresa;
     private String plataforma;

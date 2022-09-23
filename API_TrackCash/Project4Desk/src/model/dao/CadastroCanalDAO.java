@@ -40,4 +40,31 @@ public class CadastroCanalDAO {
         
     }
     
+        public void delete(String i){
+            
+            Connection con = ConnectionFactory.getConnection();
+            PreparedStatement stmt = null;
+            
+            try{
+                
+                
+                stmt = con.prepareStatement("DELETE FROM cadastro_canal WHERE can_id = ?;");
+                stmt.setString(1, i);
+                
+                stmt.execute();
+                
+                JOptionPane.showMessageDialog(null, "Atualizado com sucesso!");
+                
+            }catch(SQLException ex){
+                JOptionPane.showMessageDialog(null, "Erro ao atualizar: " + ex);
+            }finally{
+                ConnectionFactory.closeConnection(con, stmt);
+            }
+            
+            
+        }
+
+        
+        
+        
 }

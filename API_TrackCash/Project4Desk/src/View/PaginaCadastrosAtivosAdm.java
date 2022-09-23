@@ -4,33 +4,35 @@
  */
 package View;
 
+import Controller.VerificarAcesso;
+import GUI.LoginGUI;
 import javax.swing.table.DefaultTableModel;
 import connection.ConnectionFactory;
-import connection.PesqCanal;
+import connection.PesquCanalADM;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import javax.swing.JOptionPane;
 import java.sql.ResultSet;
 import java.util.Vector;
-import model.bean.CanalInfo;
-import model.dao.CanalDAO;
+import model.bean.CadastroCanal;
+import model.dao.CadastroCanalDAO;
 
 
 /**
  *
  * @author rodri
  */
-public class PaginaCadastrosAtivos extends javax.swing.JFrame {
+public class PaginaCadastrosAtivosAdm extends javax.swing.JFrame {
 
     /**
      * Creates new form Login1
      */
-    PesqCanal DAO;
-    public PaginaCadastrosAtivos() {
+    PesquCanalADM DAO;
+    public PaginaCadastrosAtivosAdm() {
         initComponents();
         try{
-            DAO = new PesqCanal();
+            DAO = new PesquCanalADM();
         }catch(Exception e){
             
         }
@@ -57,6 +59,7 @@ public class PaginaCadastrosAtivos extends javax.swing.JFrame {
         jPanel16 = new javax.swing.JPanel();
         btn_CadastrarCanal = new javax.swing.JButton();
         btn_SairLogout = new javax.swing.JButton();
+        btn_CadastrarCanal1 = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jPanel4 = new javax.swing.JPanel();
         lbl_4dGroupCadas = new javax.swing.JLabel();
@@ -72,12 +75,10 @@ public class PaginaCadastrosAtivos extends javax.swing.JFrame {
         txt_filtros = new javax.swing.JFormattedTextField();
         lbl_filtros = new javax.swing.JLabel();
         jPanel11 = new javax.swing.JPanel();
-        jPanel12 = new javax.swing.JPanel();
-        lbl_canaisAtivo = new javax.swing.JLabel();
         jPanel13 = new javax.swing.JPanel();
         jPanel14 = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jTable_canaisAtivos1 = new javax.swing.JTable();
+        jTable_canaisAtivosADM = new javax.swing.JTable();
         jPanel15 = new javax.swing.JPanel();
         jButton1 = new javax.swing.JButton();
         btn_ExcluirCInfo = new javax.swing.JToggleButton();
@@ -85,7 +86,6 @@ public class PaginaCadastrosAtivos extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Configurações Ativas");
         setMinimumSize(new java.awt.Dimension(850, 600));
-        setPreferredSize(new java.awt.Dimension(1200, 630));
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowOpened(java.awt.event.WindowEvent evt) {
                 formWindowOpened(evt);
@@ -124,7 +124,7 @@ public class PaginaCadastrosAtivos extends javax.swing.JFrame {
             }
         });
         jPanel16.add(btn_CadastrarCanal);
-        btn_CadastrarCanal.setBounds(21, 20, 210, 44);
+        btn_CadastrarCanal.setBounds(20, 20, 210, 44);
 
         btn_SairLogout.setBackground(new java.awt.Color(204, 204, 204));
         btn_SairLogout.setFont(new java.awt.Font("Segoe UI", 1, 30)); // NOI18N
@@ -135,7 +135,19 @@ public class PaginaCadastrosAtivos extends javax.swing.JFrame {
             }
         });
         jPanel16.add(btn_SairLogout);
-        btn_SairLogout.setBounds(40, 100, 170, 47);
+        btn_SairLogout.setBounds(40, 140, 170, 47);
+
+        btn_CadastrarCanal1.setBackground(new java.awt.Color(45, 18, 75));
+        btn_CadastrarCanal1.setFont(new java.awt.Font("Segoe UI", 1, 28)); // NOI18N
+        btn_CadastrarCanal1.setForeground(new java.awt.Color(255, 255, 255));
+        btn_CadastrarCanal1.setText("Cadastro");
+        btn_CadastrarCanal1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_CadastrarCanal1ActionPerformed(evt);
+            }
+        });
+        jPanel16.add(btn_CadastrarCanal1);
+        btn_CadastrarCanal1.setBounds(20, 80, 210, 44);
 
         jPanel1.add(jPanel16, java.awt.BorderLayout.PAGE_END);
 
@@ -187,7 +199,7 @@ public class PaginaCadastrosAtivos extends javax.swing.JFrame {
 
         lbl_confAtivas1.setFont(new java.awt.Font("Segoe UI", 1, 30)); // NOI18N
         lbl_confAtivas1.setForeground(new java.awt.Color(45, 18, 75));
-        lbl_confAtivas1.setText("Configurações Ativas");
+        lbl_confAtivas1.setText("Canais Ativos");
         jPanel8.add(lbl_confAtivas1, new java.awt.GridBagConstraints());
 
         jPanel7.add(jPanel8, java.awt.BorderLayout.PAGE_START);
@@ -243,22 +255,6 @@ public class PaginaCadastrosAtivos extends javax.swing.JFrame {
         jPanel11.setBackground(new java.awt.Color(241, 241, 241));
         jPanel11.setLayout(new java.awt.BorderLayout());
 
-        jPanel12.setBackground(new java.awt.Color(241, 241, 241));
-        jPanel12.setPreferredSize(new java.awt.Dimension(100, 40));
-        jPanel12.setLayout(new java.awt.GridBagLayout());
-
-        lbl_canaisAtivo.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        lbl_canaisAtivo.setForeground(new java.awt.Color(45, 18, 75));
-        lbl_canaisAtivo.setText("Canais");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 0;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(10, 200, 5, 695);
-        jPanel12.add(lbl_canaisAtivo, gridBagConstraints);
-
-        jPanel11.add(jPanel12, java.awt.BorderLayout.PAGE_START);
-
         jPanel13.setBackground(new java.awt.Color(241, 241, 241));
         jPanel13.setLayout(null);
 
@@ -266,39 +262,24 @@ public class PaginaCadastrosAtivos extends javax.swing.JFrame {
         jPanel14.setPreferredSize(new java.awt.Dimension(100, 250));
         jPanel14.setLayout(new java.awt.GridBagLayout());
 
-        jTable_canaisAtivos1.setModel(new javax.swing.table.DefaultTableModel(
+        jTable_canaisAtivosADM.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null}
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
             },
             new String [] {
-                "ID", "Empresa", "ContaID", "Plataforma", "Usuário", "Senha", "Token"
+                "ID", "Empresa", "Plataforma", "Autenticação"
             }
-        ) {
-            Class[] types = new Class [] {
-                java.lang.Integer.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class
-            };
-            boolean[] canEdit = new boolean [] {
-                false, true, true, true, true, true, true
-            };
-
-            public Class getColumnClass(int columnIndex) {
-                return types [columnIndex];
-            }
-
-            public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
-            }
-        });
-        jScrollPane2.setViewportView(jTable_canaisAtivos1);
+        ));
+        jScrollPane2.setViewportView(jTable_canaisAtivosADM);
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -337,7 +318,7 @@ public class PaginaCadastrosAtivos extends javax.swing.JFrame {
         jPanel15.add(btn_ExcluirCInfo);
 
         jPanel13.add(jPanel15);
-        jPanel15.setBounds(0, 246, 950, 40);
+        jPanel15.setBounds(0, 242, 950, 60);
 
         jPanel11.add(jPanel13, java.awt.BorderLayout.CENTER);
 
@@ -358,46 +339,11 @@ public class PaginaCadastrosAtivos extends javax.swing.JFrame {
     private void txt_filtrosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_filtrosActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txt_filtrosActionPerformed
-
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-        DefaultTableModel modelo = (DefaultTableModel) jTable_canaisAtivos1.getModel();
-        modelo.setNumRows(0);
-        
-        try{
-            Connection con = ConnectionFactory.getConnection();
-            PreparedStatement stmt;
-            ResultSet rs;
-            
-            stmt = con.prepareStatement("SELECT * FROM canais;");
-            rs = stmt.executeQuery();
-            
-            while(rs.next()){
-                modelo.addRow(new Object[]{
-                    
-                    rs.getString(1),
-                    rs.getString(2),
-                    rs.getString(3),
-                    rs.getString(4),
-                    rs.getString(5),
-                    rs.getString(6),
-                    rs.getString(7)
-                });
-                
-            }
-            ConnectionFactory.closeConnection(con, stmt, rs);
-            
-            
-        } 
-        catch(Exception ErroSql){
-            JOptionPane.showMessageDialog(null, "Erro ao carregar a tabela de dados: "+ErroSql, "ERRO", JOptionPane.ERROR_MESSAGE);
-        }
-        
-    }//GEN-LAST:event_jButton1ActionPerformed
 //Mostrar na Tabela
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
         // TODO add your handling code here:
-                DefaultTableModel modelo = (DefaultTableModel) jTable_canaisAtivos1.getModel();
+
+                DefaultTableModel modelo = (DefaultTableModel) jTable_canaisAtivosADM.getModel();
         modelo.setNumRows(0);
         
         try{
@@ -405,7 +351,7 @@ public class PaginaCadastrosAtivos extends javax.swing.JFrame {
             PreparedStatement stmt;
             ResultSet rs;
             
-            stmt = con.prepareStatement("SELECT * FROM canais;");
+            stmt = con.prepareStatement("SELECT * FROM cadastro_canal;");
             rs = stmt.executeQuery();
             
             while(rs.next()){
@@ -415,9 +361,9 @@ public class PaginaCadastrosAtivos extends javax.swing.JFrame {
                     rs.getString(2),
                     rs.getString(3),
                     rs.getString(4),
-                    rs.getString(5),
-                    rs.getString(6),
-                    rs.getString(7)
+                   // rs.getString(5),
+                   // rs.getString(6),
+                    //rs.getString(7)
                 });
                 
             }
@@ -435,23 +381,20 @@ public class PaginaCadastrosAtivos extends javax.swing.JFrame {
         
         try{
             Vector cabecalho = new Vector();
-        cabecalho.add("idCanais");
-        cabecalho.add("empresa");
-        cabecalho.add("contaid");
-        cabecalho.add("plataforma");
-        cabecalho.add("usuario");
-        cabecalho.add("senha");
-        cabecalho.add("token");
+        cabecalho.add("ID Canais");
+        cabecalho.add("Empresa");
+        cabecalho.add("Plataforma");
+        cabecalho.add("Autenticação");;
             if(!txt_filtros.getText().equals("")){
             
-                DefaultTableModel nv = new DefaultTableModel(DAO.Pesquisar(txt_filtros.getText()),cabecalho);
-                jTable_canaisAtivos1.setModel(nv);
+                DefaultTableModel nv = new DefaultTableModel(DAO.PesquisarADM(txt_filtros.getText()),cabecalho);
+                jTable_canaisAtivosADM.setModel(nv);
                 
             
             
         }else{
             DefaultTableModel nv = new DefaultTableModel(new Vector(),cabecalho);
-                jTable_canaisAtivos1.setModel(nv);
+                jTable_canaisAtivosADM.setModel(nv);
         }
         }catch(Exception ex){
             JOptionPane.showMessageDialog(this, "Erro ao Pesquisar: "+ex.getMessage());
@@ -471,29 +414,68 @@ public class PaginaCadastrosAtivos extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_btn_SairLogoutActionPerformed
 
+    private void btn_CadastrarCanal1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_CadastrarCanal1ActionPerformed
+        // TODO add your handling code here:
+        new PaginaCadastroVagas().setVisible(true);
+        this.dispose();
+        
+    }//GEN-LAST:event_btn_CadastrarCanal1ActionPerformed
+
     private void btn_ExcluirCInfoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_ExcluirCInfoActionPerformed
-        Object indice = jTable_canaisAtivos1.getValueAt(jTable_canaisAtivos1.getSelectedRow(), 0);
+
+        Object indice = jTable_canaisAtivosADM.getValueAt(jTable_canaisAtivosADM.getSelectedRow(), 0);
         //JOptionPane.showMessageDialog(null, indice);
         String indiceS = indice.toString();
-        if(jTable_canaisAtivos1.getSelectedRow() == -1){
+        if(jTable_canaisAtivosADM.getSelectedRow() == -1){
             JOptionPane.showMessageDialog(null, "Selecione um canal para excluir!");
         }else{
-        
-            DefaultTableModel modelo = (DefaultTableModel)  jTable_canaisAtivos1.getModel();
-            modelo.removeRow( jTable_canaisAtivos1.getSelectedRow());
 
-            CanalInfo p = new CanalInfo();
-            CanalDAO dao = new CanalDAO();
-            
-            int i = p.getIdCanais();
+            CadastroCanal p = new CadastroCanal();
+            CadastroCanalDAO dao = new CadastroCanalDAO();
+
+            int i = p.getCan_id();
 
             //jTable_canaisAtivosADM.getValueAt(jTable_canaisAtivosADM.getSelectedRow(), 0);
 
-
             dao.delete(indiceS);
 
+            DefaultTableModel modelo = (DefaultTableModel) jTable_canaisAtivosADM.getModel();
+            modelo.removeRow(jTable_canaisAtivosADM.getSelectedRow());
         }
+
     }//GEN-LAST:event_btn_ExcluirCInfoActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        DefaultTableModel modelo = (DefaultTableModel) jTable_canaisAtivosADM.getModel();
+        modelo.setNumRows(0);
+
+        try{
+            Connection con = ConnectionFactory.getConnection();
+            PreparedStatement stmt;
+            ResultSet rs;
+
+            stmt = con.prepareStatement("SELECT * FROM cadastro_canal;");
+            rs = stmt.executeQuery();
+
+            while(rs.next()){
+                modelo.addRow(new Object[]{
+
+                    rs.getString(1),
+                    rs.getString(2),
+                    rs.getString(3),
+                    rs.getString(4),
+                });
+
+            }
+            ConnectionFactory.closeConnection(con, stmt, rs);
+
+        }
+        catch(Exception ErroSql){
+            JOptionPane.showMessageDialog(null, "Erro ao carregar a tabela de dados: "+ErroSql, "ERRO", JOptionPane.ERROR_MESSAGE);
+        }
+
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -512,20 +494,20 @@ public class PaginaCadastrosAtivos extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(PaginaCadastrosAtivos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(PaginaCadastrosAtivosAdm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(PaginaCadastrosAtivos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(PaginaCadastrosAtivosAdm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(PaginaCadastrosAtivos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(PaginaCadastrosAtivosAdm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(PaginaCadastrosAtivos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(PaginaCadastrosAtivosAdm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
 
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new PaginaCadastrosAtivos().setVisible(true);
+                new PaginaCadastrosAtivosAdm().setVisible(true);
             }
         });
     }
@@ -536,6 +518,7 @@ public class PaginaCadastrosAtivos extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn_CadastrarCanal;
+    private javax.swing.JButton btn_CadastrarCanal1;
     private javax.swing.JToggleButton btn_ExcluirCInfo;
     private javax.swing.JButton btn_SairLogout;
     private javax.swing.ButtonGroup buttonGroup1;
@@ -545,7 +528,6 @@ public class PaginaCadastrosAtivos extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel10;
     private javax.swing.JPanel jPanel11;
-    private javax.swing.JPanel jPanel12;
     private javax.swing.JPanel jPanel13;
     private javax.swing.JPanel jPanel14;
     private javax.swing.JPanel jPanel15;
@@ -559,9 +541,8 @@ public class PaginaCadastrosAtivos extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel8;
     private javax.swing.JPanel jPanel9;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTable jTable_canaisAtivos1;
+    private javax.swing.JTable jTable_canaisAtivosADM;
     private javax.swing.JLabel lbl_4dGroupCadas;
-    private javax.swing.JLabel lbl_canaisAtivo;
     private javax.swing.JLabel lbl_companyCadas;
     private javax.swing.JLabel lbl_confAtivas1;
     private javax.swing.JLabel lbl_filtros;

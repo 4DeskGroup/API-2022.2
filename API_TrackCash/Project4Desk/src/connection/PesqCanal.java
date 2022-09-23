@@ -42,4 +42,25 @@ public class PesqCanal extends ConnectionFactory{
         return tb;
     }
     
+        public Vector PesquisarADM(String pesqadm) throws Exception{
+        Vector tb = new Vector ();
+        String url = "select * from canais where contaid like '" + pesqadm + "%'";
+        PreparedStatement stmt = getConnection().prepareStatement(url);
+        ResultSet rs = stmt.executeQuery();
+        while(rs.next()){
+            Vector nl = new Vector();
+            nl.add(rs.getInt("can_id"));
+            nl.add(rs.getString("can_empresa"));
+            nl.add(rs.getString("can_plataforma"));
+            nl.add(rs.getString("can_autentificacao"));
+            tb.add(nl);
+        }
+        return tb;
+    }
+    
+    
+        
+        
+    
+    
 }
