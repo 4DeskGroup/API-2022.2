@@ -4,6 +4,9 @@
  */
 package View;
 
+import connection.ConnectionFactory;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Vector;
@@ -15,19 +18,60 @@ import model.dao.CanalDAO;
  *
  * @author rodri
  */
-public class PaginaCadastroInfoUs extends javax.swing.JFrame {
+public class PaginaCadastroInfo extends javax.swing.JFrame {
 
     /**
      * Creates new form Login1
      */
-    public PaginaCadastroInfoUs() {
+    Connection con = ConnectionFactory.getConnection();
+    PreparedStatement pst = null;
+    ResultSet rs = null;
+
+    public PaginaCadastroInfo() {
 
         initComponents();
+        restaurarDadosComboBoxCargo();
 
     }
 
-    public void exportarCadastro(CanalInfo p) {
-        cbxCanal.setText(p.getEmpresa());
+    public void Plataforma() {
+        String sql = "SELECT * FROM cadastro_canal where can_empresa = ?";
+
+        try {
+
+            pst = con.prepareStatement(sql);
+            pst.setString(1, (String) cbxCanal.getSelectedItem());
+
+            rs = pst.executeQuery();
+
+            if (rs.next()) {
+
+                String can_plataforma = rs.getString(4);
+                //System.out.println(can_plataforma);
+                CanalInfo p = new CanalInfo();
+                p.setEmpresa((String) cbxCanal.getSelectedItem());
+                if (can_plataforma.equals("Token")) {
+                    PaginaCadastroInfoToken frm = new PaginaCadastroInfoToken();
+                    frm.exportarCadastro(p);
+                    frm.setVisible(true);
+                    this.dispose();
+                } else {
+                    PaginaCadastroInfoUs frm = new PaginaCadastroInfoUs();
+                    frm.exportarCadastro(p);
+                    frm.setVisible(true);
+                    this.dispose();
+                }
+
+            } else {
+                JOptionPane.showMessageDialog(null, "Erro: ");
+
+            }
+
+        } catch (SQLException erro) {
+
+            JOptionPane.showMessageDialog(null, "Erro CanalDAO ListarCargo: " + erro.getMessage());
+
+        }
 
     }
 
@@ -60,20 +104,13 @@ public class PaginaCadastroInfoUs extends javax.swing.JFrame {
         lbl_cadasCanaInfoUs = new javax.swing.JLabel();
         jPanel10 = new javax.swing.JPanel();
         lbl_canalInfoUs = new javax.swing.JLabel();
-        txt_idCadasInfoUs = new javax.swing.JTextField();
-        txt_userInfoUs = new javax.swing.JTextField();
-        lbl_senhaInfoUs = new javax.swing.JLabel();
-        txt_senhaInfoUs = new javax.swing.JTextField();
-        lbl_userInfoUs1 = new javax.swing.JLabel();
-        lbl_idContaInfoUs1 = new javax.swing.JLabel();
-        btn_cadastrarInfoUs1 = new javax.swing.JButton();
-        cbxCanal = new javax.swing.JLabel();
+        cbxCanal = new javax.swing.JComboBox<>();
+        btn_configCanal = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Cadastro de Informações");
         setAutoRequestFocus(false);
         setMinimumSize(new java.awt.Dimension(850, 600));
-        setPreferredSize(new java.awt.Dimension(1200, 630));
 
         jPanel1.setBackground(new java.awt.Color(255, 62, 21));
         jPanel1.setPreferredSize(new java.awt.Dimension(250, 630));
@@ -192,128 +229,35 @@ public class PaginaCadastroInfoUs extends javax.swing.JFrame {
 
         jPanel10.setBackground(new java.awt.Color(241, 241, 241));
         jPanel10.setPreferredSize(new java.awt.Dimension(1100, 100));
-        jPanel10.setLayout(new java.awt.GridBagLayout());
+        jPanel10.setLayout(null);
 
-        lbl_canalInfoUs.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        lbl_canalInfoUs.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         lbl_canalInfoUs.setForeground(new java.awt.Color(45, 18, 75));
         lbl_canalInfoUs.setText("Canal");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 0;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(40, 150, 0, 0);
-        jPanel10.add(lbl_canalInfoUs, gridBagConstraints);
+        jPanel10.add(lbl_canalInfoUs);
+        lbl_canalInfoUs.setBounds(230, 40, 90, 32);
 
-        txt_idCadasInfoUs.setFont(new java.awt.Font("Segoe UI", 0, 22)); // NOI18N
-        txt_idCadasInfoUs.addActionListener(new java.awt.event.ActionListener() {
+        cbxCanal.setFont(new java.awt.Font("Segoe UI", 0, 22)); // NOI18N
+        cbxCanal.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecionar" }));
+        cbxCanal.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txt_idCadasInfoUsActionPerformed(evt);
+                cbxCanalActionPerformed(evt);
             }
         });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 3;
-        gridBagConstraints.gridwidth = 4;
-        gridBagConstraints.ipadx = 186;
-        gridBagConstraints.ipady = 4;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(5, 150, 0, 0);
-        jPanel10.add(txt_idCadasInfoUs, gridBagConstraints);
+        jPanel10.add(cbxCanal);
+        cbxCanal.setBounds(230, 80, 530, 50);
 
-        txt_userInfoUs.setFont(new java.awt.Font("Segoe UI", 0, 22)); // NOI18N
-        txt_userInfoUs.addActionListener(new java.awt.event.ActionListener() {
+        btn_configCanal.setBackground(new java.awt.Color(255, 62, 21));
+        btn_configCanal.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
+        btn_configCanal.setForeground(new java.awt.Color(255, 255, 255));
+        btn_configCanal.setText("Configurar");
+        btn_configCanal.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txt_userInfoUsActionPerformed(evt);
+                btn_configCanalActionPerformed(evt);
             }
         });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 5;
-        gridBagConstraints.gridwidth = 5;
-        gridBagConstraints.ipadx = 186;
-        gridBagConstraints.ipady = 4;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(5, 160, 0, 0);
-        jPanel10.add(txt_userInfoUs, gridBagConstraints);
-
-        lbl_senhaInfoUs.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        lbl_senhaInfoUs.setForeground(new java.awt.Color(45, 18, 75));
-        lbl_senhaInfoUs.setText("Senha");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 9;
-        gridBagConstraints.gridy = 4;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(10, 120, 0, 0);
-        jPanel10.add(lbl_senhaInfoUs, gridBagConstraints);
-
-        txt_senhaInfoUs.setFont(new java.awt.Font("Segoe UI", 0, 22)); // NOI18N
-        txt_senhaInfoUs.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txt_senhaInfoUsActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 9;
-        gridBagConstraints.gridy = 5;
-        gridBagConstraints.gridwidth = 9;
-        gridBagConstraints.ipadx = 186;
-        gridBagConstraints.ipady = 4;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(5, 120, 0, 150);
-        jPanel10.add(txt_senhaInfoUs, gridBagConstraints);
-
-        lbl_userInfoUs1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        lbl_userInfoUs1.setForeground(new java.awt.Color(45, 18, 75));
-        lbl_userInfoUs1.setText("Usuário");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 4;
-        gridBagConstraints.gridwidth = 2;
-        gridBagConstraints.ipadx = 14;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(10, 160, 0, 0);
-        jPanel10.add(lbl_userInfoUs1, gridBagConstraints);
-
-        lbl_idContaInfoUs1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        lbl_idContaInfoUs1.setForeground(new java.awt.Color(45, 18, 75));
-        lbl_idContaInfoUs1.setText("ID da Conta");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 2;
-        gridBagConstraints.gridwidth = 3;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(10, 150, 0, 0);
-        jPanel10.add(lbl_idContaInfoUs1, gridBagConstraints);
-
-        btn_cadastrarInfoUs1.setBackground(new java.awt.Color(255, 62, 21));
-        btn_cadastrarInfoUs1.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
-        btn_cadastrarInfoUs1.setForeground(new java.awt.Color(255, 255, 255));
-        btn_cadastrarInfoUs1.setText("Salvar");
-        btn_cadastrarInfoUs1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_cadastrarInfoUs1ActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 3;
-        gridBagConstraints.gridy = 6;
-        gridBagConstraints.gridwidth = 8;
-        gridBagConstraints.ipadx = 108;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(30, 120, 46, 0);
-        jPanel10.add(btn_cadastrarInfoUs1, gridBagConstraints);
-
-        cbxCanal.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        cbxCanal.setForeground(new java.awt.Color(45, 18, 75));
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 1;
-        gridBagConstraints.gridwidth = 7;
-        gridBagConstraints.ipadx = 280;
-        gridBagConstraints.ipady = 50;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(15, 150, 0, 0);
-        jPanel10.add(cbxCanal, gridBagConstraints);
+        jPanel10.add(btn_configCanal);
+        btn_configCanal.setBounds(360, 280, 240, 54);
 
         jPanel8.add(jPanel10, java.awt.BorderLayout.CENTER);
 
@@ -327,44 +271,22 @@ public class PaginaCadastroInfoUs extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void txt_idCadasInfoUsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_idCadasInfoUsActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txt_idCadasInfoUsActionPerformed
-
-    private void txt_userInfoUsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_userInfoUsActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txt_userInfoUsActionPerformed
-
-    private void txt_senhaInfoUsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_senhaInfoUsActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txt_senhaInfoUsActionPerformed
-
     private void btn_VoltarCadAtivoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_VoltarCadAtivoActionPerformed
         // TODO add your handling code here:
         new PaginaCadastrosAtivos().setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btn_VoltarCadAtivoActionPerformed
 
-    private void btn_cadastrarInfoUs1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_cadastrarInfoUs1ActionPerformed
+    private void cbxCanalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbxCanalActionPerformed
+
+    }//GEN-LAST:event_cbxCanalActionPerformed
+
+    private void btn_configCanalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_configCanalActionPerformed
         // TODO add your handling code here:
-        CanalInfo p = new CanalInfo();
-        p.setEmpresa(cbxCanal.getText());
-        p.setContaid(txt_idCadasInfoUs.getText());
-        p.setUsuario(txt_userInfoUs.getText());
-        p.setSenha(txt_senhaInfoUs.getText());
+        Plataforma();
 
-        if ((txt_idCadasInfoUs.getText().isEmpty())) {
 
-            JOptionPane.showMessageDialog(null, "O campo ID da Conta precisa ser preenchido");
-
-        } else {
-            CanalDAO dao = new CanalDAO();
-            dao.create(p);
-            new PaginaCadastroInfo().setVisible(true);
-            this.dispose();
-
-        }
-    }//GEN-LAST:event_btn_cadastrarInfoUs1ActionPerformed
+    }//GEN-LAST:event_btn_configCanalActionPerformed
 
     /**
      * @param args the command line arguments
@@ -383,14 +305,110 @@ public class PaginaCadastroInfoUs extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(PaginaCadastroInfoUs.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(PaginaCadastroInfo.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(PaginaCadastroInfoUs.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(PaginaCadastroInfo.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(PaginaCadastroInfoUs.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(PaginaCadastroInfo.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(PaginaCadastroInfoUs.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(PaginaCadastroInfo.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>
@@ -427,18 +445,34 @@ public class PaginaCadastroInfoUs extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new PaginaCadastroInfoUs().setVisible(true);
+                new PaginaCadastroInfo().setVisible(true);
             }
         });
     }
     Vector<Integer> idCanais = new Vector<Integer>();
 
+    public void restaurarDadosComboBoxCargo() {
+
+        try {
+            CanalDAO objcanaldao = new CanalDAO();
+            ResultSet rs = objcanaldao.listarEmpresa();
+
+            while (rs.next()) {
+                idCanais.addElement(rs.getInt(1));
+                cbxCanal.addItem(rs.getString(2));
+            }
+
+        } catch (SQLException erro) {
+            JOptionPane.showMessageDialog(null, "Carregar ComboBox" + erro);
+        }
+    }
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn_VoltarCadAtivo;
-    private javax.swing.JButton btn_cadastrarInfoUs1;
+    private javax.swing.JButton btn_configCanal;
     private javax.swing.ButtonGroup buttonGroup1;
-    private javax.swing.JLabel cbxCanal;
+    private javax.swing.JComboBox<String> cbxCanal;
     private javax.swing.JLabel jLabel_LogoTelaPrincipal;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel10;
@@ -456,12 +490,7 @@ public class PaginaCadastroInfoUs extends javax.swing.JFrame {
     private javax.swing.JLabel lbl_CompInfoUs;
     private javax.swing.JLabel lbl_cadasCanaInfoUs;
     private javax.swing.JLabel lbl_canalInfoUs;
-    private javax.swing.JLabel lbl_idContaInfoUs1;
-    private javax.swing.JLabel lbl_senhaInfoUs;
-    private javax.swing.JLabel lbl_userInfoUs1;
-    private javax.swing.JTextField txt_idCadasInfoUs;
-    private javax.swing.JTextField txt_senhaInfoUs;
-    private javax.swing.JTextField txt_userInfoUs;
     // End of variables declaration//GEN-END:variables
 
+    
 }

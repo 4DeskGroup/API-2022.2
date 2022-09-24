@@ -431,7 +431,7 @@ public class PaginaCadastrosAtivos extends javax.swing.JFrame {
 
     private void btn_CadastrarCanalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_CadastrarCanalActionPerformed
         // TODO add your handling code here:
-        new PaginaCadastroInfoUs().setVisible(true);
+        new PaginaCadastroInfo().setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btn_CadastrarCanalActionPerformed
 
