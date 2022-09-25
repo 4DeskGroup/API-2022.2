@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
 package View;
 
 import javax.swing.table.DefaultTableModel;
@@ -13,18 +9,14 @@ import java.sql.SQLException;
 import javax.swing.JOptionPane;
 import java.sql.ResultSet;
 import java.util.Vector;
+import model.bean.CanalInfo;
+import model.dao.CanalDAO;
 
 
-/**
- *
- * @author rodri
- */
 public class PaginaCadastrosAtivos extends javax.swing.JFrame {
 
-    /**
-     * Creates new form Login1
-     */
     PesqCanal DAO;
+    
     public PaginaCadastrosAtivos() {
         initComponents();
         try{
@@ -65,10 +57,6 @@ public class PaginaCadastrosAtivos extends javax.swing.JFrame {
         jPanel8 = new javax.swing.JPanel();
         lbl_confAtivas1 = new javax.swing.JLabel();
         jPanel9 = new javax.swing.JPanel();
-        jPanel10 = new javax.swing.JPanel();
-        jLabel_filtros = new javax.swing.JLabel();
-        txt_filtros = new javax.swing.JFormattedTextField();
-        lbl_filtros = new javax.swing.JLabel();
         jPanel11 = new javax.swing.JPanel();
         jPanel12 = new javax.swing.JPanel();
         lbl_canaisAtivo = new javax.swing.JLabel();
@@ -78,6 +66,13 @@ public class PaginaCadastrosAtivos extends javax.swing.JFrame {
         jTable_canaisAtivos1 = new javax.swing.JTable();
         jPanel15 = new javax.swing.JPanel();
         jButton1 = new javax.swing.JButton();
+        btn_ExcluirCInfo = new javax.swing.JToggleButton();
+        jPanel10 = new javax.swing.JPanel();
+        jLabel_filtros = new javax.swing.JLabel();
+        txt_filtros = new javax.swing.JFormattedTextField();
+        lbl_filtros = new javax.swing.JLabel();
+        cmb_filtros = new javax.swing.JComboBox<>();
+        lbl_filtros1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Configurações Ativas");
@@ -121,7 +116,7 @@ public class PaginaCadastrosAtivos extends javax.swing.JFrame {
             }
         });
         jPanel16.add(btn_CadastrarCanal);
-        btn_CadastrarCanal.setBounds(21, 20, 210, 44);
+        btn_CadastrarCanal.setBounds(21, 20, 210, 45);
 
         btn_SairLogout.setBackground(new java.awt.Color(204, 204, 204));
         btn_SairLogout.setFont(new java.awt.Font("Segoe UI", 1, 30)); // NOI18N
@@ -132,7 +127,7 @@ public class PaginaCadastrosAtivos extends javax.swing.JFrame {
             }
         });
         jPanel16.add(btn_SairLogout);
-        btn_SairLogout.setBounds(40, 100, 170, 47);
+        btn_SairLogout.setBounds(40, 100, 170, 48);
 
         jPanel1.add(jPanel16, java.awt.BorderLayout.PAGE_END);
 
@@ -192,51 +187,6 @@ public class PaginaCadastrosAtivos extends javax.swing.JFrame {
         jPanel9.setBackground(new java.awt.Color(241, 241, 241));
         jPanel9.setLayout(new java.awt.BorderLayout());
 
-        jPanel10.setBackground(new java.awt.Color(241, 241, 241));
-        jPanel10.setPreferredSize(new java.awt.Dimension(100, 80));
-        jPanel10.setLayout(new java.awt.GridBagLayout());
-
-        jLabel_filtros.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/imagens/icons8-pesquisar-30.png"))); // NOI18N
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 1;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(5, 10, 0, 360);
-        jPanel10.add(jLabel_filtros, gridBagConstraints);
-
-        txt_filtros.setFont(new java.awt.Font("Segoe UI", 0, 22)); // NOI18N
-        txt_filtros.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txt_filtrosActionPerformed(evt);
-            }
-        });
-        txt_filtros.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyReleased(java.awt.event.KeyEvent evt) {
-                txt_filtrosKeyReleased(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 1;
-        gridBagConstraints.gridwidth = 2;
-        gridBagConstraints.gridheight = 2;
-        gridBagConstraints.ipadx = 306;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(5, 180, 14, 0);
-        jPanel10.add(txt_filtros, gridBagConstraints);
-
-        lbl_filtros.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        lbl_filtros.setForeground(new java.awt.Color(45, 18, 75));
-        lbl_filtros.setText("Filtros");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 0;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(0, 180, 0, 0);
-        jPanel10.add(lbl_filtros, gridBagConstraints);
-
-        jPanel9.add(jPanel10, java.awt.BorderLayout.PAGE_START);
-
         jPanel11.setBackground(new java.awt.Color(241, 241, 241));
         jPanel11.setLayout(new java.awt.BorderLayout());
 
@@ -257,7 +207,7 @@ public class PaginaCadastrosAtivos extends javax.swing.JFrame {
         jPanel11.add(jPanel12, java.awt.BorderLayout.PAGE_START);
 
         jPanel13.setBackground(new java.awt.Color(241, 241, 241));
-        jPanel13.setLayout(new java.awt.BorderLayout());
+        jPanel13.setLayout(null);
 
         jPanel14.setBackground(new java.awt.Color(241, 241, 241));
         jPanel14.setPreferredSize(new java.awt.Dimension(100, 250));
@@ -279,7 +229,22 @@ public class PaginaCadastrosAtivos extends javax.swing.JFrame {
             new String [] {
                 "ID", "Empresa", "ContaID", "Plataforma", "Usuário", "Senha", "Token"
             }
-        ));
+        ) {
+            Class[] types = new Class [] {
+                java.lang.Integer.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class
+            };
+            boolean[] canEdit = new boolean [] {
+                false, true, true, true, true, true, true
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
         jScrollPane2.setViewportView(jTable_canaisAtivos1);
 
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -294,11 +259,13 @@ public class PaginaCadastrosAtivos extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(20, 60, 30, 160);
         jPanel14.add(jScrollPane2, gridBagConstraints);
 
-        jPanel13.add(jPanel14, java.awt.BorderLayout.PAGE_START);
+        jPanel13.add(jPanel14);
+        jPanel14.setBounds(0, 0, 950, 250);
 
         jPanel15.setBackground(new java.awt.Color(241, 241, 241));
         jPanel15.setMinimumSize(new java.awt.Dimension(400, 200));
 
+        jButton1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jButton1.setText("Atualizar Tabela");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -307,11 +274,92 @@ public class PaginaCadastrosAtivos extends javax.swing.JFrame {
         });
         jPanel15.add(jButton1);
 
-        jPanel13.add(jPanel15, java.awt.BorderLayout.PAGE_END);
+        btn_ExcluirCInfo.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        btn_ExcluirCInfo.setText("Excluir");
+        btn_ExcluirCInfo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_ExcluirCInfoActionPerformed(evt);
+            }
+        });
+        jPanel15.add(btn_ExcluirCInfo);
+
+        jPanel13.add(jPanel15);
+        jPanel15.setBounds(0, 246, 950, 40);
 
         jPanel11.add(jPanel13, java.awt.BorderLayout.CENTER);
 
         jPanel9.add(jPanel11, java.awt.BorderLayout.CENTER);
+
+        jPanel10.setBackground(new java.awt.Color(241, 241, 241));
+        jPanel10.setPreferredSize(new java.awt.Dimension(100, 80));
+
+        jLabel_filtros.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/imagens/icons8-pesquisar-30.png"))); // NOI18N
+
+        txt_filtros.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        txt_filtros.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txt_filtrosActionPerformed(evt);
+            }
+        });
+        txt_filtros.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txt_filtrosKeyReleased(evt);
+            }
+        });
+
+        lbl_filtros.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        lbl_filtros.setForeground(new java.awt.Color(45, 18, 75));
+        lbl_filtros.setText("Filtros");
+
+        cmb_filtros.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        cmb_filtros.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "ID", "Empresa", "ContaID", "Plataforma" }));
+        cmb_filtros.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        cmb_filtros.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmb_filtrosActionPerformed(evt);
+            }
+        });
+
+        lbl_filtros1.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        lbl_filtros1.setForeground(new java.awt.Color(45, 18, 75));
+        lbl_filtros1.setText("Busca");
+
+        javax.swing.GroupLayout jPanel10Layout = new javax.swing.GroupLayout(jPanel10);
+        jPanel10.setLayout(jPanel10Layout);
+        jPanel10Layout.setHorizontalGroup(
+            jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel10Layout.createSequentialGroup()
+                .addGap(40, 40, 40)
+                .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lbl_filtros)
+                    .addComponent(cmb_filtros, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 350, Short.MAX_VALUE)
+                .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(txt_filtros, javax.swing.GroupLayout.PREFERRED_SIZE, 350, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel10Layout.createSequentialGroup()
+                        .addComponent(jLabel_filtros)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(lbl_filtros1)))
+                .addGap(60, 60, 60))
+        );
+        jPanel10Layout.setVerticalGroup(
+            jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel10Layout.createSequentialGroup()
+                .addContainerGap(11, Short.MAX_VALUE)
+                .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lbl_filtros, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(lbl_filtros1)
+                        .addComponent(jLabel_filtros, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(txt_filtros)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel10Layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(cmb_filtros, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+        );
+
+        jPanel9.add(jPanel10, java.awt.BorderLayout.PAGE_START);
 
         jPanel7.add(jPanel9, java.awt.BorderLayout.CENTER);
 
@@ -324,10 +372,6 @@ public class PaginaCadastrosAtivos extends javax.swing.JFrame {
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
-
-    private void txt_filtrosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_filtrosActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txt_filtrosActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
@@ -364,7 +408,7 @@ public class PaginaCadastrosAtivos extends javax.swing.JFrame {
         }
         
     }//GEN-LAST:event_jButton1ActionPerformed
-
+//Mostrar na Tabela
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
         // TODO add your handling code here:
                 DefaultTableModel modelo = (DefaultTableModel) jTable_canaisAtivos1.getModel();
@@ -400,35 +444,6 @@ public class PaginaCadastrosAtivos extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_formWindowOpened
 
-    private void txt_filtrosKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_filtrosKeyReleased
-        
-        
-        try{
-            Vector cabecalho = new Vector();
-        cabecalho.add("idCanais");
-        cabecalho.add("empresa");
-        cabecalho.add("contaid");
-        cabecalho.add("plataforma");
-        cabecalho.add("usuario");
-        cabecalho.add("senha");
-        cabecalho.add("token");
-            if(!txt_filtros.getText().equals("")){
-            
-                DefaultTableModel nv = new DefaultTableModel(DAO.Pesquisar(txt_filtros.getText()),cabecalho);
-                jTable_canaisAtivos1.setModel(nv);
-                
-            
-            
-        }else{
-            DefaultTableModel nv = new DefaultTableModel(new Vector(),cabecalho);
-                jTable_canaisAtivos1.setModel(nv);
-        }
-        }catch(Exception ex){
-            JOptionPane.showMessageDialog(this, "Erro ao Pesquisar: "+ex.getMessage());
-        }
-        
-    }//GEN-LAST:event_txt_filtrosKeyReleased
-
     private void btn_CadastrarCanalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_CadastrarCanalActionPerformed
         // TODO add your handling code here:
         new PaginaCadastroInfoUs().setVisible(true);
@@ -440,6 +455,66 @@ public class PaginaCadastrosAtivos extends javax.swing.JFrame {
         new TelaPrincipal().setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btn_SairLogoutActionPerformed
+
+    private void btn_ExcluirCInfoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_ExcluirCInfoActionPerformed
+        Object indice = jTable_canaisAtivos1.getValueAt(jTable_canaisAtivos1.getSelectedRow(), 0);
+        //JOptionPane.showMessageDialog(null, indice);
+        String indiceS = indice.toString();
+        if(jTable_canaisAtivos1.getSelectedRow() == -1){
+            JOptionPane.showMessageDialog(null, "Selecione um canal para excluir!");
+        }else{
+        
+            DefaultTableModel modelo = (DefaultTableModel)  jTable_canaisAtivos1.getModel();
+            modelo.removeRow( jTable_canaisAtivos1.getSelectedRow());
+
+            CanalInfo p = new CanalInfo();
+            CanalDAO dao = new CanalDAO();
+            
+            int i = p.getIdCanais();
+
+            //jTable_canaisAtivosADM.getValueAt(jTable_canaisAtivosADM.getSelectedRow(), 0);
+
+
+            dao.delete(indiceS);
+
+        }
+    }//GEN-LAST:event_btn_ExcluirCInfoActionPerformed
+
+    private void txt_filtrosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_filtrosActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txt_filtrosActionPerformed
+
+    private void txt_filtrosKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_filtrosKeyReleased
+
+        String filtro = cmb_filtros.getSelectedItem().toString();
+
+        try{
+            Vector cabecalho = new Vector();
+            cabecalho.add("idCanais");
+            cabecalho.add("empresa");
+            cabecalho.add("contaid");
+            cabecalho.add("plataforma");
+            cabecalho.add("usuario");
+            cabecalho.add("senha");
+            cabecalho.add("token");
+            if(!txt_filtros.getText().equals("")){
+
+                DefaultTableModel nv = new DefaultTableModel(DAO.Pesquisar(txt_filtros.getText(), filtro),cabecalho);
+                jTable_canaisAtivos1.setModel(nv);
+
+            }else{
+                DefaultTableModel nv = new DefaultTableModel(new Vector(),cabecalho);
+                jTable_canaisAtivos1.setModel(nv);
+            }
+        }catch(Exception ex){
+            JOptionPane.showMessageDialog(this, "Erro ao Pesquisar: "+ex.getMessage());
+        }
+
+    }//GEN-LAST:event_txt_filtrosKeyReleased
+
+    private void cmb_filtrosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmb_filtrosActionPerformed
+
+    }//GEN-LAST:event_cmb_filtrosActionPerformed
 
     /**
      * @param args the command line arguments
@@ -482,8 +557,10 @@ public class PaginaCadastrosAtivos extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn_CadastrarCanal;
+    private javax.swing.JToggleButton btn_ExcluirCInfo;
     private javax.swing.JButton btn_SairLogout;
     private javax.swing.ButtonGroup buttonGroup1;
+    private javax.swing.JComboBox<String> cmb_filtros;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel_LogoTelaPrincipal;
     private javax.swing.JLabel jLabel_filtros;
@@ -510,6 +587,7 @@ public class PaginaCadastrosAtivos extends javax.swing.JFrame {
     private javax.swing.JLabel lbl_companyCadas;
     private javax.swing.JLabel lbl_confAtivas1;
     private javax.swing.JLabel lbl_filtros;
+    private javax.swing.JLabel lbl_filtros1;
     private javax.swing.JFormattedTextField txt_filtros;
     // End of variables declaration//GEN-END:variables
 }

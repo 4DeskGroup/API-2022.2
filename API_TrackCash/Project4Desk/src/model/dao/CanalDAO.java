@@ -61,7 +61,7 @@ public class CanalDAO {
                 
                 CanalInfo canal = new CanalInfo();
                 
-                canal.setId(rs.getInt("idCanais"));
+                canal.setIdCanais(rs.getInt("idCanais"));
                 canal.setContaid(rs.getString("contaid"));
                 canal.setEmpresa(rs.getString("emrpresa"));
                 canal.setPlataforma(rs.getString("plataforma"));
@@ -85,6 +85,12 @@ public class CanalDAO {
         
         
     }
+    
+    
+    
+    
+    
+    
     Connection conn;
     public ResultSet listarEmpresa(){
         conn = ConnectionFactory.getConnection();
@@ -99,6 +105,31 @@ public class CanalDAO {
                 JOptionPane.showMessageDialog(null, "Erro CanalDAO ListarCargo: " + erro.getMessage());
                 return null;
             }
+}
+    
+    
+        public ResultSet listarId(){
+            List<CanalInfo> canais2 = new ArrayList<>();
+        conn = ConnectionFactory.getConnection();
+        PreparedStatement stmt = null;
+        ResultSet rs = null;
+        
+        
+            try {
+                
+                stmt = conn.prepareStatement("selec idCanais from canais;");
+                rs = stmt.executeQuery();
+                
+                while(rs.next()){
+                    CanalInfo canal = new CanalInfo();
+                    canal.setIdCanais(rs.getInt(1));
+                }
+                
+            } catch (SQLException erro) {
+                JOptionPane.showMessageDialog(null, "Erro CanalDAO ListarCargo: " + erro.getMessage());
+                return null;
+            }
+        return (ResultSet) canais2;
 }
     
     
@@ -133,6 +164,33 @@ public class CanalDAO {
                 return null;
             }
 }
+        
+        public void delete(String i){
+            
+            Connection con = ConnectionFactory.getConnection();
+            PreparedStatement stmt = null;
+            
+            try{
+                
+                
+                stmt = con.prepareStatement("DELETE FROM canais WHERE idCanais = ?;");
+                stmt.setString(1, i);
+                
+                stmt.execute();
+                
+                JOptionPane.showMessageDialog(null, "Atualizado com sucesso!");
+                
+            }catch(SQLException ex){
+                JOptionPane.showMessageDialog(null, "Erro ao atualizar: " + ex);
+            }finally{
+                ConnectionFactory.closeConnection(con, stmt);
+            }
+            
+            
+        }
+        
+        
+        
     
 }
 

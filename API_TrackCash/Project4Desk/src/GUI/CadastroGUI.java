@@ -307,7 +307,7 @@ public class CadastroGUI extends javax.swing.JFrame {
         }else if(strPass.equals(strRPass) == false){
             JOptionPane.showMessageDialog(null, "Repetir senha e Senha devem ser iguais!");
         }else{
-            Cliente cliente = new Cliente(txt_User.getText(), txt_Email.getText(), strPass);
+            Cliente cliente = new Cliente(txt_Nome.getText(), txt_User.getText(), txt_Email.getText(), strPass);
             
             ClienteDAO dao = new ClienteDAO();
             
@@ -315,8 +315,8 @@ public class CadastroGUI extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Cadastro Completo!"
                     + "\nO usuario " + txt_User.getText() + " foi cadastrado com sucesso!");
         }
-        strPass = "";
-        strRPass = "";
+        strPass = null;
+        strRPass = null;
     }//GEN-LAST:event_btn_cadastrarActionPerformed
 
     private void txt_PassActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_PassActionPerformed

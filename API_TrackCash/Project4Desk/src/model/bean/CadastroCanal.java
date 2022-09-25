@@ -1,16 +1,8 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package model.bean;
 
-/**
- *
- * @author Rodrigo
- */
 public class CadastroCanal {
     
-        private int can_id;
+    private int can_id;
     private String can_empresa;
     private String can_plataforma;
     private String can_autentificacao;
