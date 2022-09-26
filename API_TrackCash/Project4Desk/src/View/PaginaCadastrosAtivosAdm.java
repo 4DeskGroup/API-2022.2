@@ -291,7 +291,7 @@ public class PaginaCadastrosAtivosAdm extends javax.swing.JFrame {
         lbl_filtros.setText("Filtros");
 
         cmb_filtros.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        cmb_filtros.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "ID", "Empresas", "Plataformas", "Autentificacao" }));
+        cmb_filtros.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "ID", "Empresa", "Plataforma", "Autentificacao" }));
         cmb_filtros.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         cmb_filtros.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

@@ -16,7 +16,7 @@ public class PesquCanalADM {
         String filtroString = "can_" + filtro.toLowerCase();
             
         Vector tb = new Vector ();
-        String url = "select * from cadastro_canal where " + filtroString + " like '" + pesqadm + "%'";
+        String url = "select * from cadastro_canal where " + filtroString + " like '%" + pesqadm + "%'";
         PreparedStatement stmt = getConnection().prepareStatement(url);
         ResultSet rs = stmt.executeQuery();
         while(rs.next()){

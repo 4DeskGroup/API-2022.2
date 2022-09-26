@@ -15,10 +15,9 @@ public class PesqCanal extends ConnectionFactory{
     public PesqCanal() throws Exception{
         
     }
-    
-    public Vector Pesquisar(String pesq) throws Exception{
+    public Vector Pesquisar() throws Exception{
         Vector tb = new Vector ();
-        String url = "select * from canais where contaid like '" + pesq + "%'";
+        String url = "select * from canais";
         PreparedStatement stmt = getConnection().prepareStatement(url);
         ResultSet rs = stmt.executeQuery();
         while(rs.next()){
@@ -35,13 +34,38 @@ public class PesqCanal extends ConnectionFactory{
         return tb;
     }
     
-    public Vector Pesquisar(String pesq, String filtro) throws Exception{
+    public Vector Pesquisar(String pesq) throws Exception{
+        Vector tb = new Vector ();
+        String url = "select * from canais where contaid like '%" + pesq + "%'";
+        PreparedStatement stmt = getConnection().prepareStatement(url);
+        ResultSet rs = stmt.executeQuery();
+        while(rs.next()){
+            Vector nl = new Vector();
+            nl.add(rs.getInt("idCanais"));
+            nl.add(rs.getString("empresa"));
+            nl.add(rs.getString("contaid"));
+            nl.add(rs.getString("plataforma"));
+            nl.add(rs.getString("usuario"));
+            nl.add(rs.getString("senha"));
+            nl.add(rs.getString("token"));
+            tb.add(nl);
+        }
+        return tb;
+    }
+    
+    public Vector Pesquisar(String pesq, String campo, String ordem) throws Exception{
         
-        String filtroString = filtro.toLowerCase();
+        String campoString = campo.toLowerCase();
+        String campoString2 = campoString;
+        
+        if(ordem.equals("Sem ordem")){
+            campoString2 = "empresa";
+            ordem = "asc";
+        }
         
         Vector tb = new Vector ();
-        String url = "select * from canais where "+ filtroString +" like '" + pesq + "%'";
-        PreparedStatement stmt = getConnection().prepareStatement(url);
+        String sql = "select * from canais where "+ campoString +" like '%" + pesq + "%' order by "+ campoString2 + " " + ordem;
+        PreparedStatement stmt = getConnection().prepareStatement(sql);
         ResultSet rs = stmt.executeQuery();
         while(rs.next()){
             Vector nl = new Vector();
