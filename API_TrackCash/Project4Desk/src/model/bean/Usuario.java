@@ -5,6 +5,7 @@ import javax.swing.JOptionPane;
 public abstract class Usuario {
     
     private int id;             // Pega o ID do usuario
+    private String nome;        // Pega o user do nome
     private String user;        // Pega o user do usuario
     private String email;       // Pega o email do usuario
     private String pass;        // Pega a senha do usuario
@@ -20,6 +21,11 @@ public abstract class Usuario {
     /*
         Metodos "Setters"
     */
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+    
     public void set(int i){
         this.id = i;
     }
@@ -39,39 +45,39 @@ public abstract class Usuario {
         this.active = act;
     }
     
-    public void setTypeAcess(int type, boolean p){
-        if(p == true){
-            this.typeAcess = type;
-        }else{
-            JOptionPane.showMessageDialog(null, "Sem permissão para continuar a ação");
-        }
+    public void setTypeAcess(int type){
+        this.typeAcess = type;
     }
     
     /*
         Metodos "Getters"
     */
     public int getId(){
-        return id;
+        return this.id;
+    }
+
+    public String getNome() {
+        return nome;
     }
     
     public String getUser(){
-        return user;
+        return this.user;
     }
     
     public String getEmail(){
-        return email;
+        return this.email;
     }
     
     public String getPass(){
-        return pass;
+        return this.pass;
     }
     
     public int getTypeAcess(){
-        return typeAcess;
+        return this.typeAcess;
     } 
     
     public boolean getActive(){
-        return active;
+        return this.active;
     }
     
     /*

@@ -1,17 +1,19 @@
 package GUI;
 
-import Controller.Login;
+import Controller.*;
 import GUI.CadastroGUI;
 import View.*;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import model.bean.Cliente;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
+import model.bean.ClienteDTO;
+import model.dao.ClienteDAO;
 
 public class LoginGUI extends javax.swing.JFrame {
-    
-    private Cliente cliente;
     
     public LoginGUI() {
         initComponents();
@@ -238,39 +240,60 @@ public class LoginGUI extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btn_logarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_logarActionPerformed
+        try{
+            String pk = txt_User.getText();
+            String pass = new String(txt_Pass.getPassword());
 
-        String pk = txt_User.getText();
-        String pass = new String(txt_Pass.getPassword());
-        
-        if(pk.equals("") || (pass.equals(""))){
-            JOptionPane.showMessageDialog(null, "Preencha os campos");
-        }else if(pk.equals("admin") && (pass.equals("admin1234"))){
-            cliente = new Cliente(pk, "admin@gmail.com", pass, true, 0);
-            JOptionPane.showMessageDialog(null, "Sucesso ao logar o Admin!");
             
-            new PaginaCadastroVagas().setCliente(cliente);
-            this.dispose();
+            if(pk.equals("") || (pass.equals(""))){
+                
+                JOptionPane.showMessageDialog(null, "Preencha os campos para efetuar o login");
             
-        }else if(pk.equals("4Desk") && (pass.equals("1234"))){
-            
-            cliente = new Cliente(pk, "4Desk@gmail.com", pass, true, 2);
-            
-            JOptionPane.showMessageDialog(null, "Sucesso ao logar!");
-            
-            new PaginaCadastrosAtivos().setVisible(true);
-            this.dispose();
-            
-            /*
-            Codigo em manutenção!
-            
-            try {
-                cliente = new Login().logar(pk, pass);
+            }else{
+                ClienteDTO clienteDTO = new ClienteDTO(pk, pass);
+                ResultSet busca = new ClienteDAO().loginCliente(clienteDTO);
+                
+                if (busca.isBeforeFirst() ) {
+                    while(busca.next()){
+                        String u = busca.getString("usuario");
+                        if(u == null){
 
-            } catch (Exception ex) {
-                JOptionPane.showMessageDialog(null, "Erro ao Conectar-se!");
+                            break;
+                        }
+                        String nome = null;
+
+                        nome = busca.getString("nome");
+                        String e = busca.getString("email");
+                        String p = busca.getString("senha");
+                        boolean ati = busca.getBoolean("atividade");
+                        int tp = busca.getInt("tpAcesso");
+                        
+                        Cliente usuarioLogado = new Cliente(nome, u, e, p, ati, tp);
+                        
+                        if(tp == 0){
+                            JOptionPane.showMessageDialog(null, "Bem vindo(a) Master User");
+                            new PaginaCadastroVagas().setCliente(usuarioLogado);
+                            this.dispose();
+                        }else if(tp == 1){
+                            JOptionPane.showMessageDialog(null, "Bem vindo(a) ADM" + usuarioLogado.getUser());
+                            new PaginaCadastrosAtivosAdm().setCliente(usuarioLogado);
+                            this.dispose();
+                        }else{
+                            JOptionPane.showMessageDialog(null, "Bem vindo(a) " + usuarioLogado.getUser());
+
+                            new PaginaCadastrosAtivos().setVisible(true);
+                            this.dispose();
+                        }
+                    }
+                }else{
+                    JOptionPane.showMessageDialog(null, "Usuario não encontrado!");
+                }
             }
-            */
+                
+        }catch(SQLException ex){
+            JOptionPane.showMessageDialog(null, ex);
         }
+        
     }//GEN-LAST:event_btn_logarActionPerformed
 
     private void cb_visualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cb_visualizarActionPerformed

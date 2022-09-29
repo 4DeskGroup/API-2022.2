@@ -24,8 +24,10 @@ ENGINE = InnoDB;
 
 SELECT * FROM cadastro_canal;
 
+describe cadastro_canal;
+
 -- -----------------------------------------------------
--- Table `Canal`.`Canais`
+-- Table `api_trackcash`.`canais`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `api_trackcash`.`canais` (
   `idCanais` INT NOT NULL AUTO_INCREMENT,
@@ -39,6 +41,30 @@ CREATE TABLE IF NOT EXISTS `api_trackcash`.`canais` (
 ENGINE = InnoDB;
 
 SELECT * FROM canais;
+
+-- -----------------------------------------------------
+-- Table `api_trackcash`.`usuarios`
+-- -----------------------------------------------------
+
+CREATE TABLE IF NOT EXISTS `api_trackcash`.`usuarios` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `nome` VARCHAR(40),
+  `usuario` VARCHAR(30) NOT NULL UNIQUE,
+  `email` VARCHAR(50) NOT NULL,
+  `senha` VARCHAR(20) NOT NULL,
+	atividade BOOLEAN NOT NULL,
+    tpAcesso INT NOT NULL,
+  PRIMARY KEY (`id`))
+ENGINE = InnoDB;
+
+insert into usuarios values(default, null, "master", "master@fatec", "master123", true, "0");
+
+insert into usuarios values(default, null, "admin", "admin@fatec", "admin123", true, "1");
+
+insert into usuarios values(default, null, "4Desk", "4Desk@fatec", "123", true, "2");
+
+SELECT * FROM usuarios;
+
 
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
