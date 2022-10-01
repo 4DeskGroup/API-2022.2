@@ -73,7 +73,7 @@ public class PaginaCadastrosAtivos extends javax.swing.JFrame {
         btn_ExcluirCInfo = new javax.swing.JToggleButton();
         jPanel10 = new javax.swing.JPanel();
         jLabel_filtros = new javax.swing.JLabel();
-        txt_filtros = new javax.swing.JFormattedTextField();
+        txt_busca = new javax.swing.JFormattedTextField();
         lbl_filtros = new javax.swing.JLabel();
         cmb_campo = new javax.swing.JComboBox<>();
         lbl_filtros1 = new javax.swing.JLabel();
@@ -302,15 +302,15 @@ public class PaginaCadastrosAtivos extends javax.swing.JFrame {
 
         jLabel_filtros.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/imagens/icons8-pesquisar-30.png"))); // NOI18N
 
-        txt_filtros.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        txt_filtros.addActionListener(new java.awt.event.ActionListener() {
+        txt_busca.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        txt_busca.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txt_filtrosActionPerformed(evt);
+                txt_buscaActionPerformed(evt);
             }
         });
-        txt_filtros.addKeyListener(new java.awt.event.KeyAdapter() {
+        txt_busca.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
-                txt_filtrosKeyReleased(evt);
+                txt_buscaKeyReleased(evt);
             }
         });
 
@@ -332,7 +332,7 @@ public class PaginaCadastrosAtivos extends javax.swing.JFrame {
         lbl_filtros1.setText("Busca");
 
         cmb_ordem.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        cmb_ordem.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Crescente", "Decrescente", "Sem ordem" }));
+        cmb_ordem.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Crescente", "Decrescente" }));
         cmb_ordem.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         cmb_ordem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -365,7 +365,7 @@ public class PaginaCadastrosAtivos extends javax.swing.JFrame {
                     .addComponent(lbl_filtros3))
                 .addGap(167, 167, 167)
                 .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txt_filtros, javax.swing.GroupLayout.PREFERRED_SIZE, 350, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txt_busca, javax.swing.GroupLayout.PREFERRED_SIZE, 350, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel10Layout.createSequentialGroup()
                         .addComponent(jLabel_filtros)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -394,7 +394,7 @@ public class PaginaCadastrosAtivos extends javax.swing.JFrame {
                     .addComponent(lbl_filtros1)
                     .addComponent(jLabel_filtros, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txt_filtros))
+                .addComponent(txt_busca))
         );
 
         jPanel9.add(jPanel10, java.awt.BorderLayout.PAGE_START);
@@ -520,16 +520,16 @@ public class PaginaCadastrosAtivos extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btn_ExcluirCInfoActionPerformed
 
-    private void txt_filtrosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_filtrosActionPerformed
-        // TODO add your handling code here:
+    private void txt_buscaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_buscaActionPerformed
         
-    }//GEN-LAST:event_txt_filtrosActionPerformed
+        
+    }//GEN-LAST:event_txt_buscaActionPerformed
 
-    private void txt_filtrosKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_filtrosKeyReleased
+    private void txt_buscaKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_buscaKeyReleased
 
         filtroBusca();
 
-    }//GEN-LAST:event_txt_filtrosKeyReleased
+    }//GEN-LAST:event_txt_buscaKeyReleased
 
     private void cmb_campoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmb_campoActionPerformed
         
@@ -577,7 +577,7 @@ public class PaginaCadastrosAtivos extends javax.swing.JFrame {
         
         if(ordem.equals("Crescente")){
             ordem = "asc";
-        }else if(ordem.equals("Decrescente")){
+        }else{
             ordem = "desc";
         }
         
@@ -590,9 +590,9 @@ public class PaginaCadastrosAtivos extends javax.swing.JFrame {
             cabecalho.add("usuario");
             cabecalho.add("senha");
             cabecalho.add("token");
-            if(!txt_filtros.getText().equals("")){
+            if(!txt_busca.getText().equals("")){
 
-                DefaultTableModel nv = new DefaultTableModel(DAO.Pesquisar(txt_filtros.getText(), campo, ordem),cabecalho);
+                DefaultTableModel nv = new DefaultTableModel(DAO.Pesquisar(txt_busca.getText(), campo, ordem),cabecalho);
                 jTable_canaisAtivos1.setModel(nv);
 
             }else{
@@ -643,6 +643,6 @@ public class PaginaCadastrosAtivos extends javax.swing.JFrame {
     private javax.swing.JLabel lbl_filtros1;
     private javax.swing.JLabel lbl_filtros2;
     private javax.swing.JLabel lbl_filtros3;
-    private javax.swing.JFormattedTextField txt_filtros;
+    private javax.swing.JFormattedTextField txt_busca;
     // End of variables declaration//GEN-END:variables
 }

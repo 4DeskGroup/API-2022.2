@@ -71,8 +71,11 @@ public class PaginaCadastrosAtivosAdm extends javax.swing.JFrame {
         jLabel_filtros = new javax.swing.JLabel();
         txt_busca = new javax.swing.JFormattedTextField();
         lbl_filtros = new javax.swing.JLabel();
-        cmb_filtros = new javax.swing.JComboBox<>();
+        cmb_campo = new javax.swing.JComboBox<>();
         lbl_filtros1 = new javax.swing.JLabel();
+        cmb_ordem = new javax.swing.JComboBox<>();
+        lbl_filtros2 = new javax.swing.JLabel();
+        lbl_filtros3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Configurações Ativas");
@@ -222,7 +225,7 @@ public class PaginaCadastrosAtivosAdm extends javax.swing.JFrame {
                 {null, null, null, null}
             },
             new String [] {
-                "ID", "Empresa", "Plataforma", "Autenticação"
+                "idConfig", "Empresa", "Plataforma", "Autenticação"
             }
         ));
         jScrollPane2.setViewportView(jTable_canaisAtivosADM);
@@ -291,12 +294,12 @@ public class PaginaCadastrosAtivosAdm extends javax.swing.JFrame {
         lbl_filtros.setForeground(new java.awt.Color(45, 18, 75));
         lbl_filtros.setText("Filtros");
 
-        cmb_filtros.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        cmb_filtros.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "ID", "Empresa", "Plataforma", "Autentificacao" }));
-        cmb_filtros.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        cmb_filtros.addActionListener(new java.awt.event.ActionListener() {
+        cmb_campo.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        cmb_campo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "idConfig", "Empresa", "Plataforma", "Autentificacao" }));
+        cmb_campo.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        cmb_campo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cmb_filtrosActionPerformed(evt);
+                cmb_campoActionPerformed(evt);
             }
         });
 
@@ -304,39 +307,70 @@ public class PaginaCadastrosAtivosAdm extends javax.swing.JFrame {
         lbl_filtros1.setForeground(new java.awt.Color(45, 18, 75));
         lbl_filtros1.setText("Busca");
 
+        cmb_ordem.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        cmb_ordem.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Crescente", "Decrescente" }));
+        cmb_ordem.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        cmb_ordem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmb_ordemActionPerformed(evt);
+            }
+        });
+
+        lbl_filtros2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        lbl_filtros2.setForeground(new java.awt.Color(45, 18, 75));
+        lbl_filtros2.setText("Campo de busca");
+
+        lbl_filtros3.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        lbl_filtros3.setForeground(new java.awt.Color(45, 18, 75));
+        lbl_filtros3.setText("Ordem");
+
         javax.swing.GroupLayout jPanel10Layout = new javax.swing.GroupLayout(jPanel10);
         jPanel10.setLayout(jPanel10Layout);
         jPanel10Layout.setHorizontalGroup(
             jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel10Layout.createSequentialGroup()
-                .addGap(40, 40, 40)
+                .addContainerGap()
+                .addComponent(lbl_filtros)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lbl_filtros)
-                    .addComponent(cmb_filtros, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 350, Short.MAX_VALUE)
+                    .addComponent(cmb_campo, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lbl_filtros2))
+                .addGap(27, 27, 27)
+                .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(cmb_ordem, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lbl_filtros3))
+                .addGap(167, 167, 167)
                 .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(txt_busca, javax.swing.GroupLayout.PREFERRED_SIZE, 350, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel10Layout.createSequentialGroup()
                         .addComponent(jLabel_filtros)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(lbl_filtros1)))
-                .addGap(60, 60, 60))
+                .addGap(52, 52, 52))
         );
         jPanel10Layout.setVerticalGroup(
             jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel10Layout.createSequentialGroup()
-                .addContainerGap(11, Short.MAX_VALUE)
                 .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lbl_filtros, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(lbl_filtros1)
-                        .addComponent(jLabel_filtros, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txt_busca)
+                    .addGroup(jPanel10Layout.createSequentialGroup()
+                        .addComponent(lbl_filtros)
+                        .addGap(0, 5, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel10Layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(cmb_filtros, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lbl_filtros3, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(lbl_filtros2, javax.swing.GroupLayout.Alignment.TRAILING))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(cmb_campo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cmb_ordem, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap())
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel10Layout.createSequentialGroup()
+                .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lbl_filtros1)
+                    .addComponent(jLabel_filtros, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(txt_busca))
         );
 
         jPanel9.add(jPanel10, java.awt.BorderLayout.PAGE_START);
@@ -470,60 +504,25 @@ public class PaginaCadastrosAtivosAdm extends javax.swing.JFrame {
 
     private void txt_buscaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_buscaActionPerformed
         // TODO add your handling code here:
+
     }//GEN-LAST:event_txt_buscaActionPerformed
 
     private void txt_buscaKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_buscaKeyReleased
 
-        String filtro = cmb_filtros.getSelectedItem().toString();
-
-        try{
-            Vector cabecalho = new Vector();
-            cabecalho.add("ID");
-            cabecalho.add("Empresa");
-            cabecalho.add("Plataforma");
-            cabecalho.add("Autenticação");
-
-            if(!txt_busca.getText().equals("")){
-
-                DefaultTableModel nv = new DefaultTableModel(DAO.PesquisarADM(txt_busca.getText(), filtro),cabecalho);
-                jTable_canaisAtivosADM.setModel(nv);
-
-            }else{
-                DefaultTableModel modelo = (DefaultTableModel) jTable_canaisAtivosADM.getModel();
-                modelo.setNumRows(0);
-
-                try{
-                    Connection con = ConnectionFactory.getConnection();
-                    PreparedStatement stmt;
-                    ResultSet rs;
-
-                    stmt = con.prepareStatement("SELECT * FROM `canalConfig`;");
-                    rs = stmt.executeQuery();
-
-                    while(rs.next()){
-                        modelo.addRow(new Object[]{
-                            rs.getString(1),
-                            rs.getString(2),
-                            rs.getString(3),
-                            rs.getString(4),
-                        });
-
-                    }
-                    ConnectionFactory.closeConnection(con, stmt, rs);
-
-                }
-                catch(Exception ErroSql){
-                    JOptionPane.showMessageDialog(null, "Erro ao carregar a tabela de dados: "+ErroSql, "ERRO", JOptionPane.ERROR_MESSAGE);
-                }
-            }
-        }catch(Exception ex){
-            JOptionPane.showMessageDialog(this, "Erro ao Pesquisar: "+ex.getMessage());
-        }
+        filtroBusca();
     }//GEN-LAST:event_txt_buscaKeyReleased
 
-    private void cmb_filtrosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmb_filtrosActionPerformed
+    private void cmb_campoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmb_campoActionPerformed
 
-    }//GEN-LAST:event_cmb_filtrosActionPerformed
+        filtroBusca();
+
+    }//GEN-LAST:event_cmb_campoActionPerformed
+
+    private void cmb_ordemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmb_ordemActionPerformed
+
+        filtroBusca();
+
+    }//GEN-LAST:event_cmb_ordemActionPerformed
 
     
     public static void main(String args[]) {
@@ -554,9 +553,36 @@ public class PaginaCadastrosAtivosAdm extends javax.swing.JFrame {
         });
     }
     
-    
-    
-    
+    public void filtroBusca(){
+        
+        String campo = cmb_campo.getSelectedItem().toString();
+        String ordem = cmb_ordem.getSelectedItem().toString();
+        
+        if(ordem.equals("Crescente")){
+            ordem = "asc";
+        }else if(ordem.equals("Decrescente")){
+            ordem = "desc";
+        }
+        
+        try{
+            Vector cabecalho = new Vector();
+            cabecalho.add("idConfig");
+            cabecalho.add("empresa");
+            cabecalho.add("plataforma");
+            cabecalho.add("autentificacao");
+            if(!txt_busca.getText().equals("")){
+
+                DefaultTableModel nv = new DefaultTableModel(DAO.PesquisarADM(txt_busca.getText(), campo, ordem),cabecalho);
+                jTable_canaisAtivosADM.setModel(nv);
+
+            }else{
+                DefaultTableModel nv = new DefaultTableModel(DAO.PesquisarADM(campo, ordem), cabecalho);
+                jTable_canaisAtivosADM.setModel(nv);
+            }
+        }catch(Exception ex){
+            JOptionPane.showMessageDialog(this, "Erro ao Pesquisar: "+ex.getMessage());
+        }
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn_CadastrarCanal;
@@ -564,7 +590,8 @@ public class PaginaCadastrosAtivosAdm extends javax.swing.JFrame {
     private javax.swing.JToggleButton btn_ExcluirCInfo;
     private javax.swing.JButton btn_SairLogout;
     private javax.swing.ButtonGroup buttonGroup1;
-    private javax.swing.JComboBox<String> cmb_filtros;
+    private javax.swing.JComboBox<String> cmb_campo;
+    private javax.swing.JComboBox<String> cmb_ordem;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel_LogoTelaPrincipal;
     private javax.swing.JLabel jLabel_filtros;
@@ -590,6 +617,9 @@ public class PaginaCadastrosAtivosAdm extends javax.swing.JFrame {
     private javax.swing.JLabel lbl_confAtivas1;
     private javax.swing.JLabel lbl_filtros;
     private javax.swing.JLabel lbl_filtros1;
+    private javax.swing.JLabel lbl_filtros2;
+    private javax.swing.JLabel lbl_filtros3;
     private javax.swing.JFormattedTextField txt_busca;
     // End of variables declaration//GEN-END:variables
 }
+
