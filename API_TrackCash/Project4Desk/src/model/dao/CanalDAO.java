@@ -8,93 +8,105 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
-import model.bean.CanalInfo;
+import model.bean.Canal;
 import java.sql.ResultSet;
 import java.util.ArrayList;
+import model.DTO.CanalDTO;
+import model.bean.Usuario;
 
 
 
 
 public class CanalDAO {
+    private Connection conn;
     
-    public void create(CanalInfo p){
+    public void addCanal(CanalDTO p, Usuario u){
         
-        Connection con = ConnectionFactory.getConnection();
-        PreparedStatement stmt = null;
+        conn = ConnectionFactory.getConnection();
+        PreparedStatement stmtSelect = null;
+        PreparedStatement stmtInsert = null;
         
         try {
+
+            stmtInsert = conn.prepareStatement("INSERT INTO canal VALUES(DEFAULT, ?, ?, ?, ?, ?, ?, ?)");
+            stmtInsert.setString(1, u.getUser());
+            stmtInsert.setString(2, p.getEmpresa());
+            stmtInsert.setString(3, p.getPlataforma());
+            stmtInsert.setString(4, p.getUsuario());
+            stmtInsert.setString(5, p.getSenha());
+            stmtInsert.setString(6, p.getToken());
+            stmtInsert.setString(7, p.getAutentificacao());
             
-            stmt = con.prepareStatement("INSERT INTO canais (contaid, empresa, plataforma, usuario, senha, token)VALUES(?,?,?,?,?,?)");
-            stmt.setString(1,p.getContaid());
-            stmt.setString(2,p.getEmpresa());
-            stmt.setString(3,p.getPlataforma());
-            stmt.setString(4,p.getUsuario());
-            stmt.setString(5,p.getSenha());
-            stmt.setString(6,p.getToken());
+            if(p.getAutentificacao().equals("login")){
+                
+                stmtInsert.execute();
+                JOptionPane.showMessageDialog(null, "Login salvo com sucesso!");
+                
+            }else{
+                
+                stmtInsert.execute();
+                JOptionPane.showMessageDialog(null, "Token salvo com sucesso!");
+                
+            }
             
-            stmt.executeUpdate();
-            
-            JOptionPane.showMessageDialog(null, "Salvo com sucesso");
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "Erro ao Salvar: "+ex);
-        }finally{
-            ConnectionFactory.closeConnection(con, stmt);
         }
         
-        
-        
     }
+    
+    public ResultSet searchCanalForUser(Canal c){
+        // group by " + '"' + usuario + '"'
+        conn = ConnectionFactory.getConnection();
+        try{
+            PreparedStatement stmt = null;
+            stmt = conn.prepareStatement("SELECT * FROM canal where usuario = " + '"' + c.getUsuario() + '"');
+            ResultSet rs = stmt.executeQuery();
+            return rs;
+        }catch(SQLException erro){
+            JOptionPane.showMessageDialog(null, "ERRO: " + erro);
+        }
+        return null;
+    }
+    
     //Tabela
-    public List<CanalInfo> reads(){
+    public List<Canal> reads(){
         
-        Connection con = ConnectionFactory.getConnection();
+        conn = ConnectionFactory.getConnection();
         PreparedStatement stmt = null;
         ResultSet rs = null;
         
-        List<CanalInfo> canais = new ArrayList<>();
+        List<Canal> canais = new ArrayList<>();
         
         try {
-            stmt = con.prepareStatement("SELECT * FROM canais");
+            stmt = conn.prepareStatement("SELECT * FROM canal");
             rs = stmt.executeQuery();
             
             while(rs.next()){
                 
-                CanalInfo canal = new CanalInfo();
+                Canal canal = new Canal();
                 
-                canal.setIdCanais(rs.getInt("idCanais"));
-                canal.setContaid(rs.getString("contaid"));
-                canal.setEmpresa(rs.getString("emrpresa"));
+                canal.setIdCanal(rs.getInt("idConfig"));
+                canal.setEmpresa(rs.getString("empresa"));
                 canal.setPlataforma(rs.getString("plataforma"));
-                canal.setUsuario(rs.getString("usuario"));
-                canal.setSenha(rs.getString("senha"));
-                canal.setToken(rs.getString("token"));
+                canal.setToken(rs.getString("autentificacao"));
                 canais.add(canal);
                 
             }
             
-            
         } catch (SQLException ex) {
             Logger.getLogger(CanalDAO.class.getName()).log(Level.SEVERE, null, ex);
         }finally{
-            ConnectionFactory.closeConnection(con, stmt, rs);
+            ConnectionFactory.closeConnection(conn, stmt, rs);
         }
         
         return canais;
         
-        
-        
-        
     }
     
-    
-    
-    
-    
-    
-    Connection conn;
-    public ResultSet listarEmpresa(){
+    public ResultSet listarPlataforma(){
         conn = ConnectionFactory.getConnection();
-        String sql = "SELECT * FROM cadastro_canal ORDER BY can_empresa;";
+        String sql = "SELECT * FROM `canalConfig` ORDER BY `plataforma`";
         
             try {
                 
@@ -105,93 +117,85 @@ public class CanalDAO {
                 JOptionPane.showMessageDialog(null, "Erro CanalDAO ListarCargo: " + erro.getMessage());
                 return null;
             }
-}
+    }
     
+    public ResultSet listarAutentificacao(String empresa){
+        conn = ConnectionFactory.getConnection();
+        String sql = "SELECT * FROM `canalConfig` ORDER BY autentificacao";
+        
+            try {
+                
+                PreparedStatement pstm = conn.prepareStatement(sql);
+                return pstm.executeQuery();
+                
+            } catch (SQLException erro) {
+                JOptionPane.showMessageDialog(null, "Erro CanalDAO ListarCargo: " + erro.getMessage());
+                return null;
+            }
+    }
     
-        public ResultSet listarId(){
-            List<CanalInfo> canais2 = new ArrayList<>();
+    public ResultSet listarEmpresa(){
+        conn = ConnectionFactory.getConnection();
+        String sql = "SELECT * FROM `canalConfig`";
+        
+            try {
+                
+                PreparedStatement pstm = conn.prepareStatement(sql);
+                return pstm.executeQuery(sql);
+                
+            } catch (SQLException erro) {
+                JOptionPane.showMessageDialog(null, "Erro CanalDAO ListarCargo: " + erro.getMessage());
+                return null;
+            }
+    }
+    
+    public ResultSet listarId(){
+        List<Canal> canais2 = new ArrayList<>();
         conn = ConnectionFactory.getConnection();
         PreparedStatement stmt = null;
         ResultSet rs = null;
-        
-        
-            try {
-                
-                stmt = conn.prepareStatement("selec idCanais from canais;");
-                rs = stmt.executeQuery();
-                
-                while(rs.next()){
-                    CanalInfo canal = new CanalInfo();
-                    canal.setIdCanais(rs.getInt(1));
-                }
-                
-            } catch (SQLException erro) {
-                JOptionPane.showMessageDialog(null, "Erro CanalDAO ListarCargo: " + erro.getMessage());
-                return null;
+
+        try {
+
+            stmt = conn.prepareStatement("select idCanal from `canal`;");
+            rs = stmt.executeQuery();
+
+            while(rs.next()){
+                Canal canal = new Canal();
+                canal.setIdCanal(rs.getInt(1));
             }
-        return (ResultSet) canais2;
-}
-    
-    
-    
-    
-    public ResultSet listarEmpresa2(){
-        conn = ConnectionFactory.getConnection();
-        String sql = "SELECT * FROM cadastro_canal ORDER BY can_plataforma;";
-        
-            try {
-                
-                PreparedStatement pstm = conn.prepareStatement(sql);
-                return pstm.executeQuery();
-                
-            } catch (SQLException erro) {
-                JOptionPane.showMessageDialog(null, "Erro CanalDAO ListarCargo: " + erro.getMessage());
-                return null;
-            }
-}
-    
-        public ResultSet listarEmpresa3(){
-        conn = ConnectionFactory.getConnection();
-        String sql = "SELECT * FROM cadastro_canal ORDER BY can_autentificacao;";
-        
-            try {
-                
-                PreparedStatement pstm = conn.prepareStatement(sql);
-                return pstm.executeQuery();
-                
-            } catch (SQLException erro) {
-                JOptionPane.showMessageDialog(null, "Erro CanalDAO ListarCargo: " + erro.getMessage());
-                return null;
-            }
-}
-        
-        public void delete(String i){
-            
-            Connection con = ConnectionFactory.getConnection();
-            PreparedStatement stmt = null;
-            
-            try{
-                
-                
-                stmt = con.prepareStatement("DELETE FROM canais WHERE idCanais = ?;");
-                stmt.setString(1, i);
-                
-                stmt.execute();
-                
-                JOptionPane.showMessageDialog(null, "Atualizado com sucesso!");
-                
-            }catch(SQLException ex){
-                JOptionPane.showMessageDialog(null, "Erro ao atualizar: " + ex);
-            }finally{
-                ConnectionFactory.closeConnection(con, stmt);
-            }
-            
-            
+
+        } catch (SQLException erro) {
+            JOptionPane.showMessageDialog(null, "Erro CanalDAO ListarCargo: " + erro.getMessage());
+            return null;
         }
         
-        
-        
+        return (ResultSet) canais2;
     
+    }
+    
+    public void delete(String i){
+            
+        Connection con = ConnectionFactory.getConnection();
+        PreparedStatement stmt = null;
+
+        try{
+
+            stmt = con.prepareStatement("DELETE FROM `canal` WHERE idCanal = ?;");
+            stmt.setString(1, i);
+
+            stmt.execute();
+
+            JOptionPane.showMessageDialog(null, "Canal excluído com sucesso!");
+
+        }catch(SQLException ex){
+            JOptionPane.showMessageDialog(null, "Erro ao excluir canal: " + ex);
+        }finally{
+            ConnectionFactory.closeConnection(con, stmt);
+        }
+
+    }
+        
 }
 
     

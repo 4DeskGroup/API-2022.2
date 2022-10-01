@@ -1,10 +1,10 @@
-package model.bean;
+package model.DTO;
 
-public class ClienteDTO {
+public class UsuarioDTO {
     private String user;
     private String pass;
     
-    public ClienteDTO(String u, String p){
+    public UsuarioDTO(String u, String p){
         this.user = u;
         this.pass = p;
     }

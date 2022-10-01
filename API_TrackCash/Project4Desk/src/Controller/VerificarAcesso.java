@@ -1,16 +1,16 @@
 package Controller;
 
-import model.bean.Cliente;
 import javax.swing.JOptionPane;
+import model.bean.Usuario;
 
 public class VerificarAcesso {
     
-    public boolean acessADM(Cliente cli){
+    public boolean acessADM(Usuario cli){
         
-        int tpAcess = cli.getTypeAcess();
+        int perfil = cli.getPerfil();
         boolean actived = cli.getActive();
         
-        if(tpAcess == 2 || actived == false){
+        if(perfil == 2 || actived == false){
             return false;
         }else{
             return true;

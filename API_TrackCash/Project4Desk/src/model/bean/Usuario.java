@@ -2,7 +2,7 @@ package model.bean;
 
 import javax.swing.JOptionPane;
 
-public abstract class Usuario {
+public class Usuario {
     
     private int id;             // Pega o ID do usuario
     private String nome;        // Pega o user do nome
@@ -12,11 +12,50 @@ public abstract class Usuario {
     
     private boolean active;     // Saber se a conta esta ativa ou não
     
-    private int typeAcess;        /*
-                                    Utilizadas para distinguir as permissões de user | typeAcess = 0 é a conta master e não 
-                                    pode ter outra com o mesmo valor; typeAcess = 1 é a conta ADM e pode haver varios ADMs;
-                                    typeAcess = 2 é o cliente tentando ver suas informações;
+    private int perfil;        /*
+                                    Utilizadas para distinguir as permissões de user | perfil = 0 é a conta master e não 
+                                    pode ter outra com o mesmo valor; perfil = 1 é a conta ADM e pode haver varios ADMs;
+                                    perfil = 2 é o cliente tentando ver suas informações;
                                    */
+    
+    /*
+        Metodos "Constructor"
+    */
+    
+    public Usuario(String n, String u, String e, String p){
+        if(n.equals("") || n.equals(" ")){
+            this.nome = null;
+        }else{
+            this.nome = n;
+        }
+        this.user = u;
+        this.email = e;
+        this.pass = p;
+        this.active = true;
+        this.perfil = 2;
+    }
+    
+    public Usuario(){
+        this.nome = "";
+        this.user = "";
+        this.email = "";
+        this.pass = "";
+        this.active = true;
+        this.perfil = 2;
+    }
+    
+    public Usuario(String n, String u, String e, String p, boolean act, int tpAc){
+        if(n == null || n.equals("")){
+            this.nome = "Sem Nome";
+        }else{
+            this.nome = n;
+        }
+        this.user = u;
+        this.email = e;
+        this.pass = p;
+        this.active = act;
+        this.perfil = tpAc;
+    }
     
     /*
         Metodos "Setters"
@@ -45,8 +84,8 @@ public abstract class Usuario {
         this.active = act;
     }
     
-    public void setTypeAcess(int type){
-        this.typeAcess = type;
+    public void setPerfil(int type){
+        this.perfil = type;
     }
     
     /*
@@ -72,8 +111,8 @@ public abstract class Usuario {
         return this.pass;
     }
     
-    public int getTypeAcess(){
-        return this.typeAcess;
+    public int getPerfil(){
+        return this.perfil;
     } 
     
     public boolean getActive(){
@@ -92,7 +131,7 @@ public abstract class Usuario {
             "\nE-mail: "  + this.getEmail() +
             "\nSenha: "   + this.getPass()  +
             "\nAtiva? "   + this.getActive()+
-            "\nTipo de acesso: " + this.getTypeAcess()
+            "\nTipo de acesso: " + this.getPerfil()
         );
         
     }

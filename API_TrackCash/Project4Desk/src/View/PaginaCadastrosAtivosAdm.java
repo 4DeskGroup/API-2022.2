@@ -11,18 +11,19 @@ import java.sql.SQLException;
 import javax.swing.JOptionPane;
 import java.sql.ResultSet;
 import java.util.Vector;
-import model.bean.CadastroCanal;
-import model.bean.Cliente;
-import model.dao.CadastroCanalDAO;
+import model.bean.Canal;
+import model.bean.Usuario;
+import model.dao.CanalConfigDAO;
 
 
 public class PaginaCadastrosAtivosAdm extends javax.swing.JFrame {
 
     PesquCanalADM DAO;
     
-    private Cliente cliente;
+    private static Usuario user;
     
-    public PaginaCadastrosAtivosAdm() {
+    public PaginaCadastrosAtivosAdm(Usuario u) {
+        user = u;
         initComponents();
         try{
             DAO = new PesquCanalADM();
@@ -354,8 +355,8 @@ public class PaginaCadastrosAtivosAdm extends javax.swing.JFrame {
 //Mostrar na Tabela
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
      
-        if(cliente != null){
-            boolean a = new VerificarAcesso().acessADM(cliente);
+        if(user != null){
+            boolean a = new VerificarAcesso().acessADM(user);
             if(a == false){
                 JOptionPane.showMessageDialog(null, "Não tem permissão para acessar nessa página");
                 this.dispose();
@@ -371,7 +372,7 @@ public class PaginaCadastrosAtivosAdm extends javax.swing.JFrame {
             PreparedStatement stmt;
             ResultSet rs;
             
-            stmt = con.prepareStatement("SELECT * FROM cadastro_canal;");
+            stmt = con.prepareStatement("SELECT * FROM `canalConfig`;");
             rs = stmt.executeQuery();
             
             while(rs.next()){
@@ -381,9 +382,7 @@ public class PaginaCadastrosAtivosAdm extends javax.swing.JFrame {
                     rs.getString(2),
                     rs.getString(3),
                     rs.getString(4),
-                   // rs.getString(5),
-                   // rs.getString(6),
-                    //rs.getString(7)
+                    
                 });
                 
             }
@@ -398,8 +397,10 @@ public class PaginaCadastrosAtivosAdm extends javax.swing.JFrame {
 
     private void btn_CadastrarCanalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_CadastrarCanalActionPerformed
 
+
         this.dispose();
-        new PaginaCadastroInfoUs().setVisible(true);
+        new PaginaCadastroVagas(user).setVisible(true);
+        
         
     }//GEN-LAST:event_btn_CadastrarCanalActionPerformed
 
@@ -413,7 +414,7 @@ public class PaginaCadastrosAtivosAdm extends javax.swing.JFrame {
     private void btn_CadastrarCanal1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_CadastrarCanal1ActionPerformed
         
         this.dispose();
-        new PaginaCadastroVagas().setVisible(true);
+        new PaginaCadastroInfoUs(user).setVisible(true);
         
     }//GEN-LAST:event_btn_CadastrarCanal1ActionPerformed
 
@@ -421,18 +422,17 @@ public class PaginaCadastrosAtivosAdm extends javax.swing.JFrame {
 
         Object indice = jTable_canaisAtivosADM.getValueAt(jTable_canaisAtivosADM.getSelectedRow(), 0);
         String indiceS = indice.toString();
-        if(jTable_canaisAtivosADM.getSelectedRow() == -1){
-            JOptionPane.showMessageDialog(null, "Selecione um canal para excluir!");
-        }else{
+            if(jTable_canaisAtivosADM.getSelectedRow() == -1){
+                JOptionPane.showMessageDialog(null, "Selecione um canal para excluir!");
+            }else{
+                Canal p = new Canal();
+                CanalConfigDAO dao = new CanalConfigDAO();
 
-            CadastroCanal p = new CadastroCanal();
-            CadastroCanalDAO dao = new CadastroCanalDAO();
+                dao.delete(indiceS);
 
-            dao.delete(indiceS);
-
-            DefaultTableModel modelo = (DefaultTableModel) jTable_canaisAtivosADM.getModel();
-            modelo.removeRow(jTable_canaisAtivosADM.getSelectedRow());
-        }
+                DefaultTableModel modelo = (DefaultTableModel) jTable_canaisAtivosADM.getModel();
+                modelo.removeRow(jTable_canaisAtivosADM.getSelectedRow());
+            }
 
     }//GEN-LAST:event_btn_ExcluirCInfoActionPerformed
 
@@ -446,7 +446,7 @@ public class PaginaCadastrosAtivosAdm extends javax.swing.JFrame {
             PreparedStatement stmt;
             ResultSet rs;
 
-            stmt = con.prepareStatement("SELECT * FROM cadastro_canal;");
+            stmt = con.prepareStatement("SELECT * FROM `canalConfig`;");
             rs = stmt.executeQuery();
 
             while(rs.next()){
@@ -497,7 +497,7 @@ public class PaginaCadastrosAtivosAdm extends javax.swing.JFrame {
                     PreparedStatement stmt;
                     ResultSet rs;
 
-                    stmt = con.prepareStatement("SELECT * FROM cadastro_canal;");
+                    stmt = con.prepareStatement("SELECT * FROM `canalConfig`;");
                     rs = stmt.executeQuery();
 
                     while(rs.next()){
@@ -525,14 +525,6 @@ public class PaginaCadastrosAtivosAdm extends javax.swing.JFrame {
 
     }//GEN-LAST:event_cmb_filtrosActionPerformed
 
-    public Cliente getCliente(){
-            return cliente;
-       }
-       
-    public void setCliente(Cliente c){
-        cliente = c;
-        setVisible(true);
-    }
     
     public static void main(String args[]) {
 
@@ -557,7 +549,7 @@ public class PaginaCadastrosAtivosAdm extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new PaginaCadastrosAtivosAdm().setVisible(true);
+                new PaginaCadastrosAtivosAdm(user).setVisible(true);
             }
         });
     }

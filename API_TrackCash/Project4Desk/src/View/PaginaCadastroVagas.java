@@ -3,15 +3,18 @@ package View;
 import Controller.VerificarAcesso;
 import GUI.LoginGUI;
 import javax.swing.JOptionPane;
-import model.bean.CadastroCanal;
-import model.bean.Cliente;
-import model.dao.CadastroCanalDAO;
+import model.bean.Canal;
+import model.bean.Usuario;
+import model.dao.CanalConfigDAO;
 
 public class PaginaCadastroVagas extends javax.swing.JFrame {
     
-     private Cliente cliente;
+    private Usuario cliente;
      
-    public PaginaCadastroVagas() {
+    private static Usuario user;
+    
+    public PaginaCadastroVagas(Usuario u) {
+        user = u;
         initComponents();
     }
 
@@ -39,7 +42,6 @@ public class PaginaCadastroVagas extends javax.swing.JFrame {
         jPanel9 = new javax.swing.JPanel();
         lbl_cadasCanaisCadas = new javax.swing.JLabel();
         jPanel10 = new javax.swing.JPanel();
-        lbl_canalCadas = new javax.swing.JLabel();
         txt_canalCadas = new javax.swing.JTextField();
         cmb_TipoCanalCadas = new javax.swing.JComboBox<>();
         lbl_TipoCanalCadas = new javax.swing.JLabel();
@@ -47,6 +49,7 @@ public class PaginaCadastroVagas extends javax.swing.JFrame {
         cmb_padAutCadas = new javax.swing.JComboBox<>();
         btn_salvarCadas = new javax.swing.JButton();
         btn_limparCadCanal = new javax.swing.JButton();
+        lbl_canalCadas1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Cadastro de Canais");
@@ -86,7 +89,7 @@ public class PaginaCadastroVagas extends javax.swing.JFrame {
             }
         });
         jPanel1.add(btn_SairLogoutAdm);
-        btn_SairLogoutAdm.setBounds(40, 210, 170, 47);
+        btn_SairLogoutAdm.setBounds(40, 210, 170, 48);
 
         btn_ConfigAtivas1.setBackground(new java.awt.Color(45, 18, 75));
         btn_ConfigAtivas1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
@@ -191,16 +194,6 @@ public class PaginaCadastroVagas extends javax.swing.JFrame {
         jPanel10.setPreferredSize(new java.awt.Dimension(1100, 100));
         jPanel10.setLayout(new java.awt.GridBagLayout());
 
-        lbl_canalCadas.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        lbl_canalCadas.setForeground(new java.awt.Color(45, 18, 75));
-        lbl_canalCadas.setText("Canal");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 0;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(70, 190, 0, 0);
-        jPanel10.add(lbl_canalCadas, gridBagConstraints);
-
         txt_canalCadas.setFont(new java.awt.Font("Segoe UI", 0, 22)); // NOI18N
         txt_canalCadas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -296,6 +289,16 @@ public class PaginaCadastroVagas extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(42, 230, 96, 0);
         jPanel10.add(btn_limparCadCanal, gridBagConstraints);
 
+        lbl_canalCadas1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        lbl_canalCadas1.setForeground(new java.awt.Color(45, 18, 75));
+        lbl_canalCadas1.setText("Canal");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(70, 190, 0, 0);
+        jPanel10.add(lbl_canalCadas1, gridBagConstraints);
+
         jPanel8.add(jPanel10, java.awt.BorderLayout.CENTER);
 
         jPanel6.add(jPanel8, java.awt.BorderLayout.CENTER);
@@ -315,20 +318,19 @@ public class PaginaCadastroVagas extends javax.swing.JFrame {
     private void btn_salvarCadasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_salvarCadasActionPerformed
         // TODO add your handling code here:
         
-        CadastroCanal c = new CadastroCanal();
+        Canal c = new Canal();
         
-        
-        c.setCan_empresa(txt_canalCadas.getText());
-        c.setCan_plataforma((String) cmb_TipoCanalCadas.getSelectedItem());
-        c.setCan_autentificacao((String) cmb_padAutCadas.getSelectedItem());
+        c.setEmpresa(txt_canalCadas.getText());
+        c.setPlataforma((String) cmb_TipoCanalCadas.getSelectedItem());
+        c.setAutentificacao((String) cmb_padAutCadas.getSelectedItem());
         
         if((txt_canalCadas.getText().isEmpty())){
             JOptionPane.showMessageDialog(null,"O campo não pode retornar vazio");
             return;
        }else{
         
-        CadastroCanalDAO dao= new CadastroCanalDAO();
-        dao.cradastro(c);
+            CanalConfigDAO dao= new CanalConfigDAO();
+            dao.cadastro(c);
         }
         
     }//GEN-LAST:event_btn_salvarCadasActionPerformed
@@ -363,22 +365,22 @@ public class PaginaCadastroVagas extends javax.swing.JFrame {
     private void btn_ConfigAtivasADMActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_ConfigAtivasADMActionPerformed
         
         this.dispose();
-        new PaginaCadastrosAtivosAdm().setCliente(cliente);
+        new PaginaCadastrosAtivosAdm(user);
         
     }//GEN-LAST:event_btn_ConfigAtivasADMActionPerformed
 
     private void btn_ConfigAtivas1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_ConfigAtivas1ActionPerformed
 
         this.dispose();
-        new PaginaCadastrosAtivos().setVisible(true);
+        new PaginaCadastrosAtivos(user).setVisible(true);
         
     }//GEN-LAST:event_btn_ConfigAtivas1ActionPerformed
 
-    public Cliente getCliente(){
+    public Usuario getCliente(){
             return cliente;
        }
        
-    public void setCliente(Cliente c){
+    public void setCliente(Usuario c){
         cliente = c;
         setVisible(true);
     }
@@ -540,7 +542,7 @@ public class PaginaCadastroVagas extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new PaginaCadastroVagas().setVisible(true);
+                new PaginaCadastroVagas(user).setVisible(true);
             }
         });
     }
@@ -567,7 +569,7 @@ public class PaginaCadastroVagas extends javax.swing.JFrame {
     private javax.swing.JLabel lbl_4dGroupCadas;
     private javax.swing.JLabel lbl_TipoCanalCadas;
     private javax.swing.JLabel lbl_cadasCanaisCadas;
-    private javax.swing.JLabel lbl_canalCadas;
+    private javax.swing.JLabel lbl_canalCadas1;
     private javax.swing.JLabel lbl_companyCadas;
     private javax.swing.JLabel lbl_logoCadas;
     private javax.swing.JLabel lbl_padAutCadas;

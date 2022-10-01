@@ -5,13 +5,13 @@ import GUI.CadastroGUI;
 import View.*;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import model.bean.Cliente;
+import model.bean.Usuario;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
-import model.bean.ClienteDTO;
-import model.dao.ClienteDAO;
+import model.DTO.UsuarioDTO;
+import model.dao.UsuarioDAO;
 
 public class LoginGUI extends javax.swing.JFrame {
     
@@ -250,8 +250,8 @@ public class LoginGUI extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(null, "Preencha os campos para efetuar o login");
             
             }else{
-                ClienteDTO clienteDTO = new ClienteDTO(pk, pass);
-                ResultSet busca = new ClienteDAO().loginCliente(clienteDTO);
+                UsuarioDTO clienteDTO = new UsuarioDTO(pk, pass);
+                ResultSet busca = new UsuarioDAO().loginCliente(clienteDTO);
                 
                 if (busca.isBeforeFirst() ) {
                     while(busca.next()){
@@ -266,22 +266,22 @@ public class LoginGUI extends javax.swing.JFrame {
                         String e = busca.getString("email");
                         String p = busca.getString("senha");
                         boolean ati = busca.getBoolean("atividade");
-                        int tp = busca.getInt("tpAcesso");
+                        int tp = busca.getInt("perfil");
                         
-                        Cliente usuarioLogado = new Cliente(nome, u, e, p, ati, tp);
+                        Usuario usuarioLogado = new Usuario(nome, u, e, p, ati, tp);
                         
                         if(tp == 0){
                             JOptionPane.showMessageDialog(null, "Bem vindo(a) Master User");
-                            new PaginaCadastroVagas().setCliente(usuarioLogado);
+                            new PaginaCadastroVagas(usuarioLogado).setVisible(true);
                             this.dispose();
                         }else if(tp == 1){
-                            JOptionPane.showMessageDialog(null, "Bem vindo(a) ADM" + usuarioLogado.getUser());
-                            new PaginaCadastrosAtivosAdm().setCliente(usuarioLogado);
+                            JOptionPane.showMessageDialog(null, "Bem vindo(a) ADM " + usuarioLogado.getUser());
+                            new PaginaCadastrosAtivosAdm(usuarioLogado).setVisible(true);
                             this.dispose();
                         }else{
                             JOptionPane.showMessageDialog(null, "Bem vindo(a) " + usuarioLogado.getUser());
 
-                            new PaginaCadastroInfoUs().setVisible(true);
+                            new PaginaCadastroInfoUs(usuarioLogado).setVisible(true);
                             this.dispose();
                         }
                     }

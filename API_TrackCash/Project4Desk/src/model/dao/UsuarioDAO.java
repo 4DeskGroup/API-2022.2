@@ -2,25 +2,25 @@ package model.dao;
 
 
 import connection.ConnectionFactory;
-import model.bean.Cliente;
+import model.bean.Usuario;
 import java.sql.*;
 import java.sql.PreparedStatement;
 import javax.swing.JOptionPane;
 import java.lang.String;
-import model.bean.ClienteDTO;
+import model.DTO.UsuarioDTO;
 
-public class ClienteDAO extends ConnectionFactory{
+public class UsuarioDAO extends ConnectionFactory{
     private Connection conection;
     
-    public ClienteDAO(){
+    public UsuarioDAO(){
         conection = ConnectionFactory.getConnection();
     }
     
-    public void addCliente(Cliente cliente){
+    public void addCliente(Usuario cliente){
         /*
             Aqui ele esta inserindo os valores na tabela Usuarios do banco de dados!
         */
-        String sql = "INSERT INTO usuarios VALUES(?, ?, ?, ?, ?, ?)";
+        String sql = "INSERT INTO usuario VALUES(DEFAULT, ?, ?, ?, ?, ?, ?)";
         
         try{
             
@@ -38,30 +38,14 @@ public class ClienteDAO extends ConnectionFactory{
             
             throw new RuntimeException(ex);
             
-        }
-        /*
-                Aqui ele esta inserindo os valores na tabela id_user do banco de dados!
-        */
-        sql = "INSERT INTO id_user VALUES(DEFAULT, ?)";
-        try{
-            PreparedStatement stmt = conection.prepareStatement(sql);
-            stmt = conection.prepareStatement(sql);
-            stmt.setString(1, cliente.getUser());
-            stmt.execute();
-            stmt.close();
-
-        }catch(SQLException ex){
-
-            throw new RuntimeException(ex);
-
         }finally{
             connection.ConnectionFactory.closeConnection(conection);
         }
         
     }
-    public ResultSet loginCliente(ClienteDTO clientedto){                           // 'pk' é Primary Key
+    public ResultSet loginCliente(UsuarioDTO clientedto){                           // 'pk' é Primary Key
         
-        String sql = "select * from usuarios where usuario = binary " + '"' + clientedto.getUser() + '"' + 
+        String sql = "select * from usuario where usuario = binary " + '"' + clientedto.getUser() + '"' + 
                 " and senha = binary " + '"' + clientedto.getPass() + '"';
 
         try{
@@ -75,8 +59,8 @@ public class ClienteDAO extends ConnectionFactory{
         }
     }
     
-    public boolean searchCliente(String pk, String p){
-        String sql = "SELECT * FROM usuarios WHERE usuario = ?";
+    public boolean existCliente(String pk, String p){
+        String sql = "SELECT * FROM usuario WHERE usuario = ?";
         try{
             
             PreparedStatement stmt = this.conection.prepareStatement(sql);
@@ -101,7 +85,7 @@ public class ClienteDAO extends ConnectionFactory{
     }
     
     public int searchClienteID(String user){
-        String sql = "SELECT * FROM id_user WHERE usuario = ?";
+        String sql = "SELECT * FROM usuario WHERE usuario = ?";
         try{
             
             PreparedStatement stmt = this.conection.prepareStatement(sql);

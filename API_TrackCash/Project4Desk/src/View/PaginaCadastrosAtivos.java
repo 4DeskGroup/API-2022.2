@@ -9,7 +9,8 @@ import java.sql.SQLException;
 import javax.swing.JOptionPane;
 import java.sql.ResultSet;
 import java.util.Vector;
-import model.bean.CanalInfo;
+import model.bean.Canal;
+import model.bean.Usuario;
 import model.dao.CanalDAO;
 
 
@@ -17,7 +18,10 @@ public class PaginaCadastrosAtivos extends javax.swing.JFrame {
 
     PesqCanal DAO;
     
-    public PaginaCadastrosAtivos() {
+    private static Usuario user;
+    
+    public PaginaCadastrosAtivos(Usuario u) {
+        user = u;
         initComponents();
         try{
             DAO = new PesqCanal();
@@ -230,7 +234,7 @@ public class PaginaCadastrosAtivos extends javax.swing.JFrame {
                 {null, null, null, null, null, null, null}
             },
             new String [] {
-                "ID", "Empresa", "ContaID", "Plataforma", "Usuário", "Senha", "Token"
+                "ID", "Perfil", "Empresa", "Plataforma", "Usuário", "Senha", "Token"
             }
         ) {
             Class[] types = new Class [] {
@@ -417,7 +421,7 @@ public class PaginaCadastrosAtivos extends javax.swing.JFrame {
             PreparedStatement stmt;
             ResultSet rs;
             
-            stmt = con.prepareStatement("SELECT * FROM canais;");
+            stmt = con.prepareStatement("SELECT * FROM canal;");
             rs = stmt.executeQuery();
             
             while(rs.next()){
@@ -444,8 +448,8 @@ public class PaginaCadastrosAtivos extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 //Mostrar na Tabela
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
-        // TODO add your handling code here:
-                DefaultTableModel modelo = (DefaultTableModel) jTable_canaisAtivos1.getModel();
+        
+        DefaultTableModel modelo = (DefaultTableModel) jTable_canaisAtivos1.getModel();
         modelo.setNumRows(0);
         
         try{
@@ -453,19 +457,20 @@ public class PaginaCadastrosAtivos extends javax.swing.JFrame {
             PreparedStatement stmt;
             ResultSet rs;
             
-            stmt = con.prepareStatement("SELECT * FROM canais;");
+            stmt = con.prepareStatement("SELECT * FROM canal WHERE usuario = " + '"' + user.getUser() + '"');
             rs = stmt.executeQuery();
             
             while(rs.next()){
+                
                 modelo.addRow(new Object[]{
-                    
-                    rs.getString(1),
-                    rs.getString(2),
-                    rs.getString(3),
-                    rs.getString(4),
-                    rs.getString(5),
-                    rs.getString(6),
-                    rs.getString(7)
+                rs.getString(1),
+                rs.getString(2),
+                rs.getString(3),
+                rs.getString(4),
+                rs.getString(5),
+                rs.getString(6),
+                rs.getString(7)
+                        
                 });
                 
             }
@@ -480,7 +485,7 @@ public class PaginaCadastrosAtivos extends javax.swing.JFrame {
 
     private void btn_CadastrarCanalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_CadastrarCanalActionPerformed
         // TODO add your handling code here:
-        new PaginaCadastroInfoUs().setVisible(true);
+        new PaginaCadastroInfoUs(user).setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btn_CadastrarCanalActionPerformed
 
@@ -491,6 +496,7 @@ public class PaginaCadastrosAtivos extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_SairLogoutActionPerformed
 
     private void btn_ExcluirCInfoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_ExcluirCInfoActionPerformed
+        
         Object indice = jTable_canaisAtivos1.getValueAt(jTable_canaisAtivos1.getSelectedRow(), 0);
         //JOptionPane.showMessageDialog(null, indice);
         String indiceS = indice.toString();
@@ -501,10 +507,10 @@ public class PaginaCadastrosAtivos extends javax.swing.JFrame {
             DefaultTableModel modelo = (DefaultTableModel)  jTable_canaisAtivos1.getModel();
             modelo.removeRow( jTable_canaisAtivos1.getSelectedRow());
 
-            CanalInfo p = new CanalInfo();
+            Canal p = new Canal();
             CanalDAO dao = new CanalDAO();
             
-            int i = p.getIdCanais();
+            int i = p.getIdCanal();
 
             //jTable_canaisAtivosADM.getValueAt(jTable_canaisAtivosADM.getSelectedRow(), 0);
 
@@ -516,6 +522,7 @@ public class PaginaCadastrosAtivos extends javax.swing.JFrame {
 
     private void txt_filtrosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_filtrosActionPerformed
         // TODO add your handling code here:
+        
     }//GEN-LAST:event_txt_filtrosActionPerformed
 
     private void txt_filtrosKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_filtrosKeyReleased
@@ -536,15 +543,7 @@ public class PaginaCadastrosAtivos extends javax.swing.JFrame {
         
     }//GEN-LAST:event_cmb_ordemActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
     public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
                 if ("Nimbus".equals(info.getName())) {
@@ -566,7 +565,7 @@ public class PaginaCadastrosAtivos extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new PaginaCadastrosAtivos().setVisible(true);
+                new PaginaCadastrosAtivos(user).setVisible(true);
             }
         });
     }

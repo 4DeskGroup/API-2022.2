@@ -4,19 +4,26 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Vector;
 import javax.swing.JOptionPane;
-import model.bean.CanalInfo;
+import model.DTO.CanalDTO;
+import model.bean.Canal;
+import model.bean.CanalConfig;
+import model.bean.Usuario;
+import model.dao.CanalConfigDAO;
 import model.dao.CanalDAO;
 
 public class PaginaCadastroInfoUs extends javax.swing.JFrame {
-
+    
+    private static Usuario user;
+    
     public PaginaCadastroInfoUs() {
-        
         initComponents();
-        restaurarDadosComboBoxCargo();
-        restaurarDadosComboBoxCargo2();
-        restaurarDadosComboBoxCargo3();
     }
-
+     
+    public PaginaCadastroInfoUs(Usuario u) {
+        user = u;
+        initComponents();
+    }
+    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -41,27 +48,31 @@ public class PaginaCadastroInfoUs extends javax.swing.JFrame {
         lbl_cadasCanaInfoUs = new javax.swing.JLabel();
         jPanel10 = new javax.swing.JPanel();
         lbl_canalInfoUs = new javax.swing.JLabel();
-        lbl_idContaInfoUs = new javax.swing.JLabel();
-        txt_idCadasInfoUs = new javax.swing.JTextField();
         txt_userInfoUs = new javax.swing.JTextField();
         lbl_senhaInfoUs = new javax.swing.JLabel();
         txt_senhaInfoUs = new javax.swing.JTextField();
         btn_limparInfo = new javax.swing.JButton();
         txt_tokenCanalInfo = new javax.swing.JTextField();
-        lbl_userInfoUs1 = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
+        lbl_userInfoUs = new javax.swing.JLabel();
+        lbl_Token = new javax.swing.JLabel();
         cbxCanal = new javax.swing.JComboBox<>();
-        lbl_idContaInfoUs1 = new javax.swing.JLabel();
-        cbxPlataforma = new javax.swing.JComboBox<>();
-        cbxPaut = new javax.swing.JComboBox<>();
         lbl_idContaInfoUs2 = new javax.swing.JLabel();
         btn_cadastrarInfoUs1 = new javax.swing.JButton();
+        lbl_idContaInfoUs3 = new javax.swing.JLabel();
+        jPanel13 = new javax.swing.JPanel();
+        lbl_Autentificacao = new javax.swing.JLabel();
+        jPanel15 = new javax.swing.JPanel();
+        lbl_Plataforma = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Cadastro de Informações");
         setAutoRequestFocus(false);
         setMinimumSize(new java.awt.Dimension(850, 600));
-        setPreferredSize(new java.awt.Dimension(1200, 630));
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowOpened(java.awt.event.WindowEvent evt) {
+                formWindowOpened(evt);
+            }
+        });
 
         jPanel1.setBackground(new java.awt.Color(255, 62, 21));
         jPanel1.setPreferredSize(new java.awt.Dimension(250, 630));
@@ -180,46 +191,13 @@ public class PaginaCadastroInfoUs extends javax.swing.JFrame {
 
         jPanel10.setBackground(new java.awt.Color(241, 241, 241));
         jPanel10.setPreferredSize(new java.awt.Dimension(1100, 100));
-        jPanel10.setLayout(new java.awt.GridBagLayout());
+        jPanel10.setLayout(null);
 
         lbl_canalInfoUs.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         lbl_canalInfoUs.setForeground(new java.awt.Color(45, 18, 75));
-        lbl_canalInfoUs.setText("Canal");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 0;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(50, 90, 0, 0);
-        jPanel10.add(lbl_canalInfoUs, gridBagConstraints);
-
-        lbl_idContaInfoUs.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        lbl_idContaInfoUs.setForeground(new java.awt.Color(45, 18, 75));
-        lbl_idContaInfoUs.setText("Plataforma");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 5;
-        gridBagConstraints.gridy = 0;
-        gridBagConstraints.gridwidth = 6;
-        gridBagConstraints.ipadx = 6;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(50, 40, 0, 0);
-        jPanel10.add(lbl_idContaInfoUs, gridBagConstraints);
-
-        txt_idCadasInfoUs.setFont(new java.awt.Font("Segoe UI", 0, 22)); // NOI18N
-        txt_idCadasInfoUs.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txt_idCadasInfoUsActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 15;
-        gridBagConstraints.gridy = 4;
-        gridBagConstraints.gridwidth = 36;
-        gridBagConstraints.gridheight = 2;
-        gridBagConstraints.ipadx = 186;
-        gridBagConstraints.ipady = 4;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(0, 80, 0, 0);
-        jPanel10.add(txt_idCadasInfoUs, gridBagConstraints);
+        lbl_canalInfoUs.setText("Canais:");
+        jPanel10.add(lbl_canalInfoUs);
+        lbl_canalInfoUs.setBounds(92, 51, 70, 25);
 
         txt_userInfoUs.setFont(new java.awt.Font("Segoe UI", 0, 22)); // NOI18N
         txt_userInfoUs.addActionListener(new java.awt.event.ActionListener() {
@@ -227,26 +205,14 @@ public class PaginaCadastroInfoUs extends javax.swing.JFrame {
                 txt_userInfoUsActionPerformed(evt);
             }
         });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 7;
-        gridBagConstraints.gridwidth = 5;
-        gridBagConstraints.ipadx = 186;
-        gridBagConstraints.ipady = 4;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(5, 13, 0, 0);
-        jPanel10.add(txt_userInfoUs, gridBagConstraints);
+        jPanel10.add(txt_userInfoUs);
+        txt_userInfoUs.setBounds(152, 237, 250, 40);
 
         lbl_senhaInfoUs.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         lbl_senhaInfoUs.setForeground(new java.awt.Color(45, 18, 75));
         lbl_senhaInfoUs.setText("Senha");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 15;
-        gridBagConstraints.gridy = 6;
-        gridBagConstraints.gridwidth = 12;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(10, 80, 0, 0);
-        jPanel10.add(lbl_senhaInfoUs, gridBagConstraints);
+        jPanel10.add(lbl_senhaInfoUs);
+        lbl_senhaInfoUs.setBounds(540, 207, 52, 25);
 
         txt_senhaInfoUs.setFont(new java.awt.Font("Segoe UI", 0, 22)); // NOI18N
         txt_senhaInfoUs.addActionListener(new java.awt.event.ActionListener() {
@@ -254,15 +220,8 @@ public class PaginaCadastroInfoUs extends javax.swing.JFrame {
                 txt_senhaInfoUsActionPerformed(evt);
             }
         });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 15;
-        gridBagConstraints.gridy = 7;
-        gridBagConstraints.gridwidth = 36;
-        gridBagConstraints.ipadx = 186;
-        gridBagConstraints.ipady = 4;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(5, 80, 0, 0);
-        jPanel10.add(txt_senhaInfoUs, gridBagConstraints);
+        jPanel10.add(txt_senhaInfoUs);
+        txt_senhaInfoUs.setBounds(540, 237, 250, 40);
 
         btn_limparInfo.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
         btn_limparInfo.setForeground(new java.awt.Color(255, 62, 21));
@@ -272,14 +231,8 @@ public class PaginaCadastroInfoUs extends javax.swing.JFrame {
                 btn_limparInfoActionPerformed(evt);
             }
         });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 8;
-        gridBagConstraints.gridwidth = 10;
-        gridBagConstraints.ipadx = 92;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(50, 10, 36, 0);
-        jPanel10.add(btn_limparInfo, gridBagConstraints);
+        jPanel10.add(btn_limparInfo);
+        btn_limparInfo.setBounds(222, 327, 238, 55);
 
         txt_tokenCanalInfo.setFont(new java.awt.Font("Segoe UI", 0, 22)); // NOI18N
         txt_tokenCanalInfo.setToolTipText("");
@@ -288,39 +241,20 @@ public class PaginaCadastroInfoUs extends javax.swing.JFrame {
                 txt_tokenCanalInfoActionPerformed(evt);
             }
         });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 4;
-        gridBagConstraints.gridwidth = 5;
-        gridBagConstraints.ipadx = 186;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(0, 13, 0, 0);
-        jPanel10.add(txt_tokenCanalInfo, gridBagConstraints);
+        jPanel10.add(txt_tokenCanalInfo);
+        txt_tokenCanalInfo.setBounds(152, 161, 250, 36);
 
-        lbl_userInfoUs1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        lbl_userInfoUs1.setForeground(new java.awt.Color(45, 18, 75));
-        lbl_userInfoUs1.setText("Usuário");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 6;
-        gridBagConstraints.gridwidth = 2;
-        gridBagConstraints.ipadx = 14;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(10, 13, 0, 0);
-        jPanel10.add(lbl_userInfoUs1, gridBagConstraints);
+        lbl_userInfoUs.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        lbl_userInfoUs.setForeground(new java.awt.Color(45, 18, 75));
+        lbl_userInfoUs.setText("Usuário");
+        jPanel10.add(lbl_userInfoUs);
+        lbl_userInfoUs.setBounds(152, 207, 79, 25);
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(45, 18, 75));
-        jLabel1.setText("Token");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 2;
-        gridBagConstraints.gridheight = 2;
-        gridBagConstraints.ipadx = 7;
-        gridBagConstraints.ipady = 5;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(10, 13, 0, 0);
-        jPanel10.add(jLabel1, gridBagConstraints);
+        lbl_Token.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        lbl_Token.setForeground(new java.awt.Color(45, 18, 75));
+        lbl_Token.setText("Token");
+        jPanel10.add(lbl_Token);
+        lbl_Token.setBounds(152, 131, 60, 30);
 
         cbxCanal.setFont(new java.awt.Font("Segoe UI", 0, 22)); // NOI18N
         cbxCanal.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecionar" }));
@@ -329,66 +263,14 @@ public class PaginaCadastroInfoUs extends javax.swing.JFrame {
                 cbxCanalActionPerformed(evt);
             }
         });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 1;
-        gridBagConstraints.gridwidth = 4;
-        gridBagConstraints.ipadx = 70;
-        gridBagConstraints.ipady = 4;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(5, 90, 0, 0);
-        jPanel10.add(cbxCanal, gridBagConstraints);
-
-        lbl_idContaInfoUs1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        lbl_idContaInfoUs1.setForeground(new java.awt.Color(45, 18, 75));
-        lbl_idContaInfoUs1.setText("ID da Conta");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 15;
-        gridBagConstraints.gridy = 2;
-        gridBagConstraints.gridwidth = 13;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(10, 80, 0, 0);
-        jPanel10.add(lbl_idContaInfoUs1, gridBagConstraints);
-
-        cbxPlataforma.setFont(new java.awt.Font("Segoe UI", 0, 22)); // NOI18N
-        cbxPlataforma.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecionar" }));
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 5;
-        gridBagConstraints.gridy = 1;
-        gridBagConstraints.gridwidth = 11;
-        gridBagConstraints.ipadx = 90;
-        gridBagConstraints.ipady = 4;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(5, 40, 0, 0);
-        jPanel10.add(cbxPlataforma, gridBagConstraints);
-
-        cbxPaut.setFont(new java.awt.Font("Segoe UI", 0, 22)); // NOI18N
-        cbxPaut.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecionar" }));
-        cbxPaut.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cbxPautActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 27;
-        gridBagConstraints.gridy = 1;
-        gridBagConstraints.gridwidth = 38;
-        gridBagConstraints.ipadx = 80;
-        gridBagConstraints.ipady = 4;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(5, 38, 0, 90);
-        jPanel10.add(cbxPaut, gridBagConstraints);
+        jPanel10.add(cbxCanal);
+        cbxCanal.setBounds(92, 81, 218, 40);
 
         lbl_idContaInfoUs2.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         lbl_idContaInfoUs2.setForeground(new java.awt.Color(45, 18, 75));
-        lbl_idContaInfoUs2.setText("Padrão Autentificação");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 27;
-        gridBagConstraints.gridy = 0;
-        gridBagConstraints.gridwidth = 37;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(50, 38, 0, 0);
-        jPanel10.add(lbl_idContaInfoUs2, gridBagConstraints);
+        lbl_idContaInfoUs2.setText("Padrão Autentificação:");
+        jPanel10.add(lbl_idContaInfoUs2);
+        lbl_idContaInfoUs2.setBounds(660, 50, 195, 25);
 
         btn_cadastrarInfoUs1.setBackground(new java.awt.Color(255, 62, 21));
         btn_cadastrarInfoUs1.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
@@ -399,14 +281,66 @@ public class PaginaCadastroInfoUs extends javax.swing.JFrame {
                 btn_cadastrarInfoUs1ActionPerformed(evt);
             }
         });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 15;
-        gridBagConstraints.gridy = 8;
-        gridBagConstraints.gridwidth = 24;
-        gridBagConstraints.ipadx = 108;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(50, 70, 36, 0);
-        jPanel10.add(btn_cadastrarInfoUs1, gridBagConstraints);
+        jPanel10.add(btn_cadastrarInfoUs1);
+        btn_cadastrarInfoUs1.setBounds(530, 327, 240, 55);
+
+        lbl_idContaInfoUs3.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        lbl_idContaInfoUs3.setForeground(new java.awt.Color(45, 18, 75));
+        lbl_idContaInfoUs3.setText("Plataformas:");
+        jPanel10.add(lbl_idContaInfoUs3);
+        lbl_idContaInfoUs3.setBounds(360, 51, 120, 25);
+
+        jPanel13.setBackground(new java.awt.Color(204, 204, 204));
+
+        lbl_Autentificacao.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        lbl_Autentificacao.setForeground(new java.awt.Color(45, 18, 75));
+        lbl_Autentificacao.setText("Autentificação");
+
+        javax.swing.GroupLayout jPanel13Layout = new javax.swing.GroupLayout(jPanel13);
+        jPanel13.setLayout(jPanel13Layout);
+        jPanel13Layout.setHorizontalGroup(
+            jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel13Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(lbl_Autentificacao, javax.swing.GroupLayout.DEFAULT_SIZE, 178, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+        jPanel13Layout.setVerticalGroup(
+            jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel13Layout.createSequentialGroup()
+                .addContainerGap(9, Short.MAX_VALUE)
+                .addComponent(lbl_Autentificacao)
+                .addContainerGap())
+        );
+
+        jPanel10.add(jPanel13);
+        jPanel13.setBounds(660, 80, 190, 40);
+
+        jPanel15.setBackground(new java.awt.Color(204, 204, 204));
+
+        lbl_Plataforma.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        lbl_Plataforma.setForeground(new java.awt.Color(45, 18, 75));
+        lbl_Plataforma.setText("Plataforma");
+
+        javax.swing.GroupLayout jPanel15Layout = new javax.swing.GroupLayout(jPanel15);
+        jPanel15.setLayout(jPanel15Layout);
+        jPanel15Layout.setHorizontalGroup(
+            jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel15Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(lbl_Plataforma, javax.swing.GroupLayout.DEFAULT_SIZE, 158, Short.MAX_VALUE)
+                .addGap(16, 16, 16))
+        );
+        jPanel15Layout.setVerticalGroup(
+            jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel15Layout.createSequentialGroup()
+                .addContainerGap(9, Short.MAX_VALUE)
+                .addComponent(lbl_Plataforma)
+                .addContainerGap())
+        );
+
+        jPanel10.add(jPanel15);
+        jPanel15.setBounds(360, 80, 180, 40);
 
         jPanel8.add(jPanel10, java.awt.BorderLayout.CENTER);
 
@@ -420,10 +354,6 @@ public class PaginaCadastroInfoUs extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void txt_idCadasInfoUsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_idCadasInfoUsActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txt_idCadasInfoUsActionPerformed
-
     private void txt_userInfoUsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_userInfoUsActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txt_userInfoUsActionPerformed
@@ -435,58 +365,128 @@ public class PaginaCadastroInfoUs extends javax.swing.JFrame {
     private void btn_limparInfoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_limparInfoActionPerformed
         
         txt_tokenCanalInfo.setText("");
-        txt_idCadasInfoUs.setText("");
         txt_userInfoUs.setText("");
         txt_senhaInfoUs.setText("");
-        
-        
-        
-       
-        
-        
-        
-        
         
     }//GEN-LAST:event_btn_limparInfoActionPerformed
 
     private void txt_tokenCanalInfoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_tokenCanalInfoActionPerformed
-        // TODO add your handling code here:
+        
     }//GEN-LAST:event_txt_tokenCanalInfoActionPerformed
 
     private void btn_VoltarCadAtivoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_VoltarCadAtivoActionPerformed
-        // TODO add your handling code here:
-        new PaginaCadastrosAtivos().setVisible(true);
+
+        new PaginaCadastrosAtivos(user).setVisible(true);
         this.dispose();
+        
     }//GEN-LAST:event_btn_VoltarCadAtivoActionPerformed
 
     private void cbxCanalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbxCanalActionPerformed
+    
+        String conteudo = cbxCanal.getSelectedItem().toString();
+        
+        if(conteudo == null || conteudo.equals("Selecionar")){
+            lbl_Autentificacao.setEnabled(false);
+            lbl_Plataforma.setEnabled(false);
+            lbl_Autentificacao.setText("Autentificacao");
+            lbl_Plataforma.setText("Plataforma");
+            
+            lbl_Token.setEnabled(false);
+            txt_tokenCanalInfo.setEnabled(false);
+            lbl_userInfoUs.setEnabled(false);
+            lbl_senhaInfoUs.setEnabled(false);
+            txt_userInfoUs.setEnabled(false);
+            txt_senhaInfoUs.setEnabled(false);
+            
+        }else{
+            lbl_Autentificacao.setEnabled(true);
+            lbl_Plataforma.setEnabled(true);
+            
+            Canal canal = new CanalConfigDAO().buscarConfig(conteudo);
+            
+            lbl_Plataforma.setText(canal.getPlataforma());
+            lbl_Autentificacao.setText(canal.getAutentificacao());
+            
+            if(canal.getAutentificacao().equals("Token")){
+                lbl_Token.setEnabled(true);
+                txt_tokenCanalInfo.setEnabled(true);
+                lbl_userInfoUs.setEnabled(false);
+                lbl_senhaInfoUs.setEnabled(false);
+                txt_userInfoUs.setEnabled(false);
+                txt_senhaInfoUs.setEnabled(false);
+            }else{
+                lbl_Token.setEnabled(false);
+                txt_tokenCanalInfo.setEnabled(false);
+                lbl_userInfoUs.setEnabled(true);
+                lbl_senhaInfoUs.setEnabled(true);
+                txt_userInfoUs.setEnabled(true);
+                txt_senhaInfoUs.setEnabled(true);
+            }
+            
+        }
         
     }//GEN-LAST:event_cbxCanalActionPerformed
 
-    private void cbxPautActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbxPautActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_cbxPautActionPerformed
-
     private void btn_cadastrarInfoUs1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_cadastrarInfoUs1ActionPerformed
-        // TODO add your handling code here:
-        CanalInfo p = new CanalInfo();
-        p.setContaid(txt_idCadasInfoUs.getText());
-        p.setUsuario(txt_userInfoUs.getText());
-        p.setSenha(txt_senhaInfoUs.getText());
-        p.setToken(txt_tokenCanalInfo.getText());
-        p.setEmpresa((String)cbxCanal.getSelectedItem());
-        p.setPlataforma((String)cbxPlataforma.getSelectedItem());
-        if((txt_idCadasInfoUs.getText().isEmpty())){
-            
-            JOptionPane.showMessageDialog(null, "O campo ID da Conta precisa ser preenchido");
         
-    }
-        else{
-            CanalDAO dao = new CanalDAO();
-            dao.create(p);
-            
+        CanalDTO p = new CanalDTO();
+        
+        p.setUsuario(txt_userInfoUs.getText());
+        p.setEmpresa(cbxCanal.getSelectedItem().toString());
+        p.setPlataforma(lbl_Plataforma.getText());
+        p.setAutentificacao(lbl_Autentificacao.getText());
+        if(lbl_Autentificacao.getText().equals("Token")){
+            p.setLogin("vazio");
+            p.setSenha("vazio");
+            p.setToken(txt_tokenCanalInfo.getText());
+        }else{
+            p.setLogin(txt_userInfoUs.getText());
+            p.setSenha(txt_senhaInfoUs.getText());
+            p.setToken("vazio");
         }
+        
+        if((txt_userInfoUs.getText() == null || txt_senhaInfoUs.getText() == null) && lbl_Autentificacao.equals("Login")){
+            JOptionPane.showMessageDialog(null, "Preencha os campos necessarios!");
+        }else{
+            JOptionPane.showMessageDialog(null, user.getUser());
+            CanalDAO dao = new CanalDAO();
+            dao.addCanal(p, user);
+            
+            int resp = JOptionPane.showConfirmDialog(null, "Deseja apagar as caixas de entrada?");
+            if(resp == JOptionPane.YES_OPTION){
+                txt_tokenCanalInfo.setText("");
+                txt_userInfoUs.setText("");
+                txt_senhaInfoUs.setText("");
+            }
+        }
+        
     }//GEN-LAST:event_btn_cadastrarInfoUs1ActionPerformed
+
+    private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
+        
+        lbl_Autentificacao.setEnabled(false);
+        lbl_Plataforma.setEnabled(false);
+        lbl_Token.setEnabled(false);
+        txt_tokenCanalInfo.setEnabled(false);
+        lbl_userInfoUs.setEnabled(false);
+        lbl_senhaInfoUs.setEnabled(false);
+        txt_userInfoUs.setEnabled(false);
+        txt_senhaInfoUs.setEnabled(false);
+        
+        try{
+            CanalDAO objcanaldao = new CanalDAO();
+            ResultSet rs = objcanaldao.listarEmpresa();
+            
+            while (rs.next()){
+                idCanais.addElement(rs.getInt(1));
+                cbxCanal.addItem(rs.getString(2));
+            }
+            
+        }catch (SQLException erro) {
+            JOptionPane.showMessageDialog(null, "Carregar ComboBox" + erro);
+        }
+        
+    }//GEN-LAST:event_formWindowOpened
 
     /**
      * @param args the command line arguments
@@ -549,70 +549,17 @@ public class PaginaCadastroInfoUs extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new PaginaCadastroInfoUs().setVisible(true);
+                new PaginaCadastroInfoUs(user).setVisible(true);
             }
         });
     }
+    
     Vector<Integer> idCanais = new Vector<Integer>();
     
     public void restaurarDadosComboBoxCargo(){
         
-        try {
-            CanalDAO objcanaldao = new CanalDAO();
-            ResultSet rs = objcanaldao.listarEmpresa();
-            
-            while (rs.next()){
-                idCanais.addElement(rs.getInt(1));
-                cbxCanal.addItem(rs.getString(2));
-            }
-            
-        } catch (SQLException erro) {
-            JOptionPane.showMessageDialog(null, "Carregar ComboBox" + erro);
-        }
-    }
-    
-    
-    
-    //--------------------------------------------------RestaurarComboBox2---------------------------------------------------------
-    
-        public void restaurarDadosComboBoxCargo2(){
         
-        try {
-            CanalDAO objcanaldao2 = new CanalDAO();
-            ResultSet rs = objcanaldao2.listarEmpresa2();
-            
-            while (rs.next()){
-                idCanais.addElement(rs.getInt(1));
-                cbxPlataforma.addItem(rs.getString(3));
-            }
-            
-        } catch (SQLException erro) {
-            JOptionPane.showMessageDialog(null, "Carregar ComboBox" + erro);
-        }
-    }
-        
-        
-        //------------------------------------------------RestaurarComboBox3----------------------------------------------------------
-        
-                public void restaurarDadosComboBoxCargo3(){
-        
-        try {
-            CanalDAO objcanaldao2 = new CanalDAO();
-            ResultSet rs = objcanaldao2.listarEmpresa3();
-            
-            while (rs.next()){
-                idCanais.addElement(rs.getInt(1));
-                cbxPaut.addItem(rs.getString(4));
-            }
-            
-        } catch (SQLException erro) {
-            JOptionPane.showMessageDialog(null, "Carregar ComboBox" + erro);
-        }
-    }
-    
-    
-    
-    
+    }   
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn_VoltarCadAtivo;
@@ -620,14 +567,13 @@ public class PaginaCadastroInfoUs extends javax.swing.JFrame {
     private javax.swing.JButton btn_limparInfo;
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JComboBox<String> cbxCanal;
-    private javax.swing.JComboBox<String> cbxPaut;
-    private javax.swing.JComboBox<String> cbxPlataforma;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel_LogoTelaPrincipal;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel10;
     private javax.swing.JPanel jPanel11;
     private javax.swing.JPanel jPanel12;
+    private javax.swing.JPanel jPanel13;
+    private javax.swing.JPanel jPanel15;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
@@ -637,15 +583,16 @@ public class PaginaCadastroInfoUs extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel8;
     private javax.swing.JPanel jPanel9;
     private javax.swing.JLabel lbl_4dGroupInfoUs;
+    public static javax.swing.JLabel lbl_Autentificacao;
     private javax.swing.JLabel lbl_CompInfoUs;
+    public static javax.swing.JLabel lbl_Plataforma;
+    public static javax.swing.JLabel lbl_Token;
     private javax.swing.JLabel lbl_cadasCanaInfoUs;
     private javax.swing.JLabel lbl_canalInfoUs;
-    private javax.swing.JLabel lbl_idContaInfoUs;
-    private javax.swing.JLabel lbl_idContaInfoUs1;
     private javax.swing.JLabel lbl_idContaInfoUs2;
+    private javax.swing.JLabel lbl_idContaInfoUs3;
     private javax.swing.JLabel lbl_senhaInfoUs;
-    private javax.swing.JLabel lbl_userInfoUs1;
-    private javax.swing.JTextField txt_idCadasInfoUs;
+    private javax.swing.JLabel lbl_userInfoUs;
     private javax.swing.JTextField txt_senhaInfoUs;
     private javax.swing.JTextField txt_tokenCanalInfo;
     private javax.swing.JTextField txt_userInfoUs;
