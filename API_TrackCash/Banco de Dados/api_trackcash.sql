@@ -1,41 +1,42 @@
-CREATE SCHEMA IF NOT EXISTS `api_trackcash`;
+CREATE SCHEMA IF NOT EXISTS api_trackcash;
 USE `api_trackcash` ;
 
-CREATE TABLE IF NOT EXISTS `api_trackcash`.`cadastro_canal` (
-  `can_id` INT NOT NULL AUTO_INCREMENT,
-  `can_empresa` VARCHAR(45) NULL,
-  `can_plataforma` VARCHAR(45) NULL,
-  `can_autentificacao` VARCHAR(45) NULL,
-  PRIMARY KEY (`can_id`))
-ENGINE = InnoDB;
-
-SELECT * FROM cadastro_canal;
-
-CREATE TABLE IF NOT EXISTS `api_trackcash`.`canais` (
-  `idCanais` INT NOT NULL AUTO_INCREMENT,
-  `empresa` VARCHAR(45) NULL,
-  `contaid` VARCHAR(45) NULL,
-  `plataforma` VARCHAR(45) NULL,
-  `usuario` VARCHAR(45) NULL,
-  `senha` VARCHAR(45) NULL,
-  `token` VARCHAR(90) NULL,
-  PRIMARY KEY (`idCanais`))
-ENGINE = InnoDB;
-
-SELECT * FROM canais;
-
-create table if not exists usuarios(
-   id int primary key auto_increment not null,
-   nome varchar(40),
-   usuario varchar(30) not null unique,
-   `email` varchar(50) not null,
-   `senha` varchar(20) not null,
-   atividade boolean not null,
-   tpAcesso int not null
+CREATE TABLE IF NOT EXISTS api_trackcash.tbl_Usuario(
+    id_User INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
+    Nome VARCHAR,
+    Sobrenome VARCHAR,
+    Usuario VARCHAR NOT NULL,
+    email VARCHAR NOT NULL,
+    senha VARCHAR NOT NULL,
+    atividade BOOLEAN NOT NULL,
+    perfil INT NOT NULL
 )default charset = utf8;
 
-insert into usuarios values(default, null, "master", "master@fatec", "master123", true, "0");
+SELECT * FROM tbl_Usuario;
 
-insert into usuarios values(default, null, "admin", "admin@fatec", "admin123", true, "1");
+CREATE TABLE IF NOT EXISTS api.trackcash.tbl_Canal (
+    id_Canal INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
+    Token VARCHAR,
+    User VARCHAR,
+    Senha VARCHAR,
+    fk_tbl_Usuario_id_User INT NOT NULL,
+    fk_tbl_Config_id_Config INT NOT NULL
+)default charset = utf8;
 
-insert into usuarios values(default, null, "4Desk", "4Desk@fatec", "123", true, "2");
+SELECT * FROM tbl_Canal;
+
+CREATE TABLE IF NOT EXISTS api_trackcash.tbl_Config (
+    id_Config INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
+    Empresa VARCHAR NOT NULL,
+    Plataforma VARCHAR NOT NULL,
+    Autenticacao VARCHAR NOT NULL,
+    fk_tbl_Usuario_id_User INT NOT NULL
+)default charset = utf8;
+
+SELECT * FROM tbl_Canal;
+
+insert into tbl_Usuario values(default, default, "master", "master@fatec", "master123", true, "0");
+
+insert into tbl_Usuario values(default, default, "admin", "admin@fatec", "admin123", true, "1");
+
+insert into tbl_Usuario values(default, default, "4Desk", "4Desk@fatec", "123", true, "2");
