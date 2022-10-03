@@ -1,5 +1,17 @@
+SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0;
+SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
+SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION';
+
+-- -----------------------------------------------------
+-- Schema api_trackcash
+-- -----------------------------------------------------
+
 CREATE SCHEMA IF NOT EXISTS api_trackcash;
 USE `api_trackcash` ;
+
+-- -----------------------------------------------------
+-- Table `api_trackcash`.`tbl_Usuario`
+-- -----------------------------------------------------
 
 CREATE TABLE IF NOT EXISTS api_trackcash.tbl_Usuario(
     id_User INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
@@ -14,6 +26,10 @@ CREATE TABLE IF NOT EXISTS api_trackcash.tbl_Usuario(
 
 SELECT * FROM tbl_Usuario;
 
+-- -----------------------------------------------------
+-- Table `api_trackcash`.`tbl_Canal`
+-- -----------------------------------------------------
+
 CREATE TABLE IF NOT EXISTS api.trackcash.tbl_Canal (
     id_Canal INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
     Token VARCHAR(90),
@@ -24,6 +40,10 @@ CREATE TABLE IF NOT EXISTS api.trackcash.tbl_Canal (
 )default charset = utf8;
 
 SELECT * FROM tbl_Canal;
+
+-- -----------------------------------------------------
+-- Table `api_trackcash`.`tbl_Config`
+-- -----------------------------------------------------
 
 CREATE TABLE IF NOT EXISTS api_trackcash.tbl_Config (
     id_Config INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
