@@ -13,7 +13,7 @@ USE `api_trackcash` ;
 -- Table `api_trackcash`.`tbl_Usuario`
 -- -----------------------------------------------------
 
-CREATE TABLE IF NOT EXISTS api_trackcash.tbl_Usuario(
+CREATE TABLE IF NOT EXISTS `api_trackcash`.`tbl_Usuario`(
     id_User INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
     Nome VARCHAR(40),
     Sobrenome VARCHAR(40),
@@ -30,7 +30,7 @@ SELECT * FROM tbl_Usuario;
 -- Table `api_trackcash`.`tbl_Canal`
 -- -----------------------------------------------------
 
-CREATE TABLE IF NOT EXISTS api.trackcash.tbl_Canal (
+CREATE TABLE IF NOT EXISTS `api_trackcash`.`tbl_Canal` (
     id_Canal INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
     Token VARCHAR(90),
     Login VARCHAR(45),
@@ -45,7 +45,7 @@ SELECT * FROM tbl_Canal;
 -- Table `api_trackcash`.`tbl_Config`
 -- -----------------------------------------------------
 
-CREATE TABLE IF NOT EXISTS api_trackcash.tbl_Config (
+CREATE TABLE IF NOT EXISTS `api_trackcash`.`tbl_Config` (
     id_Config INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
     Empresa VARCHAR(45) NOT NULL,
     Plataforma VARCHAR(45) NOT NULL,
@@ -55,11 +55,11 @@ CREATE TABLE IF NOT EXISTS api_trackcash.tbl_Config (
 
 SELECT * FROM tbl_Canal;
 
-insert into tbl_Usuario values(default, default, "master", "master@fatec", "master123", true, "0");
+insert into tbl_Usuario values(default, null, null, "master", "master@fatec", "master123", true, "0");
 
-insert into tbl_Usuario values(default, default, "admin", "admin@fatec", "admin123", true, "1");
+insert into tbl_Usuario values(default, null, null, "admin", "admin@fatec", "admin123", true, "1");
 
-insert into tbl_Usuario values(default, default, "4Desk", "4Desk@fatec", "123", true, "2");
+insert into tbl_Usuario values(default, null, null, "4Desk", "4Desk@fatec", "123", true, "2");
 
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
