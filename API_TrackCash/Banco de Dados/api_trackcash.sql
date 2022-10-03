@@ -60,3 +60,7 @@ insert into tbl_Usuario values(default, default, "master", "master@fatec", "mast
 insert into tbl_Usuario values(default, default, "admin", "admin@fatec", "admin123", true, "1");
 
 insert into tbl_Usuario values(default, default, "4Desk", "4Desk@fatec", "123", true, "2");
+
+SET SQL_MODE=@OLD_SQL_MODE;
+SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
+SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
