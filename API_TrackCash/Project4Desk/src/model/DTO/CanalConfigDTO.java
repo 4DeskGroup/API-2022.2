@@ -4,18 +4,9 @@ import model.bean.*;
 
 public class CanalConfigDTO {
     
-    private int id;
     protected String empresa;
     protected String plataforma;
-    protected String autentificacao;
-
-    public int getId() {
-        return this.id;
-    }
-
-    public void setId(int i) {
-        this.id = i;
-    }
+    protected String autenticacao;
 
     public String getEmpresa() {
         return this.empresa;
@@ -33,12 +24,12 @@ public class CanalConfigDTO {
         this.plataforma = p;
     }
 
-    public String getAutentificacao() {
-        return this.autentificacao;
+    public String getAutenticacao() {
+        return this.autenticacao;
     }
 
-    public void setAutentificacao(String a) {
-        this.autentificacao = a;
+    public void setAutenticacao(String a) {
+        this.autenticacao = a;
     }
     
 }

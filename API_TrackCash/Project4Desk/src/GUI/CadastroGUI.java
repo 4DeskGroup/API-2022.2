@@ -3,6 +3,8 @@ package GUI;
 import model.dao.UsuarioDAO;
 import model.bean.Usuario;
 import View.TelaPrincipal;
+import java.awt.Dimension;
+import java.awt.Frame;
 import javax.swing.JOptionPane;
 
 public class CadastroGUI extends javax.swing.JFrame {
@@ -352,9 +354,24 @@ public class CadastroGUI extends javax.swing.JFrame {
     }//GEN-LAST:event_txt_NomeActionPerformed
 
     private void btn_loginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_loginActionPerformed
+        Dimension telaOriginal = getPreferredSize();
+        Dimension telaRecente = getSize();
 
-        new LoginGUI().setVisible(true);
-        this.dispose();
+        int tamanhoTelaOriginal= (int) telaOriginal.getWidth();
+        int tamanhoTelaRecente = (int) telaRecente.getWidth();
+
+        if (tamanhoTelaOriginal < tamanhoTelaRecente) {
+            LoginGUI loginGUI = new LoginGUI();
+            loginGUI.setExtendedState(Frame.MAXIMIZED_BOTH);
+            loginGUI.setVisible(true);
+            this.dispose();
+        } else {
+            LoginGUI loginGUI = new LoginGUI();
+            loginGUI.setVisible(true);
+            this.dispose();
+        }
+        //new LoginGUI().setVisible(true);
+        //this.dispose();
         
     }//GEN-LAST:event_btn_loginActionPerformed
 

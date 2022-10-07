@@ -20,16 +20,17 @@ public class UsuarioDAO extends ConnectionFactory{
         /*
             Aqui ele esta inserindo os valores na tabela Usuarios do banco de dados!
         */
-        String sql = "INSERT INTO usuario VALUES(DEFAULT, ?, ?, ?, ?, ?, ?)";
+        String sql = "INSERT INTO tbl_Usuario VALUES(DEFAULT, ?, ?, ?, ?, ?, ?, ?)";
         
         try{
             
             PreparedStatement stmt = conection.prepareStatement(sql);
-            stmt.setString(1, cliente.getNome());
-            stmt.setString(2, cliente.getUser());
+            stmt.setString(1, cliente.getUser());
+            stmt.setString(2, cliente.getNome());
+             stmt.setString(2, cliente.getSobrenome());
             stmt.setString(3, cliente.getEmail());
             stmt.setString(4, cliente.getPass());
-            stmt.setBoolean(5, cliente.getActive());
+            stmt.setBoolean(5, cliente.getStatus());
             stmt.setInt(6, 2);
             stmt.execute();
             stmt.close();
@@ -45,8 +46,8 @@ public class UsuarioDAO extends ConnectionFactory{
     }
     public ResultSet loginCliente(UsuarioDTO clientedto){                           // 'pk' é Primary Key
         
-        String sql = "select * from usuario where usuario = binary " + '"' + clientedto.getUser() + '"' + 
-                " and senha = binary " + '"' + clientedto.getPass() + '"';
+        String sql = "SELECT * FROM tbl_Usuario WHERE Usuario = BINARY " + '"' + clientedto.getUser() + '"' + 
+                " AND Senha_Usuario = BINARY " + '"' + clientedto.getPass() + '"';
 
         try{
             PreparedStatement stmt = this.conection.prepareStatement(sql);
@@ -60,7 +61,7 @@ public class UsuarioDAO extends ConnectionFactory{
     }
     
     public boolean existCliente(String pk, String p){
-        String sql = "SELECT * FROM usuario WHERE usuario = ?";
+        String sql = "SELECT * FROM tbl_Usuario WHERE Usuario = ?";
         try{
             
             PreparedStatement stmt = this.conection.prepareStatement(sql);
@@ -85,7 +86,7 @@ public class UsuarioDAO extends ConnectionFactory{
     }
     
     public int searchClienteID(String user){
-        String sql = "SELECT * FROM usuario WHERE usuario = ?";
+        String sql = "SELECT * FROM tbl_Usuario WHERE Usuario = ?";
         try{
             
             PreparedStatement stmt = this.conection.prepareStatement(sql);

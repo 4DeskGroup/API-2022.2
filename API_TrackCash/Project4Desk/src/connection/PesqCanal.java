@@ -9,26 +9,29 @@ import java.sql.ResultSet;
 import java.sql.DriverManager;
 import java.util.Vector;
 import javax.swing.JOptionPane;
+import model.bean.Usuario;
 
 public class PesqCanal extends ConnectionFactory{
     
-    public PesqCanal() throws Exception{
-        
+    private static Usuario user;
+    
+    public PesqCanal(Usuario user) throws Exception{
+        this.user = user;
     }
+    
     public Vector Pesquisar() throws Exception{
         Vector tb = new Vector ();
-        String url = "select * from canal";
+        String url = "SELECT * FROM tbl_Canal JOIN tbl_Config WHERE "
+                    + "tbl_Canal.Usuario_pertencente = " + '"' + user.getId()+ '"' + " AND  id_Config = Config_pertencente";
         PreparedStatement stmt = getConnection().prepareStatement(url);
         ResultSet rs = stmt.executeQuery();
         while(rs.next()){
             Vector nl = new Vector();
-            nl.add(rs.getInt("idCanais"));
-            nl.add(rs.getString("empresa"));
-            nl.add(rs.getString("contaid"));
-            nl.add(rs.getString("plataforma"));
-            nl.add(rs.getString("usuario"));
-            nl.add(rs.getString("senha"));
-            nl.add(rs.getString("token"));
+            nl.add(rs.getString("tbl_Config.Empresa_Config"));
+            nl.add(rs.getString("tbl_Canal.Login_Canal"));
+            nl.add(rs.getString("tbl_Canal.Senha_Canal"));
+            nl.add(rs.getString("tbl_Canal.Token_Canal"));
+            nl.add(rs.getInt("tbl_Canal.id_Canal"));
             tb.add(nl);
         }
         return tb;
@@ -36,36 +39,32 @@ public class PesqCanal extends ConnectionFactory{
     
     public Vector Pesquisar(String pesq) throws Exception{
         Vector tb = new Vector ();
-        String url = "select * from canal where contaid like '%" + pesq + "%'";
+        String url = "SELECT * FROM tbl_Canal JOIN tbl_Config WHERE tbl_Canal.id_Canal like '%" + pesq + "%' and tbl_Canal.Usuario_pertencente = " + '"' + this.user.getId() + '"' + " AND  id_Config = Config_pertencente";
         PreparedStatement stmt = getConnection().prepareStatement(url);
         ResultSet rs = stmt.executeQuery();
         while(rs.next()){
             Vector nl = new Vector();
-            nl.add(rs.getInt("idCanais"));
-            nl.add(rs.getString("empresa"));
-            nl.add(rs.getString("contaid"));
-            nl.add(rs.getString("plataforma"));
-            nl.add(rs.getString("usuario"));
-            nl.add(rs.getString("senha"));
-            nl.add(rs.getString("token"));
+            nl.add(rs.getString("tbl_Config.Empresa_Config"));
+            nl.add(rs.getString("tbl_Canal.Login_Canal"));
+            nl.add(rs.getString("tbl_Canal.Senha_Canal"));
+            nl.add(rs.getString("tbl_Canal.Token_Canal"));
+            nl.add(rs.getInt("tbl_Canal.id_Canal"));
             tb.add(nl);
         }
         return tb;
     }
     public Vector Pesquisar(String campo, String ordem) throws Exception{
         Vector tb = new Vector ();
-        String url = "select * from canal order by " + campo + " " + ordem;
+        String url = "SELECT * FROM tbl_Canal JOIN tbl_Config WHERE tbl_Canal.Usuario_pertencente = " + '"' + this.user.getId() + '"' + " AND  id_Config = Config_pertencente ORDER BY " + campo + " " + ordem;
         PreparedStatement stmt = getConnection().prepareStatement(url);
         ResultSet rs = stmt.executeQuery();
         while(rs.next()){
             Vector nl = new Vector();
-            nl.add(rs.getInt("idCanais"));
-            nl.add(rs.getString("empresa"));
-            nl.add(rs.getString("contaid"));
-            nl.add(rs.getString("plataforma"));
-            nl.add(rs.getString("usuario"));
-            nl.add(rs.getString("senha"));
-            nl.add(rs.getString("token"));
+            nl.add(rs.getString("tbl_Config.Empresa_Config"));
+            nl.add(rs.getString("tbl_Canal.Login_Canal"));
+            nl.add(rs.getString("tbl_Canal.Senha_Canal"));
+            nl.add(rs.getString("tbl_Canal.Token_Canal"));
+            nl.add(rs.getInt("tbl_Canal.id_Canal"));
             tb.add(nl);
         }
         return tb;
@@ -76,24 +75,17 @@ public class PesqCanal extends ConnectionFactory{
         String campoString = campo.toLowerCase();
         String campoString2 = campoString;
         
-        if(ordem.equals("Sem ordem")){
-            campoString2 = "empresa";
-            ordem = "asc";
-        }
-        
         Vector tb = new Vector ();
-        String sql = "select * from canal where "+ campoString +" like '%" + pesq + "%' order by "+ campoString2 + " " + ordem;
+        String sql = "SELECT * FROM tbl_Canal JOIN tbl_Config WHERE "+ campoString +" LIKE '%" + pesq + "%' AND Usuario_pertencente = " + '"' + this.user.getId() + '"' + " AND  id_Config = Config_pertencente ORDER BY "+ campoString2 + " " + ordem;
         PreparedStatement stmt = getConnection().prepareStatement(sql);
         ResultSet rs = stmt.executeQuery();
         while(rs.next()){
             Vector nl = new Vector();
-            nl.add(rs.getInt("idCanais"));
-            nl.add(rs.getString("empresa"));
-            nl.add(rs.getString("contaid"));
-            nl.add(rs.getString("plataforma"));
-            nl.add(rs.getString("usuario"));
-            nl.add(rs.getString("senha"));
-            nl.add(rs.getString("token"));
+            nl.add(rs.getString("tbl_Config.Empresa_Config"));
+            nl.add(rs.getString("tbl_Canal.Login_Canal"));
+            nl.add(rs.getString("tbl_Canal.Senha_Canal"));
+            nl.add(rs.getString("tbl_Canal.Token_Canal"));
+            nl.add(rs.getInt("tbl_Canal.id_Canal"));
             tb.add(nl);
         }
         return tb;

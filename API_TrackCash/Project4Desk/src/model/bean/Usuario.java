@@ -6,11 +6,12 @@ public class Usuario {
     
     private int id;             // Pega o ID do usuario
     private String nome;        // Pega o user do nome
+    private String sobrenome;    // Pega o sobrenome
     private String user;        // Pega o user do usuario
     private String email;       // Pega o email do usuario
     private String pass;        // Pega a senha do usuario
     
-    private boolean active;     // Saber se a conta esta ativa ou não
+    private boolean status;     // Saber se a conta esta ativa ou não
     
     private int perfil;        /*
                                     Utilizadas para distinguir as permissões de user | perfil = 0 é a conta master e não 
@@ -21,8 +22,25 @@ public class Usuario {
     /*
         Metodos "Constructor"
     */
+
+    public Usuario(){
+        this.nome = "";
+        this.user = "";
+        this.email = "";
+        this.pass = "";
+        this.status = true;
+        this.perfil = 2;
+    }
     
     public Usuario(String n, String u, String e, String p){
+        
+        /*
+            ! IMPORTANTE !
+          Aqui não tem o id, pq esta sendo usado somente no CadastroGUI e
+        quem insere o id é o proprio banco de dados com o auto_increment
+        
+        */
+        
         if(n.equals("") || n.equals(" ")){
             this.nome = null;
         }else{
@@ -31,29 +49,35 @@ public class Usuario {
         this.user = u;
         this.email = e;
         this.pass = p;
-        this.active = true;
+        this.status = true;
         this.perfil = 2;
     }
     
-    public Usuario(){
-        this.nome = "";
-        this.user = "";
-        this.email = "";
-        this.pass = "";
-        this.active = true;
+    public Usuario(int id, String n, String u, String e, String p){
+        if(n.equals("") || n.equals(" ")){
+            this.nome = null;
+        }else{
+            this.nome = n;
+        }
+        this.id = id;
+        this.user = u;
+        this.email = e;
+        this.pass = p;
+        this.status = true;
         this.perfil = 2;
     }
     
-    public Usuario(String n, String u, String e, String p, boolean act, int tpAc){
+    public Usuario(int id, String n, String u, String e, String p, boolean sts, int tpAc){
         if(n == null || n.equals("")){
             this.nome = "Sem Nome";
         }else{
             this.nome = n;
         }
+        this.id = id;
         this.user = u;
         this.email = e;
         this.pass = p;
-        this.active = act;
+        this.status = sts;
         this.perfil = tpAc;
     }
     
@@ -65,7 +89,11 @@ public class Usuario {
         this.nome = nome;
     }
     
-    public void set(int i){
+    public void setSobrenome(String sobrenome) {
+        this.sobrenome = sobrenome;
+    }
+    
+    public void setId(int i){
         this.id = i;
     }
     public void setUser(String u){
@@ -80,8 +108,8 @@ public class Usuario {
         this.pass = p;
     }
     
-    public void setActive(boolean act){
-        this.active = act;
+    public void setStatus(boolean status){
+        this.status = status;
     }
     
     public void setPerfil(int type){
@@ -96,7 +124,11 @@ public class Usuario {
     }
 
     public String getNome() {
-        return nome;
+        return this.nome;
+    }
+    
+    public String getSobrenome() {
+        return this.sobrenome;
     }
     
     public String getUser(){
@@ -115,24 +147,7 @@ public class Usuario {
         return this.perfil;
     } 
     
-    public boolean getActive(){
-        return this.active;
-    }
-    
-    /*
-        Metodo Status
-    */
-    public void statusU(){
-        
-        // Ver o status da conta...
-        
-        JOptionPane.showMessageDialog(null, "ID: " + this.getId() +
-            "\nUsuario: " + this.getUser()  +
-            "\nE-mail: "  + this.getEmail() +
-            "\nSenha: "   + this.getPass()  +
-            "\nAtiva? "   + this.getActive()+
-            "\nTipo de acesso: " + this.getPerfil()
-        );
-        
+    public boolean getStatus(){
+        return this.status;
     }
 }

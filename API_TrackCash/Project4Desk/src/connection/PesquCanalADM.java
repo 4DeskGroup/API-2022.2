@@ -9,15 +9,15 @@ public class PesquCanalADM {
     
     public Vector PesquisarADM() throws Exception{
         Vector tb = new Vector ();
-        String url = "select * from canalConfig";
+        String url = "SELECT * FROM tbl_Config";
         PreparedStatement stmt = getConnection().prepareStatement(url);
         ResultSet rs = stmt.executeQuery();
         while(rs.next()){
             Vector nl = new Vector();
-            nl.add(rs.getInt("idConfig"));
-            nl.add(rs.getString("empresa"));
-            nl.add(rs.getString("plataforma"));
-            nl.add(rs.getString("autentificacao"));
+            nl.add(rs.getInt("id_Config"));
+            nl.add(rs.getString("Empresa_Config"));
+            nl.add(rs.getString("Plataforma_Config"));
+            nl.add(rs.getString("Autenticacao_Config"));
             tb.add(nl);
         }
         return tb;
@@ -25,15 +25,15 @@ public class PesquCanalADM {
     
     public Vector PesquisarADM(String campo, String ordem) throws Exception{
         Vector tb = new Vector ();
-        String url = "select * from canalConfig order by " + campo + " " + ordem;
+        String url = "SELECT * FROM tbl_Config ORDER BY " + campo + " " + ordem;
         PreparedStatement stmt = getConnection().prepareStatement(url);
         ResultSet rs = stmt.executeQuery();
         while(rs.next()){
             Vector nl = new Vector();
-            nl.add(rs.getInt("idConfig"));
-            nl.add(rs.getString("empresa"));
-            nl.add(rs.getString("plataforma"));
-            nl.add(rs.getString("autentificacao"));
+            nl.add(rs.getInt("id_Config"));
+            nl.add(rs.getString("Empresa_Config"));
+            nl.add(rs.getString("Plataforma_Config"));
+            nl.add(rs.getString("Autenticacao_Config"));
             tb.add(nl);
         }
         return tb;
@@ -41,15 +41,15 @@ public class PesquCanalADM {
     
     public Vector PesquisarADM(String pesq) throws Exception{
         Vector tb = new Vector ();
-        String url = "select * from canalConfig where idConfig like '%" + pesq + "%'";
+        String url = "SELECT * FROM tbl_Config WHERE id_Config like '%" + pesq + "%'";
         PreparedStatement stmt = getConnection().prepareStatement(url);
         ResultSet rs = stmt.executeQuery();
         while(rs.next()){
             Vector nl = new Vector();
-            nl.add(rs.getInt("idConfig"));
-            nl.add(rs.getString("empresa"));
-            nl.add(rs.getString("plataforma"));
-            nl.add(rs.getString("autentificacao"));
+            nl.add(rs.getInt("id_Config"));
+            nl.add(rs.getString("Empresa_Config"));
+            nl.add(rs.getString("Plataforma_Config"));
+            nl.add(rs.getString("Autenticacao_Config"));
             tb.add(nl);
         }
         return tb;
@@ -61,15 +61,15 @@ public class PesquCanalADM {
         String campoString2 = campoString;
             
         Vector tb = new Vector ();
-        String url = "select * from canalConfig where " + campoString + " like '%" + pesqadm + "%' order by " + campoString2 + " " + ordem;
+        String url = "sSELECT * FROM tbl_Config where " + campoString + " like '%" + pesqadm + "%' ORDER BY " + campoString2 + " " + ordem;
         PreparedStatement stmt = getConnection().prepareStatement(url);
         ResultSet rs = stmt.executeQuery();
         while(rs.next()){
             Vector nl = new Vector();
-            nl.add(rs.getInt("idConfig"));
-            nl.add(rs.getString("empresa"));
-            nl.add(rs.getString("plataforma"));
-            nl.add(rs.getString("autentificacao"));
+            nl.add(rs.getInt("id_Config"));
+            nl.add(rs.getString("Empresa_Config"));
+            nl.add(rs.getString("Plataforma_Config"));
+            nl.add(rs.getString("Autenticacao_Config"));
             tb.add(nl);
         }
         return tb;

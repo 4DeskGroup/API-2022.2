@@ -7,26 +7,44 @@ import javax.swing.JOptionPane;
 
 public class CanalDTO extends CanalConfigDTO{
     
-    private int idCanal;
-    private String usuario;
+    private int pk_idCanal;
+    private int fk_usuario;
+    private int fk_config;
     private String login;
     private String senha;
     private String token;
+    private String contaid;
+
+    public String getContaid() {
+        return contaid;
+    }
+
+    public void setContaid(String contaid) {
+        this.contaid = contaid;
+    }
     
     public int getIdCanal() {
-        return this.idCanal;
+        return this.pk_idCanal;
     }
 
-    public void setIdCanal(int idCanais) {
-        this.idCanal = idCanais;
+    public void setIdCanal(int pk_idCanais) {
+        this.pk_idCanal = pk_idCanais;
     }
 
-    public String getUsuario() {
-        return this.usuario;
+    public int getFkUsuario() {
+        return this.fk_usuario;
     }
 
-    public void setUsuario(String usuario) {
-        this.usuario = usuario;
+    public void setFkUsuario(int fk_usuario) {
+        this.fk_usuario = fk_usuario;
+    }
+    
+    public int getFkConfig() {
+        return this.fk_config;
+    }
+
+    public void setFkConfig(int fk_config) {
+        this.fk_config = fk_config;
     }
     
     public String getLogin() {

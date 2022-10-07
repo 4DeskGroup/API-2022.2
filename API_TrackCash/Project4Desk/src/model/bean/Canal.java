@@ -4,108 +4,129 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import javax.swing.JOptionPane;
 
-public class Canal extends CanalConfig{
-    
-    private int idCanal;
-    private String usuario;
+public class Canal extends CanalConfig {
+
+    private int pk_idCanal;
+    private int fk_usuario;
+    private int fk_config;
     private String login;
     private String senha;
     private String token;
-    
-    public Canal(){
+    private String contaid;
+
+    public Canal() {
 //        
     }
-    
-    public Canal(ResultSet rs){
-        try{
-            while(rs.next()){
-                this.empresa = rs.getString("empresa");
-                this.plataforma = rs.getString("plataforma");
-                this.autentificacao = rs.getString("autentificacao");
+
+    public Canal(ResultSet rs) {
+        try {
+            while (rs.next()) {
+                this.empresa = rs.getString("tbl_Config.Empresa_Config");
+                this.plataforma = rs.getString("tbl_Config.Plataforma_Config");
+                this.autenticacao = rs.getString("tbl_Config.Autenticacao_Config");
             }
-        }catch(SQLException erro){
+        } catch (SQLException erro) {
             JOptionPane.showMessageDialog(null, "Erro: " + erro.getMessage());
         }
     }
-    
-    public Canal(ResultSet rs, int config){
-        
-        switch(config){
+
+    public Canal(ResultSet rs, int config) {
+
+        switch (config) {
             case 1 -> {
-                try{
-                    while(rs.next()){
-                        this.empresa = rs.getString("empresa");
-                        this.plataforma = rs.getString("plataforma");
-                        this.autentificacao = rs.getString("autentificacao");
+                try {
+                    while (rs.next()) {
+                        this.empresa = rs.getString("tbl_Config.Empresa_Config");
+                        this.plataforma = rs.getString("tbl_Config.Plataforma_Config");
+                        this.autenticacao = rs.getString("tbl_Config.Autentificacao_Config");
                     }
-                }catch(SQLException erro){
+                } catch (SQLException erro) {
                     JOptionPane.showMessageDialog(null, "Erro: " + erro.getMessage());
                 }
             }
-                
+
             case 2 -> {
-                try{
-                    while(rs.next()){
-                        this.idCanal = rs.getInt("idCanal");
-                        this.usuario = rs.getString("usuario");
-                        this.login = rs.getString("login");
-                        this.senha = rs.getString("senha");
-                        this.token = rs.getString("usuario");
-
+                try {
+                    while (rs.next()) {
+                        this.pk_idCanal = rs.getInt("tbl_Canal.id_Canal");
+                        this.contaid = rs.getString("tbl_Canal.Contaid_Canal");
+                        this.token = rs.getString("tbl_Canal.Token_Canal");
+                        this.login = rs.getString("tbl_Canal.Login_Canal");
+                        this.senha = rs.getString("tbl_Canal.Senha_Canal");
+                        this.fk_usuario = rs.getInt("tbl_Canal.Usuario_pertencente");
+                        this.fk_config = rs.getInt("tbl_Canal.Config_pertencente");
                     }
-                }catch(SQLException erro){
+                } catch (SQLException erro) {
                     JOptionPane.showMessageDialog(null, "Erro: " + erro.getMessage());
                 }
             }
-            
+
             case 3 -> {
-                try{
-                    while(rs.next()){
-                        this.empresa = rs.getString("empresa");
-                        this.plataforma = rs.getString("plataforma");
-                        this.autentificacao = rs.getString("autentificacao");
-                        this.idCanal = rs.getInt("idCanal");
-                        this.usuario = rs.getString("usuario");
-                        this.login = rs.getString("login");
-                        this.senha = rs.getString("senha");
-                        this.token = rs.getString("usuario");
+                try {
+                    while (rs.next()) {
+                        this.empresa = rs.getString("tbl_Config.Empresa_Config");
+                        this.plataforma = rs.getString("tbl_Config.Plataforma_Config");
+                        this.autenticacao = rs.getString("tbl_Config.Autentificacao_Config");
+                        this.pk_idCanal = rs.getInt("tbl_Canal.id_Canal");
+                        this.contaid = rs.getString("tbl_Canal.Contaid_Canal");
+                        this.token = rs.getString("tbl_Canal.Token_Canal");
+                        this.login = rs.getString("tbl_Canal.Login_Canal");
+                        this.senha = rs.getString("tbl_Canal.Senha_Canal");
+                        this.fk_usuario = rs.getInt("tbl_Canal.Usuario_pertencente");
+                        this.fk_config = rs.getInt("tbl_Canal.Config_pertencente");
 
                     }
-                }catch(SQLException erro){
+                } catch (SQLException erro) {
                     JOptionPane.showMessageDialog(null, "Erro: " + erro.getMessage());
                 }
             }
-                
-            default -> JOptionPane.showMessageDialog(null, "ERRO config");
+
+            default ->
+                JOptionPane.showMessageDialog(null, "ERRO config");
         }
-        
-        
+
     }
-    
+
+    public String getContaid() {
+        return contaid;
+    }
+
+    public void setContaid(String contaid) {
+        this.contaid = contaid;
+    }
+
     public int getIdCanal() {
-        return this.idCanal;
+        return this.pk_idCanal;
     }
 
-    public void setIdCanal(int idCanais) {
-        this.idCanal = idCanais;
+    public void setIdCanal(int pk_idCanais) {
+        this.pk_idCanal = pk_idCanais;
     }
 
-    public String getUsuario() {
-        return this.usuario;
+    public int getFkUsuario() {
+        return this.fk_usuario;
     }
 
-    public void setUsuario(String usuario) {
-        this.usuario = usuario;
+    public void setFkUsuario(int fk_usuario) {
+        this.fk_usuario = fk_usuario;
     }
-    
+
+    public int getFkConfig() {
+        return this.fk_config;
+    }
+
+    public void setFkConfig(int fk_config) {
+        this.fk_config = fk_config;
+    }
+
     public String getLogin() {
         return this.login;
     }
 
-    public void setLogin(String login){
+    public void setLogin(String login) {
         this.login = login;
     }
-    
+
     public String getSenha() {
         return this.senha;
     }
@@ -121,5 +142,5 @@ public class Canal extends CanalConfig{
     public void setToken(String token) {
         this.token = token;
     }
-    
+
 }

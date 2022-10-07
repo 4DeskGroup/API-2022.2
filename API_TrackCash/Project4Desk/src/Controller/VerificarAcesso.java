@@ -5,10 +5,10 @@ import model.bean.Usuario;
 
 public class VerificarAcesso {
     
-    public boolean acessADM(Usuario cli){
+    public boolean acess(Usuario user){
         
-        int perfil = cli.getPerfil();
-        boolean actived = cli.getActive();
+        int perfil = user.getPerfil();
+        boolean actived = user.getStatus();
         
         if(perfil == 2 || actived == false){
             return false;

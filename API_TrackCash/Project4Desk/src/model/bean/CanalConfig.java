@@ -5,7 +5,7 @@ public class CanalConfig {
     private int id;
     protected String empresa;
     protected String plataforma;
-    protected String autentificacao;
+    protected String autenticacao;
 
     public int getId() {
         return this.id;
@@ -31,12 +31,12 @@ public class CanalConfig {
         this.plataforma = p;
     }
 
-    public String getAutentificacao() {
-        return this.autentificacao;
+    public String getAutenticacao() {
+        return this.autenticacao;
     }
 
-    public void setAutentificacao(String a) {
-        this.autentificacao = a;
+    public void setAutenticacao(String a) {
+        this.autenticacao = a;
     }
     
 }

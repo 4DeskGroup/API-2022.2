@@ -2,6 +2,8 @@ package View;
 
 import GUI.CadastroGUI;
 import GUI.LoginGUI;
+import java.awt.Dimension;
+import java.awt.Frame;
 
 public class TelaPrincipal extends javax.swing.JFrame {
 
@@ -216,7 +218,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         jPanel3.setBackground(new java.awt.Color(241, 241, 241));
         jPanel3.setMinimumSize(new java.awt.Dimension(993, 120));
-        jPanel3.setPreferredSize(new java.awt.Dimension(0, 120));
+        jPanel3.setPreferredSize(new java.awt.Dimension(0, 170));
         jPanel3.setLayout(new java.awt.GridBagLayout());
 
         jLabel_LogoTelaPrincipal.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/imagens/Untitled-removebg-preview.png"))); // NOI18N
@@ -318,7 +320,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jPanel16.setLayout(new java.awt.BorderLayout());
 
         jPanel17.setBackground(new java.awt.Color(241, 241, 241));
-        jPanel17.setPreferredSize(new java.awt.Dimension(100, 80));
+        jPanel17.setPreferredSize(new java.awt.Dimension(100, 50));
         jPanel17.setLayout(new java.awt.GridBagLayout());
 
         lbl_companyTelaPrincipal6.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
@@ -328,7 +330,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(50, 330, 3, 316);
+        gridBagConstraints.insets = new java.awt.Insets(20, 330, 3, 316);
         jPanel17.add(lbl_companyTelaPrincipal6, gridBagConstraints);
 
         jPanel16.add(jPanel17, java.awt.BorderLayout.PAGE_START);
@@ -382,16 +384,47 @@ public class TelaPrincipal extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btn_UserTelaPrincipalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_UserTelaPrincipalActionPerformed
-        
-        this.dispose();
-        new LoginGUI().setVisible(true);
+        Dimension telaOriginal = getPreferredSize();
+        Dimension telaRecente = getSize();
+
+        int tamanhoTelaOriginal= (int) telaOriginal.getWidth();
+        int tamanhoTelaRecente = (int) telaRecente.getWidth();
+
+        if (tamanhoTelaOriginal < tamanhoTelaRecente) {
+            LoginGUI loginGUI = new LoginGUI();
+            loginGUI.setExtendedState(Frame.MAXIMIZED_BOTH);
+            loginGUI.setVisible(true);
+            this.dispose();
+        } else {
+            LoginGUI loginGUI = new LoginGUI();
+            loginGUI.setVisible(true);
+            this.dispose();
+        }
+        //this.dispose();
+        //new LoginGUI().setVisible(true);
         
     }//GEN-LAST:event_btn_UserTelaPrincipalActionPerformed
 
     private void btn_cadastreTelaPrincipalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_cadastreTelaPrincipalActionPerformed
+        Dimension telaOriginal = getPreferredSize();
+        Dimension telaRecente = getSize();
 
-        this.dispose();
-        new CadastroGUI().setVisible(true);
+        int tamanhoTelaOriginal= (int) telaOriginal.getWidth();
+        int tamanhoTelaRecente = (int) telaRecente.getWidth();
+
+        if (tamanhoTelaOriginal < tamanhoTelaRecente) {
+            CadastroGUI cadastroGUI = new CadastroGUI();
+            cadastroGUI.setExtendedState(Frame.MAXIMIZED_BOTH);
+            cadastroGUI.setVisible(true);
+            this.dispose();
+        } else {
+            CadastroGUI cadastroGUI = new CadastroGUI();
+            cadastroGUI.setVisible(true);
+            this.dispose();
+        }
+        
+        //this.dispose();
+        //new CadastroGUI().setVisible(true);
         
     }//GEN-LAST:event_btn_cadastreTelaPrincipalActionPerformed
 
