@@ -105,21 +105,21 @@
 ├───doc
 │   ├───geral
 │   ├───sprint 1
-│       ├───backlog
-│       ├───burndown
-│       ├───database
-│       ├───gifs
-│       ├───timeline
-│       └───user stories
-│       └───wireframe
+│   │   ├───backlog
+│   │   ├───burndown
+│   │   ├───database
+│   │   ├───gifs
+│   │   ├───timeline
+│   │   ├───user stories
+│   │   ├───wireframe
 │   ├───sprint 2
 │       ├───backlog
 │       ├───burndown
 │       ├───database
 │       ├───gifs
 │       ├───timeline
-│       └───user stories
-│       └───wireframe
+│       ├───user stories
+│       ├───wireframe
 └───Api_TrackCash
     ├───Banco de Dados
     └───Project4Desk
