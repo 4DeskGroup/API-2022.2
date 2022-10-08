@@ -1,10 +1,24 @@
 package GUI;
 
+<<<<<<< Updated upstream
 import model.dao.UsuarioDAO;
 import model.bean.Usuario;
 import View.TelaPrincipal;
 import java.awt.Dimension;
 import java.awt.Frame;
+=======
+<<<<<<< Updated upstream
+import model.dao.ClienteDAO;
+import model.bean.Cliente;
+import View.TelaPrincipal;
+=======
+import model.dao.UsuarioDAO;
+import model.bean.Usuario;
+import View.TelaPrincipal;
+import java.awt.Dimension;
+import java.awt.Frame;
+>>>>>>> Stashed changes
+>>>>>>> Stashed changes
 import javax.swing.JOptionPane;
 
 public class CadastroGUI extends javax.swing.JFrame {
@@ -309,16 +323,38 @@ public class CadastroGUI extends javax.swing.JFrame {
         }else if(strPass.equals(strRPass) == false){
             JOptionPane.showMessageDialog(null, "Repetir senha e Senha devem ser iguais!");
         }else{
+<<<<<<< Updated upstream
             Usuario cliente = new Usuario(txt_Nome.getText(), txt_User.getText(), txt_Email.getText(), strPass);
             
             UsuarioDAO dao = new UsuarioDAO();
+=======
+<<<<<<< Updated upstream
+            Cliente cliente = new Cliente(txt_User.getText(), txt_Email.getText(), strPass);
+            
+            ClienteDAO dao = new ClienteDAO();
+=======
+            Usuario cliente = new Usuario(txt_Nome.getText(), txt_User.getText(), txt_Email.getText(), strPass);
+            
+            UsuarioDAO dao = new UsuarioDAO();
+>>>>>>> Stashed changes
+>>>>>>> Stashed changes
             
             dao.addCliente(cliente);
             JOptionPane.showMessageDialog(null, "Cadastro Completo!"
                     + "\nO usuario " + txt_User.getText() + " foi cadastrado com sucesso!");
         }
+<<<<<<< Updated upstream
         strPass = null;
         strRPass = null;
+=======
+<<<<<<< Updated upstream
+        strPass = "";
+        strRPass = "";
+=======
+        strPass = null;
+        strRPass = null;
+>>>>>>> Stashed changes
+>>>>>>> Stashed changes
     }//GEN-LAST:event_btn_cadastrarActionPerformed
 
     private void txt_PassActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_PassActionPerformed
@@ -354,6 +390,14 @@ public class CadastroGUI extends javax.swing.JFrame {
     }//GEN-LAST:event_txt_NomeActionPerformed
 
     private void btn_loginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_loginActionPerformed
+<<<<<<< Updated upstream
+=======
+<<<<<<< Updated upstream
+
+        new LoginGUI().setVisible(true);
+        this.dispose();
+=======
+>>>>>>> Stashed changes
         Dimension telaOriginal = getPreferredSize();
         Dimension telaRecente = getSize();
 
@@ -372,6 +416,10 @@ public class CadastroGUI extends javax.swing.JFrame {
         }
         //new LoginGUI().setVisible(true);
         //this.dispose();
+<<<<<<< Updated upstream
+=======
+>>>>>>> Stashed changes
+>>>>>>> Stashed changes
         
     }//GEN-LAST:event_btn_loginActionPerformed
 

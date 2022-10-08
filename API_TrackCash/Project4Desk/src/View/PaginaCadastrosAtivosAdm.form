@@ -97,7 +97,17 @@
             </Constraint>
           </Constraints>
 
+<<<<<<< Updated upstream
           <Layout class="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout"/>
+=======
+<<<<<<< Updated upstream:API_TrackCash/Project4Desk/build/classes/View/PaginaCadastrosAtivos.form
+          <Layout class="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout">
+            <Property name="useNullLayout" type="boolean" value="true"/>
+          </Layout>
+=======
+          <Layout class="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout"/>
+>>>>>>> Stashed changes:API_TrackCash/Project4Desk/src/View/PaginaCadastrosAtivosAdm.form
+>>>>>>> Stashed changes
           <SubComponents>
             <Component class="javax.swing.JButton" name="btn_CadastrarCanal">
               <Properties>
@@ -110,14 +120,32 @@
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="ff" green="ff" red="ff" type="rgb"/>
                 </Property>
+<<<<<<< Updated upstream
                 <Property name="text" type="java.lang.String" value="Config. Canal"/>
+=======
+<<<<<<< Updated upstream:API_TrackCash/Project4Desk/build/classes/View/PaginaCadastrosAtivos.form
+                <Property name="text" type="java.lang.String" value="Configura&#xe7;&#xe3;o"/>
+=======
+                <Property name="text" type="java.lang.String" value="Config. Canal"/>
+>>>>>>> Stashed changes:API_TrackCash/Project4Desk/src/View/PaginaCadastrosAtivosAdm.form
+>>>>>>> Stashed changes
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_CadastrarCanalActionPerformed"/>
               </Events>
               <Constraints>
+<<<<<<< Updated upstream
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
                   <GridBagConstraints gridX="0" gridY="0" gridWidth="2" gridHeight="1" fill="0" ipadX="5" ipadY="0" insetsTop="14" insetsLeft="20" insetsBottom="0" insetsRight="20" anchor="18" weightX="0.0" weightY="0.0"/>
+=======
+<<<<<<< Updated upstream:API_TrackCash/Project4Desk/build/classes/View/PaginaCadastrosAtivos.form
+                <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+                  <AbsoluteConstraints x="21" y="20" width="210" height="-1"/>
+=======
+                <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
+                  <GridBagConstraints gridX="0" gridY="0" gridWidth="2" gridHeight="1" fill="0" ipadX="5" ipadY="0" insetsTop="14" insetsLeft="20" insetsBottom="0" insetsRight="20" anchor="18" weightX="0.0" weightY="0.0"/>
+>>>>>>> Stashed changes:API_TrackCash/Project4Desk/src/View/PaginaCadastrosAtivosAdm.form
+>>>>>>> Stashed changes
                 </Constraint>
               </Constraints>
             </Component>
@@ -135,8 +163,18 @@
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_SairLogoutActionPerformed"/>
               </Events>
               <Constraints>
+<<<<<<< Updated upstream
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
                   <GridBagConstraints gridX="0" gridY="1" gridWidth="1" gridHeight="1" fill="0" ipadX="86" ipadY="0" insetsTop="50" insetsLeft="42" insetsBottom="43" insetsRight="0" anchor="18" weightX="0.0" weightY="0.0"/>
+=======
+<<<<<<< Updated upstream:API_TrackCash/Project4Desk/build/classes/View/PaginaCadastrosAtivos.form
+                <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+                  <AbsoluteConstraints x="40" y="100" width="170" height="-1"/>
+=======
+                <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
+                  <GridBagConstraints gridX="0" gridY="1" gridWidth="1" gridHeight="1" fill="0" ipadX="86" ipadY="0" insetsTop="50" insetsLeft="42" insetsBottom="43" insetsRight="0" anchor="18" weightX="0.0" weightY="0.0"/>
+>>>>>>> Stashed changes:API_TrackCash/Project4Desk/src/View/PaginaCadastrosAtivosAdm.form
+>>>>>>> Stashed changes
                 </Constraint>
               </Constraints>
             </Component>
@@ -359,7 +397,16 @@
                             </Property>
                           </Properties>
                           <Events>
+<<<<<<< Updated upstream
                             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cmb_campoActionPerformed"/>
+=======
+<<<<<<< Updated upstream:API_TrackCash/Project4Desk/build/classes/View/PaginaCadastrosAtivos.form
+                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txt_filtrosActionPerformed"/>
+                            <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txt_filtrosKeyReleased"/>
+=======
+                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cmb_campoActionPerformed"/>
+>>>>>>> Stashed changes:API_TrackCash/Project4Desk/src/View/PaginaCadastrosAtivosAdm.form
+>>>>>>> Stashed changes
                           </Events>
                           <AuxValues>
                             <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
@@ -551,6 +598,22 @@
 
                                   <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
                                   <SubComponents>
+<<<<<<< Updated upstream
+=======
+<<<<<<< Updated upstream:API_TrackCash/Project4Desk/build/classes/View/PaginaCadastrosAtivos.form
+                                    <Component class="javax.swing.JTable" name="jTable_canaisAtivos1">
+                                      <Properties>
+                                        <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
+                                          <Table columnCount="7" rowCount="10">
+                                            <Column editable="true" title="ID" type="java.lang.Object"/>
+                                            <Column editable="true" title="Empresa" type="java.lang.Object"/>
+                                            <Column editable="true" title="ContaID" type="java.lang.Object"/>
+                                            <Column editable="true" title="Plataforma" type="java.lang.Object"/>
+                                            <Column editable="true" title="Usu&#xe1;rio" type="java.lang.Object"/>
+                                            <Column editable="true" title="Senha" type="java.lang.Object"/>
+                                            <Column editable="true" title="Token" type="java.lang.Object"/>
+=======
+>>>>>>> Stashed changes
                                     <Component class="javax.swing.JTable" name="jTable_canaisAtivosADM">
                                       <Properties>
                                         <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
@@ -559,8 +622,53 @@
                                             <Column editable="true" title="Empresa" type="java.lang.Object"/>
                                             <Column editable="true" title="Plataforma" type="java.lang.Object"/>
                                             <Column editable="true" title="Autentica&#xe7;&#xe3;o" type="java.lang.Object"/>
+<<<<<<< Updated upstream
                                           </Table>
                                         </Property>
+=======
+>>>>>>> Stashed changes:API_TrackCash/Project4Desk/src/View/PaginaCadastrosAtivosAdm.form
+                                          </Table>
+                                        </Property>
+                                        <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
+                                          <TableColumnModel selectionModel="0">
+                                            <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                                              <Title/>
+                                              <Editor/>
+                                              <Renderer/>
+                                            </Column>
+                                            <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                                              <Title/>
+                                              <Editor/>
+                                              <Renderer/>
+                                            </Column>
+                                            <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                                              <Title/>
+                                              <Editor/>
+                                              <Renderer/>
+                                            </Column>
+                                            <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                                              <Title/>
+                                              <Editor/>
+                                              <Renderer/>
+                                            </Column>
+                                            <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                                              <Title/>
+                                              <Editor/>
+                                              <Renderer/>
+                                            </Column>
+                                            <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                                              <Title/>
+                                              <Editor/>
+                                              <Renderer/>
+                                            </Column>
+                                            <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                                              <Title/>
+                                              <Editor/>
+                                              <Renderer/>
+                                            </Column>
+                                          </TableColumnModel>
+                                        </Property>
+>>>>>>> Stashed changes
                                         <Property name="tableHeader" type="javax.swing.table.JTableHeader" editor="org.netbeans.modules.form.editors2.JTableHeaderEditor">
                                           <TableHeader reorderingAllowed="true" resizingAllowed="true"/>
                                         </Property>
@@ -575,6 +683,31 @@
                                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                                   <Color blue="f1" green="f1" red="f1" type="rgb"/>
                                 </Property>
+<<<<<<< Updated upstream
+=======
+<<<<<<< Updated upstream:API_TrackCash/Project4Desk/build/classes/View/PaginaCadastrosAtivos.form
+                                <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+                                  <Dimension value="[400, 200]"/>
+                                </Property>
+                              </Properties>
+                              <Constraints>
+                                <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout" value="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout$BorderConstraintsDescription">
+                                  <BorderConstraints direction="Last"/>
+                                </Constraint>
+                              </Constraints>
+
+                              <Layout class="org.netbeans.modules.form.compat2.layouts.DesignFlowLayout"/>
+                              <SubComponents>
+                                <Component class="javax.swing.JButton" name="jButton1">
+                                  <Properties>
+                                    <Property name="text" type="java.lang.String" value="Atualizar Tabela"/>
+                                  </Properties>
+                                  <Events>
+                                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton1ActionPerformed"/>
+                                  </Events>
+                                </Component>
+=======
+>>>>>>> Stashed changes
                               </Properties>
                               <Constraints>
                                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout" value="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout$BorderConstraintsDescription">
@@ -632,6 +765,10 @@
                                     </Component>
                                   </SubComponents>
                                 </Container>
+<<<<<<< Updated upstream
+=======
+>>>>>>> Stashed changes:API_TrackCash/Project4Desk/src/View/PaginaCadastrosAtivosAdm.form
+>>>>>>> Stashed changes
                               </SubComponents>
                             </Container>
                           </SubComponents>
