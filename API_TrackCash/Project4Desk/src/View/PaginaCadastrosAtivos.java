@@ -398,6 +398,15 @@ public class PaginaCadastrosAtivos extends javax.swing.JFrame {
                 "Empresa", "ContaID", "Login", "Senha", "Token"
             }
         ));
+        jTable_canaisAtivos1.addAncestorListener(new javax.swing.event.AncestorListener() {
+            public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
+                jTable_canaisAtivos1AncestorAdded(evt);
+            }
+            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
+            }
+            public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
+            }
+        });
         jScrollPane2.setViewportView(jTable_canaisAtivos1);
 
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -671,6 +680,10 @@ public class PaginaCadastrosAtivos extends javax.swing.JFrame {
     private void cmb_campoComponentHidden(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_cmb_campoComponentHidden
         // TODO add your handling code here:
     }//GEN-LAST:event_cmb_campoComponentHidden
+
+    private void jTable_canaisAtivos1AncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_jTable_canaisAtivos1AncestorAdded
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTable_canaisAtivos1AncestorAdded
 
     public static void main(String args[]) {
         try {

@@ -28,6 +28,7 @@ public class PesqCanal extends ConnectionFactory{
         while(rs.next()){
             Vector nl = new Vector();
             nl.add(rs.getString("tbl_Config.Empresa_Config"));
+            nl.add(rs.getString("tbl_Canal.Contaid_Canal"));
             nl.add(rs.getString("tbl_Canal.Login_Canal"));
             nl.add(rs.getString("tbl_Canal.Senha_Canal"));
             nl.add(rs.getString("tbl_Canal.Token_Canal"));
@@ -45,6 +46,7 @@ public class PesqCanal extends ConnectionFactory{
         while(rs.next()){
             Vector nl = new Vector();
             nl.add(rs.getString("tbl_Config.Empresa_Config"));
+            nl.add(rs.getString("tbl_Canal.Contaid_Canal"));
             nl.add(rs.getString("tbl_Canal.Login_Canal"));
             nl.add(rs.getString("tbl_Canal.Senha_Canal"));
             nl.add(rs.getString("tbl_Canal.Token_Canal"));
@@ -61,6 +63,7 @@ public class PesqCanal extends ConnectionFactory{
         while(rs.next()){
             Vector nl = new Vector();
             nl.add(rs.getString("tbl_Config.Empresa_Config"));
+            nl.add(rs.getString("tbl_Canal.Contaid_Canal"));
             nl.add(rs.getString("tbl_Canal.Login_Canal"));
             nl.add(rs.getString("tbl_Canal.Senha_Canal"));
             nl.add(rs.getString("tbl_Canal.Token_Canal"));
@@ -82,6 +85,7 @@ public class PesqCanal extends ConnectionFactory{
         while(rs.next()){
             Vector nl = new Vector();
             nl.add(rs.getString("tbl_Config.Empresa_Config"));
+            nl.add(rs.getString("tbl_Canal.Contaid_Canal"));
             nl.add(rs.getString("tbl_Canal.Login_Canal"));
             nl.add(rs.getString("tbl_Canal.Senha_Canal"));
             nl.add(rs.getString("tbl_Canal.Token_Canal"));

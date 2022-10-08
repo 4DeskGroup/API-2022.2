@@ -615,9 +615,7 @@ public class PaginaEditarCadastros extends javax.swing.JFrame {
 
     private void txt_userInfoUsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_userInfoUsActionPerformed
         // TODO add your handling code here:
-        if (txt_tokenCanalInfo.getText() != "") {
-            txt_userInfoUs.setEditable(false);
-        }
+
     }//GEN-LAST:event_txt_userInfoUsActionPerformed
 
     private void txt_senhaInfoUsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_senhaInfoUsActionPerformed
@@ -626,6 +624,9 @@ public class PaginaEditarCadastros extends javax.swing.JFrame {
 
     private void txt_tokenCanalInfoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_tokenCanalInfoActionPerformed
         // TODO add your handling code here:
+        if (txt_userInfoUs.getText() != "") {
+            txt_tokenCanalInfo.setEditable(false);
+        }
     }//GEN-LAST:event_txt_tokenCanalInfoActionPerformed
 
     private void btnAtualizarDadosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAtualizarDadosActionPerformed
@@ -693,22 +694,16 @@ public class PaginaEditarCadastros extends javax.swing.JFrame {
             int fk = new CanalConfigDAO().buscarConfigReturnId(indiceS);
 
             dao.delete(i, fk);
-
         }
     }//GEN-LAST:event_btn_excluir2ActionPerformed
 
     private void btnCarregarCamposActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCarregarCamposActionPerformed
-        
+
         int setar = jTable_canaisAtivos1.getSelectedRow();
-        
+
         carregarCampos(setar);
+
         
-        if (!txt_userInfoUs.getText().equals("")) {
-            txt_tokenCanalInfo.setEditable(false);
-        } else if (!txt_tokenCanalInfo.getText().equals("")) {
-            txt_userInfoUs.setEditable(false);
-            txt_senhaInfoUs.setEditable(false);
-        }
     }//GEN-LAST:event_btnCarregarCamposActionPerformed
 
     private void btnLimparActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimparActionPerformed
@@ -751,21 +746,22 @@ public class PaginaEditarCadastros extends javax.swing.JFrame {
     Vector<Integer> idCanais = new Vector<Integer>();
 
     private void carregarCampos(int linha) {
-        
-        if(jTable_canaisAtivos1.getModel().getValueAt(linha, 5).toString().equals("Sem Token")){
-            txt_tokenCanalInfo.setText("Sem Token");
+
+        if (jTable_canaisAtivos1.getModel().getValueAt(linha, 5).toString().equals("Sem Token")) {
             txt_userInfoUs.setText(jTable_canaisAtivos1.getModel().getValueAt(linha, 3).toString());
             txt_senhaInfoUs.setText(jTable_canaisAtivos1.getModel().getValueAt(linha, 4).toString());
-            txt_tokenCanalInfo.setEnabled(false);
+            txt_tokenCanalInfo.setText("Sem Token");
             txt_userInfoUs.setEnabled(true);
             txt_senhaInfoUs.setEnabled(true);
-        }else{
-            txt_tokenCanalInfo.setText(jTable_canaisAtivos1.getModel().getValueAt(linha, 5).toString());
+            txt_tokenCanalInfo.setEnabled(false);
+        } else {
             txt_userInfoUs.setText("Sem Usuario");
             txt_senhaInfoUs.setText("Sem Senha");
-            txt_tokenCanalInfo.setEnabled(true);
+            txt_tokenCanalInfo.setText(jTable_canaisAtivos1.getModel().getValueAt(linha, 5).toString());
             txt_userInfoUs.setEnabled(false);
             txt_senhaInfoUs.setEnabled(false);
+            txt_tokenCanalInfo.setEnabled(true);
+
         }
         txtCodigo.setText(jTable_canaisAtivos1.getModel().getValueAt(linha, 0).toString());
         txt_idCadasInfoUs.setText(jTable_canaisAtivos1.getModel().getValueAt(linha, 2).toString());
@@ -804,7 +800,7 @@ public class PaginaEditarCadastros extends javax.swing.JFrame {
     }
 
     private void LimparCampos() {
-        
+
         txtCodigo.setText("");
         lbl_canalE.setText("");
         txt_idCadasInfoUs.setText("");
@@ -826,14 +822,13 @@ public class PaginaEditarCadastros extends javax.swing.JFrame {
         senha = txt_senhaInfoUs.getText();
         token = txt_tokenCanalInfo.getText();
         empresa = lbl_canalE.getText();
-        
+
         int i = new CanalDAO().searchIdCanal(empresa);
-        
+
         objcanalinfo.setContaid(conta_id);
         objcanalinfo.setLogin(login);
         objcanalinfo.setSenha(senha);
         objcanalinfo.setToken(token);
-
 
         CanalDAO objcanaldao = new CanalDAO();
         objcanaldao.alterarDados(objcanalinfo, i);

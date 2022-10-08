@@ -499,7 +499,7 @@ public class PaginaCadastroCanal extends javax.swing.JFrame {
     }//GEN-LAST:event_txt_userInfoUsActionPerformed
 
     private void btn_limparInfoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_limparInfoActionPerformed
-
+        txt_idCadasInfoUs.setText("");
         txt_tokenCanalInfo.setText("");
         txt_userInfoUs.setText("");
         txt_senhaInfoUs.setText("");

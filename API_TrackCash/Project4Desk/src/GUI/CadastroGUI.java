@@ -37,6 +37,8 @@ public class CadastroGUI extends javax.swing.JFrame {
         txt_Nome = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
         btn_cadastrar = new javax.swing.JButton();
+        txt_Sobrenome = new javax.swing.JTextField();
+        jLabel10 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Cadastro");
@@ -193,6 +195,18 @@ public class CadastroGUI extends javax.swing.JFrame {
             }
         });
 
+        txt_Sobrenome.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        txt_Sobrenome.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        txt_Sobrenome.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txt_SobrenomeActionPerformed(evt);
+            }
+        });
+
+        jLabel10.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
+        jLabel10.setForeground(new java.awt.Color(102, 0, 102));
+        jLabel10.setText("Sobrenome (Opcional)");
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -231,7 +245,10 @@ public class CadastroGUI extends javax.swing.JFrame {
                     .addComponent(jLabel2)
                     .addComponent(jLabel5)
                     .addComponent(txt_RPass, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txt_Email, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txt_Email, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(jLabel10)
+                        .addComponent(txt_Sobrenome, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(20, 20, 20))
         );
         jPanel2Layout.setVerticalGroup(
@@ -241,9 +258,15 @@ public class CadastroGUI extends javax.swing.JFrame {
                 .addGap(22, 22, 22)
                 .addComponent(jLabel6)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 86, Short.MAX_VALUE)
-                .addComponent(jLabel7)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txt_Nome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                        .addComponent(jLabel7)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txt_Nome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                        .addComponent(jLabel10)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txt_Sobrenome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
@@ -309,7 +332,7 @@ public class CadastroGUI extends javax.swing.JFrame {
         }else if(strPass.equals(strRPass) == false){
             JOptionPane.showMessageDialog(null, "Repetir senha e Senha devem ser iguais!");
         }else{
-            Usuario cliente = new Usuario(txt_Nome.getText(), txt_User.getText(), txt_Email.getText(), strPass);
+            Usuario cliente = new Usuario(txt_Nome.getText(), txt_Sobrenome.getText(), txt_User.getText(), txt_Email.getText(), strPass);
             
             UsuarioDAO dao = new UsuarioDAO();
             
@@ -379,6 +402,10 @@ public class CadastroGUI extends javax.swing.JFrame {
         
     }//GEN-LAST:event_txt_EmailActionPerformed
 
+    private void txt_SobrenomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_SobrenomeActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txt_SobrenomeActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -419,6 +446,7 @@ public class CadastroGUI extends javax.swing.JFrame {
     private javax.swing.JButton btn_login;
     private javax.swing.JCheckBox cb_visualizar;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -434,6 +462,7 @@ public class CadastroGUI extends javax.swing.JFrame {
     private javax.swing.JTextField txt_Nome;
     private javax.swing.JPasswordField txt_Pass;
     private javax.swing.JPasswordField txt_RPass;
+    private javax.swing.JTextField txt_Sobrenome;
     private javax.swing.JTextField txt_User;
     // End of variables declaration//GEN-END:variables
 }

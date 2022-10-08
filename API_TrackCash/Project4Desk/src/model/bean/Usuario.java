@@ -25,6 +25,7 @@ public class Usuario {
 
     public Usuario(){
         this.nome = "";
+        this.sobrenome = "";
         this.user = "";
         this.email = "";
         this.pass = "";
@@ -32,7 +33,7 @@ public class Usuario {
         this.perfil = 2;
     }
     
-    public Usuario(String n, String u, String e, String p){
+    public Usuario(String n, String sn, String u, String e, String p){
         
         /*
             ! IMPORTANTE !
@@ -43,8 +44,10 @@ public class Usuario {
         
         if(n.equals("") || n.equals(" ")){
             this.nome = null;
+            this.sobrenome = null;
         }else{
             this.nome = n;
+            this.sobrenome = sn;
         }
         this.user = u;
         this.email = e;
@@ -53,11 +56,13 @@ public class Usuario {
         this.perfil = 2;
     }
     
-    public Usuario(int id, String n, String u, String e, String p){
+    public Usuario(int id, String n, String sn, String u, String e, String p){
         if(n.equals("") || n.equals(" ")){
             this.nome = null;
+            this.sobrenome = null;
         }else{
             this.nome = n;
+            this.sobrenome = sn;
         }
         this.id = id;
         this.user = u;

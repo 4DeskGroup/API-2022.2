@@ -276,6 +276,15 @@ public class PaginaCadastrosAtivosAdm extends javax.swing.JFrame {
         lbl_filtros1.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         lbl_filtros1.setForeground(new java.awt.Color(45, 18, 75));
         lbl_filtros1.setText("Busca");
+        lbl_filtros1.addAncestorListener(new javax.swing.event.AncestorListener() {
+            public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
+                lbl_filtros1AncestorAdded(evt);
+            }
+            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
+            }
+            public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 5;
         gridBagConstraints.gridy = 0;
@@ -585,6 +594,10 @@ public class PaginaCadastrosAtivosAdm extends javax.swing.JFrame {
             modelo.removeRow(jTable_canaisAtivosADM.getSelectedRow());
         }
     }//GEN-LAST:event_btn_ExcluirCInfoActionPerformed
+
+    private void lbl_filtros1AncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_lbl_filtros1AncestorAdded
+        // TODO add your handling code here:
+    }//GEN-LAST:event_lbl_filtros1AncestorAdded
 
     
     public static void main(String args[]) {

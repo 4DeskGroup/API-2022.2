@@ -61,7 +61,7 @@ public class PesquCanalADM {
         String campoString2 = campoString;
             
         Vector tb = new Vector ();
-        String url = "sSELECT * FROM tbl_Config where " + campoString + " like '%" + pesqadm + "%' ORDER BY " + campoString2 + " " + ordem;
+        String url = "SELECT * FROM tbl_Config where " + campoString + " like '%" + pesqadm + "%' ORDER BY " + campoString2 + " " + ordem;
         PreparedStatement stmt = getConnection().prepareStatement(url);
         ResultSet rs = stmt.executeQuery();
         while(rs.next()){
