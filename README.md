@@ -56,17 +56,10 @@
 --------|------------|------------|--------
 1 |	Possibilidade de o administrador cadastrar canais |	Alta |	OK
 1	| Possibilidade de o usuário comum configurar canais |	Alta	| OK
-<<<<<<< Updated upstream
 2	| Usuário comum configurar canal através de automatização de configurações pré-cadastradas	| Média	|	OK		
 2	| Administrador ter acesso à uma tabela listando canais cadastrados por usuário comum. |	Alta	|	OK		
 2	| Usuário comum poder alterar ou excluir configurações de um canal. |	Alta |	OK		
 2	| Usuário utilizar de mecanismo de busca para canais configurados por ele.	| Média |	OK			
-=======
-2	| Usuário comum configurar canal através de automatização de configurações pré-cadastradas	| Média	|	:black_square_button:		
-2	| Administrador ter acesso à uma tabela listando canais cadastrados por usuário comum. |	Alta	|	:black_square_button:		
-2	| Usuário comum poder alterar ou excluir configurações de um canal. |	Alta |	:black_square_button:		
-2	| Usuário utilizar de mecanismo de busca para canais configurados por ele.	| Média |	:black_square_button:			
->>>>>>> Stashed changes
 3	| Usuários são autenticados ao realizarem o login no sistema	| Alta |	:black_square_button:			
 3	| Cadastro prévio de usuário e seu tipo feito pelo desenvolvedor	| Alta |	:black_square_button:		
 3	| Usuário comum é filtrado na interface de login, tendo acesso apenas ao que ele deve ter. |	Alta |	:black_square_button:			
@@ -83,19 +76,11 @@
 1	| Desenvolver interfaces (front-end) |	Alta	| OK
 1	| Funcionalidade básica das interfaces desenvolvidas (Cadastro e Configurações de canais)	| Alta |	OK
 1	| Conexão do front-end com o back-end (Banco de dados receber e transmitir dados juntamente ao software em desenvolvimento) |	Alta |	OK
-<<<<<<< Updated upstream
 2	| Automatização da interface de Configurações de canais (token ou usuário/senha aparecer de acordo com item selecionado no combobox) |	Média |	OK	
 2	| Funcionalidade completa da interface Configurações de canais	| Média |	OK
 2	| Conexão da interface de Configurações de canais com o banco de dados |	Alta	|	OK
 2	| CRUD do usuário	| Alta |	OK
 2	| Sistema de busca de canais configurados na interface de Configurações ativas	| Baixa	|	OK
-=======
-2	| Automatização da interface de Configurações de canais (token ou usuário/senha aparecer de acordo com item selecionado no combobox) |	Média |	:black_square_button:	
-2	| Funcionalidade completa da interface Configurações de canais	| Média |	:black_square_button:		
-2	| Conexão da interface de Configurações de canais com o banco de dados |	Alta	|	:black_square_button:	
-2	| CRUD do usuário	| Alta |	:black_square_button:		
-2	| Sistema de busca de canais configurados na interface de Configurações ativas	| Baixa	|	:black_square_button:	
->>>>>>> Stashed changes
 2	| Sistema de paginação na lista de exibição de canais cadastrados pelo usuário	| Baixa	|	:black_square_button:	
 3	| Cadastrar previamente os usuários no sistema	| Alta |		:black_square_button:	
 3	| Sistema de autenticação de login	| Alta	|	:black_square_button:	
@@ -127,7 +112,6 @@
 │       ├───timeline
 │       └───user stories
 │       └───wireframe
-<<<<<<< Updated upstream
 │   ├───sprint 2
 │       ├───backlog
 │       ├───burndown
@@ -136,8 +120,6 @@
 │       ├───timeline
 │       └───user stories
 │       └───wireframe
-=======
->>>>>>> Stashed changes
 └───Api_TrackCash
     ├───Banco de Dados
     └───Project4Desk
@@ -152,7 +134,7 @@
 Sprint ID | Data | Tag | Vídeo | Status
 ----------|------|-----|-------|--------
 #1 | 29.08.2022 - 18.09.2022 | <a href="https://github.com/4DeskGroup/API-2022.2/releases/tag/%23Sprint1">Aqui</a> | :stop_sign: | :heavy_check_mark:
-#2 | 19.09.2022 - 09.10.2022 | :construction: | :construction: | :black_square_button:
+#2 | 19.09.2022 - 09.10.2022 | :construction: | :stop_sign: | :black_square_button:
 #3 | 13.10.2022 - 06.11.2022 | :construction: | :construction: | :black_square_button:
 #4 | 07.11.2022 - 27.11.2022 | :construction: | :construction: | :black_square_button:
 
