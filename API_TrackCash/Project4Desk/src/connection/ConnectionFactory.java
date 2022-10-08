@@ -12,15 +12,7 @@ public class ConnectionFactory {
     public static Connection getConnection(){
         
         try{
-<<<<<<< Updated upstream
             return DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/api_trackcash?user=root", "root", "");
-=======
-<<<<<<< Updated upstream
-            return DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/api_trackcash?user=root", "root", "root");
-=======
-            return DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/api_trackcash?user=root", "root", "");
->>>>>>> Stashed changes
->>>>>>> Stashed changes
         }
         catch(SQLException excecao){
             throw new RuntimeException(excecao);

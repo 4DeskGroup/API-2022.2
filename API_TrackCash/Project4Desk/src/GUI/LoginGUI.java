@@ -1,54 +1,22 @@
 package GUI;
 
-<<<<<<< Updated upstream
 import Controller.*;
 import GUI.CadastroGUI;
 import View.*;
-=======
-<<<<<<< Updated upstream
-import Controller.Login;
-import GUI.CadastroGUI;
-import View.*;
-import model.bean.Cliente;
-=======
-import Controller.*;
-import GUI.CadastroGUI;
-import View.*;
->>>>>>> Stashed changes
 import java.awt.Dimension;
 import java.awt.Frame;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import model.bean.Usuario;
-<<<<<<< Updated upstream
-=======
->>>>>>> Stashed changes
->>>>>>> Stashed changes
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
-<<<<<<< Updated upstream
 import model.DTO.UsuarioDTO;
 import model.dao.UsuarioDAO;
 
 public class LoginGUI extends javax.swing.JFrame {
 
-=======
-<<<<<<< Updated upstream
-
-public class LoginGUI extends javax.swing.JFrame {
-    
-    private Cliente cliente;
-    
-=======
-import model.DTO.UsuarioDTO;
-import model.dao.UsuarioDAO;
-
-public class LoginGUI extends javax.swing.JFrame {
-
->>>>>>> Stashed changes
->>>>>>> Stashed changes
     public LoginGUI() {
         initComponents();
     }
@@ -274,182 +242,6 @@ public class LoginGUI extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btn_logarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_logarActionPerformed
-<<<<<<< Updated upstream
-        try {
-            String pk = txt_User.getText();
-            String pass = new String(txt_Pass.getPassword());
-
-            if (pk.equals("") || (pass.equals(""))) {
-
-                JOptionPane.showMessageDialog(null, "Preencha os campos para efetuar o login");
-
-            } else {
-                UsuarioDTO clienteDTO = new UsuarioDTO(pk, pass);
-                ResultSet busca = new UsuarioDAO().loginCliente(clienteDTO);
-
-                if (busca.isBeforeFirst()) {
-                    while (busca.next()) {
-                        int id = busca.getInt("id_User");
-                        String u = busca.getString("Usuario");
-                        if (u == null) {
-
-                            break;
-                        }
-                        String nome = null;
-                        nome = busca.getString("Nome_Usuario");
-                        String e = busca.getString("Email_Usuario");
-                        String p = busca.getString("Senha_Usuario");
-                        boolean ati = busca.getBoolean("Status_Usuario");
-                        int tp = busca.getInt("Perfil_Usuario");
-
-                        Usuario usuarioLogado = new Usuario(id, nome, u, e, p, ati, tp);
-
-                        if (tp == 0) {
-                            JOptionPane.showMessageDialog(null, "Bem vindo(a) Master User");
-                            Dimension telaOriginal = getPreferredSize();
-                            Dimension telaRecente = getSize();
-
-                            int tamanhoTelaOriginal = (int) telaOriginal.getWidth();
-                            int tamanhoTelaRecente = (int) telaRecente.getWidth();
-
-                            if (tamanhoTelaOriginal < tamanhoTelaRecente) {
-                                PaginaCadastroConfig paginaCadastroVagas = new PaginaCadastroConfig(usuarioLogado);
-                                paginaCadastroVagas.setExtendedState(Frame.MAXIMIZED_BOTH);
-                                paginaCadastroVagas.setVisible(true);
-                                this.dispose();
-                            } else {
-                                PaginaCadastroConfig paginaCadastroVagas = new PaginaCadastroConfig(usuarioLogado);
-                                paginaCadastroVagas.setVisible(true);
-                                this.dispose();
-                            }
-                            //new PaginaCadastroConfig(usuarioLogado).setVisible(true);
-                            //this.dispose();
-                        } else if (tp == 1) {
-                            JOptionPane.showMessageDialog(null, "Bem vindo(a) ADM " + usuarioLogado.getUser());
-                            Dimension telaOriginal = getPreferredSize();
-                            Dimension telaRecente = getSize();
-
-                            int tamanhoTelaOriginal = (int) telaOriginal.getWidth();
-                            int tamanhoTelaRecente = (int) telaRecente.getWidth();
-
-                            if (tamanhoTelaOriginal < tamanhoTelaRecente) {
-                                PaginaCadastrosAtivosAdm paginaCadastroAtivosAdm = new PaginaCadastrosAtivosAdm(usuarioLogado);
-                                paginaCadastroAtivosAdm.setExtendedState(Frame.MAXIMIZED_BOTH);
-                                paginaCadastroAtivosAdm.setVisible(true);
-                                this.dispose();
-                            } else {
-                                PaginaCadastrosAtivosAdm paginaCadastroAtivosAdm = new PaginaCadastrosAtivosAdm(usuarioLogado);
-                                paginaCadastroAtivosAdm.setVisible(true);
-                                this.dispose();
-                            }
-                            //new PaginaCadastrosAtivosAdm(usuarioLogado).setVisible(true);
-                            //this.dispose();
-                        } else {
-                            JOptionPane.showMessageDialog(null, "Bem vindo(a) " + usuarioLogado.getUser());
-                            Dimension telaOriginal = getPreferredSize();
-                            Dimension telaRecente = getSize();
-
-                            int tamanhoTelaOriginal = (int) telaOriginal.getWidth();
-                            int tamanhoTelaRecente = (int) telaRecente.getWidth();
-
-                            if (tamanhoTelaOriginal < tamanhoTelaRecente) {
-                                PaginaCadastroCanal paginaCadastroInfo = new PaginaCadastroCanal(usuarioLogado);
-                                paginaCadastroInfo.setExtendedState(Frame.MAXIMIZED_BOTH);
-                                paginaCadastroInfo.setVisible(true);
-                                this.dispose();
-                            } else {
-                                PaginaCadastroCanal paginaCadastroInfo = new PaginaCadastroCanal(usuarioLogado);
-                                paginaCadastroInfo.setVisible(true);
-                                this.dispose();
-                            }
-                            //new PaginaCadastroCanal(usuarioLogado).setVisible(true);
-                            //this.dispose();
-                        }
-                    }
-                } else {
-                    JOptionPane.showMessageDialog(null, "Usuario não encontrado!");
-                }
-=======
-<<<<<<< Updated upstream
-
-        String pk = txt_User.getText();
-        String pass = new String(txt_Pass.getPassword());
-        
-        if(pk.equals("") || (pass.equals(""))){
-            JOptionPane.showMessageDialog(null, "Preencha os campos");
-        }else if(pk.equals("admin") && (pass.equals("admin1234"))){
-            cliente = new Cliente(pk, "admin@gmail.com", pass, true, 0);
-            JOptionPane.showMessageDialog(null, "Sucesso ao logar o Admin!");
-            
-            new PaginaCadastroVagas().setCliente(cliente);
-            this.dispose();
-            
-        }else if(pk.equals("4Desk") && (pass.equals("1234"))){
-            
-            cliente = new Cliente(pk, "4Desk@gmail.com", pass, true, 2);
-            
-            JOptionPane.showMessageDialog(null, "Sucesso ao logar!");
-            
-            new PaginaCadastrosAtivos().setVisible(true);
-            this.dispose();
-            
-            /*
-            Codigo em manutenção!
-            
-            try {
-                cliente = new Login().logar(pk, pass);
-
-            } catch (Exception ex) {
-                JOptionPane.showMessageDialog(null, "Erro ao Conectar-se!");
->>>>>>> Stashed changes
-            }
-
-        } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, ex);
-        }
-
-    }//GEN-LAST:event_btn_logarActionPerformed
-
-    private void cb_visualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cb_visualizarActionPerformed
-
-        if (txt_Pass.getEchoChar() == '*') {
-            txt_Pass.setEchoChar((char) 0);
-        } else {
-            txt_Pass.setEchoChar('*');
-        }
-
-    }//GEN-LAST:event_cb_visualizarActionPerformed
-
-    private void btn_cadastroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_cadastroActionPerformed
-        Dimension telaOriginal = getPreferredSize();
-        Dimension telaRecente = getSize();
-
-        int tamanhoTelaOriginal = (int) telaOriginal.getWidth();
-        int tamanhoTelaRecente = (int) telaRecente.getWidth();
-
-        if (tamanhoTelaOriginal < tamanhoTelaRecente) {
-            CadastroGUI cadastroGUI = new CadastroGUI();
-            cadastroGUI.setExtendedState(Frame.MAXIMIZED_BOTH);
-            cadastroGUI.setVisible(true);
-            this.dispose();
-        } else {
-            CadastroGUI cadastroGUI = new CadastroGUI();
-            cadastroGUI.setVisible(true);
-            this.dispose();
-        }
-        //new CadastroGUI().setVisible(true);
-        //this.dispose();
-
-    }//GEN-LAST:event_btn_cadastroActionPerformed
-
-    private void txt_UserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_UserActionPerformed
-<<<<<<< Updated upstream
-
-
-=======
-        
-        
-=======
         try {
             String pk = txt_User.getText();
             String pass = new String(txt_Pass.getPassword());
@@ -587,8 +379,6 @@ public class LoginGUI extends javax.swing.JFrame {
     private void txt_UserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_UserActionPerformed
 
 
->>>>>>> Stashed changes
->>>>>>> Stashed changes
     }//GEN-LAST:event_txt_UserActionPerformed
 
     /**
@@ -625,18 +415,8 @@ public class LoginGUI extends javax.swing.JFrame {
             }
         });
     }
-<<<<<<< Updated upstream
 
 
-=======
-<<<<<<< Updated upstream
-        
-    
-=======
-
-
->>>>>>> Stashed changes
->>>>>>> Stashed changes
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn_cadastro;
     private javax.swing.JButton btn_logar;
