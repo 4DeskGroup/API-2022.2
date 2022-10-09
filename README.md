@@ -81,13 +81,13 @@
 2	| Conexão da interface de Configurações de canais com o banco de dados |	Alta	|	OK
 2	| CRUD do usuário	| Alta |	OK
 2	| Sistema de busca de canais configurados na interface de Configurações ativas	| Baixa	|	OK
-2	| Sistema de paginação na lista de exibição de canais cadastrados pelo usuário	| Baixa	|	:black_square_button:	
 3	| Cadastrar previamente os usuários no sistema	| Alta |		:black_square_button:	
 3	| Sistema de autenticação de login	| Alta	|	:black_square_button:	
 3	| Sistema de distinção de tipos de usuário	| Média |	:black_square_button:	 	
 3	| Definir quais interações cada tipo de usuário tem permissão de realizar	| Média |	:black_square_button:	
 3	| Menu de acesso às interfaces desenvolvidas |	Baixa | :black_square_button:			
 3	| Exibição de todos os canais e usuários contidos registrados para o usuário administrador	| Baixa | :black_square_button:			
+3	| Sistema de paginação na lista de exibição de canais cadastrados pelo usuário	| Baixa	|	:black_square_button:	
 4	| Revisão e correção de possíveis bugs	| Alta |	:black_square_button:	
 4	| Possível melhorias no funcionamento do sistema	| Baixa | :black_square_button:			
 
