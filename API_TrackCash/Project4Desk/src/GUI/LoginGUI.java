@@ -1,16 +1,12 @@
 package GUI;
 
-import Controller.*;
-import GUI.CadastroGUI;
 import View.*;
+import static java.awt.Color.white;
 import java.awt.Dimension;
 import java.awt.Frame;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import model.bean.Usuario;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import model.DTO.UsuarioDTO;
 import model.dao.UsuarioDAO;
@@ -154,7 +150,7 @@ public class LoginGUI extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
                 .addGap(19, 19, 19)
                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 46, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 30, Short.MAX_VALUE)
                 .addComponent(jLabel3)
                 .addGap(38, 38, 38)
                 .addComponent(btn_cadastro, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -221,7 +217,7 @@ public class LoginGUI extends javax.swing.JFrame {
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(67, 67, 67)
+                .addGap(83, 83, 83)
                 .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGap(63, 63, 63))
         );
@@ -280,12 +276,12 @@ public class LoginGUI extends javax.swing.JFrame {
                             int tamanhoTelaRecente = (int) telaRecente.getWidth();
 
                             if (tamanhoTelaOriginal < tamanhoTelaRecente) {
-                                PaginaCadastroConfig paginaCadastroVagas = new PaginaCadastroConfig(usuarioLogado);
+                                PaginaCadastroCanal paginaCadastroVagas = new PaginaCadastroCanal(usuarioLogado);
                                 paginaCadastroVagas.setExtendedState(Frame.MAXIMIZED_BOTH);
                                 paginaCadastroVagas.setVisible(true);
                                 this.dispose();
                             } else {
-                                PaginaCadastroConfig paginaCadastroVagas = new PaginaCadastroConfig(usuarioLogado);
+                                PaginaCadastroCanal paginaCadastroVagas = new PaginaCadastroCanal(usuarioLogado);
                                 paginaCadastroVagas.setVisible(true);
                                 this.dispose();
                             }
@@ -320,12 +316,12 @@ public class LoginGUI extends javax.swing.JFrame {
                             int tamanhoTelaRecente = (int) telaRecente.getWidth();
 
                             if (tamanhoTelaOriginal < tamanhoTelaRecente) {
-                                PaginaCadastroCanal paginaCadastroInfo = new PaginaCadastroCanal(usuarioLogado);
+                                PaginaConfiguracaoCanal paginaCadastroInfo = new PaginaConfiguracaoCanal(usuarioLogado);
                                 paginaCadastroInfo.setExtendedState(Frame.MAXIMIZED_BOTH);
                                 paginaCadastroInfo.setVisible(true);
                                 this.dispose();
                             } else {
-                                PaginaCadastroCanal paginaCadastroInfo = new PaginaCadastroCanal(usuarioLogado);
+                                PaginaConfiguracaoCanal paginaCadastroInfo = new PaginaConfiguracaoCanal(usuarioLogado);
                                 paginaCadastroInfo.setVisible(true);
                                 this.dispose();
                             }

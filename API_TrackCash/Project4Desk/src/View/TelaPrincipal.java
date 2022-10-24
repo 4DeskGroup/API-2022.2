@@ -384,48 +384,21 @@ public class TelaPrincipal extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btn_UserTelaPrincipalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_UserTelaPrincipalActionPerformed
-        Dimension telaOriginal = getPreferredSize();
-        Dimension telaRecente = getSize();
 
-        int tamanhoTelaOriginal= (int) telaOriginal.getWidth();
-        int tamanhoTelaRecente = (int) telaRecente.getWidth();
+        LoginGUI loginGUI = new LoginGUI();
+        loginGUI.setVisible(true);
+        this.dispose();
 
-        if (tamanhoTelaOriginal < tamanhoTelaRecente) {
-            LoginGUI loginGUI = new LoginGUI();
-            loginGUI.setExtendedState(Frame.MAXIMIZED_BOTH);
-            loginGUI.setVisible(true);
-            this.dispose();
-        } else {
-            LoginGUI loginGUI = new LoginGUI();
-            loginGUI.setVisible(true);
-            this.dispose();
-        }
-        //this.dispose();
-        //new LoginGUI().setVisible(true);
-        
+
     }//GEN-LAST:event_btn_UserTelaPrincipalActionPerformed
 
     private void btn_cadastreTelaPrincipalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_cadastreTelaPrincipalActionPerformed
-        Dimension telaOriginal = getPreferredSize();
-        Dimension telaRecente = getSize();
 
-        int tamanhoTelaOriginal= (int) telaOriginal.getWidth();
-        int tamanhoTelaRecente = (int) telaRecente.getWidth();
+        CadastroGUI cadastroGUI = new CadastroGUI();
+        cadastroGUI.setVisible(true);
+        this.dispose();
 
-        if (tamanhoTelaOriginal < tamanhoTelaRecente) {
-            CadastroGUI cadastroGUI = new CadastroGUI();
-            cadastroGUI.setExtendedState(Frame.MAXIMIZED_BOTH);
-            cadastroGUI.setVisible(true);
-            this.dispose();
-        } else {
-            CadastroGUI cadastroGUI = new CadastroGUI();
-            cadastroGUI.setVisible(true);
-            this.dispose();
-        }
-        
-        //this.dispose();
-        //new CadastroGUI().setVisible(true);
-        
+
     }//GEN-LAST:event_btn_cadastreTelaPrincipalActionPerformed
 
     /**

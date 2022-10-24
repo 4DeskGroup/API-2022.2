@@ -1,5 +1,7 @@
 package View;
 
+import Controller.Dados;
+import Controller.Table;
 import javax.swing.table.DefaultTableModel;
 import connection.ConnectionFactory;
 import connection.PesqCanal;
@@ -10,11 +12,9 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import javax.swing.JOptionPane;
 import java.sql.ResultSet;
-import java.util.Vector;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import model.DTO.CanalDTO;
-
 import model.bean.Canal;
 import model.bean.Usuario;
 import model.dao.CanalConfigDAO;
@@ -22,8 +22,7 @@ import model.dao.CanalDAO;
 
 public class PaginaEditarCadastros extends javax.swing.JFrame {
 
-    PesqCanal DAO;
-
+    private PesqCanal DAO;
     private static Usuario user;
 
     public PaginaEditarCadastros(Usuario u) {
@@ -34,8 +33,6 @@ public class PaginaEditarCadastros extends javax.swing.JFrame {
         } catch (Exception e) {
 
         }
-        //restaurarDadosComboBoxCargo();
-        //restaurarDadosComboBoxCargo2();
     }
 
     public void readJTable() {
@@ -48,7 +45,7 @@ public class PaginaEditarCadastros extends javax.swing.JFrame {
         java.awt.GridBagConstraints gridBagConstraints;
 
         buttonGroup1 = new javax.swing.ButtonGroup();
-        jPanel1 = new javax.swing.JPanel();
+        jPanel_Menu = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
         jLabel_LogoTelaPrincipal = new javax.swing.JLabel();
         jPanel16 = new javax.swing.JPanel();
@@ -74,18 +71,16 @@ public class PaginaEditarCadastros extends javax.swing.JFrame {
         btnAtualizarDados = new javax.swing.JButton();
         jPanel7 = new javax.swing.JPanel();
         jPanel9 = new javax.swing.JPanel();
-        lbl_idContaInfoUs1 = new javax.swing.JLabel();
-        txtCodigo = new javax.swing.JTextField();
         jPanel10 = new javax.swing.JPanel();
         jPanel11 = new javax.swing.JPanel();
         lbl_canaisAtivo = new javax.swing.JLabel();
         lbl_filtros = new javax.swing.JLabel();
-        txt_filtros = new javax.swing.JFormattedTextField();
+        txt_busca = new javax.swing.JFormattedTextField();
         jLabel_filtros = new javax.swing.JLabel();
         jPanel12 = new javax.swing.JPanel();
         jPanel22 = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jTable_canaisAtivos1 = new javax.swing.JTable();
+        jTable_canaisAtivos = new javax.swing.JTable();
         btn_excluir2 = new javax.swing.JButton();
         btnCarregarCampos = new javax.swing.JButton();
         btnLimpar = new javax.swing.JButton();
@@ -99,9 +94,9 @@ public class PaginaEditarCadastros extends javax.swing.JFrame {
             }
         });
 
-        jPanel1.setBackground(new java.awt.Color(255, 62, 21));
-        jPanel1.setPreferredSize(new java.awt.Dimension(250, 100));
-        jPanel1.setLayout(new java.awt.BorderLayout());
+        jPanel_Menu.setBackground(new java.awt.Color(255, 62, 21));
+        jPanel_Menu.setPreferredSize(new java.awt.Dimension(250, 100));
+        jPanel_Menu.setLayout(new java.awt.BorderLayout());
 
         jPanel3.setBackground(new java.awt.Color(255, 62, 21));
         jPanel3.setLayout(new java.awt.GridBagLayout());
@@ -114,7 +109,7 @@ public class PaginaEditarCadastros extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(40, 50, 27, 67);
         jPanel3.add(jLabel_LogoTelaPrincipal, gridBagConstraints);
 
-        jPanel1.add(jPanel3, java.awt.BorderLayout.PAGE_START);
+        jPanel_Menu.add(jPanel3, java.awt.BorderLayout.PAGE_START);
 
         jPanel16.setBackground(new java.awt.Color(255, 62, 21));
         jPanel16.setPreferredSize(new java.awt.Dimension(400, 200));
@@ -154,9 +149,9 @@ public class PaginaEditarCadastros extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(20, 40, 52, 30);
         jPanel16.add(btn_SairLogout, gridBagConstraints);
 
-        jPanel1.add(jPanel16, java.awt.BorderLayout.PAGE_END);
+        jPanel_Menu.add(jPanel16, java.awt.BorderLayout.PAGE_END);
 
-        getContentPane().add(jPanel1, java.awt.BorderLayout.LINE_START);
+        getContentPane().add(jPanel_Menu, java.awt.BorderLayout.LINE_START);
 
         jPanel2.setBackground(new java.awt.Color(241, 241, 241));
         jPanel2.setMinimumSize(new java.awt.Dimension(850, 630));
@@ -184,39 +179,25 @@ public class PaginaEditarCadastros extends javax.swing.JFrame {
 
         jPanel6.setBackground(new java.awt.Color(241, 241, 241));
         jPanel6.setPreferredSize(new java.awt.Dimension(100, 100));
-        jPanel6.setLayout(new java.awt.GridBagLayout());
+        jPanel6.setLayout(null);
 
         lbl_canalInfoUs1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         lbl_canalInfoUs1.setForeground(new java.awt.Color(45, 18, 75));
         lbl_canalInfoUs1.setText("Canal");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 0;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(10, 70, 0, 0);
-        jPanel6.add(lbl_canalInfoUs1, gridBagConstraints);
+        jPanel6.add(lbl_canalInfoUs1);
+        lbl_canalInfoUs1.setBounds(70, 10, 47, 25);
 
+        lbl_canalE.setBackground(new java.awt.Color(204, 204, 204));
         lbl_canalE.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         lbl_canalE.setForeground(new java.awt.Color(45, 18, 75));
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 1;
-        gridBagConstraints.gridwidth = 2;
-        gridBagConstraints.ipadx = 160;
-        gridBagConstraints.ipady = 30;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(15, 70, 0, 0);
-        jPanel6.add(lbl_canalE, gridBagConstraints);
+        jPanel6.add(lbl_canalE);
+        lbl_canalE.setBounds(140, 10, 160, 20);
 
         lbl_idContaInfoUs2.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         lbl_idContaInfoUs2.setForeground(new java.awt.Color(45, 18, 75));
         lbl_idContaInfoUs2.setText("ID da Conta");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 0;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(10, 240, 0, 0);
-        jPanel6.add(lbl_idContaInfoUs2, gridBagConstraints);
+        jPanel6.add(lbl_idContaInfoUs2);
+        lbl_idContaInfoUs2.setBounds(470, 10, 100, 25);
 
         txt_idCadasInfoUs.setFont(new java.awt.Font("Segoe UI", 0, 22)); // NOI18N
         txt_idCadasInfoUs.addActionListener(new java.awt.event.ActionListener() {
@@ -224,15 +205,8 @@ public class PaginaEditarCadastros extends javax.swing.JFrame {
                 txt_idCadasInfoUsActionPerformed(evt);
             }
         });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 1;
-        gridBagConstraints.gridwidth = 2;
-        gridBagConstraints.gridheight = 2;
-        gridBagConstraints.ipadx = 176;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(15, 240, 14, 240);
-        jPanel6.add(txt_idCadasInfoUs, gridBagConstraints);
+        jPanel6.add(txt_idCadasInfoUs);
+        txt_idCadasInfoUs.setBounds(470, 50, 240, 36);
 
         jPanel5.add(jPanel6, java.awt.BorderLayout.PAGE_START);
 
@@ -345,33 +319,6 @@ public class PaginaEditarCadastros extends javax.swing.JFrame {
         jPanel9.setBackground(new java.awt.Color(241, 241, 241));
         jPanel9.setPreferredSize(new java.awt.Dimension(100, 50));
         jPanel9.setLayout(new java.awt.GridBagLayout());
-
-        lbl_idContaInfoUs1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        lbl_idContaInfoUs1.setForeground(new java.awt.Color(45, 18, 75));
-        lbl_idContaInfoUs1.setText("ID");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 0;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(10, 50, 0, 0);
-        jPanel9.add(lbl_idContaInfoUs1, gridBagConstraints);
-
-        txtCodigo.setEnabled(false);
-        txtCodigo.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtCodigoActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 0;
-        gridBagConstraints.gridheight = 2;
-        gridBagConstraints.ipadx = 86;
-        gridBagConstraints.ipady = 8;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(10, 91, 10, 640);
-        jPanel9.add(txtCodigo, gridBagConstraints);
-
         jPanel7.add(jPanel9, java.awt.BorderLayout.PAGE_START);
 
         jPanel10.setBackground(new java.awt.Color(241, 241, 241));
@@ -401,15 +348,15 @@ public class PaginaEditarCadastros extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(10, 305, 0, 0);
         jPanel11.add(lbl_filtros, gridBagConstraints);
 
-        txt_filtros.setFont(new java.awt.Font("Segoe UI", 0, 22)); // NOI18N
-        txt_filtros.addActionListener(new java.awt.event.ActionListener() {
+        txt_busca.setFont(new java.awt.Font("Segoe UI", 0, 22)); // NOI18N
+        txt_busca.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txt_filtrosActionPerformed(evt);
+                txt_buscaActionPerformed(evt);
             }
         });
-        txt_filtros.addKeyListener(new java.awt.event.KeyAdapter() {
+        txt_busca.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
-                txt_filtrosKeyReleased(evt);
+                txt_buscaKeyReleased(evt);
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -419,7 +366,7 @@ public class PaginaEditarCadastros extends javax.swing.JFrame {
         gridBagConstraints.ipadx = 236;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(10, 18, 4, 0);
-        jPanel11.add(txt_filtros, gridBagConstraints);
+        jPanel11.add(txt_busca, gridBagConstraints);
 
         jLabel_filtros.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/imagens/icons8-pesquisar-30.png"))); // NOI18N
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -440,24 +387,24 @@ public class PaginaEditarCadastros extends javax.swing.JFrame {
         jPanel22.setPreferredSize(new java.awt.Dimension(100, 250));
         jPanel22.setLayout(new java.awt.GridBagLayout());
 
-        jTable_canaisAtivos1.setModel(new javax.swing.table.DefaultTableModel(
+        jTable_canaisAtivos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null}
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null}
             },
             new String [] {
-                "ID", "Empresa", "ContaID", "Login", "Senha", "Token"
+                "Empresa", "ContaID", "Login", "Senha", "Token"
             }
         ));
-        jScrollPane2.setViewportView(jTable_canaisAtivos1);
+        jScrollPane2.setViewportView(jTable_canaisAtivos);
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -534,39 +481,12 @@ public class PaginaEditarCadastros extends javax.swing.JFrame {
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
 
-        DefaultTableModel modelo = (DefaultTableModel) jTable_canaisAtivos1.getModel();
-        modelo.setNumRows(0);
-
-        try {
-
-            Connection con = ConnectionFactory.getConnection();
-            PreparedStatement stmt;
-            ResultSet rs;
-
-            stmt = con.prepareStatement("SELECT id_Canal, Empresa_Config, Contaid_Canal, Login_Canal, Senha_Canal, Token_Canal FROM tbl_Canal JOIN tbl_Config "
-                    + "WHERE tbl_Canal.Usuario_pertencente = " + user.getId() + " AND  id_Config = Config_pertencente GROUP BY id_Canal");
-            rs = stmt.executeQuery();
-            while (rs.next()) {
-                modelo.addRow(new Object[]{
-                    rs.getString(1),
-                    rs.getString(2),
-                    rs.getInt(3),
-                    rs.getString(4),
-                    rs.getString(5),
-                    rs.getString(6)
-                });
-
-            }
-            ConnectionFactory.closeConnection(con, stmt, rs);
-
-        } catch (Exception ErroSql) {
-            JOptionPane.showMessageDialog(null, "Erro ao carregar a tabela de dados: " + ErroSql, "ERRO", JOptionPane.ERROR_MESSAGE);
-        }
+        Table.carregarTableCanal(jTable_canaisAtivos, user);
 
     }//GEN-LAST:event_formWindowOpened
 
     private void btn_CadastrarCanalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_CadastrarCanalActionPerformed
-        // TODO add your handling code here:
+
         Dimension telaOriginal = getPreferredSize();
         Dimension telaRecente = getSize();
 
@@ -583,12 +503,11 @@ public class PaginaEditarCadastros extends javax.swing.JFrame {
             paginaCadastroAtivos.setVisible(true);
             this.dispose();
         }
-        //new PaginaCadastrosAtivos(user).setVisible(true);
-        //this.dispose();
+
     }//GEN-LAST:event_btn_CadastrarCanalActionPerformed
 
     private void btn_SairLogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_SairLogoutActionPerformed
-        // TODO add your handling code here:
+
         Dimension telaOriginal = getPreferredSize();
         Dimension telaRecente = getSize();
 
@@ -605,85 +524,77 @@ public class PaginaEditarCadastros extends javax.swing.JFrame {
             telaPrincipal.setVisible(true);
             this.dispose();
         }
-        // new TelaPrincipal().setVisible(true);
-        //this.dispose();
+
     }//GEN-LAST:event_btn_SairLogoutActionPerformed
 
-    private void txtCodigoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCodigoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtCodigoActionPerformed
-
     private void txt_userInfoUsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_userInfoUsActionPerformed
+
         // TODO add your handling code here:
-        if (txt_tokenCanalInfo.getText() != "") {
-            txt_userInfoUs.setEditable(false);
-        }
+
     }//GEN-LAST:event_txt_userInfoUsActionPerformed
 
     private void txt_senhaInfoUsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_senhaInfoUsActionPerformed
+
         // TODO add your handling code here:
+
     }//GEN-LAST:event_txt_senhaInfoUsActionPerformed
 
     private void txt_tokenCanalInfoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_tokenCanalInfoActionPerformed
-        // TODO add your handling code here:
+
+        if (!txt_userInfoUs.getText().equals("Token")) {
+            txt_tokenCanalInfo.setEditable(false);
+        }
+
     }//GEN-LAST:event_txt_tokenCanalInfoActionPerformed
 
     private void btnAtualizarDadosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAtualizarDadosActionPerformed
-        AlterarDados();
+
+        String login, senha, token, conta_id, empresa;
+
+        conta_id = txt_idCadasInfoUs.getText();
+        login = txt_userInfoUs.getText();
+        senha = txt_senhaInfoUs.getText();
+        token = txt_tokenCanalInfo.getText();
+        empresa = lbl_canalE.getText();
+
+        Dados.AlterarDadosCanal(empresa, conta_id, login, senha, token);
+
         try {
-            listarDados();
+            Dados.listarDados(jTable_canaisAtivos, user);
         } catch (SQLException ex) {
-            Logger.getLogger(PaginaEditarCadastros.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showMessageDialog(null, "Erro ao conectar! " + ex);
         }
-        LimparCampos();
-        try {
-            listarDados();
-        } catch (SQLException ex) {
-            Logger.getLogger(PaginaEditarCadastros.class.getName()).log(Level.SEVERE, null, ex);
-        }
+
         txt_userInfoUs.setEditable(true);
         txt_senhaInfoUs.setEditable(true);
         txt_tokenCanalInfo.setEditable(true);
+
     }//GEN-LAST:event_btnAtualizarDadosActionPerformed
 
-    private void txt_filtrosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_filtrosActionPerformed
+    private void txt_buscaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_buscaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txt_filtrosActionPerformed
+    }//GEN-LAST:event_txt_buscaActionPerformed
 
-    private void txt_filtrosKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_filtrosKeyReleased
+    private void txt_buscaKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_buscaKeyReleased
 
-        try {
-            Vector cabecalho = new Vector();
-            cabecalho.add("id_Canal");
-            cabecalho.add("Empresa");
-            cabecalho.add("Contaid");
-            cabecalho.add("Login");
-            cabecalho.add("Senha");
-            cabecalho.add("Token");
-            if (!txt_filtros.getText().equals("")) {
+        String busca = txt_busca.getText();
+        String campo = "Empresa";
+        String ordem = "asc";
+        
+        Table.filtroBuscaCanal(jTable_canaisAtivos, busca, campo, ordem, DAO);
 
-                DefaultTableModel nv = new DefaultTableModel(DAO.Pesquisar(txt_filtros.getText(), user.getUser()), cabecalho);
-                jTable_canaisAtivos1.setModel(nv);
-
-            } else {
-                DefaultTableModel nv = new DefaultTableModel(new Vector(), cabecalho);
-                jTable_canaisAtivos1.setModel(nv);
-            }
-        } catch (Exception ex) {
-            JOptionPane.showMessageDialog(this, "Erro ao Pesquisar: " + ex.getMessage());
-        }
-    }//GEN-LAST:event_txt_filtrosKeyReleased
+    }//GEN-LAST:event_txt_buscaKeyReleased
 
     private void btn_excluir2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_excluir2ActionPerformed
 
-        Object indice = jTable_canaisAtivos1.getValueAt(jTable_canaisAtivos1.getSelectedRow(), 0);
+        Object indice = jTable_canaisAtivos.getValueAt(jTable_canaisAtivos.getSelectedRow(), 0);
         String indiceS = indice.toString();
-        if (jTable_canaisAtivos1.getSelectedRow() == -1) {
+        if (jTable_canaisAtivos.getSelectedRow() == -1) {
             JOptionPane.showMessageDialog(null, "Selecione um canal para excluir!");
         } else {
 
-            DefaultTableModel modelo = (DefaultTableModel) jTable_canaisAtivos1.getModel();
-            modelo.removeRow(jTable_canaisAtivos1.getSelectedRow());
+            DefaultTableModel modelo = (DefaultTableModel) jTable_canaisAtivos.getModel();
+            modelo.removeRow(jTable_canaisAtivos.getSelectedRow());
 
             Canal p = new Canal();
             CanalDAO dao = new CanalDAO();
@@ -695,24 +606,21 @@ public class PaginaEditarCadastros extends javax.swing.JFrame {
             dao.delete(i, fk);
 
         }
+
     }//GEN-LAST:event_btn_excluir2ActionPerformed
 
     private void btnCarregarCamposActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCarregarCamposActionPerformed
-        
-        int setar = jTable_canaisAtivos1.getSelectedRow();
-        
+
+        int setar = jTable_canaisAtivos.getSelectedRow();
+
         carregarCampos(setar);
-        
-        if (!txt_userInfoUs.getText().equals("")) {
-            txt_tokenCanalInfo.setEditable(false);
-        } else if (!txt_tokenCanalInfo.getText().equals("")) {
-            txt_userInfoUs.setEditable(false);
-            txt_senhaInfoUs.setEditable(false);
-        }
+
     }//GEN-LAST:event_btnCarregarCamposActionPerformed
 
     private void btnLimparActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimparActionPerformed
+
         LimparCampos();
+
     }//GEN-LAST:event_btnLimparActionPerformed
 
     private void txt_idCadasInfoUsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_idCadasInfoUsActionPerformed
@@ -748,95 +656,37 @@ public class PaginaEditarCadastros extends javax.swing.JFrame {
             }
         });
     }
-    Vector<Integer> idCanais = new Vector<Integer>();
 
     private void carregarCampos(int linha) {
-        
-        if(jTable_canaisAtivos1.getModel().getValueAt(linha, 5).toString().equals("Sem Token")){
+
+        if (jTable_canaisAtivos.getModel().getValueAt(linha, 4).toString().equals("Sem Token")) {
+            txt_userInfoUs.setText(jTable_canaisAtivos.getModel().getValueAt(linha, 2).toString());
+            txt_senhaInfoUs.setText(jTable_canaisAtivos.getModel().getValueAt(linha, 3).toString());
             txt_tokenCanalInfo.setText("Sem Token");
-            txt_userInfoUs.setText(jTable_canaisAtivos1.getModel().getValueAt(linha, 3).toString());
-            txt_senhaInfoUs.setText(jTable_canaisAtivos1.getModel().getValueAt(linha, 4).toString());
-            txt_tokenCanalInfo.setEnabled(false);
             txt_userInfoUs.setEnabled(true);
             txt_senhaInfoUs.setEnabled(true);
-        }else{
-            txt_tokenCanalInfo.setText(jTable_canaisAtivos1.getModel().getValueAt(linha, 5).toString());
+            txt_tokenCanalInfo.setEnabled(false);
+        } else {
             txt_userInfoUs.setText("Sem Usuario");
             txt_senhaInfoUs.setText("Sem Senha");
-            txt_tokenCanalInfo.setEnabled(true);
+            txt_tokenCanalInfo.setText(jTable_canaisAtivos.getModel().getValueAt(linha, 4).toString());
             txt_userInfoUs.setEnabled(false);
             txt_senhaInfoUs.setEnabled(false);
+            txt_tokenCanalInfo.setEnabled(true);
+
         }
-        txtCodigo.setText(jTable_canaisAtivos1.getModel().getValueAt(linha, 0).toString());
-        txt_idCadasInfoUs.setText(jTable_canaisAtivos1.getModel().getValueAt(linha, 2).toString());
-        lbl_canalE.setText(jTable_canaisAtivos1.getModel().getValueAt(linha, 1).toString());
-        txt_tokenCanalInfo.setText(jTable_canaisAtivos1.getModel().getValueAt(linha, 5).toString());
-
-    }
-
-    private void listarDados() throws SQLException {
-        DefaultTableModel modelo = (DefaultTableModel) jTable_canaisAtivos1.getModel();
-        modelo.setNumRows(0);
-
-        try {
-            Connection con = ConnectionFactory.getConnection();
-            PreparedStatement stmt;
-            ResultSet rs;
-
-            stmt = con.prepareStatement("SELECT tbl_Canal.id_Canal, tbl_Config.Empresa_Config, tbl_Canal.Contaid_Canal, tbl_Canal.Login_Canal, tbl_Canal.Senha_Canal, tbl_Canal.Token_Canal FROM tbl_Canal JOIN tbl_Config WHERE Usuario_pertencente = " + '"' + user.getId() + '"' + " AND  id_Config = Config_pertencente");
-            rs = stmt.executeQuery();
-
-            while (rs.next()) {
-                modelo.addRow(new Object[]{
-                    rs.getString(1),
-                    rs.getString(2),
-                    rs.getString(3),
-                    rs.getString(4),
-                    rs.getString(5),
-                    rs.getString(6)
-                });
-            }
-            ConnectionFactory.closeConnection(con, stmt, rs);
-
-        } catch (Exception ErroSql) {
-            JOptionPane.showMessageDialog(null, "Erro ao carregar a tabela de dados: " + ErroSql, "ERRO", JOptionPane.ERROR_MESSAGE);
-        }
+        lbl_canalE.setText(jTable_canaisAtivos.getModel().getValueAt(linha, 0).toString());
+        txt_idCadasInfoUs.setText(jTable_canaisAtivos.getModel().getValueAt(linha, 1).toString());
     }
 
     private void LimparCampos() {
-        
-        txtCodigo.setText("");
+
         lbl_canalE.setText("");
         txt_idCadasInfoUs.setText("");
         txt_userInfoUs.setText("");
         txt_senhaInfoUs.setText("");
         txt_tokenCanalInfo.setText("");
 
-    }
-
-    private void AlterarDados() {
-
-        CanalDTO objcanalinfo = new CanalDTO();
-
-        int id_canal;
-        String login, senha, token, conta_id, empresa;
-
-        conta_id = txt_idCadasInfoUs.getText();
-        login = txt_userInfoUs.getText();
-        senha = txt_senhaInfoUs.getText();
-        token = txt_tokenCanalInfo.getText();
-        empresa = lbl_canalE.getText();
-        
-        int i = new CanalDAO().searchIdCanal(empresa);
-        
-        objcanalinfo.setContaid(conta_id);
-        objcanalinfo.setLogin(login);
-        objcanalinfo.setSenha(senha);
-        objcanalinfo.setToken(token);
-
-
-        CanalDAO objcanaldao = new CanalDAO();
-        objcanaldao.alterarDados(objcanalinfo, i);
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -850,7 +700,6 @@ public class PaginaEditarCadastros extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel_LogoTelaPrincipal;
     private javax.swing.JLabel jLabel_filtros;
-    private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel10;
     private javax.swing.JPanel jPanel11;
     private javax.swing.JPanel jPanel12;
@@ -865,19 +714,18 @@ public class PaginaEditarCadastros extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel7;
     private javax.swing.JPanel jPanel8;
     private javax.swing.JPanel jPanel9;
+    private javax.swing.JPanel jPanel_Menu;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTable jTable_canaisAtivos1;
+    private javax.swing.JTable jTable_canaisAtivos;
     private javax.swing.JLabel lbl_canaisAtivo;
     private javax.swing.JLabel lbl_canalE;
     private javax.swing.JLabel lbl_canalInfoUs1;
     private javax.swing.JLabel lbl_confAtivas1;
     private javax.swing.JLabel lbl_filtros;
-    private javax.swing.JLabel lbl_idContaInfoUs1;
     private javax.swing.JLabel lbl_idContaInfoUs2;
     private javax.swing.JLabel lbl_senhaInfoUs;
     private javax.swing.JLabel lbl_userInfoUs1;
-    private javax.swing.JTextField txtCodigo;
-    private javax.swing.JFormattedTextField txt_filtros;
+    private javax.swing.JFormattedTextField txt_busca;
     private javax.swing.JTextField txt_idCadasInfoUs;
     private javax.swing.JTextField txt_senhaInfoUs;
     private javax.swing.JTextField txt_tokenCanalInfo;

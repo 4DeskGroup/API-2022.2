@@ -1,18 +1,12 @@
 package View;
 
+import Controller.Table;
 import Controller.VerificarAcesso;
-import GUI.LoginGUI;
 import javax.swing.table.DefaultTableModel;
-import connection.ConnectionFactory;
 import connection.PesquCanalADM;
 import java.awt.Dimension;
 import java.awt.Frame;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
 import javax.swing.JOptionPane;
-import java.sql.ResultSet;
-import java.util.Vector;
 import model.bean.Canal;
 import model.bean.Usuario;
 import model.dao.CanalConfigDAO;
@@ -21,18 +15,17 @@ import model.dao.CanalDAO;
 
 public class PaginaCadastrosAtivosAdm extends javax.swing.JFrame {
 
-    PesquCanalADM DAO;
-    
+    private PesquCanalADM DAO;
     private static Usuario user;
     
     public PaginaCadastrosAtivosAdm(Usuario u) {
         this.user = u;
-        initComponents();
         try{
             DAO = new PesquCanalADM();
         }catch(Exception e){
-            
+            JOptionPane.showMessageDialog(null, "Erro ao Pesquisar Canal");
         }
+        initComponents();
     }
 
     public void readJTable(){
@@ -45,12 +38,15 @@ public class PaginaCadastrosAtivosAdm extends javax.swing.JFrame {
         java.awt.GridBagConstraints gridBagConstraints;
 
         buttonGroup1 = new javax.swing.ButtonGroup();
-        jPanel1 = new javax.swing.JPanel();
+        jPanel_Menu = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
         jLabel_LogoTelaPrincipal = new javax.swing.JLabel();
         jPanel16 = new javax.swing.JPanel();
         btn_CadastrarCanal = new javax.swing.JButton();
         btn_SairLogout = new javax.swing.JButton();
+        btn_CadastrarCanal1 = new javax.swing.JButton();
+        btn_CadastrarCanal2 = new javax.swing.JButton();
+        btn_CadastrarCanal3 = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jPanel4 = new javax.swing.JPanel();
         lbl_4dGroupCadas = new javax.swing.JLabel();
@@ -85,14 +81,17 @@ public class PaginaCadastrosAtivosAdm extends javax.swing.JFrame {
         setTitle("Configurações Ativas");
         setMinimumSize(new java.awt.Dimension(850, 600));
         addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowIconified(java.awt.event.WindowEvent evt) {
+                formWindowIconified(evt);
+            }
             public void windowOpened(java.awt.event.WindowEvent evt) {
                 formWindowOpened(evt);
             }
         });
 
-        jPanel1.setBackground(new java.awt.Color(255, 62, 21));
-        jPanel1.setPreferredSize(new java.awt.Dimension(250, 100));
-        jPanel1.setLayout(new java.awt.BorderLayout());
+        jPanel_Menu.setBackground(new java.awt.Color(255, 62, 21));
+        jPanel_Menu.setPreferredSize(new java.awt.Dimension(250, 100));
+        jPanel_Menu.setLayout(new java.awt.BorderLayout());
 
         jPanel3.setBackground(new java.awt.Color(255, 62, 21));
         jPanel3.setPreferredSize(new java.awt.Dimension(250, 200));
@@ -106,7 +105,7 @@ public class PaginaCadastrosAtivosAdm extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(40, 50, 27, 67);
         jPanel3.add(jLabel_LogoTelaPrincipal, gridBagConstraints);
 
-        jPanel1.add(jPanel3, java.awt.BorderLayout.PAGE_START);
+        jPanel_Menu.add(jPanel3, java.awt.BorderLayout.PAGE_START);
 
         jPanel16.setBackground(new java.awt.Color(255, 62, 21));
         jPanel16.setPreferredSize(new java.awt.Dimension(400, 200));
@@ -115,7 +114,7 @@ public class PaginaCadastrosAtivosAdm extends javax.swing.JFrame {
         btn_CadastrarCanal.setBackground(new java.awt.Color(45, 18, 75));
         btn_CadastrarCanal.setFont(new java.awt.Font("Segoe UI", 1, 28)); // NOI18N
         btn_CadastrarCanal.setForeground(new java.awt.Color(255, 255, 255));
-        btn_CadastrarCanal.setText("Config. Canal");
+        btn_CadastrarCanal.setText("Master");
         btn_CadastrarCanal.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_CadastrarCanalActionPerformed(evt);
@@ -123,11 +122,11 @@ public class PaginaCadastrosAtivosAdm extends javax.swing.JFrame {
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 0;
+        gridBagConstraints.gridy = 1;
         gridBagConstraints.gridwidth = 2;
-        gridBagConstraints.ipadx = 5;
+        gridBagConstraints.ipadx = 89;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(14, 20, 0, 20);
+        gridBagConstraints.insets = new java.awt.Insets(21, 20, 0, 20);
         jPanel16.add(btn_CadastrarCanal, gridBagConstraints);
 
         btn_SairLogout.setBackground(new java.awt.Color(204, 204, 204));
@@ -140,15 +139,69 @@ public class PaginaCadastrosAtivosAdm extends javax.swing.JFrame {
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 1;
+        gridBagConstraints.gridy = 2;
         gridBagConstraints.ipadx = 86;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(50, 42, 43, 0);
+        gridBagConstraints.insets = new java.awt.Insets(16, 40, 13, 0);
         jPanel16.add(btn_SairLogout, gridBagConstraints);
 
-        jPanel1.add(jPanel16, java.awt.BorderLayout.PAGE_END);
+        btn_CadastrarCanal1.setBackground(new java.awt.Color(45, 18, 75));
+        btn_CadastrarCanal1.setFont(new java.awt.Font("Segoe UI", 1, 28)); // NOI18N
+        btn_CadastrarCanal1.setForeground(new java.awt.Color(255, 255, 255));
+        btn_CadastrarCanal1.setText("Config. Canal");
+        btn_CadastrarCanal1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_CadastrarCanal1ActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.ipadx = 5;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(15, 20, 0, 20);
+        jPanel16.add(btn_CadastrarCanal1, gridBagConstraints);
 
-        getContentPane().add(jPanel1, java.awt.BorderLayout.LINE_START);
+        btn_CadastrarCanal2.setBackground(new java.awt.Color(45, 18, 75));
+        btn_CadastrarCanal2.setFont(new java.awt.Font("Segoe UI", 1, 28)); // NOI18N
+        btn_CadastrarCanal2.setForeground(new java.awt.Color(255, 255, 255));
+        btn_CadastrarCanal2.setText("Config. Canal");
+        btn_CadastrarCanal2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_CadastrarCanal2ActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.ipadx = 5;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(15, 20, 0, 20);
+        jPanel16.add(btn_CadastrarCanal2, gridBagConstraints);
+
+        btn_CadastrarCanal3.setBackground(new java.awt.Color(45, 18, 75));
+        btn_CadastrarCanal3.setFont(new java.awt.Font("Segoe UI", 1, 28)); // NOI18N
+        btn_CadastrarCanal3.setForeground(new java.awt.Color(255, 255, 255));
+        btn_CadastrarCanal3.setText("Config. Canal");
+        btn_CadastrarCanal3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_CadastrarCanal3ActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.ipadx = 5;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(15, 20, 0, 20);
+        jPanel16.add(btn_CadastrarCanal3, gridBagConstraints);
+
+        jPanel_Menu.add(jPanel16, java.awt.BorderLayout.PAGE_END);
+
+        getContentPane().add(jPanel_Menu, java.awt.BorderLayout.LINE_START);
 
         jPanel2.setBackground(new java.awt.Color(241, 241, 241));
         jPanel2.setMinimumSize(new java.awt.Dimension(948, 120));
@@ -229,7 +282,7 @@ public class PaginaCadastrosAtivosAdm extends javax.swing.JFrame {
 
         cmb_campo.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         cmb_campo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "id_Config", "Empresa", "Plataforma", "Autenticacao" }));
-        cmb_campo.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        cmb_campo.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         cmb_campo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cmb_campoActionPerformed(evt);
@@ -258,7 +311,7 @@ public class PaginaCadastrosAtivosAdm extends javax.swing.JFrame {
 
         cmb_ordem.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         cmb_ordem.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Crescente", "Decrescente" }));
-        cmb_ordem.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        cmb_ordem.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         cmb_ordem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cmb_ordemActionPerformed(evt);
@@ -276,6 +329,15 @@ public class PaginaCadastrosAtivosAdm extends javax.swing.JFrame {
         lbl_filtros1.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         lbl_filtros1.setForeground(new java.awt.Color(45, 18, 75));
         lbl_filtros1.setText("Busca");
+        lbl_filtros1.addAncestorListener(new javax.swing.event.AncestorListener() {
+            public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
+                lbl_filtros1AncestorAdded(evt);
+            }
+            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
+            }
+            public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 5;
         gridBagConstraints.gridy = 0;
@@ -432,43 +494,17 @@ public class PaginaCadastrosAtivosAdm extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 //Mostrar na Tabela
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
-     
-        if(user != null){
-            boolean a = new VerificarAcesso().acess(user);
-            if(a == false){
-                JOptionPane.showMessageDialog(null, "Não tem permissão para acessar nessa página");
-                this.dispose();
-                new LoginGUI().setVisible(true);
-            }
-        }   
-
-        DefaultTableModel modelo = (DefaultTableModel) jTable_canaisAtivosADM.getModel();
-        modelo.setNumRows(0);
         
-        try{
-            Connection con = ConnectionFactory.getConnection();
-            PreparedStatement stmt;
-            ResultSet rs;
-            
-            stmt = con.prepareStatement("SELECT * FROM tbl_Config");
-            rs = stmt.executeQuery();
-            
-            while(rs.next()){
-                modelo.addRow(new Object[]{
-                    rs.getString(1),
-                    rs.getString(2),
-                    rs.getString(3),
-                    rs.getString(4)
-                });
-                
-            }
-            ConnectionFactory.closeConnection(con, stmt, rs);
-            
-            
-        } 
-        catch(Exception ErroSql){
-            JOptionPane.showMessageDialog(null, "Erro ao carregar a tabela de dados: "+ErroSql, "ERRO", JOptionPane.ERROR_MESSAGE);
+        boolean vf = new VerificarAcesso().isADM(user);
+        
+        if(vf == false){
+            JOptionPane.showMessageDialog(null, "Não tem permissão para acessar nessa página");
+            this.dispose();
+            new PaginaCadastrosAtivos(user).setVisible(true);
+        }else{
+            Table.carregarTableConfig(jTable_canaisAtivosADM, user);
         }
+
     }//GEN-LAST:event_formWindowOpened
 
     private void btn_CadastrarCanalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_CadastrarCanalActionPerformed
@@ -479,13 +515,13 @@ public class PaginaCadastrosAtivosAdm extends javax.swing.JFrame {
         int tamanhoTelaRecente = (int) telaRecente.getWidth();
 
         if (tamanhoTelaOriginal < tamanhoTelaRecente) {
-            PaginaCadastroConfig paginaCadastroVagas = new PaginaCadastroConfig(user);
-            paginaCadastroVagas.setExtendedState(Frame.MAXIMIZED_BOTH);
-            paginaCadastroVagas.setVisible(true);
+            PaginaUsuariosCadas paginaUsuarioCadas = new PaginaUsuariosCadas(user);
+            paginaUsuarioCadas.setExtendedState(Frame.MAXIMIZED_BOTH);
+            paginaUsuarioCadas.setVisible(true);
             this.dispose();
         } else {
-            PaginaCadastroConfig paginaCadastroVagas = new PaginaCadastroConfig(user);
-            paginaCadastroVagas.setVisible(true);
+            PaginaUsuariosCadas paginaUsuarioCadas = new PaginaUsuariosCadas(user);
+            paginaUsuarioCadas.setVisible(true);
             this.dispose();
         }
 
@@ -520,50 +556,35 @@ public class PaginaCadastrosAtivosAdm extends javax.swing.JFrame {
     private void cmb_campoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmb_campoActionPerformed
 
         filtroBusca();
+        
     }//GEN-LAST:event_cmb_campoActionPerformed
 
     private void cmb_ordemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmb_ordemActionPerformed
 
         filtroBusca();
+        
     }//GEN-LAST:event_cmb_ordemActionPerformed
 
     private void txt_buscaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_buscaActionPerformed
-        // TODO add your handling code here:
+        
+    // TODO add your handling code here:
+        
     }//GEN-LAST:event_txt_buscaActionPerformed
 
     private void txt_buscaKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_buscaKeyReleased
 
         filtroBusca();
+        
     }//GEN-LAST:event_txt_buscaKeyReleased
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-
+        
         DefaultTableModel modelo = (DefaultTableModel) jTable_canaisAtivosADM.getModel();
-        modelo.setNumRows(0);
-
-        try{
-            Connection con = ConnectionFactory.getConnection();
-            PreparedStatement stmt;
-            ResultSet rs;
-
-            stmt = con.prepareStatement("SELECT * FROM tbl_Config;");
-            rs = stmt.executeQuery();
-
-            while(rs.next()){
-                modelo.addRow(new Object[]{
-                    rs.getString(1),
-                    rs.getString(2),
-                    rs.getString(3),
-                    rs.getString(4)
-                });
-
-            }
-            ConnectionFactory.closeConnection(con, stmt, rs);
-
-        }
-        catch(Exception ErroSql){
-            JOptionPane.showMessageDialog(null, "Erro ao carregar a tabela de dados: "+ErroSql, "ERRO", JOptionPane.ERROR_MESSAGE);
-        }
+        
+        DefaultTableModel modeloBD = new Table().CarregarTabelaCadastroAtivos(modelo, user);
+        
+        modelo = modeloBD;
+        
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void btn_ExcluirCInfoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_ExcluirCInfoActionPerformed
@@ -585,6 +606,26 @@ public class PaginaCadastrosAtivosAdm extends javax.swing.JFrame {
             modelo.removeRow(jTable_canaisAtivosADM.getSelectedRow());
         }
     }//GEN-LAST:event_btn_ExcluirCInfoActionPerformed
+
+    private void lbl_filtros1AncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_lbl_filtros1AncestorAdded
+        // TODO add your handling code here:
+    }//GEN-LAST:event_lbl_filtros1AncestorAdded
+
+    private void formWindowIconified(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowIconified
+        // TODO add your handling code here:
+    }//GEN-LAST:event_formWindowIconified
+
+    private void btn_CadastrarCanal1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_CadastrarCanal1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btn_CadastrarCanal1ActionPerformed
+
+    private void btn_CadastrarCanal2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_CadastrarCanal2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btn_CadastrarCanal2ActionPerformed
+
+    private void btn_CadastrarCanal3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_CadastrarCanal3ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btn_CadastrarCanal3ActionPerformed
 
     
     public static void main(String args[]) {
@@ -615,43 +656,33 @@ public class PaginaCadastrosAtivosAdm extends javax.swing.JFrame {
         });
     }
     
-    public void filtroBusca(){
-        
+    public void filtroBusca() {
+
         String campo = cmb_campo.getSelectedItem().toString();
         String ordem = cmb_ordem.getSelectedItem().toString();
-        
-        if(!campo.equals("id_Config")){
+
+        if (!campo.equals("id_Config")) {
             campo = campo + "_Config";
         }
-        
-        if(ordem.equals("Crescente")){
+
+        if (ordem.equals("Crescente")) {
             ordem = "asc";
-        }else if(ordem.equals("Decrescente")){
+        } else if (ordem.equals("Decrescente")) {
             ordem = "desc";
         }
-        
-        try{
-            Vector cabecalho = new Vector();
-            cabecalho.add("id_Config");
-            cabecalho.add("Empresa");
-            cabecalho.add("Plataforma");
-            cabecalho.add("Autenticacao");
-            if(!txt_busca.getText().equals("")){
 
-                DefaultTableModel nv = new DefaultTableModel(DAO.PesquisarADM(txt_busca.getText(), campo, ordem),cabecalho);
-                jTable_canaisAtivosADM.setModel(nv);
+        DefaultTableModel table = (DefaultTableModel) jTable_canaisAtivosADM.getModel();
+        table = new Table().filtroBuscaADM(campo, ordem, txt_busca.getText(), DAO, table);
 
-            }else{
-                DefaultTableModel nv = new DefaultTableModel(DAO.PesquisarADM(campo, ordem), cabecalho);
-                jTable_canaisAtivosADM.setModel(nv);
-            }
-        }catch(Exception ex){
-            JOptionPane.showMessageDialog(this, "Erro ao Pesquisar: "+ex.getMessage());
-        }
+        jTable_canaisAtivosADM.setModel(table);
+
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn_CadastrarCanal;
+    private javax.swing.JButton btn_CadastrarCanal1;
+    private javax.swing.JButton btn_CadastrarCanal2;
+    private javax.swing.JButton btn_CadastrarCanal3;
     private javax.swing.JToggleButton btn_ExcluirCInfo;
     private javax.swing.JButton btn_SairLogout;
     private javax.swing.ButtonGroup buttonGroup1;
@@ -660,7 +691,6 @@ public class PaginaCadastrosAtivosAdm extends javax.swing.JFrame {
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel_LogoTelaPrincipal;
     private javax.swing.JLabel jLabel_filtros;
-    private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel10;
     private javax.swing.JPanel jPanel11;
     private javax.swing.JPanel jPanel12;
@@ -677,6 +707,7 @@ public class PaginaCadastrosAtivosAdm extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel7;
     private javax.swing.JPanel jPanel8;
     private javax.swing.JPanel jPanel9;
+    private javax.swing.JPanel jPanel_Menu;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTable jTable_canaisAtivosADM;
     private javax.swing.JLabel lbl_4dGroupCadas;
@@ -689,4 +720,5 @@ public class PaginaCadastrosAtivosAdm extends javax.swing.JFrame {
     private javax.swing.JFormattedTextField txt_busca;
     // End of variables declaration//GEN-END:variables
 }
+
 
