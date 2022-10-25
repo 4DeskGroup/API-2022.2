@@ -93,14 +93,30 @@ public class Table {
             rs = stmt.executeQuery();
 
             while (rs.next()) {
+                String ativo, perfil;
+                
+                if(rs.getBoolean(7)== true){
+                    ativo = "Ativo";
+                }else{
+                    ativo = "Desativado";
+                }
+                
+                if(rs.getString(8).equals("0")){
+                    perfil = "Master";
+                }else if(rs.getString(8).equals("1")){
+                    perfil = "ADM";
+                }else{
+                    perfil = "Operacional";
+                }
+                
                 modelo.addRow(new Object[]{
                     rs.getString(2),
                     rs.getString(3),
                     rs.getString(4),
                     rs.getString(5),
                     rs.getString(6),
-                    rs.getString(7),
-                    rs.getString(8)
+                    ativo,
+                    perfil
                 });
 
             }
@@ -227,11 +243,7 @@ public class Table {
             JOptionPane.showMessageDialog(null, "Selecione um canal para excluir!");
         } else {
 
-            int i = new CanalDAO().searchIdCanal(indiceS);
-            int fk = new CanalConfigDAO().buscarConfigReturnId(indiceS);
-
-            CanalDAO dao = new CanalDAO();
-            dao.delete(i, fk);
+            Dados.delete(indiceS);
 
             DefaultTableModel modelo = (DefaultTableModel) modelTable.getModel();
             DefaultTableModel modeloBD = new Table().CarregarTabelaConfigAtivos(modelo, user);

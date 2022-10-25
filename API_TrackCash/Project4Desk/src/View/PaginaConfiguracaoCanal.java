@@ -1,5 +1,6 @@
 package View;
 
+import Controller.Dados;
 import java.awt.Dimension;
 import java.awt.Frame;
 import javax.swing.JOptionPane;
@@ -431,7 +432,7 @@ public class PaginaConfiguracaoCanal extends javax.swing.JFrame {
         txt_userInfoUs.setEnabled(false);
         txt_senhaInfoUs.setEnabled(false);
         
-        CanalDAO.listarEmpresas(cbxCanal);
+        Dados.listarEmpresas(cbxCanal);
         
     }//GEN-LAST:event_formWindowOpened
 
@@ -524,8 +525,7 @@ public class PaginaConfiguracaoCanal extends javax.swing.JFrame {
         }else if(txt_tokenCanalInfo.getText().equals("") && lbl_Autenticacao.getText().equals("Token")){
             JOptionPane.showMessageDialog(null, "Preencha os campos de Token!");
         }else{
-            CanalDAO dao = new CanalDAO();
-            dao.addCanal(p);
+            Dados.addCanal(p, connection.ConnectionFactory.getConnection());
         }
 
     }//GEN-LAST:event_btn_cadastrarInfoUs1ActionPerformed

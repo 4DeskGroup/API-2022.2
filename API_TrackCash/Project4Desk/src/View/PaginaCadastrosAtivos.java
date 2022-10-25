@@ -58,24 +58,24 @@ public class PaginaCadastrosAtivos extends javax.swing.JFrame {
         lbl_confAtivas1 = new javax.swing.JLabel();
         jPanel9 = new javax.swing.JPanel();
         jPanel10 = new javax.swing.JPanel();
-        cmb_campo = new javax.swing.JComboBox<>();
+        cmb_Campo = new javax.swing.JComboBox<>();
         lbl_filtros2 = new javax.swing.JLabel();
         lbl_filtros3 = new javax.swing.JLabel();
-        cmb_ordem = new javax.swing.JComboBox<>();
+        cmb_Ordem = new javax.swing.JComboBox<>();
         jLabel_filtros = new javax.swing.JLabel();
         lbl_filtros1 = new javax.swing.JLabel();
-        txt_busca = new javax.swing.JFormattedTextField();
+        txt_Busca = new javax.swing.JFormattedTextField();
         jPanel11 = new javax.swing.JPanel();
         jPanel12 = new javax.swing.JPanel();
         lbl_canaisAtivo = new javax.swing.JLabel();
         jPanel13 = new javax.swing.JPanel();
         jPanel14 = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jTable_canaisAtivos = new javax.swing.JTable();
+        tbl_CanaisAtivos = new javax.swing.JTable();
         jPanel15 = new javax.swing.JPanel();
         jPanel17 = new javax.swing.JPanel();
-        btn_atualizarTable = new javax.swing.JButton();
-        btn_ExcluirCInfo = new javax.swing.JToggleButton();
+        btn_Atualizar = new javax.swing.JButton();
+        btn_Excluir = new javax.swing.JToggleButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Configurações Ativas");
@@ -245,17 +245,17 @@ public class PaginaCadastrosAtivos extends javax.swing.JFrame {
         jPanel10.setBackground(new java.awt.Color(241, 241, 241));
         jPanel10.setLayout(new java.awt.GridBagLayout());
 
-        cmb_campo.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        cmb_campo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Empresa", "ContaID", "Login", "Senha", "Token" }));
-        cmb_campo.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        cmb_campo.addComponentListener(new java.awt.event.ComponentAdapter() {
+        cmb_Campo.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        cmb_Campo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Empresa", "ContaID", "Login", "Senha", "Token" }));
+        cmb_Campo.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        cmb_Campo.addComponentListener(new java.awt.event.ComponentAdapter() {
             public void componentHidden(java.awt.event.ComponentEvent evt) {
-                cmb_campoComponentHidden(evt);
+                cmb_CampoComponentHidden(evt);
             }
         });
-        cmb_campo.addActionListener(new java.awt.event.ActionListener() {
+        cmb_Campo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cmb_campoActionPerformed(evt);
+                cmb_CampoActionPerformed(evt);
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -265,7 +265,7 @@ public class PaginaCadastrosAtivos extends javax.swing.JFrame {
         gridBagConstraints.ipadx = 39;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(6, 82, 0, 0);
-        jPanel10.add(cmb_campo, gridBagConstraints);
+        jPanel10.add(cmb_Campo, gridBagConstraints);
 
         lbl_filtros2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         lbl_filtros2.setForeground(new java.awt.Color(45, 18, 75));
@@ -289,12 +289,12 @@ public class PaginaCadastrosAtivos extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(17, 27, 0, 0);
         jPanel10.add(lbl_filtros3, gridBagConstraints);
 
-        cmb_ordem.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        cmb_ordem.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Crescente", "Decrescente" }));
-        cmb_ordem.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        cmb_ordem.addActionListener(new java.awt.event.ActionListener() {
+        cmb_Ordem.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        cmb_Ordem.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Crescente", "Decrescente" }));
+        cmb_Ordem.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        cmb_Ordem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cmb_ordemActionPerformed(evt);
+                cmb_OrdemActionPerformed(evt);
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -304,7 +304,7 @@ public class PaginaCadastrosAtivos extends javax.swing.JFrame {
         gridBagConstraints.ipadx = 19;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(6, 27, 0, 0);
-        jPanel10.add(cmb_ordem, gridBagConstraints);
+        jPanel10.add(cmb_Ordem, gridBagConstraints);
 
         jLabel_filtros.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/imagens/icons8-pesquisar-30.png"))); // NOI18N
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -326,15 +326,15 @@ public class PaginaCadastrosAtivos extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(0, 6, 0, 0);
         jPanel10.add(lbl_filtros1, gridBagConstraints);
 
-        txt_busca.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        txt_busca.addActionListener(new java.awt.event.ActionListener() {
+        txt_Busca.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        txt_Busca.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txt_buscaActionPerformed(evt);
+                txt_BuscaActionPerformed(evt);
             }
         });
-        txt_busca.addKeyListener(new java.awt.event.KeyAdapter() {
+        txt_Busca.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
-                txt_buscaKeyReleased(evt);
+                txt_BuscaKeyReleased(evt);
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -346,7 +346,7 @@ public class PaginaCadastrosAtivos extends javax.swing.JFrame {
         gridBagConstraints.ipady = 11;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(1, 132, 0, 52);
-        jPanel10.add(txt_busca, gridBagConstraints);
+        jPanel10.add(txt_Busca, gridBagConstraints);
 
         jPanel9.add(jPanel10, java.awt.BorderLayout.PAGE_START);
 
@@ -376,7 +376,7 @@ public class PaginaCadastrosAtivos extends javax.swing.JFrame {
         jPanel14.setPreferredSize(new java.awt.Dimension(950, 200));
         jPanel14.setLayout(new java.awt.GridBagLayout());
 
-        jTable_canaisAtivos.setModel(new javax.swing.table.DefaultTableModel(
+        tbl_CanaisAtivos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null},
                 {null, null, null, null, null},
@@ -393,16 +393,16 @@ public class PaginaCadastrosAtivos extends javax.swing.JFrame {
                 "Empresa", "ContaID", "Login", "Senha", "Token"
             }
         ));
-        jTable_canaisAtivos.addAncestorListener(new javax.swing.event.AncestorListener() {
+        tbl_CanaisAtivos.addAncestorListener(new javax.swing.event.AncestorListener() {
             public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
-                jTable_canaisAtivosAncestorAdded(evt);
+                tbl_CanaisAtivosAncestorAdded(evt);
             }
             public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
             }
             public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
             }
         });
-        jScrollPane2.setViewportView(jTable_canaisAtivos);
+        jScrollPane2.setViewportView(tbl_CanaisAtivos);
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -425,11 +425,11 @@ public class PaginaCadastrosAtivos extends javax.swing.JFrame {
         jPanel17.setPreferredSize(new java.awt.Dimension(0, 80));
         jPanel17.setLayout(new java.awt.GridBagLayout());
 
-        btn_atualizarTable.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        btn_atualizarTable.setText("Atualizar Tabela");
-        btn_atualizarTable.addActionListener(new java.awt.event.ActionListener() {
+        btn_Atualizar.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        btn_Atualizar.setText("Atualizar Tabela");
+        btn_Atualizar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_atualizarTableActionPerformed(evt);
+                btn_AtualizarActionPerformed(evt);
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -437,13 +437,13 @@ public class PaginaCadastrosAtivos extends javax.swing.JFrame {
         gridBagConstraints.gridy = 0;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(33, 235, 24, 0);
-        jPanel17.add(btn_atualizarTable, gridBagConstraints);
+        jPanel17.add(btn_Atualizar, gridBagConstraints);
 
-        btn_ExcluirCInfo.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        btn_ExcluirCInfo.setText("Excluir");
-        btn_ExcluirCInfo.addActionListener(new java.awt.event.ActionListener() {
+        btn_Excluir.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        btn_Excluir.setText("Excluir");
+        btn_Excluir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_ExcluirCInfoActionPerformed(evt);
+                btn_ExcluirActionPerformed(evt);
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -452,7 +452,7 @@ public class PaginaCadastrosAtivos extends javax.swing.JFrame {
         gridBagConstraints.ipadx = 53;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(33, 248, 24, 229);
-        jPanel17.add(btn_ExcluirCInfo, gridBagConstraints);
+        jPanel17.add(btn_Excluir, gridBagConstraints);
 
         jPanel15.add(jPanel17, java.awt.BorderLayout.PAGE_START);
 
@@ -481,57 +481,57 @@ public class PaginaCadastrosAtivos extends javax.swing.JFrame {
         btn_configADM.setVisible(vf);
         btn_CadastrarCanal.setVisible(!vf);
         
-        Table.carregarTableCanal(jTable_canaisAtivos, user);
+        Table.carregarTableCanal(tbl_CanaisAtivos, user);
     
     }//GEN-LAST:event_formWindowOpened
 
-    private void cmb_campoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmb_campoActionPerformed
+    private void cmb_CampoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmb_CampoActionPerformed
         
-        String busca = txt_busca.getText();
-        String campo = cmb_campo.getSelectedItem().toString();
-        String ordem = cmb_ordem.getSelectedItem().toString();
+        String busca = txt_Busca.getText();
+        String campo = cmb_Campo.getSelectedItem().toString();
+        String ordem = cmb_Ordem.getSelectedItem().toString();
         
-        Table.filtroBuscaCanal(jTable_canaisAtivos, busca, campo, ordem, DAO);
+        Table.filtroBuscaCanal(tbl_CanaisAtivos, busca, campo, ordem, DAO);
 
-    }//GEN-LAST:event_cmb_campoActionPerformed
+    }//GEN-LAST:event_cmb_CampoActionPerformed
 
-    private void cmb_ordemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmb_ordemActionPerformed
+    private void cmb_OrdemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmb_OrdemActionPerformed
 
-        String busca = txt_busca.getText();
-        String campo = cmb_campo.getSelectedItem().toString();
-        String ordem = cmb_ordem.getSelectedItem().toString();
+        String busca = txt_Busca.getText();
+        String campo = cmb_Campo.getSelectedItem().toString();
+        String ordem = cmb_Ordem.getSelectedItem().toString();
         
-        Table.filtroBuscaCanal(jTable_canaisAtivos, busca, campo, ordem, DAO);
+        Table.filtroBuscaCanal(tbl_CanaisAtivos, busca, campo, ordem, DAO);
 
-    }//GEN-LAST:event_cmb_ordemActionPerformed
+    }//GEN-LAST:event_cmb_OrdemActionPerformed
 
-    private void txt_buscaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_buscaActionPerformed
+    private void txt_BuscaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_BuscaActionPerformed
         
         /* */
         
-    }//GEN-LAST:event_txt_buscaActionPerformed
+    }//GEN-LAST:event_txt_BuscaActionPerformed
 
-    private void txt_buscaKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_buscaKeyReleased
+    private void txt_BuscaKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_BuscaKeyReleased
         
-        String busca = txt_busca.getText();
-        String campo = cmb_campo.getSelectedItem().toString();
-        String ordem = cmb_ordem.getSelectedItem().toString();
+        String busca = txt_Busca.getText();
+        String campo = cmb_Campo.getSelectedItem().toString();
+        String ordem = cmb_Ordem.getSelectedItem().toString();
         
-        Table.filtroBuscaCanal(jTable_canaisAtivos, busca, campo, ordem, DAO);
+        Table.filtroBuscaCanal(tbl_CanaisAtivos, busca, campo, ordem, DAO);
         
-    }//GEN-LAST:event_txt_buscaKeyReleased
+    }//GEN-LAST:event_txt_BuscaKeyReleased
 
-    private void btn_atualizarTableActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_atualizarTableActionPerformed
+    private void btn_AtualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_AtualizarActionPerformed
         
-        Table.carregarTableCanal(jTable_canaisAtivos, user);
+        Table.carregarTableCanal(tbl_CanaisAtivos, user);
         
-    }//GEN-LAST:event_btn_atualizarTableActionPerformed
+    }//GEN-LAST:event_btn_AtualizarActionPerformed
 
-    private void btn_ExcluirCInfoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_ExcluirCInfoActionPerformed
+    private void btn_ExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_ExcluirActionPerformed
 
-        Table.excluirCanal(jTable_canaisAtivos, user);
+        Table.excluirCanal(tbl_CanaisAtivos, user);
         
-    }//GEN-LAST:event_btn_ExcluirCInfoActionPerformed
+    }//GEN-LAST:event_btn_ExcluirActionPerformed
 
     private void btn_configADMActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_configADMActionPerformed
         
@@ -617,17 +617,17 @@ public class PaginaCadastrosAtivos extends javax.swing.JFrame {
         
     }//GEN-LAST:event_btn_SairLogoutActionPerformed
 
-    private void cmb_campoComponentHidden(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_cmb_campoComponentHidden
+    private void cmb_CampoComponentHidden(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_cmb_CampoComponentHidden
         
     // TODO add your handling code here:
     
-    }//GEN-LAST:event_cmb_campoComponentHidden
+    }//GEN-LAST:event_cmb_CampoComponentHidden
 
-    private void jTable_canaisAtivosAncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_jTable_canaisAtivosAncestorAdded
+    private void tbl_CanaisAtivosAncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_tbl_CanaisAtivosAncestorAdded
        
         // TODO add your handling code here:
         
-    }//GEN-LAST:event_jTable_canaisAtivosAncestorAdded
+    }//GEN-LAST:event_tbl_CanaisAtivosAncestorAdded
 
     public static void main(String args[]) {
         try {
@@ -658,15 +658,15 @@ public class PaginaCadastrosAtivos extends javax.swing.JFrame {
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btn_Atualizar;
     private javax.swing.JButton btn_CadastrarCanal;
     private javax.swing.JButton btn_EditarCanal;
-    private javax.swing.JToggleButton btn_ExcluirCInfo;
+    private javax.swing.JToggleButton btn_Excluir;
     private javax.swing.JButton btn_SairLogout;
-    private javax.swing.JButton btn_atualizarTable;
     private javax.swing.JButton btn_configADM;
     private javax.swing.ButtonGroup buttonGroup1;
-    private javax.swing.JComboBox<String> cmb_campo;
-    private javax.swing.JComboBox<String> cmb_ordem;
+    private javax.swing.JComboBox<String> cmb_Campo;
+    private javax.swing.JComboBox<String> cmb_Ordem;
     private javax.swing.JLabel jLabel_LogoTelaPrincipal;
     private javax.swing.JLabel jLabel_filtros;
     private javax.swing.JPanel jPanel10;
@@ -687,7 +687,6 @@ public class PaginaCadastrosAtivos extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel9;
     private javax.swing.JPanel jPanel_Menu;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTable jTable_canaisAtivos;
     private javax.swing.JLabel lbl_4dGroupCadas;
     private javax.swing.JLabel lbl_canaisAtivo;
     private javax.swing.JLabel lbl_companyCadas;
@@ -695,6 +694,7 @@ public class PaginaCadastrosAtivos extends javax.swing.JFrame {
     private javax.swing.JLabel lbl_filtros1;
     private javax.swing.JLabel lbl_filtros2;
     private javax.swing.JLabel lbl_filtros3;
-    private javax.swing.JFormattedTextField txt_busca;
+    private javax.swing.JTable tbl_CanaisAtivos;
+    private javax.swing.JFormattedTextField txt_Busca;
     // End of variables declaration//GEN-END:variables
 }
