@@ -17,10 +17,10 @@ public class ConnectionFactory {
         catch(SQLException excecao){
             throw new RuntimeException(excecao);
         }
+        
     }
     
     public static void closeConnection(Connection con){
-        
             
             try {
                 if(con!=null){

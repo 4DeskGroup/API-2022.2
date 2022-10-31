@@ -13,13 +13,11 @@ import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 import model.bean.Usuario;
-import model.dao.CanalConfigDAO;
-import model.dao.CanalDAO;
 import model.dao.UsuarioDAO;
 
 public class Table {
 
-    public DefaultTableModel CarregarTabelaCadastroAtivos(DefaultTableModel modelo, Usuario user) {
+    private DefaultTableModel CarregarTabelaCadastroAtivos(DefaultTableModel modelo, Usuario user) {
 
         modelo.setNumRows(0);
 
@@ -48,7 +46,7 @@ public class Table {
         }
     }
 
-    public DefaultTableModel CarregarTabelaConfigAtivos(DefaultTableModel modelo, Usuario user) {
+    private DefaultTableModel CarregarTabelaConfigAtivos(DefaultTableModel modelo, Usuario user) {
 
         modelo.setNumRows(0);
 
@@ -80,7 +78,7 @@ public class Table {
         }
     }
 
-    public DefaultTableModel CarregarTabelaUsuariosCadas(DefaultTableModel modelo, Usuario user) {
+    private DefaultTableModel CarregarTabelaUsuariosCadasID(DefaultTableModel modelo, Usuario user) {
 
         modelo.setNumRows(0);
 
@@ -98,7 +96,7 @@ public class Table {
                 if(rs.getBoolean(7)== true){
                     ativo = "Ativo";
                 }else{
-                    ativo = "Desativado";
+                    ativo = "Inativo";
                 }
                 
                 if(rs.getString(8).equals("0")){
@@ -106,10 +104,11 @@ public class Table {
                 }else if(rs.getString(8).equals("1")){
                     perfil = "ADM";
                 }else{
-                    perfil = "Operacional";
+                    perfil = "Comum";
                 }
                 
                 modelo.addRow(new Object[]{
+                    rs.getInt(1),
                     rs.getString(2),
                     rs.getString(3),
                     rs.getString(4),
@@ -129,7 +128,7 @@ public class Table {
         }
     }
 
-    public DefaultTableModel filtroBuscaADM(String campo, String ordem, String pesq, PesquCanalADM DAO, DefaultTableModel modelo) {
+    private DefaultTableModel filtroBuscaADM(String campo, String ordem, String pesq, PesquCanalADM DAO, DefaultTableModel modelo) {
 
         modelo.setNumRows(0);
 
@@ -152,7 +151,7 @@ public class Table {
         }
     }
 
-    public DefaultTableModel filtroBusca(String campo, String ordem, String pesq, PesqCanal DAO, DefaultTableModel modelo) {
+    private DefaultTableModel filtroBuscaCanal(String campo, String ordem, String pesq, PesqCanal DAO, DefaultTableModel modelo) {
 
         modelo.setNumRows(0);
 
@@ -176,7 +175,7 @@ public class Table {
         return null;
     }
 
-    public DefaultTableModel filtroBuscaUser(String campo, String ordem, String pesq, PesqUser DAO, DefaultTableModel modelo) {
+    private DefaultTableModel filtroBuscaUser(String campo, String ordem, String pesq, PesqUser DAO, DefaultTableModel modelo) {
 
         modelo.setNumRows(0);
 
@@ -229,7 +228,7 @@ public class Table {
     public static void carregarTableConta(JTable modelTable, Usuario user) {
 
         DefaultTableModel modelo = (DefaultTableModel) modelTable.getModel();
-        DefaultTableModel modeloBD = new Table().CarregarTabelaUsuariosCadas(modelo, user);
+        DefaultTableModel modeloBD = new Table().CarregarTabelaUsuariosCadasID(modelo, user);
 
         modelo = modeloBD;
 
@@ -267,7 +266,7 @@ public class Table {
             dao.deleteUser(nome);
 
             DefaultTableModel modelo = (DefaultTableModel) modelTable.getModel();
-            DefaultTableModel modeloBD = new Table().CarregarTabelaUsuariosCadas(modelo, user);
+            DefaultTableModel modeloBD = new Table().CarregarTabelaUsuariosCadasID(modelo, user);
 
             modelo = modeloBD;
 
@@ -277,7 +276,7 @@ public class Table {
 
     public static void filtroBuscaCanal(JTable modelTable, String busca, String campo, String ordem, PesqCanal DAO) {
 
-        if (campo.equals("Empresa")) {
+        if (campo.equals("Usuario")) {
             campo = campo + "_Config";
         } else {
             campo = campo + "_Canal";
@@ -289,11 +288,29 @@ public class Table {
         }
         
         DefaultTableModel table = (DefaultTableModel) modelTable.getModel();
-        table = new Table().filtroBusca(campo, ordem, busca, DAO, table);
+        table = new Table().filtroBuscaCanal(campo, ordem, busca, DAO, table);
         modelTable.setModel(table);
 
     }
+    
+    public static void filtroBuscaConfig(JTable modelTable, String busca, String campo, String ordem, PesquCanalADM DAO) {
+        
+        if(!campo.equals("id_Config")){
+            campo = campo + "_Config";
+        }
 
+        if (ordem.equals("Crescente")) {
+            ordem = "asc";
+        } else {
+            ordem = "desc";
+        }
+
+        DefaultTableModel table = (DefaultTableModel) modelTable.getModel();
+        table = new Table().filtroBuscaADM(campo, ordem, busca, DAO, table);
+
+        modelTable.setModel(table);
+    }
+    
     public static void filtroBuscaConta(JTable modelTable, String busca, String campo, String ordem, PesqUser DAO) {
 
         if (!campo.equals("Usuario")) {

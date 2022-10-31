@@ -32,6 +32,7 @@ CREATE TABLE IF NOT EXISTS `api_trackcash`.`tbl_Usuario` (
   PRIMARY KEY (`id_User`))
 ENGINE = InnoDB;
 
+SELECT * FROM tbl_Usuario;
 -- -----------------------------------------------------
 -- Table `api_trackcash`.`tbl_Config`
 -- -----------------------------------------------------

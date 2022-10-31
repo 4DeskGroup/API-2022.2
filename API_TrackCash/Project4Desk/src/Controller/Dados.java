@@ -10,15 +10,17 @@ import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 import model.DTO.CanalDTO;
+import model.DTO.UsuarioDTO;
 import model.bean.Canal;
 import model.bean.Usuario;
 import model.dao.CanalConfigDAO;
 import model.dao.CanalDAO;
+import model.dao.UsuarioDAO;
 
 public class Dados {
 
     private Connection conn;
-    
+
     public static void addCanal(CanalDTO p, Connection conn) {
 
         PreparedStatement stmtInsert = null;
@@ -67,7 +69,12 @@ public class Dados {
 
     }
 
-    public static void AlterarDadosCanal(String empresa, String conta_id, String login, String senha, String token) {
+    public static void addConta(Usuario cadastro) {
+        UsuarioDAO dao = new UsuarioDAO();
+        dao.addCliente(cadastro);
+    }
+
+    public static void alterarDadosCanal(String empresa, String conta_id, String login, String senha, String token) {
 
         CanalDTO objcanalinfo = new CanalDTO();
 
@@ -98,12 +105,49 @@ public class Dados {
             ConnectionFactory.closeConnection(con, stmt);
         }
     }
+    
+    public static void alterarDadosConta(int id, String user, String email, String senha, boolean status, String perfil) {
+        
+        int perfilI;
+        
+        switch (perfil) {
+            case "Comum":
+                perfilI = 2;
+                break;
+            case "Admin":
+                perfilI = 1;
+                break;
+            default:
+                perfilI = 0;
+                break;
+        }
+        
+        Connection con = ConnectionFactory.getConnection();
+        PreparedStatement stmt = null;
 
+        try {
+            stmt = con.prepareStatement("UPDATE tbl_Usuario SET Usuario = " + '"' + user + '"' + ", "
+                    + "Email_Usuario = " + '"' + email + '"' + ", "
+                    + "Senha_Usuario = " + '"' + senha + '"' + ", "
+                    + "Status_Usuario = " + status + ", "
+                    + "Perfil_Usuario = " + '"' + perfilI + '"'
+                    + " WHERE id_User = " + id);
+            stmt.execute();
+            stmt.close();
+
+            JOptionPane.showMessageDialog(null, "Salvo com sucesso");
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Erro ao Salvar: " + ex);
+        } finally {
+            ConnectionFactory.closeConnection(con, stmt);
+        }
+    }
+    
     public static void delete(String indiceS) {
 
         int idCanal = new CanalDAO().searchIdCanal(indiceS);
         int fkConfig = new CanalConfigDAO().buscarConfigReturnId(indiceS);
-        
+
         Connection con = ConnectionFactory.getConnection();
         PreparedStatement stmt = null;
         try {
@@ -158,5 +202,38 @@ public class Dados {
         } catch (SQLException erro) {
             JOptionPane.showMessageDialog(null, "ERRO ao carregar ComboBox" + erro);
         }
+    }
+    
+    /*
+    
+        Metodo de retorno (Return ou Static return)
+    
+    */
+
+    public static Usuario loginConta(String pk, String pass, Usuario usuarioLogado) throws SQLException {
+        UsuarioDTO clienteDTO = new UsuarioDTO(pk, pass);
+        ResultSet busca = new UsuarioDAO().loginCliente(clienteDTO);
+        if(busca.isBeforeFirst()) {
+            while(busca.next()) {
+                int id = busca.getInt("id_User");
+                String u = busca.getString("Usuario");
+                if (u == null) {
+                    break;
+                }
+                
+                String nome = null;
+                nome = busca.getString("Nome_Usuario");
+                String sobrenome = busca.getString("Sobrenome_Usuario");
+                String e = busca.getString("Email_Usuario");
+                String p = busca.getString("Senha_Usuario");
+                boolean ati = busca.getBoolean("Status_Usuario");
+                int tp = busca.getInt("Perfil_Usuario");
+                return usuarioLogado = new Usuario(id, nome, sobrenome, u, e, p, ati, tp);
+            }
+        } else {
+            JOptionPane.showMessageDialog(null, "Usuario não encontrado!");
+            return null;
+        }
+        return null;
     }
 }

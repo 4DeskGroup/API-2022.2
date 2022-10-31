@@ -563,12 +563,12 @@ public class PaginaCadastrosAtivos extends javax.swing.JFrame {
         int tamanhoTelaRecente = (int) telaRecente.getWidth();
 
         if (tamanhoTelaOriginal < tamanhoTelaRecente) {
-            PaginaEditarCadastros paginaEditarCadastros = new PaginaEditarCadastros(user);
+            PaginaEditarInfo paginaEditarCadastros = new PaginaEditarInfo(user);
             paginaEditarCadastros.setExtendedState(Frame.MAXIMIZED_BOTH);
             paginaEditarCadastros.setVisible(true);
             this.dispose();
         } else {
-            PaginaEditarCadastros paginaEditarCadastros = new PaginaEditarCadastros(user);
+            PaginaEditarInfo paginaEditarCadastros = new PaginaEditarInfo(user);
             paginaEditarCadastros.setVisible(true);
             this.dispose();
         }

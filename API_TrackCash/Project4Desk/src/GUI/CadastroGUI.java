@@ -1,5 +1,6 @@
 package GUI;
 
+import Controller.Dados;
 import model.dao.UsuarioDAO;
 import model.bean.Usuario;
 import View.TelaPrincipal;
@@ -333,10 +334,7 @@ public class CadastroGUI extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Repetir senha e Senha devem ser iguais!");
         }else{
             Usuario cliente = new Usuario(txt_Nome.getText(), txt_Sobrenome.getText(), txt_User.getText(), txt_Email.getText(), strPass);
-            
-            UsuarioDAO dao = new UsuarioDAO();
-            
-            dao.addCliente(cliente);
+            Dados.addConta(cliente);
             JOptionPane.showMessageDialog(null, "Cadastro Completo!"
                     + "\nO usuario " + txt_User.getText() + " foi cadastrado com sucesso!");
         }

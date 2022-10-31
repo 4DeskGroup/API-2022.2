@@ -37,8 +37,7 @@ public class PaginaUsuariosCadas extends javax.swing.JFrame {
         jPanel3 = new javax.swing.JPanel();
         jLabel_LogoTelaPrincipal = new javax.swing.JLabel();
         jPanel16 = new javax.swing.JPanel();
-        btn_configADM = new javax.swing.JButton();
-        btn_EditarCanal = new javax.swing.JButton();
+        btn_ConfigADM = new javax.swing.JButton();
         btn_CadastrarCanal = new javax.swing.JButton();
         btn_SairLogout = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
@@ -66,6 +65,7 @@ public class PaginaUsuariosCadas extends javax.swing.JFrame {
         jPanel14 = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTable_userCadas = new javax.swing.JTable();
+        btn_EditarUsuario = new javax.swing.JButton();
         jPanel15 = new javax.swing.JPanel();
         jPanel17 = new javax.swing.JPanel();
         btn_Atualizar = new javax.swing.JButton();
@@ -101,13 +101,13 @@ public class PaginaUsuariosCadas extends javax.swing.JFrame {
         jPanel16.setPreferredSize(new java.awt.Dimension(400, 400));
         jPanel16.setLayout(new java.awt.GridBagLayout());
 
-        btn_configADM.setBackground(new java.awt.Color(45, 18, 75));
-        btn_configADM.setFont(new java.awt.Font("Segoe UI", 1, 28)); // NOI18N
-        btn_configADM.setForeground(new java.awt.Color(255, 255, 255));
-        btn_configADM.setText("Config. ADM");
-        btn_configADM.addActionListener(new java.awt.event.ActionListener() {
+        btn_ConfigADM.setBackground(new java.awt.Color(45, 18, 75));
+        btn_ConfigADM.setFont(new java.awt.Font("Segoe UI", 1, 28)); // NOI18N
+        btn_ConfigADM.setForeground(new java.awt.Color(255, 255, 255));
+        btn_ConfigADM.setText("Config. ADM");
+        btn_ConfigADM.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_configADMActionPerformed(evt);
+                btn_ConfigADMActionPerformed(evt);
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -117,24 +117,7 @@ public class PaginaUsuariosCadas extends javax.swing.JFrame {
         gridBagConstraints.ipadx = 9;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(30, 20, 0, 0);
-        jPanel16.add(btn_configADM, gridBagConstraints);
-
-        btn_EditarCanal.setBackground(new java.awt.Color(45, 18, 75));
-        btn_EditarCanal.setFont(new java.awt.Font("Segoe UI", 1, 28)); // NOI18N
-        btn_EditarCanal.setForeground(new java.awt.Color(255, 255, 255));
-        btn_EditarCanal.setText("Editar");
-        btn_EditarCanal.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_EditarCanalActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 1;
-        gridBagConstraints.ipadx = 83;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(35, 30, 0, 0);
-        jPanel16.add(btn_EditarCanal, gridBagConstraints);
+        jPanel16.add(btn_ConfigADM, gridBagConstraints);
 
         btn_CadastrarCanal.setBackground(new java.awt.Color(45, 18, 75));
         btn_CadastrarCanal.setFont(new java.awt.Font("Segoe UI", 1, 26)); // NOI18N
@@ -368,25 +351,33 @@ public class PaginaUsuariosCadas extends javax.swing.JFrame {
 
         jPanel14.setBackground(new java.awt.Color(241, 241, 241));
         jPanel14.setPreferredSize(new java.awt.Dimension(950, 200));
-        jPanel14.setLayout(new java.awt.GridBagLayout());
+        jPanel14.setLayout(null);
 
         jTable_userCadas.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null}
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null}
             },
             new String [] {
-                "Usuario", "Nome", "Sobrenome", "Email", "Senha", "Status", "Perfil"
+                "ID", "Usuario", "Nome", "Sobrenome", "Email", "Senha", "Status", "Perfil"
             }
-        ));
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
         jTable_userCadas.addAncestorListener(new javax.swing.event.AncestorListener() {
             public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
                 jTable_userCadasAncestorAdded(evt);
@@ -398,17 +389,20 @@ public class PaginaUsuariosCadas extends javax.swing.JFrame {
         });
         jScrollPane2.setViewportView(jTable_userCadas);
 
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 0;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.ipadx = 714;
-        gridBagConstraints.ipady = 170;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.weightx = 1.0;
-        gridBagConstraints.weighty = 1.0;
-        gridBagConstraints.insets = new java.awt.Insets(0, 110, 10, 110);
-        jPanel14.add(jScrollPane2, gridBagConstraints);
+        jPanel14.add(jScrollPane2);
+        jScrollPane2.setBounds(110, 0, 730, 190);
+
+        btn_EditarUsuario.setBackground(new java.awt.Color(45, 18, 75));
+        btn_EditarUsuario.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btn_EditarUsuario.setForeground(new java.awt.Color(255, 255, 255));
+        btn_EditarUsuario.setText("Editar");
+        btn_EditarUsuario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_EditarUsuarioActionPerformed(evt);
+            }
+        });
+        jPanel14.add(btn_EditarUsuario);
+        btn_EditarUsuario.setBounds(20, 10, 80, 20);
 
         jPanel13.add(jPanel14, java.awt.BorderLayout.PAGE_START);
 
@@ -473,7 +467,7 @@ public class PaginaUsuariosCadas extends javax.swing.JFrame {
         
         boolean vf = new VerificarAcesso().isADM(user);
        
-        btn_configADM.setVisible(vf);
+        btn_ConfigADM.setVisible(vf);
         btn_CadastrarCanal.setVisible(!vf);
         
         Table.carregarTableConta(jTable_userCadas, user);
@@ -526,7 +520,7 @@ public class PaginaUsuariosCadas extends javax.swing.JFrame {
         
     }//GEN-LAST:event_btn_ExcluirActionPerformed
 
-    private void btn_configADMActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_configADMActionPerformed
+    private void btn_ConfigADMActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_ConfigADMActionPerformed
         
         Dimension telaOriginal = getPreferredSize();
         Dimension telaRecente = getSize();
@@ -545,9 +539,9 @@ public class PaginaUsuariosCadas extends javax.swing.JFrame {
             this.dispose();
         }
 
-    }//GEN-LAST:event_btn_configADMActionPerformed
+    }//GEN-LAST:event_btn_ConfigADMActionPerformed
 
-    private void btn_EditarCanalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_EditarCanalActionPerformed
+    private void btn_EditarUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_EditarUsuarioActionPerformed
         
         Dimension telaOriginal = getPreferredSize();
         Dimension telaRecente = getSize();
@@ -556,17 +550,17 @@ public class PaginaUsuariosCadas extends javax.swing.JFrame {
         int tamanhoTelaRecente = (int) telaRecente.getWidth();
 
         if (tamanhoTelaOriginal < tamanhoTelaRecente) {
-            PaginaEditarCadastros paginaEditarCadastros = new PaginaEditarCadastros(user);
-            paginaEditarCadastros.setExtendedState(Frame.MAXIMIZED_BOTH);
-            paginaEditarCadastros.setVisible(true);
+            PaginaEditarUser paginaAberta = new PaginaEditarUser(user);
+            paginaAberta.setExtendedState(Frame.MAXIMIZED_BOTH);
+            paginaAberta.setVisible(true);
             this.dispose();
         } else {
-            PaginaEditarCadastros paginaEditarCadastros = new PaginaEditarCadastros(user);
-            paginaEditarCadastros.setVisible(true);
+            PaginaEditarUser paginaAberta = new PaginaEditarUser(user);
+            paginaAberta.setVisible(true);
             this.dispose();
         }
 
-    }//GEN-LAST:event_btn_EditarCanalActionPerformed
+    }//GEN-LAST:event_btn_EditarUsuarioActionPerformed
 
     private void btn_CadastrarCanalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_CadastrarCanalActionPerformed
 
@@ -648,10 +642,10 @@ public class PaginaUsuariosCadas extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn_Atualizar;
     private javax.swing.JButton btn_CadastrarCanal;
-    private javax.swing.JButton btn_EditarCanal;
+    private javax.swing.JButton btn_ConfigADM;
+    private javax.swing.JButton btn_EditarUsuario;
     private javax.swing.JToggleButton btn_Excluir;
     private javax.swing.JButton btn_SairLogout;
-    private javax.swing.JButton btn_configADM;
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JComboBox<String> cmb_Campo;
     private javax.swing.JComboBox<String> cmb_Ordem;

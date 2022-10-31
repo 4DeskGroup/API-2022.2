@@ -509,6 +509,7 @@ public class PaginaCadastrosAtivosAdm extends javax.swing.JFrame {
     }//GEN-LAST:event_formWindowOpened
 
     private void btn_CadastrarCanalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_CadastrarCanalActionPerformed
+        
         Dimension telaOriginal = getPreferredSize();
         Dimension telaRecente = getSize();
 
@@ -580,11 +581,7 @@ public class PaginaCadastrosAtivosAdm extends javax.swing.JFrame {
 
     private void btn_AtualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_AtualizarActionPerformed
         
-        DefaultTableModel modelo = (DefaultTableModel) tbl_CanaisAtivosADM.getModel();
-        
-        DefaultTableModel modeloBD = new Table().CarregarTabelaCadastroAtivos(modelo, user);
-        
-        modelo = modeloBD;
+        Table.carregarTableConfig(tbl_CanaisAtivosADM, user);
         
     }//GEN-LAST:event_btn_AtualizarActionPerformed
 
@@ -655,20 +652,7 @@ public class PaginaCadastrosAtivosAdm extends javax.swing.JFrame {
         String campo = cmb_campo.getSelectedItem().toString();
         String ordem = cmb_ordem.getSelectedItem().toString();
 
-        if (!campo.equals("id_Config")) {
-            campo = campo + "_Config";
-        }
-
-        if (ordem.equals("Crescente")) {
-            ordem = "asc";
-        } else if (ordem.equals("Decrescente")) {
-            ordem = "desc";
-        }
-
-        DefaultTableModel table = (DefaultTableModel) tbl_CanaisAtivosADM.getModel();
-        table = new Table().filtroBuscaADM(campo, ordem, txt_Busca.getText(), DAO, table);
-
-        tbl_CanaisAtivosADM.setModel(table);
+        Table.filtroBuscaConfig(tbl_CanaisAtivosADM, txt_Busca.getText(), campo, ordem, DAO);
 
     }
 

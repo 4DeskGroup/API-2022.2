@@ -1,14 +1,9 @@
 package connection;
 
-import java.sql.Connection;
-import java.sql.SQLException;
 import java.sql.PreparedStatement;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import java.sql.ResultSet;
-import java.sql.DriverManager;
 import java.util.Vector;
-import javax.swing.JOptionPane;
+
 import model.bean.Usuario;
 
 public class PesqCanal extends ConnectionFactory {

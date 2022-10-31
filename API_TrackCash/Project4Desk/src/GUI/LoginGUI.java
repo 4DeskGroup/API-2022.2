@@ -1,5 +1,6 @@
 package GUI;
 
+import Controller.Dados;
 import View.*;
 import static java.awt.Color.white;
 import java.awt.Dimension;
@@ -8,8 +9,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import model.bean.Usuario;
 import javax.swing.JOptionPane;
-import model.DTO.UsuarioDTO;
-import model.dao.UsuarioDAO;
 
 public class LoginGUI extends javax.swing.JFrame {
 
@@ -247,93 +246,69 @@ public class LoginGUI extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(null, "Preencha os campos para efetuar o login");
 
             } else {
-                UsuarioDTO clienteDTO = new UsuarioDTO(pk, pass);
-                ResultSet busca = new UsuarioDAO().loginCliente(clienteDTO);
+                Usuario usuarioLogado = new Usuario();
+                usuarioLogado = Dados.loginConta(pk, pass, usuarioLogado);
 
-                if (busca.isBeforeFirst()) {
-                    while (busca.next()) {
-                        int id = busca.getInt("id_User");
-                        String u = busca.getString("Usuario");
-                        if (u == null) {
-
-                            break;
-                        }
-                        String nome = null;
-                        nome = busca.getString("Nome_Usuario");
-                        String e = busca.getString("Email_Usuario");
-                        String p = busca.getString("Senha_Usuario");
-                        boolean ati = busca.getBoolean("Status_Usuario");
-                        int tp = busca.getInt("Perfil_Usuario");
-
-                        Usuario usuarioLogado = new Usuario(id, nome, u, e, p, ati, tp);
-
-                        if (tp == 0) {
-                            JOptionPane.showMessageDialog(null, "Bem vindo(a) Master User");
-                            Dimension telaOriginal = getPreferredSize();
-                            Dimension telaRecente = getSize();
-
-                            int tamanhoTelaOriginal = (int) telaOriginal.getWidth();
-                            int tamanhoTelaRecente = (int) telaRecente.getWidth();
-
-                            if (tamanhoTelaOriginal < tamanhoTelaRecente) {
-                                PaginaCadastroCanal paginaCadastroVagas = new PaginaCadastroCanal(usuarioLogado);
-                                paginaCadastroVagas.setExtendedState(Frame.MAXIMIZED_BOTH);
-                                paginaCadastroVagas.setVisible(true);
-                                this.dispose();
-                            } else {
-                                PaginaCadastroCanal paginaCadastroVagas = new PaginaCadastroCanal(usuarioLogado);
-                                paginaCadastroVagas.setVisible(true);
-                                this.dispose();
-                            }
-                            //new PaginaCadastroConfig(usuarioLogado).setVisible(true);
-                            //this.dispose();
-                        } else if (tp == 1) {
-                            JOptionPane.showMessageDialog(null, "Bem vindo(a) ADM " + usuarioLogado.getUser());
-                            Dimension telaOriginal = getPreferredSize();
-                            Dimension telaRecente = getSize();
-
-                            int tamanhoTelaOriginal = (int) telaOriginal.getWidth();
-                            int tamanhoTelaRecente = (int) telaRecente.getWidth();
-
-                            if (tamanhoTelaOriginal < tamanhoTelaRecente) {
-                                PaginaCadastrosAtivosAdm paginaCadastroAtivosAdm = new PaginaCadastrosAtivosAdm(usuarioLogado);
-                                paginaCadastroAtivosAdm.setExtendedState(Frame.MAXIMIZED_BOTH);
-                                paginaCadastroAtivosAdm.setVisible(true);
-                                this.dispose();
-                            } else {
-                                PaginaCadastrosAtivosAdm paginaCadastroAtivosAdm = new PaginaCadastrosAtivosAdm(usuarioLogado);
-                                paginaCadastroAtivosAdm.setVisible(true);
-                                this.dispose();
-                            }
-                            //new PaginaCadastrosAtivosAdm(usuarioLogado).setVisible(true);
-                            //this.dispose();
+                switch (usuarioLogado.getPerfil()) {
+                    case 0: {
+                        JOptionPane.showMessageDialog(null, "Bem vindo(a) Master User");
+                        Dimension telaOriginal = getPreferredSize();
+                        Dimension telaRecente = getSize();
+                        int tamanhoTelaOriginal = (int) telaOriginal.getWidth();
+                        int tamanhoTelaRecente = (int) telaRecente.getWidth();
+                        if (tamanhoTelaOriginal < tamanhoTelaRecente) {
+                            PaginaCadastroCanal paginaCadastroVagas = new PaginaCadastroCanal(usuarioLogado);
+                            paginaCadastroVagas.setExtendedState(Frame.MAXIMIZED_BOTH);
+                            paginaCadastroVagas.setVisible(true);
+                            this.dispose();
                         } else {
-                            JOptionPane.showMessageDialog(null, "Bem vindo(a) " + usuarioLogado.getUser());
-                            Dimension telaOriginal = getPreferredSize();
-                            Dimension telaRecente = getSize();
-
-                            int tamanhoTelaOriginal = (int) telaOriginal.getWidth();
-                            int tamanhoTelaRecente = (int) telaRecente.getWidth();
-
-                            if (tamanhoTelaOriginal < tamanhoTelaRecente) {
-                                PaginaConfiguracaoCanal paginaCadastroInfo = new PaginaConfiguracaoCanal(usuarioLogado);
-                                paginaCadastroInfo.setExtendedState(Frame.MAXIMIZED_BOTH);
-                                paginaCadastroInfo.setVisible(true);
-                                this.dispose();
-                            } else {
-                                PaginaConfiguracaoCanal paginaCadastroInfo = new PaginaConfiguracaoCanal(usuarioLogado);
-                                paginaCadastroInfo.setVisible(true);
-                                this.dispose();
-                            }
-                            //new PaginaCadastroCanal(usuarioLogado).setVisible(true);
-                            //this.dispose();
+                            PaginaCadastroCanal paginaCadastroVagas = new PaginaCadastroCanal(usuarioLogado);
+                            paginaCadastroVagas.setVisible(true);
+                            this.dispose();
                         }
+
+                        break;
                     }
-                } else {
-                    JOptionPane.showMessageDialog(null, "Usuario não encontrado!");
+                    case 1: {
+                        JOptionPane.showMessageDialog(null, "Bem vindo(a) ADM " + usuarioLogado.getUser());
+                        Dimension telaOriginal = getPreferredSize();
+                        Dimension telaRecente = getSize();
+                        int tamanhoTelaOriginal = (int) telaOriginal.getWidth();
+                        int tamanhoTelaRecente = (int) telaRecente.getWidth();
+                        if (tamanhoTelaOriginal < tamanhoTelaRecente) {
+                            PaginaCadastrosAtivosAdm paginaCadastroAtivosAdm = new PaginaCadastrosAtivosAdm(usuarioLogado);
+                            paginaCadastroAtivosAdm.setExtendedState(Frame.MAXIMIZED_BOTH);
+                            paginaCadastroAtivosAdm.setVisible(true);
+                            this.dispose();
+                        } else {
+                            PaginaCadastrosAtivosAdm paginaCadastroAtivosAdm = new PaginaCadastrosAtivosAdm(usuarioLogado);
+                            paginaCadastroAtivosAdm.setVisible(true);
+                            this.dispose();
+                        }
+
+                        break;
+                    }
+                    default: {
+                        JOptionPane.showMessageDialog(null, "Bem vindo(a) " + usuarioLogado.getUser());
+                        Dimension telaOriginal = getPreferredSize();
+                        Dimension telaRecente = getSize();
+                        int tamanhoTelaOriginal = (int) telaOriginal.getWidth();
+                        int tamanhoTelaRecente = (int) telaRecente.getWidth();
+                        if (tamanhoTelaOriginal < tamanhoTelaRecente) {
+                            PaginaConfiguracaoCanal paginaCadastroInfo = new PaginaConfiguracaoCanal(usuarioLogado);
+                            paginaCadastroInfo.setExtendedState(Frame.MAXIMIZED_BOTH);
+                            paginaCadastroInfo.setVisible(true);
+                            this.dispose();
+                        } else {
+                            PaginaConfiguracaoCanal paginaCadastroInfo = new PaginaConfiguracaoCanal(usuarioLogado);
+                            paginaCadastroInfo.setVisible(true);
+                            this.dispose();
+                        }
+
+                        break;
+                    }
                 }
             }
-
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, ex);
         }
@@ -391,16 +366,24 @@ public class LoginGUI extends javax.swing.JFrame {
                 if ("Nimbus".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
+
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(LoginGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(LoginGUI.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
+
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(LoginGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(LoginGUI.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
+
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(LoginGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(LoginGUI.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
+
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(LoginGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(LoginGUI.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
