@@ -74,11 +74,11 @@ ENGINE = InnoDB;
 
 SELECT * FROM tbl_Canal;
 
-insert into tbl_Usuario values(default, "master", null, null, "master@fatec", "master123", true, "0");
+insert into tbl_Usuario values(default, "master", "Master", null, "master@fatec", "master123", true, "0");
 
-insert into tbl_Usuario values(default, "admin", null, null, "admin@fatec", "admin123", true, "1");
+insert into tbl_Usuario values(default, "admin", "Administrador", null, "admin@fatec", "admin123", true, "1");
 
-insert into tbl_Usuario values(default, "4Desk", null, null, "4Desk@fatec", "123", true, "2");
+insert into tbl_Usuario values(default, "4Desk", "4Desk", null, "4Desk@fatec", "123", true, "2");
 
 SELECT * FROM tbl_Usuario;
 

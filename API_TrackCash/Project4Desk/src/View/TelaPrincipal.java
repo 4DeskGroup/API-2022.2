@@ -2,8 +2,7 @@ package View;
 
 import GUI.CadastroGUI;
 import GUI.LoginGUI;
-import java.awt.Dimension;
-import java.awt.Frame;
+import java.awt.event.KeyEvent;
 
 public class TelaPrincipal extends javax.swing.JFrame {
 
@@ -37,6 +36,9 @@ public class TelaPrincipal extends javax.swing.JFrame {
         lbl_SubTitleTelaPrincipal4 = new javax.swing.JLabel();
         jPanel31 = new javax.swing.JPanel();
         btn_cadastreTelaPrincipal = new javax.swing.JButton();
+        lbl_companyTelaPrincipal10 = new javax.swing.JLabel();
+        lbl_companyTelaPrincipal11 = new javax.swing.JLabel();
+        lbl_companyTelaPrincipal12 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
         jLabel_LogoTelaPrincipal = new javax.swing.JLabel();
@@ -64,11 +66,16 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jPanel18 = new javax.swing.JPanel();
         jPanel19 = new javax.swing.JPanel();
         btn_UserTelaPrincipal = new javax.swing.JButton();
+        btn_Ajuda = new javax.swing.JButton();
+        lbl_companyTelaPrincipal7 = new javax.swing.JLabel();
+        lbl_companyTelaPrincipal9 = new javax.swing.JLabel();
+        lbl_companyTelaPrincipal8 = new javax.swing.JLabel();
+        lbl_companyTelaPrincipal13 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Bem Vindo");
         setMinimumSize(new java.awt.Dimension(850, 600));
-        setPreferredSize(new java.awt.Dimension(1200, 630));
+        setPreferredSize(new java.awt.Dimension(1200, 680));
 
         jPanel1.setBackground(new java.awt.Color(255, 62, 21));
         jPanel1.setPreferredSize(new java.awt.Dimension(300, 630));
@@ -194,9 +201,40 @@ public class TelaPrincipal extends javax.swing.JFrame {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
+        gridBagConstraints.gridwidth = 4;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(110, 70, 83, 65);
+        gridBagConstraints.insets = new java.awt.Insets(90, 70, 0, 65);
         jPanel31.add(btn_cadastreTelaPrincipal, gridBagConstraints);
+
+        lbl_companyTelaPrincipal10.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        lbl_companyTelaPrincipal10.setForeground(new java.awt.Color(45, 18, 75));
+        lbl_companyTelaPrincipal10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/imagens/seta-para-cima.png"))); // NOI18N
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(12, 150, 0, 0);
+        jPanel31.add(lbl_companyTelaPrincipal10, gridBagConstraints);
+
+        lbl_companyTelaPrincipal11.setForeground(new java.awt.Color(255, 255, 255));
+        lbl_companyTelaPrincipal11.setText("Tecla F7 para Computador");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridwidth = 3;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(4, 90, 0, 0);
+        jPanel31.add(lbl_companyTelaPrincipal11, gridBagConstraints);
+
+        lbl_companyTelaPrincipal12.setForeground(new java.awt.Color(255, 255, 255));
+        lbl_companyTelaPrincipal12.setText("e 7 para Notebook");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 3;
+        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(4, 110, 84, 0);
+        jPanel31.add(lbl_companyTelaPrincipal12, gridBagConstraints);
 
         jPanel29.add(jPanel31, java.awt.BorderLayout.CENTER);
 
@@ -217,8 +255,8 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jPanel2.setLayout(new java.awt.BorderLayout());
 
         jPanel3.setBackground(new java.awt.Color(241, 241, 241));
-        jPanel3.setMinimumSize(new java.awt.Dimension(993, 120));
-        jPanel3.setPreferredSize(new java.awt.Dimension(0, 170));
+        jPanel3.setMinimumSize(new java.awt.Dimension(993, 100));
+        jPanel3.setPreferredSize(new java.awt.Dimension(0, 120));
         jPanel3.setLayout(new java.awt.GridBagLayout());
 
         jLabel_LogoTelaPrincipal.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/imagens/Untitled-removebg-preview.png"))); // NOI18N
@@ -320,7 +358,8 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jPanel16.setLayout(new java.awt.BorderLayout());
 
         jPanel17.setBackground(new java.awt.Color(241, 241, 241));
-        jPanel17.setPreferredSize(new java.awt.Dimension(100, 50));
+        jPanel17.setMinimumSize(new java.awt.Dimension(900, 30));
+        jPanel17.setPreferredSize(new java.awt.Dimension(100, 40));
         jPanel17.setLayout(new java.awt.GridBagLayout());
 
         lbl_companyTelaPrincipal6.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
@@ -330,7 +369,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(20, 330, 3, 316);
+        gridBagConstraints.insets = new java.awt.Insets(0, 330, 3, 316);
         jPanel17.add(lbl_companyTelaPrincipal6, gridBagConstraints);
 
         jPanel16.add(jPanel17, java.awt.BorderLayout.PAGE_START);
@@ -339,10 +378,11 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jPanel18.setLayout(new java.awt.BorderLayout());
 
         jPanel19.setBackground(new java.awt.Color(241, 241, 241));
+        jPanel19.setPreferredSize(new java.awt.Dimension(900, 100));
         jPanel19.setLayout(new java.awt.GridBagLayout());
 
         btn_UserTelaPrincipal.setBackground(new java.awt.Color(255, 62, 21));
-        btn_UserTelaPrincipal.setFont(new java.awt.Font("Segoe UI", 1, 30)); // NOI18N
+        btn_UserTelaPrincipal.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         btn_UserTelaPrincipal.setForeground(new java.awt.Color(255, 255, 255));
         btn_UserTelaPrincipal.setText("Usuário");
         btn_UserTelaPrincipal.addActionListener(new java.awt.event.ActionListener() {
@@ -350,16 +390,85 @@ public class TelaPrincipal extends javax.swing.JFrame {
                 btn_UserTelaPrincipalActionPerformed(evt);
             }
         });
+        btn_UserTelaPrincipal.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                btn_UserTelaPrincipalKeyPressed(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
-        gridBagConstraints.ipadx = 62;
-        gridBagConstraints.ipady = 13;
+        gridBagConstraints.gridwidth = 3;
+        gridBagConstraints.ipadx = 42;
+        gridBagConstraints.ipady = 11;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(20, 349, 0, 351);
+        gridBagConstraints.insets = new java.awt.Insets(40, 390, 0, 0);
         jPanel19.add(btn_UserTelaPrincipal, gridBagConstraints);
 
-        jPanel18.add(jPanel19, java.awt.BorderLayout.PAGE_START);
+        btn_Ajuda.setFont(new java.awt.Font("Segoe UI", 1, 30)); // NOI18N
+        btn_Ajuda.setForeground(new java.awt.Color(255, 62, 21));
+        btn_Ajuda.setText("Ajuda");
+        btn_Ajuda.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_AjudaActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 4;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridwidth = 6;
+        gridBagConstraints.gridheight = 2;
+        gridBagConstraints.ipadx = 27;
+        gridBagConstraints.ipady = -8;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(4, 10, 0, 180);
+        jPanel19.add(btn_Ajuda, gridBagConstraints);
+
+        lbl_companyTelaPrincipal7.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        lbl_companyTelaPrincipal7.setForeground(new java.awt.Color(45, 18, 75));
+        lbl_companyTelaPrincipal7.setText("Dúvidas sobre a plataforma, clique no botão de ");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridwidth = 5;
+        gridBagConstraints.ipadx = 46;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(14, 190, 0, 0);
+        jPanel19.add(lbl_companyTelaPrincipal7, gridBagConstraints);
+
+        lbl_companyTelaPrincipal9.setForeground(new java.awt.Color(45, 18, 75));
+        lbl_companyTelaPrincipal9.setText("Tecla  ENTER");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.ipadx = 3;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(10, 4, 0, 0);
+        jPanel19.add(lbl_companyTelaPrincipal9, gridBagConstraints);
+
+        lbl_companyTelaPrincipal8.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        lbl_companyTelaPrincipal8.setForeground(new java.awt.Color(45, 18, 75));
+        lbl_companyTelaPrincipal8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/imagens/seta-para-cima.png"))); // NOI18N
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(10, 420, 0, 0);
+        jPanel19.add(lbl_companyTelaPrincipal8, gridBagConstraints);
+
+        lbl_companyTelaPrincipal13.setForeground(new java.awt.Color(45, 18, 75));
+        lbl_companyTelaPrincipal13.setText("Tecla  F12 para Computador e 2 para Notebook no Botão de Ajuda");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 4;
+        gridBagConstraints.gridwidth = 4;
+        gridBagConstraints.ipadx = 17;
+        gridBagConstraints.ipady = 4;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(0, 210, 80, 0);
+        jPanel19.add(lbl_companyTelaPrincipal13, gridBagConstraints);
+
+        jPanel18.add(jPanel19, java.awt.BorderLayout.CENTER);
 
         jPanel16.add(jPanel18, java.awt.BorderLayout.CENTER);
 
@@ -400,6 +509,36 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
 
     }//GEN-LAST:event_btn_cadastreTelaPrincipalActionPerformed
+
+    private void btn_AjudaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_AjudaActionPerformed
+        // TODO add your handling code here:
+        PaginaAjuda paginaajuda = new PaginaAjuda();
+        paginaajuda.setVisible(true);
+
+    }//GEN-LAST:event_btn_AjudaActionPerformed
+
+    private void btn_UserTelaPrincipalKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_btn_UserTelaPrincipalKeyPressed
+        // TODO add your handling code here:
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+            LoginGUI loginGUI = new LoginGUI();
+            loginGUI.setVisible(true);
+            this.dispose();
+
+        }
+
+        if ((evt.getKeyCode() == KeyEvent.VK_F7) || (evt.getKeyCode() == KeyEvent.VK_7)) {
+            CadastroGUI cadastroGUI = new CadastroGUI();
+            cadastroGUI.setVisible(true);
+            this.dispose();
+
+        }
+
+        if ((evt.getKeyCode() == KeyEvent.VK_F12) || (evt.getKeyCode() == KeyEvent.VK_2)) {
+            PaginaAjuda paginaajuda = new PaginaAjuda();
+            paginaajuda.setVisible(true);
+
+        }
+    }//GEN-LAST:event_btn_UserTelaPrincipalKeyPressed
 
     /**
      * @param args the command line arguments
@@ -948,6 +1087,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btn_Ajuda;
     private javax.swing.JButton btn_UserTelaPrincipal;
     private javax.swing.JButton btn_cadastreTelaPrincipal;
     private javax.swing.ButtonGroup buttonGroup1;
@@ -991,10 +1131,17 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private javax.swing.JLabel lbl_SubTitleTelaPrincipal4;
     private javax.swing.JLabel lbl_TelaPrincipalTitle;
     private javax.swing.JLabel lbl_companyTelaPrincipal1;
+    private javax.swing.JLabel lbl_companyTelaPrincipal10;
+    private javax.swing.JLabel lbl_companyTelaPrincipal11;
+    private javax.swing.JLabel lbl_companyTelaPrincipal12;
+    private javax.swing.JLabel lbl_companyTelaPrincipal13;
     private javax.swing.JLabel lbl_companyTelaPrincipal2;
     private javax.swing.JLabel lbl_companyTelaPrincipal3;
     private javax.swing.JLabel lbl_companyTelaPrincipal4;
     private javax.swing.JLabel lbl_companyTelaPrincipal5;
     private javax.swing.JLabel lbl_companyTelaPrincipal6;
+    private javax.swing.JLabel lbl_companyTelaPrincipal7;
+    private javax.swing.JLabel lbl_companyTelaPrincipal8;
+    private javax.swing.JLabel lbl_companyTelaPrincipal9;
     // End of variables declaration//GEN-END:variables
 }

@@ -1,8 +1,6 @@
 package model.bean;
 
-import javax.swing.JOptionPane;
-
-public class Usuario {
+public class Usuario{
     
     private int id;             // Pega o ID do usuario
     private String nome;        // Pega o user do nome
@@ -13,11 +11,13 @@ public class Usuario {
     
     private boolean status;     // Saber se a conta esta ativa ou não
     
-    private int perfil;        /*
+    private int perfil;         /*
+    
                                     Utilizadas para distinguir as permissões de user | perfil = 0 é a conta master e não 
                                     pode ter outra com o mesmo valor; perfil = 1 é a conta ADM e pode haver varios ADMs;
                                     perfil = 2 é o cliente tentando ver suas informações;
-                                   */
+                                   
+                                */
     
     /*
         Metodos "Constructor"
@@ -72,11 +72,13 @@ public class Usuario {
         this.perfil = 2;
     }
     
-    public Usuario(int id, String n, String u, String e, String p, boolean sts, int tpAc){
+    public Usuario(int id, String n, String sn, String u, String e, String p, boolean sts, int tpAc){
         if(n == null || n.equals("")){
-            this.nome = "Sem Nome";
+            this.nome = null;
+            this.sobrenome = null;
         }else{
             this.nome = n;
+            this.sobrenome = sn;
         }
         this.id = id;
         this.user = u;

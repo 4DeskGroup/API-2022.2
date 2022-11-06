@@ -1,10 +1,12 @@
 package GUI;
 
+import Controller.Dados;
 import model.dao.UsuarioDAO;
 import model.bean.Usuario;
 import View.TelaPrincipal;
 import java.awt.Dimension;
 import java.awt.Frame;
+import java.awt.event.KeyEvent;
 import javax.swing.JOptionPane;
 
 public class CadastroGUI extends javax.swing.JFrame {
@@ -23,6 +25,9 @@ public class CadastroGUI extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         btn_login = new javax.swing.JButton();
+        lbl_companyTelaPrincipal10 = new javax.swing.JLabel();
+        lbl_companyTelaPrincipal11 = new javax.swing.JLabel();
+        lbl_companyTelaPrincipal12 = new javax.swing.JLabel();
         txt_User = new javax.swing.JTextField();
         txt_Pass = new javax.swing.JPasswordField();
         txt_Email = new javax.swing.JTextField();
@@ -39,6 +44,8 @@ public class CadastroGUI extends javax.swing.JFrame {
         btn_cadastrar = new javax.swing.JButton();
         txt_Sobrenome = new javax.swing.JTextField();
         jLabel10 = new javax.swing.JLabel();
+        lbl_companyTelaPrincipal9 = new javax.swing.JLabel();
+        lbl_companyTelaPrincipal8 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Cadastro");
@@ -72,6 +79,21 @@ public class CadastroGUI extends javax.swing.JFrame {
                 btn_loginActionPerformed(evt);
             }
         });
+        btn_login.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                btn_loginKeyPressed(evt);
+            }
+        });
+
+        lbl_companyTelaPrincipal10.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        lbl_companyTelaPrincipal10.setForeground(new java.awt.Color(45, 18, 75));
+        lbl_companyTelaPrincipal10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/imagens/seta-para-cima.png"))); // NOI18N
+
+        lbl_companyTelaPrincipal11.setForeground(new java.awt.Color(255, 255, 255));
+        lbl_companyTelaPrincipal11.setText("Tecla F7 para Computador");
+
+        lbl_companyTelaPrincipal12.setForeground(new java.awt.Color(255, 255, 255));
+        lbl_companyTelaPrincipal12.setText("e 7 para Notebook");
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -87,9 +109,17 @@ public class CadastroGUI extends javax.swing.JFrame {
                         .addComponent(jLabel9)
                         .addGap(0, 18, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(btn_login, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(41, 41, 41)))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(jPanel3Layout.createSequentialGroup()
+                                .addGap(60, 60, 60)
+                                .addComponent(lbl_companyTelaPrincipal10))
+                            .addComponent(lbl_companyTelaPrincipal11, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addGroup(jPanel3Layout.createSequentialGroup()
+                                .addGap(20, 20, 20)
+                                .addComponent(lbl_companyTelaPrincipal12))
+                            .addComponent(btn_login, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(28, 28, 28)))
                 .addContainerGap())
         );
         jPanel3Layout.setVerticalGroup(
@@ -101,6 +131,12 @@ public class CadastroGUI extends javax.swing.JFrame {
                 .addComponent(jLabel3)
                 .addGap(31, 31, 31)
                 .addComponent(btn_login, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(lbl_companyTelaPrincipal10)
+                .addGap(4, 4, 4)
+                .addComponent(lbl_companyTelaPrincipal11)
+                .addGap(4, 4, 4)
+                .addComponent(lbl_companyTelaPrincipal12)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -111,12 +147,22 @@ public class CadastroGUI extends javax.swing.JFrame {
                 txt_UserActionPerformed(evt);
             }
         });
+        txt_User.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txt_UserKeyPressed(evt);
+            }
+        });
 
         txt_Pass.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         txt_Pass.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         txt_Pass.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txt_PassActionPerformed(evt);
+            }
+        });
+        txt_Pass.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txt_PassKeyPressed(evt);
             }
         });
 
@@ -127,12 +173,22 @@ public class CadastroGUI extends javax.swing.JFrame {
                 txt_EmailActionPerformed(evt);
             }
         });
+        txt_Email.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txt_EmailKeyPressed(evt);
+            }
+        });
 
         txt_RPass.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         txt_RPass.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         txt_RPass.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txt_RPassActionPerformed(evt);
+            }
+        });
+        txt_RPass.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txt_RPassKeyPressed(evt);
             }
         });
 
@@ -179,6 +235,11 @@ public class CadastroGUI extends javax.swing.JFrame {
                 txt_NomeActionPerformed(evt);
             }
         });
+        txt_Nome.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txt_NomeKeyPressed(evt);
+            }
+        });
 
         jLabel8.setForeground(new java.awt.Color(102, 0, 102));
         jLabel8.setText("Campos com (*) são obrigatorios");
@@ -202,10 +263,22 @@ public class CadastroGUI extends javax.swing.JFrame {
                 txt_SobrenomeActionPerformed(evt);
             }
         });
+        txt_Sobrenome.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txt_SobrenomeKeyPressed(evt);
+            }
+        });
 
         jLabel10.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(102, 0, 102));
         jLabel10.setText("Sobrenome (Opcional)");
+
+        lbl_companyTelaPrincipal9.setForeground(new java.awt.Color(45, 18, 75));
+        lbl_companyTelaPrincipal9.setText("Tecla  ENTER");
+
+        lbl_companyTelaPrincipal8.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        lbl_companyTelaPrincipal8.setForeground(new java.awt.Color(45, 18, 75));
+        lbl_companyTelaPrincipal8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/imagens/seta-para-cima.png"))); // NOI18N
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -226,7 +299,12 @@ public class CadastroGUI extends javax.swing.JFrame {
                                 .addGap(192, 192, 192))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                                 .addComponent(btn_cadastrar, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(165, 165, 165))))))
+                                .addGap(165, 165, 165))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                                .addComponent(lbl_companyTelaPrincipal8)
+                                .addGap(4, 4, 4)
+                                .addComponent(lbl_companyTelaPrincipal9, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(197, 197, 197))))))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel8)
@@ -292,7 +370,11 @@ public class CadastroGUI extends javax.swing.JFrame {
                 .addComponent(cb_visualizar)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btn_cadastrar, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(26, 26, 26)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lbl_companyTelaPrincipal8)
+                    .addComponent(lbl_companyTelaPrincipal9))
+                .addGap(4, 4, 4)
                 .addComponent(jLabel8)
                 .addContainerGap())
         );
@@ -321,66 +403,63 @@ public class CadastroGUI extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btn_cadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_cadastrarActionPerformed
-        
+
         String strPass = new String(txt_Pass.getPassword());
         String strRPass = new String(txt_RPass.getPassword());
-        
-        if((txt_User.getText().equals("") || txt_User.getText().equals(" ")) || (txt_Email.getText().equals("") || txt_Email.getText().equals(" ")) || strPass.equals("") || strRPass.equals("")){
+
+        if ((txt_User.getText().equals("") || txt_User.getText().equals(" ")) || (txt_Email.getText().equals("") || txt_Email.getText().equals(" ")) || strPass.equals("") || strRPass.equals("")) {
             JOptionPane.showMessageDialog(null, "Preencha todos os campos obrigatorios! (*)");
-        }else if(txt_Pass.getPassword().length < 3){
+        } else if (txt_Pass.getPassword().length < 3) {
             JOptionPane.showMessageDialog(null, "Senha tem que ter mais de 3 caracters");
-        }else if(strPass.equals(strRPass) == false){
+        } else if (strPass.equals(strRPass) == false) {
             JOptionPane.showMessageDialog(null, "Repetir senha e Senha devem ser iguais!");
-        }else{
+        } else {
             Usuario cliente = new Usuario(txt_Nome.getText(), txt_Sobrenome.getText(), txt_User.getText(), txt_Email.getText(), strPass);
+            Dados.addConta(cliente);
             
-            UsuarioDAO dao = new UsuarioDAO();
-            
-            dao.addCliente(cliente);
-            JOptionPane.showMessageDialog(null, "Cadastro Completo!"
-                    + "\nO usuario " + txt_User.getText() + " foi cadastrado com sucesso!");
         }
         strPass = null;
         strRPass = null;
+        
     }//GEN-LAST:event_btn_cadastrarActionPerformed
 
     private void txt_PassActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_PassActionPerformed
-        
-        
+
+
     }//GEN-LAST:event_txt_PassActionPerformed
 
     private void cb_visualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cb_visualizarActionPerformed
-        
-        if(txt_Pass.getEchoChar() == '*'){
+
+        if (txt_Pass.getEchoChar() == '*') {
             txt_Pass.setEchoChar((char) 0);
             txt_RPass.setEchoChar((char) 0);
-        }else{
+        } else {
             txt_Pass.setEchoChar('*');
             txt_RPass.setEchoChar('*');
         }
-        
+
     }//GEN-LAST:event_cb_visualizarActionPerformed
 
     private void txt_UserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_UserActionPerformed
-        
-        
+
+
     }//GEN-LAST:event_txt_UserActionPerformed
 
     private void txt_RPassActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_RPassActionPerformed
-        
-        
+
+
     }//GEN-LAST:event_txt_RPassActionPerformed
 
     private void txt_NomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_NomeActionPerformed
-        
-        
+
+
     }//GEN-LAST:event_txt_NomeActionPerformed
 
     private void btn_loginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_loginActionPerformed
         Dimension telaOriginal = getPreferredSize();
         Dimension telaRecente = getSize();
 
-        int tamanhoTelaOriginal= (int) telaOriginal.getWidth();
+        int tamanhoTelaOriginal = (int) telaOriginal.getWidth();
         int tamanhoTelaRecente = (int) telaRecente.getWidth();
 
         if (tamanhoTelaOriginal < tamanhoTelaRecente) {
@@ -395,16 +474,101 @@ public class CadastroGUI extends javax.swing.JFrame {
         }
         //new LoginGUI().setVisible(true);
         //this.dispose();
-        
+
     }//GEN-LAST:event_btn_loginActionPerformed
 
     private void txt_EmailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_EmailActionPerformed
-        
+
     }//GEN-LAST:event_txt_EmailActionPerformed
 
     private void txt_SobrenomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_SobrenomeActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txt_SobrenomeActionPerformed
+
+    private void txt_NomeKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_NomeKeyPressed
+        // TODO add your handling code here:
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+            txt_Sobrenome.requestFocus();
+        }
+    }//GEN-LAST:event_txt_NomeKeyPressed
+
+    private void txt_SobrenomeKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_SobrenomeKeyPressed
+        // TODO add your handling code here:
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+            txt_User.requestFocus();
+        }
+    }//GEN-LAST:event_txt_SobrenomeKeyPressed
+
+    private void txt_UserKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_UserKeyPressed
+        // TODO add your handling code here:
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+            txt_Email.requestFocus();
+        }
+    }//GEN-LAST:event_txt_UserKeyPressed
+
+    private void txt_EmailKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_EmailKeyPressed
+        // TODO add your handling code here:
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+            txt_Pass.requestFocus();
+        }
+    }//GEN-LAST:event_txt_EmailKeyPressed
+
+    private void txt_PassKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_PassKeyPressed
+        // TODO add your handling code here:
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+            txt_RPass.requestFocus();
+        }
+    }//GEN-LAST:event_txt_PassKeyPressed
+
+    private void txt_RPassKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_RPassKeyPressed
+        // TODO add your handling code here:
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+            String strPass = new String(txt_Pass.getPassword());
+            String strRPass = new String(txt_RPass.getPassword());
+
+            if ((txt_User.getText().equals("") || txt_User.getText().equals(" ")) || (txt_Email.getText().equals("") || txt_Email.getText().equals(" ")) || strPass.equals("") || strRPass.equals("")) {
+                JOptionPane.showMessageDialog(null, "Preencha todos os campos obrigatorios! (*)");
+                txt_User.requestFocus();
+            } else if (txt_Pass.getPassword().length < 3) {
+                JOptionPane.showMessageDialog(null, "Senha tem que ter mais de 3 caracters");
+            } else if (strPass.equals(strRPass) == false) {
+                JOptionPane.showMessageDialog(null, "Repetir senha e Senha devem ser iguais!");
+            } else {
+                Usuario cliente = new Usuario(txt_Nome.getText(), txt_Sobrenome.getText(), txt_User.getText(), txt_Email.getText(), strPass);
+                Dados.addConta(cliente);
+            }
+            strPass = null;
+            strRPass = null;
+
+        }
+    }//GEN-LAST:event_txt_RPassKeyPressed
+
+    private void btn_loginKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_btn_loginKeyPressed
+        // TODO add your handling code here:
+        if ((evt.getKeyCode() == KeyEvent.VK_F7) || (evt.getKeyCode() == KeyEvent.VK_7)) {
+            Dimension telaOriginal = getPreferredSize();
+            Dimension telaRecente = getSize();
+
+            int tamanhoTelaOriginal = (int) telaOriginal.getWidth();
+            int tamanhoTelaRecente = (int) telaRecente.getWidth();
+
+            if (tamanhoTelaOriginal < tamanhoTelaRecente) {
+                LoginGUI loginGUI = new LoginGUI();
+                loginGUI.setExtendedState(Frame.MAXIMIZED_BOTH);
+                loginGUI.setVisible(true);
+                this.dispose();
+            } else {
+                LoginGUI loginGUI = new LoginGUI();
+                loginGUI.setVisible(true);
+                this.dispose();
+            }
+        }
+
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+            txt_Nome.requestFocus();
+        }
+
+    }//GEN-LAST:event_btn_loginKeyPressed
 
     /**
      * @param args the command line arguments
@@ -458,6 +622,11 @@ public class CadastroGUI extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
+    private javax.swing.JLabel lbl_companyTelaPrincipal10;
+    private javax.swing.JLabel lbl_companyTelaPrincipal11;
+    private javax.swing.JLabel lbl_companyTelaPrincipal12;
+    private javax.swing.JLabel lbl_companyTelaPrincipal8;
+    private javax.swing.JLabel lbl_companyTelaPrincipal9;
     private javax.swing.JTextField txt_Email;
     private javax.swing.JTextField txt_Nome;
     private javax.swing.JPasswordField txt_Pass;

@@ -33,7 +33,7 @@ public class Canal extends CanalConfig {
     public Canal(ResultSet rs, int config) {
 
         switch (config) {
-            case 1 -> {
+            case 1:
                 try {
                     while (rs.next()) {
                         this.empresa = rs.getString("tbl_Config.Empresa_Config");
@@ -43,9 +43,9 @@ public class Canal extends CanalConfig {
                 } catch (SQLException erro) {
                     JOptionPane.showMessageDialog(null, "Erro: " + erro.getMessage());
                 }
-            }
+            break;
 
-            case 2 -> {
+            case 2:
                 try {
                     while (rs.next()) {
                         this.pk_idCanal = rs.getInt("tbl_Canal.id_Canal");
@@ -59,9 +59,9 @@ public class Canal extends CanalConfig {
                 } catch (SQLException erro) {
                     JOptionPane.showMessageDialog(null, "Erro: " + erro.getMessage());
                 }
-            }
+            break;
 
-            case 3 -> {
+            case 3:
                 try {
                     while (rs.next()) {
                         this.empresa = rs.getString("tbl_Config.Empresa_Config");
@@ -79,10 +79,11 @@ public class Canal extends CanalConfig {
                 } catch (SQLException erro) {
                     JOptionPane.showMessageDialog(null, "Erro: " + erro.getMessage());
                 }
-            }
+            break;
 
-            default ->
+            default:
                 JOptionPane.showMessageDialog(null, "ERRO config");
+                break;
         }
 
     }

@@ -1,6 +1,7 @@
 package model.DTO;
 
 public class UsuarioDTO {
+    private int id;
     private String user;
     private String pass;
     
@@ -9,6 +10,10 @@ public class UsuarioDTO {
         this.pass = p;
     }
 
+    public int getId(){
+        return this.id;
+    }
+    
     public String getUser() {
         return this.user;
     }
@@ -16,7 +21,11 @@ public class UsuarioDTO {
     public String getPass() {
         return this.pass;
     }
-
+    
+    public void setId(int id){
+        this.id = id;
+    }
+    
     public void setUser(String user) {
         this.user = user;
     }
