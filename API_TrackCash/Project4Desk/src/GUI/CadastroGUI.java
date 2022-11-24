@@ -9,6 +9,7 @@ import java.awt.Dimension;
 import java.awt.Frame;
 import java.awt.event.KeyEvent;
 import java.io.File;
+import java.net.URI;
 import javax.swing.JOptionPane;
 
 public class CadastroGUI extends javax.swing.JFrame {
@@ -72,8 +73,6 @@ public class CadastroGUI extends javax.swing.JFrame {
         jPanel24 = new javax.swing.JPanel();
         jPanel25 = new javax.swing.JPanel();
         btn_cadastrar = new javax.swing.JButton();
-        lbl_companyTelaPrincipal8 = new javax.swing.JLabel();
-        lbl_companyTelaPrincipal9 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         btn_limpar = new javax.swing.JButton();
 
@@ -580,42 +579,22 @@ public class CadastroGUI extends javax.swing.JFrame {
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 0;
-        gridBagConstraints.gridwidth = 2;
         gridBagConstraints.ipadx = 49;
         gridBagConstraints.ipady = 15;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(10, 54, 0, 0);
+        gridBagConstraints.insets = new java.awt.Insets(10, 70, 0, 0);
         jPanel25.add(btn_cadastrar, gridBagConstraints);
-
-        lbl_companyTelaPrincipal8.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        lbl_companyTelaPrincipal8.setForeground(new java.awt.Color(45, 18, 75));
-        lbl_companyTelaPrincipal8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/imagens/seta-para-cima.png"))); // NOI18N
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 1;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(10, 0, 0, 0);
-        jPanel25.add(lbl_companyTelaPrincipal8, gridBagConstraints);
-
-        lbl_companyTelaPrincipal9.setForeground(new java.awt.Color(45, 18, 75));
-        lbl_companyTelaPrincipal9.setText("Tecla  ENTER");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 1;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(10, 4, 0, 0);
-        jPanel25.add(lbl_companyTelaPrincipal9, gridBagConstraints);
 
         jLabel8.setForeground(new java.awt.Color(102, 0, 102));
         jLabel8.setText("Campos com (*) são obrigatorios");
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 3;
-        gridBagConstraints.gridy = 2;
-        gridBagConstraints.gridwidth = 3;
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.gridwidth = 2;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(4, 53, 4, 15);
+        gridBagConstraints.insets = new java.awt.Insets(30, 140, 4, 15);
         jPanel25.add(jLabel8, gridBagConstraints);
 
         btn_limpar.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
@@ -847,11 +826,11 @@ public class CadastroGUI extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         try{
-            File file = new File("C:\\Users\\rodri\\Documents\\Política de Privacidade.pdf");
+            URI link = new URI("https://drive.google.com/file/d/1REKcVZyHgZIJBiUwh6YGw4a8UIwMHREb/view?usp=sharing");
             
-            if(file.exists()){
+            if(link.equals(link)){
                 if(Desktop.isDesktopSupported()){
-                    Desktop.getDesktop().open(file);
+                    Desktop.getDesktop().browse(link);
                 }else{
                     JOptionPane.showMessageDialog(this, "Not Supported");
                 }   
@@ -869,11 +848,11 @@ public class CadastroGUI extends javax.swing.JFrame {
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
         try{
-            File file = new File("C:\\Users\\rodri\\Documents\\TERMOS DE USO.pdf");
+            URI link = new URI("https://drive.google.com/file/d/1oYcObZ2bsRmgbvtSYMpYboHCd1ND1VEd/view?usp=share_link");
             
-            if(file.exists()){
+            if(link.equals(link)){
                 if(Desktop.isDesktopSupported()){
-                    Desktop.getDesktop().open(file);
+                    Desktop.getDesktop().browse(link);
                 }else{
                     JOptionPane.showMessageDialog(this, "Not Supported");
                 }   
@@ -980,8 +959,6 @@ public class CadastroGUI extends javax.swing.JFrame {
     private javax.swing.JLabel lbl_companyTelaPrincipal10;
     private javax.swing.JLabel lbl_companyTelaPrincipal11;
     private javax.swing.JLabel lbl_companyTelaPrincipal12;
-    private javax.swing.JLabel lbl_companyTelaPrincipal8;
-    private javax.swing.JLabel lbl_companyTelaPrincipal9;
     private javax.swing.JTextField txt_Email;
     private javax.swing.JTextField txt_Nome;
     private javax.swing.JPasswordField txt_Pass;
