@@ -14,100 +14,91 @@ public class PaginaAjuda extends javax.swing.JFrame {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
+        java.awt.GridBagConstraints gridBagConstraints;
 
         buttonGroup1 = new javax.swing.ButtonGroup();
-        jPanel24 = new javax.swing.JPanel();
-        jPanel23 = new javax.swing.JPanel();
+        jPanel1 = new javax.swing.JPanel();
+        jPanel2 = new javax.swing.JPanel();
         jLabel_LogoTelaPrincipal3 = new javax.swing.JLabel();
+        jPanel3 = new javax.swing.JPanel();
         jPanel4 = new javax.swing.JPanel();
-        jPanel5 = new javax.swing.JPanel();
         lbl_TelaPrincipalTitle = new javax.swing.JLabel();
+        jPanel5 = new javax.swing.JPanel();
         jPanel6 = new javax.swing.JPanel();
-        jPanel7 = new javax.swing.JPanel();
         duvida1 = new javax.swing.JLabel();
+        jPanel7 = new javax.swing.JPanel();
         jPanel8 = new javax.swing.JPanel();
-        jPanel9 = new javax.swing.JPanel();
         duvida2 = new javax.swing.JLabel();
+        jPanel9 = new javax.swing.JPanel();
         jPanel10 = new javax.swing.JPanel();
-        jPanel11 = new javax.swing.JPanel();
         duvida3 = new javax.swing.JLabel();
+        jPanel11 = new javax.swing.JPanel();
         jPanel12 = new javax.swing.JPanel();
-        jPanel13 = new javax.swing.JPanel();
         duvida4 = new javax.swing.JLabel();
+        jPanel13 = new javax.swing.JPanel();
         jPanel14 = new javax.swing.JPanel();
-        jPanel15 = new javax.swing.JPanel();
         duvida5 = new javax.swing.JLabel();
+        jPanel15 = new javax.swing.JPanel();
         jPanel16 = new javax.swing.JPanel();
-        jPanel18 = new javax.swing.JPanel();
-        jPanel19 = new javax.swing.JPanel();
         btn_UserTelaPrincipal = new javax.swing.JButton();
+        jPanel17 = new javax.swing.JPanel();
+        jPanel18 = new javax.swing.JPanel();
         lbl_companyTelaPrincipal6 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Dúvidas Frequentes");
-        setMinimumSize(new java.awt.Dimension(850, 600));
-        setPreferredSize(new java.awt.Dimension(1000, 630));
+        setMinimumSize(new java.awt.Dimension(800, 600));
+        setPreferredSize(new java.awt.Dimension(1000, 600));
 
-        jPanel24.setBackground(new java.awt.Color(241, 241, 241));
-        jPanel24.setPreferredSize(new java.awt.Dimension(1020, 630));
-        jPanel24.setLayout(new java.awt.BorderLayout());
+        jPanel1.setBackground(new java.awt.Color(241, 241, 241));
+        jPanel1.setLayout(new java.awt.BorderLayout());
 
-        jPanel23.setBackground(new java.awt.Color(241, 241, 241));
-        jPanel23.setMinimumSize(new java.awt.Dimension(993, 120));
-        jPanel23.setPreferredSize(new java.awt.Dimension(1000, 170));
+        jPanel2.setBackground(new java.awt.Color(241, 241, 241));
+        jPanel2.setMinimumSize(new java.awt.Dimension(1000, 130));
+        jPanel2.setPreferredSize(new java.awt.Dimension(1000, 130));
+        jPanel2.setLayout(new java.awt.GridBagLayout());
 
         jLabel_LogoTelaPrincipal3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/imagens/Untitled-removebg-preview.png"))); // NOI18N
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.ipadx = 2;
+        gridBagConstraints.ipady = -13;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(10, 433, 0, 432);
+        jPanel2.add(jLabel_LogoTelaPrincipal3, gridBagConstraints);
 
-        javax.swing.GroupLayout jPanel23Layout = new javax.swing.GroupLayout(jPanel23);
-        jPanel23.setLayout(jPanel23Layout);
-        jPanel23Layout.setHorizontalGroup(
-            jPanel23Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel23Layout.createSequentialGroup()
-                .addGap(415, 415, 415)
-                .addComponent(jLabel_LogoTelaPrincipal3)
-                .addContainerGap(652, Short.MAX_VALUE))
-        );
-        jPanel23Layout.setVerticalGroup(
-            jPanel23Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel23Layout.createSequentialGroup()
-                .addContainerGap(21, Short.MAX_VALUE)
-                .addComponent(jLabel_LogoTelaPrincipal3)
-                .addGap(16, 16, 16))
-        );
+        jPanel1.add(jPanel2, java.awt.BorderLayout.PAGE_START);
 
-        jPanel24.add(jPanel23, java.awt.BorderLayout.PAGE_START);
+        jPanel3.setBackground(new java.awt.Color(241, 241, 241));
+        jPanel3.setLayout(new java.awt.BorderLayout());
 
         jPanel4.setBackground(new java.awt.Color(241, 241, 241));
-        jPanel4.setPreferredSize(new java.awt.Dimension(1000, 798));
+        jPanel4.setMinimumSize(new java.awt.Dimension(1000, 60));
+        jPanel4.setPreferredSize(new java.awt.Dimension(1000, 60));
+        jPanel4.setLayout(new java.awt.GridBagLayout());
 
-        jPanel5.setBackground(new java.awt.Color(241, 241, 241));
-        jPanel5.setPreferredSize(new java.awt.Dimension(1000, 70));
-
-        lbl_TelaPrincipalTitle.setFont(new java.awt.Font("Segoe UI", 1, 48)); // NOI18N
+        lbl_TelaPrincipalTitle.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
         lbl_TelaPrincipalTitle.setForeground(new java.awt.Color(45, 18, 75));
         lbl_TelaPrincipalTitle.setText("Dúvidas Frequentes");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.ipadx = 8;
+        gridBagConstraints.ipady = 2;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(10, 330, 0, 330);
+        jPanel4.add(lbl_TelaPrincipalTitle, gridBagConstraints);
 
-        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
-        jPanel5.setLayout(jPanel5Layout);
-        jPanel5Layout.setHorizontalGroup(
-            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel5Layout.createSequentialGroup()
-                .addGap(259, 259, 259)
-                .addComponent(lbl_TelaPrincipalTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 456, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(285, Short.MAX_VALUE))
-        );
-        jPanel5Layout.setVerticalGroup(
-            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel5Layout.createSequentialGroup()
-                .addComponent(lbl_TelaPrincipalTitle)
-                .addGap(326, 326, 326))
-        );
+        jPanel3.add(jPanel4, java.awt.BorderLayout.PAGE_START);
+
+        jPanel5.setBackground(new java.awt.Color(241, 241, 241));
+        jPanel5.setLayout(new java.awt.BorderLayout());
 
         jPanel6.setBackground(new java.awt.Color(241, 241, 241));
-        jPanel6.setPreferredSize(new java.awt.Dimension(1000, 728));
-
-        jPanel7.setBackground(new java.awt.Color(241, 241, 241));
-        jPanel7.setPreferredSize(new java.awt.Dimension(1000, 40));
+        jPanel6.setMinimumSize(new java.awt.Dimension(1000, 40));
+        jPanel6.setPreferredSize(new java.awt.Dimension(1000, 40));
+        jPanel6.setLayout(new java.awt.GridBagLayout());
 
         duvida1.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
         duvida1.setForeground(new java.awt.Color(45, 18, 75));
@@ -118,28 +109,24 @@ public class PaginaAjuda extends javax.swing.JFrame {
                 duvida1MouseClicked(evt);
             }
         });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.ipadx = 1;
+        gridBagConstraints.ipady = 3;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(10, 365, 0, 365);
+        jPanel6.add(duvida1, gridBagConstraints);
 
-        javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
-        jPanel7.setLayout(jPanel7Layout);
-        jPanel7Layout.setHorizontalGroup(
-            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel7Layout.createSequentialGroup()
-                .addGap(335, 335, 335)
-                .addComponent(duvida1)
-                .addContainerGap(396, Short.MAX_VALUE))
-        );
-        jPanel7Layout.setVerticalGroup(
-            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel7Layout.createSequentialGroup()
-                .addComponent(duvida1)
-                .addGap(0, 13, Short.MAX_VALUE))
-        );
+        jPanel5.add(jPanel6, java.awt.BorderLayout.PAGE_START);
+
+        jPanel7.setBackground(new java.awt.Color(241, 241, 241));
+        jPanel7.setLayout(new java.awt.BorderLayout());
 
         jPanel8.setBackground(new java.awt.Color(241, 241, 241));
-        jPanel8.setPreferredSize(new java.awt.Dimension(1000, 688));
-
-        jPanel9.setBackground(new java.awt.Color(241, 241, 241));
-        jPanel9.setPreferredSize(new java.awt.Dimension(1000, 40));
+        jPanel8.setMinimumSize(new java.awt.Dimension(1000, 40));
+        jPanel8.setPreferredSize(new java.awt.Dimension(1000, 40));
+        jPanel8.setLayout(new java.awt.GridBagLayout());
 
         duvida2.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
         duvida2.setForeground(new java.awt.Color(45, 18, 75));
@@ -150,28 +137,24 @@ public class PaginaAjuda extends javax.swing.JFrame {
                 duvida2MouseClicked(evt);
             }
         });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.ipadx = 8;
+        gridBagConstraints.ipady = 3;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(10, 315, 0, 315);
+        jPanel8.add(duvida2, gridBagConstraints);
 
-        javax.swing.GroupLayout jPanel9Layout = new javax.swing.GroupLayout(jPanel9);
-        jPanel9.setLayout(jPanel9Layout);
-        jPanel9Layout.setHorizontalGroup(
-            jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel9Layout.createSequentialGroup()
-                .addGap(302, 302, 302)
-                .addComponent(duvida2)
-                .addContainerGap(336, Short.MAX_VALUE))
-        );
-        jPanel9Layout.setVerticalGroup(
-            jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel9Layout.createSequentialGroup()
-                .addComponent(duvida2)
-                .addGap(0, 13, Short.MAX_VALUE))
-        );
+        jPanel7.add(jPanel8, java.awt.BorderLayout.PAGE_START);
+
+        jPanel9.setBackground(new java.awt.Color(241, 241, 241));
+        jPanel9.setLayout(new java.awt.BorderLayout());
 
         jPanel10.setBackground(new java.awt.Color(241, 241, 241));
-        jPanel10.setPreferredSize(new java.awt.Dimension(1000, 648));
-
-        jPanel11.setBackground(new java.awt.Color(241, 241, 241));
-        jPanel11.setPreferredSize(new java.awt.Dimension(1000, 40));
+        jPanel10.setMinimumSize(new java.awt.Dimension(1000, 40));
+        jPanel10.setPreferredSize(new java.awt.Dimension(1000, 40));
+        jPanel10.setLayout(new java.awt.GridBagLayout());
 
         duvida3.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
         duvida3.setForeground(new java.awt.Color(45, 18, 75));
@@ -182,27 +165,24 @@ public class PaginaAjuda extends javax.swing.JFrame {
                 duvida3MouseClicked(evt);
             }
         });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.ipadx = 3;
+        gridBagConstraints.ipady = 3;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(10, 315, 0, 315);
+        jPanel10.add(duvida3, gridBagConstraints);
 
-        javax.swing.GroupLayout jPanel11Layout = new javax.swing.GroupLayout(jPanel11);
-        jPanel11.setLayout(jPanel11Layout);
-        jPanel11Layout.setHorizontalGroup(
-            jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel11Layout.createSequentialGroup()
-                .addGap(302, 302, 302)
-                .addComponent(duvida3)
-                .addContainerGap(331, Short.MAX_VALUE))
-        );
-        jPanel11Layout.setVerticalGroup(
-            jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel11Layout.createSequentialGroup()
-                .addComponent(duvida3)
-                .addGap(0, 13, Short.MAX_VALUE))
-        );
+        jPanel9.add(jPanel10, java.awt.BorderLayout.PAGE_START);
+
+        jPanel11.setBackground(new java.awt.Color(241, 241, 241));
+        jPanel11.setLayout(new java.awt.BorderLayout());
 
         jPanel12.setBackground(new java.awt.Color(241, 241, 241));
-
-        jPanel13.setBackground(new java.awt.Color(241, 241, 241));
-        jPanel13.setPreferredSize(new java.awt.Dimension(1000, 40));
+        jPanel12.setMinimumSize(new java.awt.Dimension(1000, 40));
+        jPanel12.setPreferredSize(new java.awt.Dimension(1000, 40));
+        jPanel12.setLayout(new java.awt.GridBagLayout());
 
         duvida4.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
         duvida4.setForeground(new java.awt.Color(45, 18, 75));
@@ -213,28 +193,24 @@ public class PaginaAjuda extends javax.swing.JFrame {
                 duvida4MouseClicked(evt);
             }
         });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.ipadx = 5;
+        gridBagConstraints.ipady = 3;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(10, 295, 0, 295);
+        jPanel12.add(duvida4, gridBagConstraints);
 
-        javax.swing.GroupLayout jPanel13Layout = new javax.swing.GroupLayout(jPanel13);
-        jPanel13.setLayout(jPanel13Layout);
-        jPanel13Layout.setHorizontalGroup(
-            jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel13Layout.createSequentialGroup()
-                .addGap(287, 287, 287)
-                .addComponent(duvida4)
-                .addContainerGap(308, Short.MAX_VALUE))
-        );
-        jPanel13Layout.setVerticalGroup(
-            jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel13Layout.createSequentialGroup()
-                .addComponent(duvida4)
-                .addGap(0, 13, Short.MAX_VALUE))
-        );
+        jPanel11.add(jPanel12, java.awt.BorderLayout.PAGE_START);
+
+        jPanel13.setBackground(new java.awt.Color(241, 241, 241));
+        jPanel13.setLayout(new java.awt.BorderLayout());
 
         jPanel14.setBackground(new java.awt.Color(241, 241, 241));
-        jPanel14.setPreferredSize(new java.awt.Dimension(1000, 568));
-
-        jPanel15.setBackground(new java.awt.Color(241, 241, 241));
-        jPanel15.setPreferredSize(new java.awt.Dimension(1000, 40));
+        jPanel14.setMinimumSize(new java.awt.Dimension(1000, 40));
+        jPanel14.setPreferredSize(new java.awt.Dimension(1000, 40));
+        jPanel14.setLayout(new java.awt.GridBagLayout());
 
         duvida5.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
         duvida5.setForeground(new java.awt.Color(45, 18, 75));
@@ -245,34 +221,28 @@ public class PaginaAjuda extends javax.swing.JFrame {
                 duvida5MouseClicked(evt);
             }
         });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.ipadx = 3;
+        gridBagConstraints.ipady = 3;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(10, 270, 0, 270);
+        jPanel14.add(duvida5, gridBagConstraints);
 
-        javax.swing.GroupLayout jPanel15Layout = new javax.swing.GroupLayout(jPanel15);
-        jPanel15.setLayout(jPanel15Layout);
-        jPanel15Layout.setHorizontalGroup(
-            jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel15Layout.createSequentialGroup()
-                .addGap(264, 264, 264)
-                .addComponent(duvida5)
-                .addContainerGap(279, Short.MAX_VALUE))
-        );
-        jPanel15Layout.setVerticalGroup(
-            jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel15Layout.createSequentialGroup()
-                .addComponent(duvida5)
-                .addGap(0, 13, Short.MAX_VALUE))
-        );
+        jPanel13.add(jPanel14, java.awt.BorderLayout.PAGE_START);
+
+        jPanel15.setBackground(new java.awt.Color(241, 241, 241));
+        jPanel15.setLayout(new java.awt.BorderLayout());
 
         jPanel16.setBackground(new java.awt.Color(241, 241, 241));
-
-        jPanel18.setBackground(new java.awt.Color(241, 241, 241));
-        jPanel18.setPreferredSize(new java.awt.Dimension(1000, 528));
-
-        jPanel19.setBackground(new java.awt.Color(241, 241, 241));
-        jPanel19.setPreferredSize(new java.awt.Dimension(1000, 82));
+        jPanel16.setMinimumSize(new java.awt.Dimension(1000, 100));
+        jPanel16.setLayout(new java.awt.GridBagLayout());
 
         btn_UserTelaPrincipal.setBackground(new java.awt.Color(255, 62, 21));
         btn_UserTelaPrincipal.setFont(new java.awt.Font("Segoe UI", 1, 30)); // NOI18N
         btn_UserTelaPrincipal.setForeground(new java.awt.Color(255, 255, 255));
+        btn_UserTelaPrincipal.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/imagens/Voltar_FFFFFF_grande.png"))); // NOI18N
         btn_UserTelaPrincipal.setText("Voltar");
         btn_UserTelaPrincipal.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -284,220 +254,60 @@ public class PaginaAjuda extends javax.swing.JFrame {
                 btn_UserTelaPrincipalKeyPressed(evt);
             }
         });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.ipadx = 55;
+        gridBagConstraints.ipady = 12;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(20, 400, 20, 400);
+        jPanel16.add(btn_UserTelaPrincipal, gridBagConstraints);
 
-        javax.swing.GroupLayout jPanel19Layout = new javax.swing.GroupLayout(jPanel19);
-        jPanel19.setLayout(jPanel19Layout);
-        jPanel19Layout.setHorizontalGroup(
-            jPanel19Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel19Layout.createSequentialGroup()
-                .addGap(392, 392, 392)
-                .addComponent(btn_UserTelaPrincipal, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(427, Short.MAX_VALUE))
-        );
-        jPanel19Layout.setVerticalGroup(
-            jPanel19Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel19Layout.createSequentialGroup()
-                .addComponent(btn_UserTelaPrincipal, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 20, Short.MAX_VALUE))
-        );
+        jPanel15.add(jPanel16, java.awt.BorderLayout.PAGE_START);
+
+        jPanel17.setBackground(new java.awt.Color(241, 241, 241));
+        jPanel17.setLayout(new java.awt.BorderLayout());
+
+        jPanel18.setBackground(new java.awt.Color(241, 241, 241));
+        jPanel18.setMinimumSize(new java.awt.Dimension(1000, 50));
+        jPanel18.setPreferredSize(new java.awt.Dimension(1000, 50));
+        jPanel18.setLayout(new java.awt.GridBagLayout());
 
         lbl_companyTelaPrincipal6.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
         lbl_companyTelaPrincipal6.setForeground(new java.awt.Color(45, 18, 75));
         lbl_companyTelaPrincipal6.setText("Clique na sua dúvida ");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.ipadx = 5;
+        gridBagConstraints.ipady = 3;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(10, 405, 10, 405);
+        jPanel18.add(lbl_companyTelaPrincipal6, gridBagConstraints);
 
-        javax.swing.GroupLayout jPanel18Layout = new javax.swing.GroupLayout(jPanel18);
-        jPanel18.setLayout(jPanel18Layout);
-        jPanel18Layout.setHorizontalGroup(
-            jPanel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel18Layout.createSequentialGroup()
-                .addGroup(jPanel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel19, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel18Layout.createSequentialGroup()
-                        .addGap(392, 392, 392)
-                        .addComponent(lbl_companyTelaPrincipal6)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        jPanel18Layout.setVerticalGroup(
-            jPanel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel18Layout.createSequentialGroup()
-                .addComponent(jPanel19, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(lbl_companyTelaPrincipal6)
-                .addGap(0, 407, Short.MAX_VALUE))
-        );
+        jPanel17.add(jPanel18, java.awt.BorderLayout.PAGE_START);
 
-        javax.swing.GroupLayout jPanel16Layout = new javax.swing.GroupLayout(jPanel16);
-        jPanel16.setLayout(jPanel16Layout);
-        jPanel16Layout.setHorizontalGroup(
-            jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel18, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-        );
-        jPanel16Layout.setVerticalGroup(
-            jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel18, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-        );
+        jPanel15.add(jPanel17, java.awt.BorderLayout.CENTER);
 
-        javax.swing.GroupLayout jPanel14Layout = new javax.swing.GroupLayout(jPanel14);
-        jPanel14.setLayout(jPanel14Layout);
-        jPanel14Layout.setHorizontalGroup(
-            jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel15, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addComponent(jPanel16, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-        );
-        jPanel14Layout.setVerticalGroup(
-            jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel14Layout.createSequentialGroup()
-                .addComponent(jPanel15, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, 0)
-                .addComponent(jPanel16, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-        );
+        jPanel13.add(jPanel15, java.awt.BorderLayout.CENTER);
 
-        javax.swing.GroupLayout jPanel12Layout = new javax.swing.GroupLayout(jPanel12);
-        jPanel12.setLayout(jPanel12Layout);
-        jPanel12Layout.setHorizontalGroup(
-            jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addComponent(jPanel14, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-        );
-        jPanel12Layout.setVerticalGroup(
-            jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel12Layout.createSequentialGroup()
-                .addComponent(jPanel13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, 0)
-                .addComponent(jPanel14, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-        );
+        jPanel11.add(jPanel13, java.awt.BorderLayout.CENTER);
 
-        javax.swing.GroupLayout jPanel10Layout = new javax.swing.GroupLayout(jPanel10);
-        jPanel10.setLayout(jPanel10Layout);
-        jPanel10Layout.setHorizontalGroup(
-            jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addComponent(jPanel12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-        );
-        jPanel10Layout.setVerticalGroup(
-            jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel10Layout.createSequentialGroup()
-                .addComponent(jPanel11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, 0)
-                .addComponent(jPanel12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-        );
+        jPanel9.add(jPanel11, java.awt.BorderLayout.CENTER);
 
-        javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
-        jPanel8.setLayout(jPanel8Layout);
-        jPanel8Layout.setHorizontalGroup(
-            jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addComponent(jPanel10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-        );
-        jPanel8Layout.setVerticalGroup(
-            jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel8Layout.createSequentialGroup()
-                .addComponent(jPanel9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, 0)
-                .addComponent(jPanel10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-        );
+        jPanel7.add(jPanel9, java.awt.BorderLayout.CENTER);
 
-        javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
-        jPanel6.setLayout(jPanel6Layout);
-        jPanel6Layout.setHorizontalGroup(
-            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-        );
-        jPanel6Layout.setVerticalGroup(
-            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel6Layout.createSequentialGroup()
-                .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, 0)
-                .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-        );
+        jPanel5.add(jPanel7, java.awt.BorderLayout.CENTER);
 
-        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
-        jPanel4.setLayout(jPanel4Layout);
-        jPanel4Layout.setHorizontalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel4Layout.createSequentialGroup()
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap())
-        );
-        jPanel4Layout.setVerticalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel4Layout.createSequentialGroup()
-                .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, 0)
-                .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-        );
+        jPanel3.add(jPanel5, java.awt.BorderLayout.CENTER);
 
-        jPanel24.add(jPanel4, java.awt.BorderLayout.CENTER);
+        jPanel1.add(jPanel3, java.awt.BorderLayout.CENTER);
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel24, javax.swing.GroupLayout.PREFERRED_SIZE, 1200, javax.swing.GroupLayout.PREFERRED_SIZE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel24, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-        );
+        getContentPane().add(jPanel1, java.awt.BorderLayout.CENTER);
 
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
-
-    private void btn_UserTelaPrincipalKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_btn_UserTelaPrincipalKeyPressed
-        // TODO add your handling code here:
-        if ((evt.getKeyCode() == KeyEvent.VK_F10) || (evt.getKeyCode() == KeyEvent.VK_0)) {
-            this.dispose();
-
-        }
-    }//GEN-LAST:event_btn_UserTelaPrincipalKeyPressed
-
-    private void btn_UserTelaPrincipalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_UserTelaPrincipalActionPerformed
-
-        this.dispose();
-    }//GEN-LAST:event_btn_UserTelaPrincipalActionPerformed
-
-    private void duvida5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_duvida5MouseClicked
-        JFrame jFrame = new JFrame();  //acesso canal
-        JOptionPane.showMessageDialog(jFrame, "QUEM TEM ACESSO AOS MEUS DADOS CONFIGURADOS?" + "\nApenas a empresa poderá ter acesso aos seus dados, outros usuários não terão acesso."
-        );
-        duvida5.setForeground(Color.red);
-        duvida5.setFont(new Font("Segoe UI", Font.ITALIC, 20));
-    }//GEN-LAST:event_duvida5MouseClicked
-
-    private void duvida4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_duvida4MouseClicked
-        JFrame jFrame = new JFrame();  //visualizar canal
-        JOptionPane.showMessageDialog(jFrame, "COMO VISUALIZAR MEUS CANAIS CADASTRADOS\n"+ "\n1 - Acesse a aba 'Configurações Ativas' através do botão 'Voltar'"
-            + "\n2 - A tabela 'Canais' exibe todos os canais previamente registrados."
-        );
-        duvida4.setForeground(Color.red);
-        duvida4.setFont(new Font("Segoe UI", Font.ITALIC, 20));
-    }//GEN-LAST:event_duvida4MouseClicked
-
-    private void duvida3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_duvida3MouseClicked
-        JFrame jFrame = new JFrame();  //exluir canal
-        JOptionPane.showMessageDialog(jFrame, "COMO EXCLUIR UM CANAL?\n"+ "\n1 - Acesse a aba 'Configurações Ativas' através do botão 'Voltar'"
-            + "\n2 - Selecione o canal desejado na tabela 'Canais:'" + "\n3 - Clique no botão 'Excluir'" + "\n4 - Após o sistema confirmar a configuração, "
-            + "aparecerá uma mensagem. Clique no botão 'OK'."
-        );
-        duvida3.setForeground(Color.red);
-        duvida3.setFont(new Font("Segoe UI", Font.ITALIC, 20));
-    }//GEN-LAST:event_duvida3MouseClicked
-
-    private void duvida2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_duvida2MouseClicked
-        JFrame jFrame = new JFrame();  //editar canal
-        JOptionPane.showMessageDialog(jFrame, "COMO EDITAR UM CANAL?\n"+ "\n1 - Acesse a aba 'Editar Canal' através do botão 'Editar'"
-            + "\n2 - Selecione o canal desejado na tabela e clique em 'Carregar Campos'" + "\n3 - Preencha os campos desejados novamente" + "\n4 - Clique no botão 'Atualizar informações'" + "\n5 - Após o sistema confirmar a edição, "
-            + "aparecerá uma mensagem. Clique no botão 'OK'"
-        );
-        duvida2.setForeground(Color.red);
-        duvida2.setFont(new Font("Segoe UI", Font.ITALIC, 20));
-    }//GEN-LAST:event_duvida2MouseClicked
 
     private void duvida1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_duvida1MouseClicked
         JFrame jFrame = new JFrame();  //configurar canal
@@ -509,6 +319,56 @@ public class PaginaAjuda extends javax.swing.JFrame {
         duvida1.setForeground(Color.red);
         duvida1.setFont(new Font("Segoe UI", Font.ITALIC, 20));
     }//GEN-LAST:event_duvida1MouseClicked
+
+    private void duvida2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_duvida2MouseClicked
+        JFrame jFrame = new JFrame();  //editar canal
+        JOptionPane.showMessageDialog(jFrame, "COMO EDITAR UM CANAL?\n"+ "\n1 - Acesse a aba 'Editar Canal' através do botão 'Editar'"
+            + "\n2 - Selecione o canal desejado na tabela e clique em 'Carregar Campos'" + "\n3 - Preencha os campos desejados novamente" + "\n4 - Clique no botão 'Atualizar informações'" + "\n5 - Após o sistema confirmar a edição, "
+            + "aparecerá uma mensagem. Clique no botão 'OK'"
+        );
+        duvida2.setForeground(Color.red);
+        duvida2.setFont(new Font("Segoe UI", Font.ITALIC, 20));
+    }//GEN-LAST:event_duvida2MouseClicked
+
+    private void duvida3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_duvida3MouseClicked
+        JFrame jFrame = new JFrame();  //exluir canal
+        JOptionPane.showMessageDialog(jFrame, "COMO EXCLUIR UM CANAL?\n"+ "\n1 - Acesse a aba 'Configurações Ativas' através do botão 'Voltar'"
+            + "\n2 - Selecione o canal desejado na tabela 'Canais:'" + "\n3 - Clique no botão 'Excluir'" + "\n4 - Após o sistema confirmar a configuração, "
+            + "aparecerá uma mensagem. Clique no botão 'OK'."
+        );
+        duvida3.setForeground(Color.red);
+        duvida3.setFont(new Font("Segoe UI", Font.ITALIC, 20));
+    }//GEN-LAST:event_duvida3MouseClicked
+
+    private void duvida4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_duvida4MouseClicked
+        JFrame jFrame = new JFrame();  //visualizar canal
+        JOptionPane.showMessageDialog(jFrame, "COMO VISUALIZAR MEUS CANAIS CADASTRADOS\n"+ "\n1 - Acesse a aba 'Configurações Ativas' através do botão 'Voltar'"
+            + "\n2 - A tabela 'Canais' exibe todos os canais previamente registrados."
+        );
+        duvida4.setForeground(Color.red);
+        duvida4.setFont(new Font("Segoe UI", Font.ITALIC, 20));
+    }//GEN-LAST:event_duvida4MouseClicked
+
+    private void duvida5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_duvida5MouseClicked
+        JFrame jFrame = new JFrame();  //acesso canal
+        JOptionPane.showMessageDialog(jFrame, "QUEM TEM ACESSO AOS MEUS DADOS CONFIGURADOS?" + "\nApenas a empresa poderá ter acesso aos seus dados, outros usuários não terão acesso."
+        );
+        duvida5.setForeground(Color.red);
+        duvida5.setFont(new Font("Segoe UI", Font.ITALIC, 20));
+    }//GEN-LAST:event_duvida5MouseClicked
+
+    private void btn_UserTelaPrincipalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_UserTelaPrincipalActionPerformed
+
+        this.dispose();
+    }//GEN-LAST:event_btn_UserTelaPrincipalActionPerformed
+
+    private void btn_UserTelaPrincipalKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_btn_UserTelaPrincipalKeyPressed
+        // TODO add your handling code here:
+        if ((evt.getKeyCode() == KeyEvent.VK_F10) || (evt.getKeyCode() == KeyEvent.VK_0)) {
+            this.dispose();
+
+        }
+    }//GEN-LAST:event_btn_UserTelaPrincipalKeyPressed
 
     /**
      * @param args the command line arguments
@@ -33321,6 +33181,7 @@ public class PaginaAjuda extends javax.swing.JFrame {
     private javax.swing.JLabel duvida4;
     private javax.swing.JLabel duvida5;
     private javax.swing.JLabel jLabel_LogoTelaPrincipal3;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel10;
     private javax.swing.JPanel jPanel11;
     private javax.swing.JPanel jPanel12;
@@ -33328,10 +33189,10 @@ public class PaginaAjuda extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel14;
     private javax.swing.JPanel jPanel15;
     private javax.swing.JPanel jPanel16;
+    private javax.swing.JPanel jPanel17;
     private javax.swing.JPanel jPanel18;
-    private javax.swing.JPanel jPanel19;
-    private javax.swing.JPanel jPanel23;
-    private javax.swing.JPanel jPanel24;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;

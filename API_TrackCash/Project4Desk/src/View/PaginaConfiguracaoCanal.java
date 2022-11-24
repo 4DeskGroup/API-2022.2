@@ -16,11 +16,13 @@ public class PaginaConfiguracaoCanal extends javax.swing.JFrame {
 
     public PaginaConfiguracaoCanal() {
         initComponents();
+        setExtendedState(MAXIMIZED_BOTH);
     }
 
     public PaginaConfiguracaoCanal(Usuario u) {
         this.user = u;
         initComponents();
+        setExtendedState(MAXIMIZED_BOTH);
     }
 
     @SuppressWarnings("unchecked")
@@ -31,21 +33,26 @@ public class PaginaConfiguracaoCanal extends javax.swing.JFrame {
         buttonGroup1 = new javax.swing.ButtonGroup();
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
-        btn_VoltarCadAtivo = new javax.swing.JButton();
-        btn_SairLogoutAdm = new javax.swing.JButton();
+        lbl_NomeUser = new javax.swing.JLabel();
+        btn_SairLogout1 = new javax.swing.JButton();
+        btn_EditarPerfil = new javax.swing.JButton();
+        btn_Ajuda = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
-        lbl_NomeUser = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
         jPanel5 = new javax.swing.JPanel();
-        lbl_4dGroupCadas = new javax.swing.JLabel();
         jPanel6 = new javax.swing.JPanel();
+        javax.swing.JLabel jLabel6 = new javax.swing.JLabel();
         jPanel7 = new javax.swing.JPanel();
-        lbl_companyCadas = new javax.swing.JLabel();
+        btn_VoltarCadAtivo = new javax.swing.JButton();
         jPanel8 = new javax.swing.JPanel();
         jPanel9 = new javax.swing.JPanel();
-        lbl_cadasCanaisCadas = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
         jPanel10 = new javax.swing.JPanel();
+        jPanel11 = new javax.swing.JPanel();
+        jPanel12 = new javax.swing.JPanel();
         lbl_canalInfoUs = new javax.swing.JLabel();
         cbxCanal = new javax.swing.JComboBox<>();
         lbl_idContaInfoUs2 = new javax.swing.JLabel();
@@ -57,7 +64,7 @@ public class PaginaConfiguracaoCanal extends javax.swing.JFrame {
         txt_userInfoUs = new javax.swing.JTextField();
         btn_limparInfo = new javax.swing.JButton();
         btn_cadastrarInfoUs1 = new javax.swing.JButton();
-        jPanel11 = new javax.swing.JPanel();
+        jPanel13 = new javax.swing.JPanel();
         lbl_Autenticacao = new javax.swing.JLabel();
         txt_idCadasInfoUs = new javax.swing.JTextField();
         lbl_idContaInfoUs1 = new javax.swing.JLabel();
@@ -65,27 +72,235 @@ public class PaginaConfiguracaoCanal extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Configuração de Canal");
         setAutoRequestFocus(false);
-        setMinimumSize(new java.awt.Dimension(850, 600));
+        setMinimumSize(new java.awt.Dimension(800, 680));
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowOpened(java.awt.event.WindowEvent evt) {
                 formWindowOpened(evt);
             }
         });
 
-        jPanel1.setBackground(new java.awt.Color(255, 62, 21));
+        jPanel1.setBackground(new java.awt.Color(255, 100, 67));
+        jPanel1.setPreferredSize(new java.awt.Dimension(1200, 100));
         jPanel1.setLayout(new java.awt.BorderLayout());
 
-        jPanel2.setBackground(new java.awt.Color(255, 62, 21));
-        jPanel2.setPreferredSize(new java.awt.Dimension(600, 80));
+        jPanel2.setBackground(new java.awt.Color(255, 100, 67));
+        jPanel2.setMinimumSize(new java.awt.Dimension(500, 100));
+        jPanel2.setPreferredSize(new java.awt.Dimension(500, 100));
+        jPanel2.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jPanel2KeyPressed(evt);
+            }
+        });
         jPanel2.setLayout(new java.awt.GridBagLayout());
 
-        btn_VoltarCadAtivo.setBackground(new java.awt.Color(45, 18, 75));
-        btn_VoltarCadAtivo.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        lbl_NomeUser.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        lbl_NomeUser.setForeground(new java.awt.Color(255, 255, 255));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.ipadx = 219;
+        gridBagConstraints.ipady = 30;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(5, 4, 0, 0);
+        jPanel2.add(lbl_NomeUser, gridBagConstraints);
+
+        btn_SairLogout1.setBackground(new java.awt.Color(255, 62, 21));
+        btn_SairLogout1.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
+        btn_SairLogout1.setForeground(new java.awt.Color(255, 255, 255));
+        btn_SairLogout1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/imagens/Sair.png"))); // NOI18N
+        btn_SairLogout1.setText("Sair");
+        btn_SairLogout1.setMaximumSize(new java.awt.Dimension(144, 31));
+        btn_SairLogout1.setMinimumSize(new java.awt.Dimension(144, 31));
+        btn_SairLogout1.setPreferredSize(new java.awt.Dimension(100, 40));
+        btn_SairLogout1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btn_SairLogout1MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btn_SairLogout1MouseExited(evt);
+            }
+        });
+        btn_SairLogout1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_SairLogout1ActionPerformed(evt);
+            }
+        });
+        btn_SairLogout1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                btn_SairLogout1KeyPressed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 4;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.ipady = 9;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(5, 10, 20, 24);
+        jPanel2.add(btn_SairLogout1, gridBagConstraints);
+
+        btn_EditarPerfil.setBackground(new java.awt.Color(255, 62, 21));
+        btn_EditarPerfil.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        btn_EditarPerfil.setForeground(new java.awt.Color(255, 255, 255));
+        btn_EditarPerfil.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/imagens/editar_perfil.png"))); // NOI18N
+        btn_EditarPerfil.setText("Editar Perfil");
+        btn_EditarPerfil.setMaximumSize(new java.awt.Dimension(144, 31));
+        btn_EditarPerfil.setMinimumSize(new java.awt.Dimension(144, 31));
+        btn_EditarPerfil.setPreferredSize(new java.awt.Dimension(100, 40));
+        btn_EditarPerfil.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btn_EditarPerfilMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btn_EditarPerfilMouseExited(evt);
+            }
+        });
+        btn_EditarPerfil.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_EditarPerfilActionPerformed(evt);
+            }
+        });
+        btn_EditarPerfil.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                btn_EditarPerfilKeyPressed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.ipady = 9;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(5, 24, 20, 0);
+        jPanel2.add(btn_EditarPerfil, gridBagConstraints);
+
+        btn_Ajuda.setBackground(new java.awt.Color(255, 62, 21));
+        btn_Ajuda.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
+        btn_Ajuda.setForeground(new java.awt.Color(255, 255, 255));
+        btn_Ajuda.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/imagens/ajuda.png"))); // NOI18N
+        btn_Ajuda.setText("Ajuda");
+        btn_Ajuda.setMaximumSize(new java.awt.Dimension(144, 31));
+        btn_Ajuda.setMinimumSize(new java.awt.Dimension(144, 31));
+        btn_Ajuda.setPreferredSize(new java.awt.Dimension(100, 40));
+        btn_Ajuda.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btn_AjudaMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btn_AjudaMouseExited(evt);
+            }
+        });
+        btn_Ajuda.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_AjudaActionPerformed(evt);
+            }
+        });
+        btn_Ajuda.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                btn_AjudaKeyPressed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.gridwidth = 3;
+        gridBagConstraints.ipady = 9;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(5, 10, 20, 0);
+        jPanel2.add(btn_Ajuda, gridBagConstraints);
+
+        jPanel1.add(jPanel2, java.awt.BorderLayout.LINE_END);
+
+        jPanel3.setBackground(new java.awt.Color(255, 100, 67));
+        jPanel3.setLayout(new java.awt.GridBagLayout());
+
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/imagens/4d__4_-removebg-preview peq.png"))); // NOI18N
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.gridheight = 3;
+        gridBagConstraints.ipady = 2;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(10, 20, 30, 0);
+        jPanel3.add(jLabel2, gridBagConstraints);
+
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setText(" 4D Group");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.ipadx = 14;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(20, 10, 0, 210);
+        jPanel3.add(jLabel1, gridBagConstraints);
+
+        jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel4.setText("Company");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.ipadx = 9;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(5, 30, 0, 0);
+        jPanel3.add(jLabel4, gridBagConstraints);
+
+        jPanel1.add(jPanel3, java.awt.BorderLayout.LINE_START);
+
+        getContentPane().add(jPanel1, java.awt.BorderLayout.PAGE_START);
+
+        jPanel4.setBackground(new java.awt.Color(241, 241, 241));
+        jPanel4.setLayout(new java.awt.BorderLayout());
+
+        jPanel5.setBackground(new java.awt.Color(132, 132, 132));
+        jPanel5.setPreferredSize(new java.awt.Dimension(1200, 80));
+        jPanel5.setLayout(new java.awt.BorderLayout());
+
+        jPanel6.setBackground(new java.awt.Color(132, 132, 132));
+        jPanel6.setMinimumSize(new java.awt.Dimension(270, 100));
+        jPanel6.setPreferredSize(new java.awt.Dimension(300, 270));
+        jPanel6.setLayout(new java.awt.GridBagLayout());
+
+        jLabel6.setBackground(new java.awt.Color(204, 204, 204));
+        jLabel6.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(45, 18, 75));
+        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/imagens/Configuracao_de_Canal_2D124B.png"))); // NOI18N
+        jLabel6.setText(" Configuração de Canal");
+        jLabel6.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        jLabel6.setOpaque(true);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.ipadx = 9;
+        gridBagConstraints.ipady = 31;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 60);
+        jPanel6.add(jLabel6, gridBagConstraints);
+
+        jPanel5.add(jPanel6, java.awt.BorderLayout.LINE_START);
+
+        jPanel7.setBackground(new java.awt.Color(132, 132, 132));
+        jPanel7.setMinimumSize(new java.awt.Dimension(700, 100));
+        jPanel7.setPreferredSize(new java.awt.Dimension(700, 100));
+        jPanel7.setLayout(new java.awt.GridBagLayout());
+
+        btn_VoltarCadAtivo.setBackground(new java.awt.Color(51, 51, 51));
+        btn_VoltarCadAtivo.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         btn_VoltarCadAtivo.setForeground(new java.awt.Color(255, 255, 255));
+        btn_VoltarCadAtivo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/imagens/Voltar_FFFFFF_pequeno.png"))); // NOI18N
         btn_VoltarCadAtivo.setText("Voltar");
         btn_VoltarCadAtivo.setMaximumSize(new java.awt.Dimension(144, 31));
         btn_VoltarCadAtivo.setMinimumSize(new java.awt.Dimension(144, 31));
-        btn_VoltarCadAtivo.setPreferredSize(new java.awt.Dimension(144, 31));
+        btn_VoltarCadAtivo.setPreferredSize(new java.awt.Dimension(100, 40));
+        btn_VoltarCadAtivo.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btn_VoltarCadAtivoMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btn_VoltarCadAtivoMouseExited(evt);
+            }
+        });
         btn_VoltarCadAtivo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_VoltarCadAtivoActionPerformed(evt);
@@ -100,117 +315,41 @@ public class PaginaConfiguracaoCanal extends javax.swing.JFrame {
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
         gridBagConstraints.ipadx = 6;
-        gridBagConstraints.ipady = 9;
+        gridBagConstraints.ipady = 29;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(20, 270, 20, 0);
-        jPanel2.add(btn_VoltarCadAtivo, gridBagConstraints);
+        gridBagConstraints.insets = new java.awt.Insets(10, 530, 10, 20);
+        jPanel7.add(btn_VoltarCadAtivo, gridBagConstraints);
 
-        btn_SairLogoutAdm.setBackground(new java.awt.Color(204, 204, 204));
-        btn_SairLogoutAdm.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        btn_SairLogoutAdm.setText("Sair");
-        btn_SairLogoutAdm.setMaximumSize(new java.awt.Dimension(144, 31));
-        btn_SairLogoutAdm.setMinimumSize(new java.awt.Dimension(144, 31));
-        btn_SairLogoutAdm.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_SairLogoutAdmActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 0;
-        gridBagConstraints.ipady = 9;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(20, 30, 20, 50);
-        jPanel2.add(btn_SairLogoutAdm, gridBagConstraints);
-
-        jPanel1.add(jPanel2, java.awt.BorderLayout.LINE_END);
-
-        jPanel3.setBackground(new java.awt.Color(255, 62, 21));
-        jPanel3.setLayout(new java.awt.GridBagLayout());
-
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/imagens/4d__4_-removebg-preview peq.png"))); // NOI18N
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 0;
-        gridBagConstraints.gridheight = 2;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(10, 30, 12, 0);
-        jPanel3.add(jLabel2, gridBagConstraints);
-
-        lbl_NomeUser.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 0;
-        gridBagConstraints.ipadx = 240;
-        gridBagConstraints.ipady = 30;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(20, 10, 0, 260);
-        jPanel3.add(lbl_NomeUser, gridBagConstraints);
-
-        jPanel1.add(jPanel3, java.awt.BorderLayout.LINE_START);
-
-        getContentPane().add(jPanel1, java.awt.BorderLayout.PAGE_START);
-
-        jPanel4.setBackground(new java.awt.Color(241, 241, 241));
-        jPanel4.setLayout(new java.awt.BorderLayout());
-
-        jPanel5.setBackground(new java.awt.Color(241, 241, 241));
-        jPanel5.setPreferredSize(new java.awt.Dimension(100, 90));
-        jPanel5.setLayout(new java.awt.GridBagLayout());
-
-        lbl_4dGroupCadas.setFont(new java.awt.Font("Segoe UI", 1, 70)); // NOI18N
-        lbl_4dGroupCadas.setForeground(new java.awt.Color(45, 18, 75));
-        lbl_4dGroupCadas.setText("4D Group");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 0;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(13, 316, 13, 317);
-        jPanel5.add(lbl_4dGroupCadas, gridBagConstraints);
+        jPanel5.add(jPanel7, java.awt.BorderLayout.LINE_END);
 
         jPanel4.add(jPanel5, java.awt.BorderLayout.PAGE_START);
-
-        jPanel6.setBackground(new java.awt.Color(241, 241, 241));
-        jPanel6.setLayout(new java.awt.BorderLayout());
-
-        jPanel7.setBackground(new java.awt.Color(241, 241, 241));
-        jPanel7.setPreferredSize(new java.awt.Dimension(950, 40));
-        jPanel7.setLayout(new java.awt.GridBagLayout());
-
-        lbl_companyCadas.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        lbl_companyCadas.setForeground(new java.awt.Color(45, 18, 75));
-        lbl_companyCadas.setText("Company");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 0;
-        gridBagConstraints.ipady = -1;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(9, 424, 10, 424);
-        jPanel7.add(lbl_companyCadas, gridBagConstraints);
-
-        jPanel6.add(jPanel7, java.awt.BorderLayout.PAGE_START);
 
         jPanel8.setBackground(new java.awt.Color(241, 241, 241));
         jPanel8.setLayout(new java.awt.BorderLayout());
 
-        jPanel9.setBackground(new java.awt.Color(241, 241, 241));
-        jPanel9.setPreferredSize(new java.awt.Dimension(1000, 40));
+        jPanel9.setBackground(new java.awt.Color(87, 65, 111));
         jPanel9.setLayout(new java.awt.GridBagLayout());
 
-        lbl_cadasCanaisCadas.setFont(new java.awt.Font("Segoe UI", 1, 30)); // NOI18N
-        lbl_cadasCanaisCadas.setForeground(new java.awt.Color(45, 18, 75));
-        lbl_cadasCanaisCadas.setText("Configuração de Canal");
+        jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel3.setText("Copyright 2022 - 4Desk Group Company® - Versão 4.0.0");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
+        gridBagConstraints.ipadx = 1;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(4, 341, 5, 341);
-        jPanel9.add(lbl_cadasCanaisCadas, gridBagConstraints);
+        gridBagConstraints.insets = new java.awt.Insets(30, 410, 30, 410);
+        jPanel9.add(jLabel3, gridBagConstraints);
 
-        jPanel8.add(jPanel9, java.awt.BorderLayout.PAGE_START);
+        jPanel8.add(jPanel9, java.awt.BorderLayout.PAGE_END);
 
-        jPanel10.setBackground(new java.awt.Color(241, 241, 241));
-        jPanel10.setLayout(new java.awt.GridBagLayout());
+        jPanel10.setLayout(new java.awt.BorderLayout());
+
+        jPanel11.setBorder(javax.swing.BorderFactory.createTitledBorder("Configuração de Canal "));
+        jPanel11.setLayout(new java.awt.BorderLayout());
+
+        jPanel12.setBackground(new java.awt.Color(241, 241, 241));
+        jPanel12.setLayout(new java.awt.GridBagLayout());
 
         lbl_canalInfoUs.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         lbl_canalInfoUs.setForeground(new java.awt.Color(45, 18, 75));
@@ -220,8 +359,8 @@ public class PaginaConfiguracaoCanal extends javax.swing.JFrame {
         gridBagConstraints.gridy = 0;
         gridBagConstraints.ipadx = 10;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(10, 90, 0, 0);
-        jPanel10.add(lbl_canalInfoUs, gridBagConstraints);
+        gridBagConstraints.insets = new java.awt.Insets(38, 210, 0, 0);
+        jPanel12.add(lbl_canalInfoUs, gridBagConstraints);
 
         cbxCanal.setFont(new java.awt.Font("Segoe UI", 0, 22)); // NOI18N
         cbxCanal.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecionar" }));
@@ -242,8 +381,8 @@ public class PaginaConfiguracaoCanal extends javax.swing.JFrame {
         gridBagConstraints.ipadx = 70;
         gridBagConstraints.ipady = 4;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(5, 90, 0, 0);
-        jPanel10.add(cbxCanal, gridBagConstraints);
+        gridBagConstraints.insets = new java.awt.Insets(5, 210, 0, 0);
+        jPanel12.add(cbxCanal, gridBagConstraints);
 
         lbl_idContaInfoUs2.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         lbl_idContaInfoUs2.setForeground(new java.awt.Color(45, 18, 75));
@@ -254,8 +393,8 @@ public class PaginaConfiguracaoCanal extends javax.swing.JFrame {
         gridBagConstraints.gridwidth = 4;
         gridBagConstraints.ipadx = 55;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(10, 72, 0, 0);
-        jPanel10.add(lbl_idContaInfoUs2, gridBagConstraints);
+        gridBagConstraints.insets = new java.awt.Insets(38, 72, 0, 0);
+        jPanel12.add(lbl_idContaInfoUs2, gridBagConstraints);
 
         lbl_Token.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         lbl_Token.setForeground(new java.awt.Color(45, 18, 75));
@@ -269,7 +408,7 @@ public class PaginaConfiguracaoCanal extends javax.swing.JFrame {
         gridBagConstraints.ipady = 5;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(10, 82, 0, 0);
-        jPanel10.add(lbl_Token, gridBagConstraints);
+        jPanel12.add(lbl_Token, gridBagConstraints);
 
         txt_tokenCanalInfo.setFont(new java.awt.Font("Segoe UI", 0, 22)); // NOI18N
         txt_tokenCanalInfo.setToolTipText("");
@@ -290,8 +429,8 @@ public class PaginaConfiguracaoCanal extends javax.swing.JFrame {
         gridBagConstraints.ipadx = 186;
         gridBagConstraints.ipady = 4;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(0, 82, 0, 160);
-        jPanel10.add(txt_tokenCanalInfo, gridBagConstraints);
+        gridBagConstraints.insets = new java.awt.Insets(0, 82, 0, 280);
+        jPanel12.add(txt_tokenCanalInfo, gridBagConstraints);
 
         lbl_senhaInfoUs.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         lbl_senhaInfoUs.setForeground(new java.awt.Color(45, 18, 75));
@@ -301,7 +440,7 @@ public class PaginaConfiguracaoCanal extends javax.swing.JFrame {
         gridBagConstraints.gridy = 5;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(10, 82, 0, 0);
-        jPanel10.add(lbl_senhaInfoUs, gridBagConstraints);
+        jPanel12.add(lbl_senhaInfoUs, gridBagConstraints);
 
         txt_senhaInfoUs.setFont(new java.awt.Font("Segoe UI", 0, 22)); // NOI18N
         txt_senhaInfoUs.addActionListener(new java.awt.event.ActionListener() {
@@ -321,8 +460,8 @@ public class PaginaConfiguracaoCanal extends javax.swing.JFrame {
         gridBagConstraints.ipadx = 186;
         gridBagConstraints.ipady = 4;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(5, 82, 0, 160);
-        jPanel10.add(txt_senhaInfoUs, gridBagConstraints);
+        gridBagConstraints.insets = new java.awt.Insets(5, 82, 0, 280);
+        jPanel12.add(txt_senhaInfoUs, gridBagConstraints);
 
         lbl_userInfoUs.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         lbl_userInfoUs.setForeground(new java.awt.Color(45, 18, 75));
@@ -333,8 +472,8 @@ public class PaginaConfiguracaoCanal extends javax.swing.JFrame {
         gridBagConstraints.gridwidth = 2;
         gridBagConstraints.ipadx = 14;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(10, 150, 0, 0);
-        jPanel10.add(lbl_userInfoUs, gridBagConstraints);
+        gridBagConstraints.insets = new java.awt.Insets(10, 270, 0, 0);
+        jPanel12.add(lbl_userInfoUs, gridBagConstraints);
 
         txt_userInfoUs.setFont(new java.awt.Font("Segoe UI", 0, 22)); // NOI18N
         txt_userInfoUs.addActionListener(new java.awt.event.ActionListener() {
@@ -354,12 +493,13 @@ public class PaginaConfiguracaoCanal extends javax.swing.JFrame {
         gridBagConstraints.ipadx = 186;
         gridBagConstraints.ipady = 4;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(5, 150, 0, 0);
-        jPanel10.add(txt_userInfoUs, gridBagConstraints);
+        gridBagConstraints.insets = new java.awt.Insets(5, 270, 0, 0);
+        jPanel12.add(txt_userInfoUs, gridBagConstraints);
 
         btn_limparInfo.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
         btn_limparInfo.setForeground(new java.awt.Color(255, 62, 21));
-        btn_limparInfo.setText("Limpar");
+        btn_limparInfo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/imagens/Limpar_FF3E15.png"))); // NOI18N
+        btn_limparInfo.setText(" Limpar");
         btn_limparInfo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_limparInfoActionPerformed(evt);
@@ -374,15 +514,16 @@ public class PaginaConfiguracaoCanal extends javax.swing.JFrame {
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 7;
         gridBagConstraints.gridwidth = 6;
-        gridBagConstraints.ipadx = 92;
+        gridBagConstraints.ipadx = 54;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(50, 60, 45, 0);
-        jPanel10.add(btn_limparInfo, gridBagConstraints);
+        gridBagConstraints.insets = new java.awt.Insets(50, 60, 74, 0);
+        jPanel12.add(btn_limparInfo, gridBagConstraints);
 
         btn_cadastrarInfoUs1.setBackground(new java.awt.Color(255, 62, 21));
         btn_cadastrarInfoUs1.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
         btn_cadastrarInfoUs1.setForeground(new java.awt.Color(255, 255, 255));
-        btn_cadastrarInfoUs1.setText("Salvar");
+        btn_cadastrarInfoUs1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/imagens/Salvar_FFFFFF.png"))); // NOI18N
+        btn_cadastrarInfoUs1.setText(" Salvar");
         btn_cadastrarInfoUs1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_cadastrarInfoUs1ActionPerformed(evt);
@@ -392,13 +533,13 @@ public class PaginaConfiguracaoCanal extends javax.swing.JFrame {
         gridBagConstraints.gridx = 7;
         gridBagConstraints.gridy = 7;
         gridBagConstraints.gridwidth = 3;
-        gridBagConstraints.ipadx = 108;
+        gridBagConstraints.ipadx = 70;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(50, 72, 45, 0);
-        jPanel10.add(btn_cadastrarInfoUs1, gridBagConstraints);
+        gridBagConstraints.insets = new java.awt.Insets(50, 72, 74, 0);
+        jPanel12.add(btn_cadastrarInfoUs1, gridBagConstraints);
 
-        jPanel11.setBackground(new java.awt.Color(204, 204, 204));
-        jPanel11.setLayout(new java.awt.GridBagLayout());
+        jPanel13.setBackground(new java.awt.Color(204, 204, 204));
+        jPanel13.setLayout(new java.awt.GridBagLayout());
 
         lbl_Autenticacao.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         lbl_Autenticacao.setForeground(new java.awt.Color(45, 18, 75));
@@ -408,7 +549,7 @@ public class PaginaConfiguracaoCanal extends javax.swing.JFrame {
         gridBagConstraints.gridy = 0;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 5, 115);
-        jPanel11.add(lbl_Autenticacao, gridBagConstraints);
+        jPanel13.add(lbl_Autenticacao, gridBagConstraints);
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 7;
@@ -416,7 +557,7 @@ public class PaginaConfiguracaoCanal extends javax.swing.JFrame {
         gridBagConstraints.gridwidth = 4;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(5, 72, 0, 0);
-        jPanel10.add(jPanel11, gridBagConstraints);
+        jPanel12.add(jPanel13, gridBagConstraints);
 
         txt_idCadasInfoUs.setFont(new java.awt.Font("Segoe UI", 0, 22)); // NOI18N
         txt_idCadasInfoUs.addActionListener(new java.awt.event.ActionListener() {
@@ -436,8 +577,8 @@ public class PaginaConfiguracaoCanal extends javax.swing.JFrame {
         gridBagConstraints.ipadx = 186;
         gridBagConstraints.ipady = 4;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(0, 150, 0, 0);
-        jPanel10.add(txt_idCadasInfoUs, gridBagConstraints);
+        gridBagConstraints.insets = new java.awt.Insets(0, 270, 0, 0);
+        jPanel12.add(txt_idCadasInfoUs, gridBagConstraints);
 
         lbl_idContaInfoUs1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         lbl_idContaInfoUs1.setForeground(new java.awt.Color(45, 18, 75));
@@ -447,14 +588,16 @@ public class PaginaConfiguracaoCanal extends javax.swing.JFrame {
         gridBagConstraints.gridy = 2;
         gridBagConstraints.gridwidth = 3;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(10, 150, 0, 0);
-        jPanel10.add(lbl_idContaInfoUs1, gridBagConstraints);
+        gridBagConstraints.insets = new java.awt.Insets(10, 270, 0, 0);
+        jPanel12.add(lbl_idContaInfoUs1, gridBagConstraints);
+
+        jPanel11.add(jPanel12, java.awt.BorderLayout.CENTER);
+
+        jPanel10.add(jPanel11, java.awt.BorderLayout.CENTER);
 
         jPanel8.add(jPanel10, java.awt.BorderLayout.CENTER);
 
-        jPanel6.add(jPanel8, java.awt.BorderLayout.CENTER);
-
-        jPanel4.add(jPanel6, java.awt.BorderLayout.CENTER);
+        jPanel4.add(jPanel8, java.awt.BorderLayout.CENTER);
 
         getContentPane().add(jPanel4, java.awt.BorderLayout.CENTER);
 
@@ -478,30 +621,16 @@ public class PaginaConfiguracaoCanal extends javax.swing.JFrame {
 
     }//GEN-LAST:event_formWindowOpened
 
-    private void btn_VoltarCadAtivoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_VoltarCadAtivoActionPerformed
+    private void btn_SairLogout1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_SairLogout1MouseEntered
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btn_SairLogout1MouseEntered
 
-        Dimension telaOriginal = getPreferredSize();
-        Dimension telaRecente = getSize();
+    private void btn_SairLogout1MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_SairLogout1MouseExited
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btn_SairLogout1MouseExited
 
-        int tamanhoTelaOriginal = (int) telaOriginal.getWidth();
-        int tamanhoTelaRecente = (int) telaRecente.getWidth();
-
-        if (tamanhoTelaOriginal < tamanhoTelaRecente) {
-            PaginaCadastrosAtivos paginaCadastroAtivos = new PaginaCadastrosAtivos(user);
-            paginaCadastroAtivos.setExtendedState(Frame.MAXIMIZED_BOTH);
-            paginaCadastroAtivos.setVisible(true);
-            this.dispose();
-        } else {
-            PaginaCadastrosAtivos paginaCadastroAtivos = new PaginaCadastrosAtivos(user);
-            paginaCadastroAtivos.setVisible(true);
-            this.dispose();
-        }
-
-        //this.dispose();
-        //new PaginaCadastroConfig(user).setVisible(true);
-    }//GEN-LAST:event_btn_VoltarCadAtivoActionPerformed
-
-    private void btn_SairLogoutAdmActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_SairLogoutAdmActionPerformed
+    private void btn_SairLogout1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_SairLogout1ActionPerformed
+        // TODO add your handling code here:
         Dimension telaOriginal = getPreferredSize();
         Dimension telaRecente = getSize();
 
@@ -518,9 +647,82 @@ public class PaginaConfiguracaoCanal extends javax.swing.JFrame {
             telaPrincipal.setVisible(true);
             this.dispose();
         }
-        //new TelaPrincipal().setVisible(true);
-        //this.dispose();
-    }//GEN-LAST:event_btn_SairLogoutAdmActionPerformed
+    }//GEN-LAST:event_btn_SairLogout1ActionPerformed
+
+    private void btn_SairLogout1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_btn_SairLogout1KeyPressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btn_SairLogout1KeyPressed
+
+    private void btn_EditarPerfilMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_EditarPerfilMouseEntered
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btn_EditarPerfilMouseEntered
+
+    private void btn_EditarPerfilMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_EditarPerfilMouseExited
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btn_EditarPerfilMouseExited
+
+    private void btn_EditarPerfilActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_EditarPerfilActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btn_EditarPerfilActionPerformed
+
+    private void btn_EditarPerfilKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_btn_EditarPerfilKeyPressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btn_EditarPerfilKeyPressed
+
+    private void btn_AjudaMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_AjudaMouseEntered
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btn_AjudaMouseEntered
+
+    private void btn_AjudaMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_AjudaMouseExited
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btn_AjudaMouseExited
+
+    private void btn_AjudaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_AjudaActionPerformed
+        // TODO add your handling code here:
+        PaginaAjuda paginaajuda = new PaginaAjuda();
+        paginaajuda.setVisible(true);
+
+    }//GEN-LAST:event_btn_AjudaActionPerformed
+
+    private void btn_AjudaKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_btn_AjudaKeyPressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btn_AjudaKeyPressed
+
+    private void jPanel2KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jPanel2KeyPressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jPanel2KeyPressed
+
+    private void btn_VoltarCadAtivoMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_VoltarCadAtivoMouseEntered
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btn_VoltarCadAtivoMouseEntered
+
+    private void btn_VoltarCadAtivoMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_VoltarCadAtivoMouseExited
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btn_VoltarCadAtivoMouseExited
+
+    private void btn_VoltarCadAtivoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_VoltarCadAtivoActionPerformed
+        // TODO add your handling code here:
+         Dimension telaOriginal = getPreferredSize();
+        Dimension telaRecente = getSize();
+
+        int tamanhoTelaOriginal = (int) telaOriginal.getWidth();
+        int tamanhoTelaRecente = (int) telaRecente.getWidth();
+
+        if (tamanhoTelaOriginal < tamanhoTelaRecente) {
+            PaginaCadastrosAtivos paginaCadastroAtivos = new PaginaCadastrosAtivos(user);
+            paginaCadastroAtivos.setExtendedState(Frame.MAXIMIZED_BOTH);
+            paginaCadastroAtivos.setVisible(true);
+            this.dispose();
+        } else {
+            PaginaCadastrosAtivos paginaCadastroAtivos = new PaginaCadastrosAtivos(user);
+            paginaCadastroAtivos.setVisible(true);
+            this.dispose();
+        }
+    }//GEN-LAST:event_btn_VoltarCadAtivoActionPerformed
+
+    private void btn_VoltarCadAtivoKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_btn_VoltarCadAtivoKeyPressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btn_VoltarCadAtivoKeyPressed
 
     private void cbxCanalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbxCanalActionPerformed
 
@@ -562,17 +764,104 @@ public class PaginaConfiguracaoCanal extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_cbxCanalActionPerformed
 
+    private void cbxCanalKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_cbxCanalKeyPressed
+        // TODO add your handling code here:
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+            txt_idCadasInfoUs.requestFocus();
+        }
+    }//GEN-LAST:event_cbxCanalKeyPressed
+
     private void txt_tokenCanalInfoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_tokenCanalInfoActionPerformed
 
     }//GEN-LAST:event_txt_tokenCanalInfoActionPerformed
+
+    private void txt_tokenCanalInfoKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_tokenCanalInfoKeyPressed
+        // TODO add your handling code here:
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+            CanalDTO p = new CanalDTO();
+
+            int id = new CanalConfigDAO().buscarConfigReturnId(cbxCanal.getSelectedItem().toString());
+
+            p.setFkUsuario(user.getId());
+            p.setContaid(txt_idCadasInfoUs.getText());
+            p.setFkConfig(id);
+            p.setLogin(txt_userInfoUs.getText());
+            p.setEmpresa(cbxCanal.getSelectedItem().toString());
+            p.setAutenticacao(lbl_Autenticacao.getText());
+            if (lbl_Autenticacao.getText().equals("Token")) {
+                p.setLogin("Sem Login");
+                p.setSenha("Sem Senha");
+                p.setToken(txt_tokenCanalInfo.getText());
+            } else {
+                p.setLogin(txt_userInfoUs.getText());
+                p.setSenha(txt_senhaInfoUs.getText());
+                p.setToken("Sem Token");
+            }
+
+            if ((txt_userInfoUs.getText().equals("") || txt_senhaInfoUs.getText().equals("")) && lbl_Autenticacao.getText().equals("Login")) {
+                JOptionPane.showMessageDialog(null, "Preencha os campos Senha e Usuario!");
+                txt_idCadasInfoUs.requestFocus();
+            } else if (txt_tokenCanalInfo.getText().equals("") && lbl_Autenticacao.getText().equals("Token")) {
+                JOptionPane.showMessageDialog(null, "Preencha os campos de Token!");
+                txt_idCadasInfoUs.requestFocus();
+            } else {
+                Dados.addCanal(p, connection.ConnectionFactory.getConnection());
+            }
+
+        }
+
+    }//GEN-LAST:event_txt_tokenCanalInfoKeyPressed
 
     private void txt_senhaInfoUsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_senhaInfoUsActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txt_senhaInfoUsActionPerformed
 
+    private void txt_senhaInfoUsKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_senhaInfoUsKeyPressed
+        // TODO add your handling code here:
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+            CanalDTO p = new CanalDTO();
+
+            int id = new CanalConfigDAO().buscarConfigReturnId(cbxCanal.getSelectedItem().toString());
+
+            p.setFkUsuario(user.getId());
+            p.setContaid(txt_idCadasInfoUs.getText());
+            p.setFkConfig(id);
+            p.setLogin(txt_userInfoUs.getText());
+            p.setEmpresa(cbxCanal.getSelectedItem().toString());
+            p.setAutenticacao(lbl_Autenticacao.getText());
+            if (lbl_Autenticacao.getText().equals("Token")) {
+                p.setLogin("Sem Login");
+                p.setSenha("Sem Senha");
+                p.setToken(txt_tokenCanalInfo.getText());
+            } else {
+                p.setLogin(txt_userInfoUs.getText());
+                p.setSenha(txt_senhaInfoUs.getText());
+                p.setToken("Sem Token");
+            }
+
+            if ((txt_userInfoUs.getText().equals("") || txt_senhaInfoUs.getText().equals("")) && lbl_Autenticacao.getText().equals("Login")) {
+                JOptionPane.showMessageDialog(null, "Preencha os campos Senha e Usuario!");
+                txt_idCadasInfoUs.requestFocus();
+            } else if (txt_tokenCanalInfo.getText().equals("") && lbl_Autenticacao.getText().equals("Token")) {
+                JOptionPane.showMessageDialog(null, "Preencha os campos de Token!");
+                txt_idCadasInfoUs.requestFocus();
+            } else {
+                Dados.addCanal(p, connection.ConnectionFactory.getConnection());
+            }
+
+        }
+    }//GEN-LAST:event_txt_senhaInfoUsKeyPressed
+
     private void txt_userInfoUsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_userInfoUsActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txt_userInfoUsActionPerformed
+
+    private void txt_userInfoUsKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_userInfoUsKeyPressed
+        // TODO add your handling code here:
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+            txt_senhaInfoUs.requestFocus();
+        }
+    }//GEN-LAST:event_txt_userInfoUsKeyPressed
 
     private void btn_limparInfoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_limparInfoActionPerformed
 
@@ -581,6 +870,11 @@ public class PaginaConfiguracaoCanal extends javax.swing.JFrame {
         txt_userInfoUs.setText("");
         txt_senhaInfoUs.setText("");
     }//GEN-LAST:event_btn_limparInfoActionPerformed
+
+    private void btn_limparInfoKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_btn_limparInfoKeyPressed
+        // TODO add your handling code here:
+
+    }//GEN-LAST:event_btn_limparInfoKeyPressed
 
     private void btn_cadastrarInfoUs1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_cadastrarInfoUs1ActionPerformed
 
@@ -653,60 +947,6 @@ public class PaginaConfiguracaoCanal extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_txt_idCadasInfoUsActionPerformed
 
-    private void btn_VoltarCadAtivoKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_btn_VoltarCadAtivoKeyPressed
-        // TODO add your handling code here:
-        if ((evt.getKeyCode() == KeyEvent.VK_F6) || (evt.getKeyCode() == KeyEvent.VK_6)) {
-            Dimension telaOriginal = getPreferredSize();
-            Dimension telaRecente = getSize();
-
-            int tamanhoTelaOriginal = (int) telaOriginal.getWidth();
-            int tamanhoTelaRecente = (int) telaRecente.getWidth();
-
-            if (tamanhoTelaOriginal < tamanhoTelaRecente) {
-                PaginaCadastrosAtivos paginaCadastroAtivos = new PaginaCadastrosAtivos(user);
-                paginaCadastroAtivos.setExtendedState(Frame.MAXIMIZED_BOTH);
-                paginaCadastroAtivos.setVisible(true);
-                this.dispose();
-            } else {
-                PaginaCadastrosAtivos paginaCadastroAtivos = new PaginaCadastrosAtivos(user);
-                paginaCadastroAtivos.setVisible(true);
-                this.dispose();
-            }
-
-        }
-
-        if ((evt.getKeyCode() == KeyEvent.VK_F10) || (evt.getKeyCode() == KeyEvent.VK_0)) {
-            Dimension telaOriginal = getPreferredSize();
-            Dimension telaRecente = getSize();
-
-            int tamanhoTelaOriginal = (int) telaOriginal.getWidth();
-            int tamanhoTelaRecente = (int) telaRecente.getWidth();
-
-            if (tamanhoTelaOriginal < tamanhoTelaRecente) {
-                TelaPrincipal telaPrincipal = new TelaPrincipal();
-                telaPrincipal.setExtendedState(Frame.MAXIMIZED_BOTH);
-                telaPrincipal.setVisible(true);
-                this.dispose();
-            } else {
-                TelaPrincipal telaPrincipal = new TelaPrincipal();
-                telaPrincipal.setVisible(true);
-                this.dispose();
-            }
-
-        }
-
-        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
-            cbxCanal.requestFocus();
-        }
-    }//GEN-LAST:event_btn_VoltarCadAtivoKeyPressed
-
-    private void cbxCanalKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_cbxCanalKeyPressed
-        // TODO add your handling code here:
-        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
-            txt_idCadasInfoUs.requestFocus();
-        }
-    }//GEN-LAST:event_cbxCanalKeyPressed
-
     private void txt_idCadasInfoUsKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_idCadasInfoUsKeyPressed
         // TODO add your handling code here:
         if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
@@ -751,94 +991,7 @@ public class PaginaConfiguracaoCanal extends javax.swing.JFrame {
             }
 
         }
-
     }//GEN-LAST:event_txt_idCadasInfoUsKeyPressed
-
-    private void txt_userInfoUsKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_userInfoUsKeyPressed
-        // TODO add your handling code here:
-        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
-            txt_senhaInfoUs.requestFocus();
-        }
-    }//GEN-LAST:event_txt_userInfoUsKeyPressed
-
-    private void txt_senhaInfoUsKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_senhaInfoUsKeyPressed
-        // TODO add your handling code here:
-        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
-            CanalDTO p = new CanalDTO();
-
-            int id = new CanalConfigDAO().buscarConfigReturnId(cbxCanal.getSelectedItem().toString());
-
-            p.setFkUsuario(user.getId());
-            p.setContaid(txt_idCadasInfoUs.getText());
-            p.setFkConfig(id);
-            p.setLogin(txt_userInfoUs.getText());
-            p.setEmpresa(cbxCanal.getSelectedItem().toString());
-            p.setAutenticacao(lbl_Autenticacao.getText());
-            if (lbl_Autenticacao.getText().equals("Token")) {
-                p.setLogin("Sem Login");
-                p.setSenha("Sem Senha");
-                p.setToken(txt_tokenCanalInfo.getText());
-            } else {
-                p.setLogin(txt_userInfoUs.getText());
-                p.setSenha(txt_senhaInfoUs.getText());
-                p.setToken("Sem Token");
-            }
-
-            if ((txt_userInfoUs.getText().equals("") || txt_senhaInfoUs.getText().equals("")) && lbl_Autenticacao.getText().equals("Login")) {
-                JOptionPane.showMessageDialog(null, "Preencha os campos Senha e Usuario!");
-                txt_idCadasInfoUs.requestFocus();
-            } else if (txt_tokenCanalInfo.getText().equals("") && lbl_Autenticacao.getText().equals("Token")) {
-                JOptionPane.showMessageDialog(null, "Preencha os campos de Token!");
-                txt_idCadasInfoUs.requestFocus();
-            } else {
-                Dados.addCanal(p, connection.ConnectionFactory.getConnection());
-            }
-
-        }
-    }//GEN-LAST:event_txt_senhaInfoUsKeyPressed
-
-    private void txt_tokenCanalInfoKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_tokenCanalInfoKeyPressed
-        // TODO add your handling code here:
-        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
-            CanalDTO p = new CanalDTO();
-
-            int id = new CanalConfigDAO().buscarConfigReturnId(cbxCanal.getSelectedItem().toString());
-
-            p.setFkUsuario(user.getId());
-            p.setContaid(txt_idCadasInfoUs.getText());
-            p.setFkConfig(id);
-            p.setLogin(txt_userInfoUs.getText());
-            p.setEmpresa(cbxCanal.getSelectedItem().toString());
-            p.setAutenticacao(lbl_Autenticacao.getText());
-            if (lbl_Autenticacao.getText().equals("Token")) {
-                p.setLogin("Sem Login");
-                p.setSenha("Sem Senha");
-                p.setToken(txt_tokenCanalInfo.getText());
-            } else {
-                p.setLogin(txt_userInfoUs.getText());
-                p.setSenha(txt_senhaInfoUs.getText());
-                p.setToken("Sem Token");
-            }
-
-            if ((txt_userInfoUs.getText().equals("") || txt_senhaInfoUs.getText().equals("")) && lbl_Autenticacao.getText().equals("Login")) {
-                JOptionPane.showMessageDialog(null, "Preencha os campos Senha e Usuario!");
-                txt_idCadasInfoUs.requestFocus();
-            } else if (txt_tokenCanalInfo.getText().equals("") && lbl_Autenticacao.getText().equals("Token")) {
-                JOptionPane.showMessageDialog(null, "Preencha os campos de Token!");
-                txt_idCadasInfoUs.requestFocus();
-            } else {
-                Dados.addCanal(p, connection.ConnectionFactory.getConnection());
-            }
-
-        }
-
-
-    }//GEN-LAST:event_txt_tokenCanalInfoKeyPressed
-
-    private void btn_limparInfoKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_btn_limparInfoKeyPressed
-        // TODO add your handling code here:
-        
-    }//GEN-LAST:event_btn_limparInfoKeyPressed
 
     /**
      * @param args the command line arguments
@@ -4971,16 +5124,23 @@ public class PaginaConfiguracaoCanal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btn_SairLogoutAdm;
+    private javax.swing.JButton btn_Ajuda;
+    private javax.swing.JButton btn_EditarPerfil;
+    private javax.swing.JButton btn_SairLogout1;
     private javax.swing.JButton btn_VoltarCadAtivo;
     private javax.swing.JButton btn_cadastrarInfoUs1;
     private javax.swing.JButton btn_limparInfo;
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JComboBox<String> cbxCanal;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel10;
     private javax.swing.JPanel jPanel11;
+    private javax.swing.JPanel jPanel12;
+    private javax.swing.JPanel jPanel13;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
@@ -4989,13 +5149,10 @@ public class PaginaConfiguracaoCanal extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel7;
     private javax.swing.JPanel jPanel8;
     private javax.swing.JPanel jPanel9;
-    private javax.swing.JLabel lbl_4dGroupCadas;
     public static javax.swing.JLabel lbl_Autenticacao;
     private javax.swing.JLabel lbl_NomeUser;
     public static javax.swing.JLabel lbl_Token;
-    private javax.swing.JLabel lbl_cadasCanaisCadas;
     private javax.swing.JLabel lbl_canalInfoUs;
-    private javax.swing.JLabel lbl_companyCadas;
     private javax.swing.JLabel lbl_idContaInfoUs1;
     private javax.swing.JLabel lbl_idContaInfoUs2;
     private javax.swing.JLabel lbl_senhaInfoUs;

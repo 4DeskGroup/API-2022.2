@@ -12,7 +12,7 @@ public class ConnectionFactory {
     public static Connection getConnection(){
         
         try{
-            return DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/api_trackcash?user=root", "root", "root");
+            return DriverManager.getConnection("jdbc:mysql://api.cr9gqxzwi3zg.us-east-1.rds.amazonaws.com:3306/api_trackcash?user=admin", "admin", "123456789");
         }
         catch(SQLException excecao){
             throw new RuntimeException(excecao);

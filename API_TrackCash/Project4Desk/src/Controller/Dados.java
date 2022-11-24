@@ -142,6 +142,32 @@ public class Dados {
         }
     }
     
+    
+    public static void alterarDadosContaProprio(int id, String user, String email, String senha) {
+        
+        
+        
+        Connection con = ConnectionFactory.getConnection();
+        PreparedStatement stmt = null;
+
+        try {
+            stmt = con.prepareStatement("UPDATE tbl_Usuario SET Usuario = " + '"' + user + '"' + ", "
+                    + "Email_Usuario = " + '"' + email + '"' + ", "
+                    + "Senha_Usuario = " + '"' + senha + '"'
+                    + " WHERE id_User = " + id);
+            stmt.execute();
+            stmt.close();
+
+            JOptionPane.showMessageDialog(null, "Salvo com sucesso");
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Erro ao Salvar: " + ex);
+        } finally {
+            ConnectionFactory.closeConnection(con, stmt);
+        }
+    }
+    
+    
+    
     public static void deleteCanal(String indiceS) {
 
         int idCanal = new CanalDAO().searchIdCanal(indiceS);

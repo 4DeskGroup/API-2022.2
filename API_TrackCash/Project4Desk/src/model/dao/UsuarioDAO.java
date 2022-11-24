@@ -33,6 +33,8 @@ public class UsuarioDAO extends ConnectionFactory {
             stmt.execute();
             stmt.close();
             
+           
+            
             JOptionPane.showMessageDialog(null, "Cadastro Completo!"
                     + "\nO usuario " + cliente.getUser() + " foi cadastrado com sucesso!");
         } catch (SQLException ex) {

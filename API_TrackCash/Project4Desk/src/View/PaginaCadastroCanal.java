@@ -31,22 +31,27 @@ public class PaginaCadastroCanal extends javax.swing.JFrame {
         buttonGroup1 = new javax.swing.ButtonGroup();
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
-        btn_ConfigAtivasADM = new javax.swing.JButton();
-        btn_CadastrarCanal = new javax.swing.JButton();
-        btn_SairLogout = new javax.swing.JButton();
+        lbl_NomeUser = new javax.swing.JLabel();
+        btn_SairLogout1 = new javax.swing.JButton();
+        btn_EditarPerfil = new javax.swing.JButton();
+        btn_Ajuda = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
-        lbl_NomeUser = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
         jPanel5 = new javax.swing.JPanel();
-        lbl_4dGroupCadas = new javax.swing.JLabel();
         jPanel6 = new javax.swing.JPanel();
+        javax.swing.JLabel jLabel6 = new javax.swing.JLabel();
         jPanel7 = new javax.swing.JPanel();
-        lbl_companyCadas = new javax.swing.JLabel();
+        btn_CadastrarCanal = new javax.swing.JButton();
+        btn_ConfigAtivasADM = new javax.swing.JButton();
         jPanel8 = new javax.swing.JPanel();
         jPanel9 = new javax.swing.JPanel();
-        lbl_cadasCanaisCadas = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
         jPanel10 = new javax.swing.JPanel();
+        jPanel11 = new javax.swing.JPanel();
+        jPanel12 = new javax.swing.JPanel();
         txt_canalCadas = new javax.swing.JTextField();
         cmb_TipoCanalCadas = new javax.swing.JComboBox<>();
         lbl_TipoCanalCadas = new javax.swing.JLabel();
@@ -58,20 +63,20 @@ public class PaginaCadastroCanal extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Cadastro de Canal");
-        setMinimumSize(new java.awt.Dimension(850, 600));
-        setPreferredSize(new java.awt.Dimension(1200, 680));
+        setMinimumSize(new java.awt.Dimension(800, 730));
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowOpened(java.awt.event.WindowEvent evt) {
                 formWindowOpened(evt);
             }
         });
 
-        jPanel1.setBackground(new java.awt.Color(255, 62, 21));
-        jPanel1.setPreferredSize(new java.awt.Dimension(1200, 80));
+        jPanel1.setBackground(new java.awt.Color(255, 100, 67));
+        jPanel1.setPreferredSize(new java.awt.Dimension(1200, 100));
         jPanel1.setLayout(new java.awt.BorderLayout());
 
-        jPanel2.setBackground(new java.awt.Color(255, 62, 21));
-        jPanel2.setPreferredSize(new java.awt.Dimension(600, 80));
+        jPanel2.setBackground(new java.awt.Color(255, 100, 67));
+        jPanel2.setMinimumSize(new java.awt.Dimension(500, 100));
+        jPanel2.setPreferredSize(new java.awt.Dimension(500, 100));
         jPanel2.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 jPanel2KeyPressed(evt);
@@ -79,13 +84,249 @@ public class PaginaCadastroCanal extends javax.swing.JFrame {
         });
         jPanel2.setLayout(new java.awt.GridBagLayout());
 
-        btn_ConfigAtivasADM.setBackground(new java.awt.Color(45, 18, 75));
-        btn_ConfigAtivasADM.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        lbl_NomeUser.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        lbl_NomeUser.setForeground(new java.awt.Color(255, 255, 255));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.ipadx = 219;
+        gridBagConstraints.ipady = 30;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(5, 4, 0, 0);
+        jPanel2.add(lbl_NomeUser, gridBagConstraints);
+
+        btn_SairLogout1.setBackground(new java.awt.Color(255, 62, 21));
+        btn_SairLogout1.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
+        btn_SairLogout1.setForeground(new java.awt.Color(255, 255, 255));
+        btn_SairLogout1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/imagens/Sair.png"))); // NOI18N
+        btn_SairLogout1.setText("Sair");
+        btn_SairLogout1.setMaximumSize(new java.awt.Dimension(144, 31));
+        btn_SairLogout1.setMinimumSize(new java.awt.Dimension(144, 31));
+        btn_SairLogout1.setPreferredSize(new java.awt.Dimension(100, 40));
+        btn_SairLogout1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btn_SairLogout1MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btn_SairLogout1MouseExited(evt);
+            }
+        });
+        btn_SairLogout1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_SairLogout1ActionPerformed(evt);
+            }
+        });
+        btn_SairLogout1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                btn_SairLogout1KeyPressed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 4;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.ipady = 9;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(5, 10, 20, 24);
+        jPanel2.add(btn_SairLogout1, gridBagConstraints);
+
+        btn_EditarPerfil.setBackground(new java.awt.Color(255, 62, 21));
+        btn_EditarPerfil.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        btn_EditarPerfil.setForeground(new java.awt.Color(255, 255, 255));
+        btn_EditarPerfil.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/imagens/Editar_Perfil_FFFFFF.png"))); // NOI18N
+        btn_EditarPerfil.setText("Editar Perfil");
+        btn_EditarPerfil.setMaximumSize(new java.awt.Dimension(144, 31));
+        btn_EditarPerfil.setMinimumSize(new java.awt.Dimension(144, 31));
+        btn_EditarPerfil.setPreferredSize(new java.awt.Dimension(100, 40));
+        btn_EditarPerfil.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btn_EditarPerfilMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btn_EditarPerfilMouseExited(evt);
+            }
+        });
+        btn_EditarPerfil.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_EditarPerfilActionPerformed(evt);
+            }
+        });
+        btn_EditarPerfil.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                btn_EditarPerfilKeyPressed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.ipady = 9;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(5, 24, 20, 0);
+        jPanel2.add(btn_EditarPerfil, gridBagConstraints);
+
+        btn_Ajuda.setBackground(new java.awt.Color(255, 62, 21));
+        btn_Ajuda.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
+        btn_Ajuda.setForeground(new java.awt.Color(255, 255, 255));
+        btn_Ajuda.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/imagens/ajuda.png"))); // NOI18N
+        btn_Ajuda.setText("Ajuda");
+        btn_Ajuda.setMaximumSize(new java.awt.Dimension(144, 31));
+        btn_Ajuda.setMinimumSize(new java.awt.Dimension(144, 31));
+        btn_Ajuda.setPreferredSize(new java.awt.Dimension(100, 40));
+        btn_Ajuda.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btn_AjudaMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btn_AjudaMouseExited(evt);
+            }
+        });
+        btn_Ajuda.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_AjudaActionPerformed(evt);
+            }
+        });
+        btn_Ajuda.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                btn_AjudaKeyPressed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.gridwidth = 3;
+        gridBagConstraints.ipady = 9;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(5, 10, 20, 0);
+        jPanel2.add(btn_Ajuda, gridBagConstraints);
+
+        jPanel1.add(jPanel2, java.awt.BorderLayout.LINE_END);
+
+        jPanel3.setBackground(new java.awt.Color(255, 100, 67));
+        jPanel3.setLayout(new java.awt.GridBagLayout());
+
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/imagens/4d__4_-removebg-preview peq.png"))); // NOI18N
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.gridheight = 3;
+        gridBagConstraints.ipady = 2;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(10, 20, 30, 0);
+        jPanel3.add(jLabel2, gridBagConstraints);
+
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setText(" 4D Group");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.ipadx = 14;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(20, 10, 0, 210);
+        jPanel3.add(jLabel1, gridBagConstraints);
+
+        jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel4.setText("Company");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.ipadx = 9;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(5, 30, 0, 0);
+        jPanel3.add(jLabel4, gridBagConstraints);
+
+        jPanel1.add(jPanel3, java.awt.BorderLayout.LINE_START);
+
+        getContentPane().add(jPanel1, java.awt.BorderLayout.PAGE_START);
+
+        jPanel4.setBackground(new java.awt.Color(241, 241, 241));
+        jPanel4.setLayout(new java.awt.BorderLayout());
+
+        jPanel5.setBackground(new java.awt.Color(132, 132, 132));
+        jPanel5.setPreferredSize(new java.awt.Dimension(1200, 80));
+        jPanel5.setLayout(new java.awt.BorderLayout());
+
+        jPanel6.setBackground(new java.awt.Color(132, 132, 132));
+        jPanel6.setMinimumSize(new java.awt.Dimension(270, 100));
+        jPanel6.setPreferredSize(new java.awt.Dimension(300, 270));
+        jPanel6.setLayout(new java.awt.GridBagLayout());
+
+        jLabel6.setBackground(new java.awt.Color(204, 204, 204));
+        jLabel6.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(45, 18, 75));
+        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/imagens/cadastro_canal_icon.png"))); // NOI18N
+        jLabel6.setText("     Cadastro de Canal");
+        jLabel6.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        jLabel6.setOpaque(true);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.ipadx = 28;
+        gridBagConstraints.ipady = 31;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 60);
+        jPanel6.add(jLabel6, gridBagConstraints);
+
+        jPanel5.add(jPanel6, java.awt.BorderLayout.LINE_START);
+
+        jPanel7.setBackground(new java.awt.Color(132, 132, 132));
+        jPanel7.setMinimumSize(new java.awt.Dimension(700, 100));
+        jPanel7.setPreferredSize(new java.awt.Dimension(700, 100));
+        jPanel7.setLayout(new java.awt.GridBagLayout());
+
+        btn_CadastrarCanal.setBackground(new java.awt.Color(51, 51, 51));
+        btn_CadastrarCanal.setFont(new java.awt.Font("Segoe UI", 1, 10)); // NOI18N
+        btn_CadastrarCanal.setForeground(new java.awt.Color(255, 255, 255));
+        btn_CadastrarCanal.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/imagens/Configuracoes_Ativas_FFFFFF.png"))); // NOI18N
+        btn_CadastrarCanal.setText("Configurações Ativas");
+        btn_CadastrarCanal.setMaximumSize(new java.awt.Dimension(144, 31));
+        btn_CadastrarCanal.setMinimumSize(new java.awt.Dimension(144, 31));
+        btn_CadastrarCanal.setPreferredSize(new java.awt.Dimension(100, 40));
+        btn_CadastrarCanal.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btn_CadastrarCanalMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btn_CadastrarCanalMouseExited(evt);
+            }
+        });
+        btn_CadastrarCanal.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_CadastrarCanalActionPerformed(evt);
+            }
+        });
+        btn_CadastrarCanal.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                btn_CadastrarCanalKeyPressed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.ipadx = 6;
+        gridBagConstraints.ipady = 29;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 20);
+        jPanel7.add(btn_CadastrarCanal, gridBagConstraints);
+
+        btn_ConfigAtivasADM.setBackground(new java.awt.Color(51, 51, 51));
+        btn_ConfigAtivasADM.setFont(new java.awt.Font("Segoe UI", 1, 10)); // NOI18N
         btn_ConfigAtivasADM.setForeground(new java.awt.Color(255, 255, 255));
-        btn_ConfigAtivasADM.setText("Canais Ativos");
+        btn_ConfigAtivasADM.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/imagens/Config_Ativas_ADM_FFFFFF.png"))); // NOI18N
+        btn_ConfigAtivasADM.setText("Canais Ativos ADM");
         btn_ConfigAtivasADM.setMaximumSize(new java.awt.Dimension(144, 31));
         btn_ConfigAtivasADM.setMinimumSize(new java.awt.Dimension(144, 31));
-        btn_ConfigAtivasADM.setPreferredSize(new java.awt.Dimension(144, 31));
+        btn_ConfigAtivasADM.setPreferredSize(new java.awt.Dimension(100, 40));
+        btn_ConfigAtivasADM.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btn_ConfigAtivasADMMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btn_ConfigAtivasADMMouseExited(evt);
+            }
+        });
         btn_ConfigAtivasADM.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_ConfigAtivasADMActionPerformed(evt);
@@ -100,132 +341,43 @@ public class PaginaCadastroCanal extends javax.swing.JFrame {
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
         gridBagConstraints.ipadx = 6;
-        gridBagConstraints.ipady = 9;
+        gridBagConstraints.ipady = 29;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(20, 100, 20, 0);
-        jPanel2.add(btn_ConfigAtivasADM, gridBagConstraints);
+        gridBagConstraints.insets = new java.awt.Insets(10, 370, 10, 0);
+        jPanel7.add(btn_ConfigAtivasADM, gridBagConstraints);
 
-        btn_CadastrarCanal.setBackground(new java.awt.Color(45, 18, 75));
-        btn_CadastrarCanal.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        btn_CadastrarCanal.setForeground(new java.awt.Color(255, 255, 255));
-        btn_CadastrarCanal.setText("Conf.Ativas");
-        btn_CadastrarCanal.setMaximumSize(new java.awt.Dimension(144, 31));
-        btn_CadastrarCanal.setMinimumSize(new java.awt.Dimension(144, 31));
-        btn_CadastrarCanal.setPreferredSize(new java.awt.Dimension(144, 31));
-        btn_CadastrarCanal.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_CadastrarCanalActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 0;
-        gridBagConstraints.ipadx = 6;
-        gridBagConstraints.ipady = 9;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(20, 20, 20, 0);
-        jPanel2.add(btn_CadastrarCanal, gridBagConstraints);
-
-        btn_SairLogout.setBackground(new java.awt.Color(204, 204, 204));
-        btn_SairLogout.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        btn_SairLogout.setText("Sair");
-        btn_SairLogout.setMaximumSize(new java.awt.Dimension(144, 31));
-        btn_SairLogout.setMinimumSize(new java.awt.Dimension(144, 31));
-        btn_SairLogout.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_SairLogoutActionPerformed(evt);
-            }
-        });
-        btn_SairLogout.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                btn_SairLogoutKeyPressed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 0;
-        gridBagConstraints.ipady = 9;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(20, 30, 20, 50);
-        jPanel2.add(btn_SairLogout, gridBagConstraints);
-
-        jPanel1.add(jPanel2, java.awt.BorderLayout.LINE_END);
-
-        jPanel3.setBackground(new java.awt.Color(255, 62, 21));
-        jPanel3.setPreferredSize(new java.awt.Dimension(600, 80));
-        jPanel3.setLayout(null);
-
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/imagens/4d__4_-removebg-preview peq.png"))); // NOI18N
-        jPanel3.add(jLabel2);
-        jLabel2.setBounds(30, 10, 60, 58);
-
-        lbl_NomeUser.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jPanel3.add(lbl_NomeUser);
-        lbl_NomeUser.setBounds(120, 20, 240, 30);
-
-        jPanel1.add(jPanel3, java.awt.BorderLayout.LINE_START);
-
-        getContentPane().add(jPanel1, java.awt.BorderLayout.PAGE_START);
-
-        jPanel4.setBackground(new java.awt.Color(241, 241, 241));
-        jPanel4.setLayout(new java.awt.BorderLayout());
-
-        jPanel5.setBackground(new java.awt.Color(241, 241, 241));
-        jPanel5.setPreferredSize(new java.awt.Dimension(100, 100));
-        jPanel5.setLayout(new java.awt.GridBagLayout());
-
-        lbl_4dGroupCadas.setFont(new java.awt.Font("Segoe UI", 1, 70)); // NOI18N
-        lbl_4dGroupCadas.setForeground(new java.awt.Color(45, 18, 75));
-        lbl_4dGroupCadas.setText("4D Group");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 0;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(13, 316, 13, 317);
-        jPanel5.add(lbl_4dGroupCadas, gridBagConstraints);
+        jPanel5.add(jPanel7, java.awt.BorderLayout.LINE_END);
 
         jPanel4.add(jPanel5, java.awt.BorderLayout.PAGE_START);
-
-        jPanel6.setBackground(new java.awt.Color(241, 241, 241));
-        jPanel6.setLayout(new java.awt.BorderLayout());
-
-        jPanel7.setBackground(new java.awt.Color(241, 241, 241));
-        jPanel7.setLayout(new java.awt.GridBagLayout());
-
-        lbl_companyCadas.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        lbl_companyCadas.setForeground(new java.awt.Color(45, 18, 75));
-        lbl_companyCadas.setText("Company");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 0;
-        gridBagConstraints.ipady = -1;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(9, 424, 10, 424);
-        jPanel7.add(lbl_companyCadas, gridBagConstraints);
-
-        jPanel6.add(jPanel7, java.awt.BorderLayout.PAGE_START);
 
         jPanel8.setBackground(new java.awt.Color(241, 241, 241));
         jPanel8.setLayout(new java.awt.BorderLayout());
 
-        jPanel9.setBackground(new java.awt.Color(241, 241, 241));
+        jPanel9.setBackground(new java.awt.Color(87, 65, 111));
         jPanel9.setLayout(new java.awt.GridBagLayout());
 
-        lbl_cadasCanaisCadas.setFont(new java.awt.Font("Segoe UI", 1, 30)); // NOI18N
-        lbl_cadasCanaisCadas.setForeground(new java.awt.Color(45, 18, 75));
-        lbl_cadasCanaisCadas.setText("Cadastro de Canal");
+        jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel3.setText("Copyright 2022 - 4Desk Group Company® - Versão 4.0.0");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
+        gridBagConstraints.ipadx = 1;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(4, 341, 5, 341);
-        jPanel9.add(lbl_cadasCanaisCadas, gridBagConstraints);
+        gridBagConstraints.insets = new java.awt.Insets(30, 410, 30, 410);
+        jPanel9.add(jLabel3, gridBagConstraints);
 
-        jPanel8.add(jPanel9, java.awt.BorderLayout.PAGE_START);
+        jPanel8.add(jPanel9, java.awt.BorderLayout.PAGE_END);
 
-        jPanel10.setBackground(new java.awt.Color(241, 241, 241));
-        jPanel10.setPreferredSize(new java.awt.Dimension(950, 100));
-        jPanel10.setLayout(new java.awt.GridBagLayout());
+        jPanel10.setLayout(new java.awt.BorderLayout());
+
+        jPanel11.setBorder(javax.swing.BorderFactory.createTitledBorder("Cadastro de Canal "));
+        jPanel11.setLayout(new java.awt.BorderLayout());
+
+        jPanel12.setBackground(new java.awt.Color(241, 241, 241));
+        jPanel12.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(242, 242, 242)));
+        jPanel12.setPreferredSize(new java.awt.Dimension(950, 100));
+        jPanel12.setLayout(new java.awt.GridBagLayout());
 
         txt_canalCadas.setFont(new java.awt.Font("Segoe UI", 0, 22)); // NOI18N
         txt_canalCadas.addActionListener(new java.awt.event.ActionListener() {
@@ -245,8 +397,8 @@ public class PaginaCadastroCanal extends javax.swing.JFrame {
         gridBagConstraints.ipadx = 196;
         gridBagConstraints.ipady = 4;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(5, 190, 0, 0);
-        jPanel10.add(txt_canalCadas, gridBagConstraints);
+        gridBagConstraints.insets = new java.awt.Insets(5, 310, 0, 0);
+        jPanel12.add(txt_canalCadas, gridBagConstraints);
 
         cmb_TipoCanalCadas.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         cmb_TipoCanalCadas.setForeground(new java.awt.Color(45, 18, 75));
@@ -262,8 +414,8 @@ public class PaginaCadastroCanal extends javax.swing.JFrame {
         gridBagConstraints.gridwidth = 5;
         gridBagConstraints.ipadx = 13;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(5, 190, 0, 0);
-        jPanel10.add(cmb_TipoCanalCadas, gridBagConstraints);
+        gridBagConstraints.insets = new java.awt.Insets(5, 310, 0, 0);
+        jPanel12.add(cmb_TipoCanalCadas, gridBagConstraints);
 
         lbl_TipoCanalCadas.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         lbl_TipoCanalCadas.setForeground(new java.awt.Color(45, 18, 75));
@@ -273,8 +425,8 @@ public class PaginaCadastroCanal extends javax.swing.JFrame {
         gridBagConstraints.gridy = 2;
         gridBagConstraints.gridwidth = 2;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(20, 190, 0, 0);
-        jPanel10.add(lbl_TipoCanalCadas, gridBagConstraints);
+        gridBagConstraints.insets = new java.awt.Insets(20, 310, 0, 0);
+        jPanel12.add(lbl_TipoCanalCadas, gridBagConstraints);
 
         lbl_padAutCadas.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         lbl_padAutCadas.setForeground(new java.awt.Color(45, 18, 75));
@@ -285,7 +437,7 @@ public class PaginaCadastroCanal extends javax.swing.JFrame {
         gridBagConstraints.gridwidth = 2;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(20, 60, 0, 0);
-        jPanel10.add(lbl_padAutCadas, gridBagConstraints);
+        jPanel12.add(lbl_padAutCadas, gridBagConstraints);
 
         cmb_padAutCadas.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         cmb_padAutCadas.setForeground(new java.awt.Color(45, 18, 75));
@@ -301,13 +453,14 @@ public class PaginaCadastroCanal extends javax.swing.JFrame {
         gridBagConstraints.gridwidth = 3;
         gridBagConstraints.ipadx = 27;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(5, 60, 0, 170);
-        jPanel10.add(cmb_padAutCadas, gridBagConstraints);
+        gridBagConstraints.insets = new java.awt.Insets(5, 60, 0, 290);
+        jPanel12.add(cmb_padAutCadas, gridBagConstraints);
 
         btn_salvarCadas.setBackground(new java.awt.Color(255, 62, 21));
-        btn_salvarCadas.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
+        btn_salvarCadas.setFont(new java.awt.Font("Segoe UI", 1, 30)); // NOI18N
         btn_salvarCadas.setForeground(new java.awt.Color(255, 255, 255));
-        btn_salvarCadas.setText("Salvar");
+        btn_salvarCadas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/imagens/Salvar_FFFFFF.png"))); // NOI18N
+        btn_salvarCadas.setText(" Salvar");
         btn_salvarCadas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_salvarCadasActionPerformed(evt);
@@ -316,13 +469,15 @@ public class PaginaCadastroCanal extends javax.swing.JFrame {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 5;
         gridBagConstraints.gridy = 4;
-        gridBagConstraints.ipadx = 38;
+        gridBagConstraints.ipadx = 18;
+        gridBagConstraints.ipady = 7;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(42, 90, 65, 0);
-        jPanel10.add(btn_salvarCadas, gridBagConstraints);
+        gridBagConstraints.insets = new java.awt.Insets(42, 90, 111, 0);
+        jPanel12.add(btn_salvarCadas, gridBagConstraints);
 
-        btn_limparCadCanal.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
+        btn_limparCadCanal.setFont(new java.awt.Font("Segoe UI", 1, 30)); // NOI18N
         btn_limparCadCanal.setForeground(new java.awt.Color(255, 62, 21));
+        btn_limparCadCanal.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/imagens/Limpar_FF3E15.png"))); // NOI18N
         btn_limparCadCanal.setText("Limpar");
         btn_limparCadCanal.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -333,10 +488,11 @@ public class PaginaCadastroCanal extends javax.swing.JFrame {
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 4;
         gridBagConstraints.gridwidth = 3;
-        gridBagConstraints.ipadx = 24;
+        gridBagConstraints.ipadx = 14;
+        gridBagConstraints.ipady = 7;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(42, 230, 65, 0);
-        jPanel10.add(btn_limparCadCanal, gridBagConstraints);
+        gridBagConstraints.insets = new java.awt.Insets(42, 340, 111, 0);
+        jPanel12.add(btn_limparCadCanal, gridBagConstraints);
 
         lbl_canalCadas1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         lbl_canalCadas1.setForeground(new java.awt.Color(45, 18, 75));
@@ -345,14 +501,16 @@ public class PaginaCadastroCanal extends javax.swing.JFrame {
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(40, 190, 0, 0);
-        jPanel10.add(lbl_canalCadas1, gridBagConstraints);
+        gridBagConstraints.insets = new java.awt.Insets(86, 310, 0, 0);
+        jPanel12.add(lbl_canalCadas1, gridBagConstraints);
+
+        jPanel11.add(jPanel12, java.awt.BorderLayout.CENTER);
+
+        jPanel10.add(jPanel11, java.awt.BorderLayout.CENTER);
 
         jPanel8.add(jPanel10, java.awt.BorderLayout.CENTER);
 
-        jPanel6.add(jPanel8, java.awt.BorderLayout.CENTER);
-
-        jPanel4.add(jPanel6, java.awt.BorderLayout.CENTER);
+        jPanel4.add(jPanel8, java.awt.BorderLayout.CENTER);
 
         getContentPane().add(jPanel4, java.awt.BorderLayout.CENTER);
 
@@ -375,106 +533,23 @@ public class PaginaCadastroCanal extends javax.swing.JFrame {
 
     }//GEN-LAST:event_formWindowOpened
 
-    private void btn_ConfigAtivasADMActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_ConfigAtivasADMActionPerformed
-        Dimension telaOriginal = getPreferredSize();
-        Dimension telaRecente = getSize();
-
-        int tamanhoTelaOriginal = (int) telaOriginal.getWidth();
-        int tamanhoTelaRecente = (int) telaRecente.getWidth();
-
-        if (tamanhoTelaOriginal < tamanhoTelaRecente) {
-            PaginaCadastrosAtivosAdm paginaCadastroAtivosAdm = new PaginaCadastrosAtivosAdm(user);
-            paginaCadastroAtivosAdm.setExtendedState(Frame.MAXIMIZED_BOTH);
-            paginaCadastroAtivosAdm.setVisible(true);
-            this.dispose();
-        } else {
-            PaginaCadastrosAtivosAdm paginaCadastroAtivosAdm = new PaginaCadastrosAtivosAdm(user);
-            paginaCadastroAtivosAdm.setVisible(true);
-            this.dispose();
-        }
-    }//GEN-LAST:event_btn_ConfigAtivasADMActionPerformed
-
-    private void btn_CadastrarCanalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_CadastrarCanalActionPerformed
-
-        Dimension telaOriginal = getPreferredSize();
-        Dimension telaRecente = getSize();
-
-        int tamanhoTelaOriginal = (int) telaOriginal.getWidth();
-        int tamanhoTelaRecente = (int) telaRecente.getWidth();
-
-        if (tamanhoTelaOriginal < tamanhoTelaRecente) {
-            PaginaCadastrosAtivos paginaCadastroAtivos = new PaginaCadastrosAtivos(user);
-            paginaCadastroAtivos.setExtendedState(Frame.MAXIMIZED_BOTH);
-            paginaCadastroAtivos.setVisible(true);
-            this.dispose();
-        } else {
-            PaginaCadastrosAtivos paginaCadastroAtivos = new PaginaCadastrosAtivos(user);
-            paginaCadastroAtivos.setVisible(true);
-            this.dispose();
-        }
-
-        //this.dispose();
-        //new PaginaCadastroConfig(user).setVisible(true);
-    }//GEN-LAST:event_btn_CadastrarCanalActionPerformed
-
-    private void btn_SairLogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_SairLogoutActionPerformed
-        Dimension telaOriginal = getPreferredSize();
-        Dimension telaRecente = getSize();
-
-        int tamanhoTelaOriginal = (int) telaOriginal.getWidth();
-        int tamanhoTelaRecente = (int) telaRecente.getWidth();
-
-        if (tamanhoTelaOriginal < tamanhoTelaRecente) {
-            TelaPrincipal telaPrincipal = new TelaPrincipal();
-            telaPrincipal.setExtendedState(Frame.MAXIMIZED_BOTH);
-            telaPrincipal.setVisible(true);
-            this.dispose();
-        } else {
-            TelaPrincipal telaPrincipal = new TelaPrincipal();
-            telaPrincipal.setVisible(true);
-            this.dispose();
-        }
-        //new TelaPrincipal().setVisible(true);
-        //this.dispose();
-    }//GEN-LAST:event_btn_SairLogoutActionPerformed
-
     private void txt_canalCadasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_canalCadasActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txt_canalCadasActionPerformed
 
-    private void btn_salvarCadasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_salvarCadasActionPerformed
-
-        Canal c = new Canal();
-
-        c.setEmpresa(txt_canalCadas.getText());
-        c.setPlataforma((String) cmb_TipoCanalCadas.getSelectedItem());
-        c.setAutenticacao((String) cmb_padAutCadas.getSelectedItem());
-
-        if (!c.getAutenticacao().equals("Token")) {
-            c.setAutenticacao("Login");
-        }
-
-        if ((txt_canalCadas.getText().isEmpty())) {
-
-            JOptionPane.showMessageDialog(null, "O campo não pode retornar vazio");
-
-        } else {
-
-            CanalConfigDAO dao = new CanalConfigDAO();
-            dao.cadastro(c, user);
-
-        }
-    }//GEN-LAST:event_btn_salvarCadasActionPerformed
-
-    private void btn_limparCadCanalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_limparCadCanalActionPerformed
-
-        txt_canalCadas.setText("");
-    }//GEN-LAST:event_btn_limparCadCanalActionPerformed
-
-    private void btn_SairLogoutKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_btn_SairLogoutKeyPressed
+    private void txt_canalCadasKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_canalCadasKeyPressed
         // TODO add your handling code here:
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+            cmb_TipoCanalCadas.requestFocus();
+        }
+    }//GEN-LAST:event_txt_canalCadasKeyPressed
 
-    }//GEN-LAST:event_btn_SairLogoutKeyPressed
+    private void cmb_TipoCanalCadasKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_cmb_TipoCanalCadasKeyPressed
+        // TODO add your handling code here:
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+            cmb_padAutCadas.requestFocus();
+        }
+    }//GEN-LAST:event_cmb_TipoCanalCadasKeyPressed
 
     private void cmb_padAutCadasKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_cmb_padAutCadasKeyPressed
         // TODO add your handling code here:
@@ -569,89 +644,169 @@ public class PaginaCadastroCanal extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_cmb_padAutCadasKeyPressed
 
-    private void btn_ConfigAtivasADMKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_btn_ConfigAtivasADMKeyPressed
+    private void btn_salvarCadasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_salvarCadasActionPerformed
+
+        Canal c = new Canal();
+
+        c.setEmpresa(txt_canalCadas.getText());
+        c.setPlataforma((String) cmb_TipoCanalCadas.getSelectedItem());
+        c.setAutenticacao((String) cmb_padAutCadas.getSelectedItem());
+
+        if (!c.getAutenticacao().equals("Token")) {
+            c.setAutenticacao("Login");
+        }
+
+        if ((txt_canalCadas.getText().isEmpty())) {
+
+            JOptionPane.showMessageDialog(null, "O campo não pode retornar vazio");
+
+        } else {
+
+            CanalConfigDAO dao = new CanalConfigDAO();
+            dao.cadastro(c, user);
+
+        }
+    }//GEN-LAST:event_btn_salvarCadasActionPerformed
+
+    private void btn_limparCadCanalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_limparCadCanalActionPerformed
+
+        txt_canalCadas.setText("");
+    }//GEN-LAST:event_btn_limparCadCanalActionPerformed
+
+    private void btn_SairLogout1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_SairLogout1MouseEntered
         // TODO add your handling code here:
-        if ((evt.getKeyCode() == KeyEvent.VK_F6) || (evt.getKeyCode() == KeyEvent.VK_6)) {
-            Dimension telaOriginal = getPreferredSize();
-            Dimension telaRecente = getSize();
+    }//GEN-LAST:event_btn_SairLogout1MouseEntered
 
-            int tamanhoTelaOriginal = (int) telaOriginal.getWidth();
-            int tamanhoTelaRecente = (int) telaRecente.getWidth();
-
-            if (tamanhoTelaOriginal < tamanhoTelaRecente) {
-                PaginaCadastrosAtivosAdm paginaCadastroAtivosAdm = new PaginaCadastrosAtivosAdm(user);
-                paginaCadastroAtivosAdm.setExtendedState(Frame.MAXIMIZED_BOTH);
-                paginaCadastroAtivosAdm.setVisible(true);
-                this.dispose();
-            } else {
-                PaginaCadastrosAtivosAdm paginaCadastroAtivosAdm = new PaginaCadastrosAtivosAdm(user);
-                paginaCadastroAtivosAdm.setVisible(true);
-                this.dispose();
-            }
-
-        }
-
-        if ((evt.getKeyCode() == KeyEvent.VK_F8) || (evt.getKeyCode() == KeyEvent.VK_8)) {
-            Dimension telaOriginal = getPreferredSize();
-            Dimension telaRecente = getSize();
-
-            int tamanhoTelaOriginal = (int) telaOriginal.getWidth();
-            int tamanhoTelaRecente = (int) telaRecente.getWidth();
-
-            if (tamanhoTelaOriginal < tamanhoTelaRecente) {
-                PaginaCadastrosAtivos paginaCadastroAtivos = new PaginaCadastrosAtivos(user);
-                paginaCadastroAtivos.setExtendedState(Frame.MAXIMIZED_BOTH);
-                paginaCadastroAtivos.setVisible(true);
-                this.dispose();
-            } else {
-                PaginaCadastrosAtivos paginaCadastroAtivos = new PaginaCadastrosAtivos(user);
-                paginaCadastroAtivos.setVisible(true);
-                this.dispose();
-            }
-
-        }
-
-        if ((evt.getKeyCode() == KeyEvent.VK_F10) || (evt.getKeyCode() == KeyEvent.VK_0)) {
-            Dimension telaOriginal = getPreferredSize();
-            Dimension telaRecente = getSize();
-
-            int tamanhoTelaOriginal = (int) telaOriginal.getWidth();
-            int tamanhoTelaRecente = (int) telaRecente.getWidth();
-
-            if (tamanhoTelaOriginal < tamanhoTelaRecente) {
-                TelaPrincipal telaPrincipal = new TelaPrincipal();
-                telaPrincipal.setExtendedState(Frame.MAXIMIZED_BOTH);
-                telaPrincipal.setVisible(true);
-                this.dispose();
-            } else {
-                TelaPrincipal telaPrincipal = new TelaPrincipal();
-                telaPrincipal.setVisible(true);
-                this.dispose();
-            }
-        }
-
-        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
-            txt_canalCadas.requestFocus();
-        }
-    }//GEN-LAST:event_btn_ConfigAtivasADMKeyPressed
-
-    private void txt_canalCadasKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_canalCadasKeyPressed
+    private void btn_SairLogout1MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_SairLogout1MouseExited
         // TODO add your handling code here:
-        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
-            cmb_TipoCanalCadas.requestFocus();
-        }
-    }//GEN-LAST:event_txt_canalCadasKeyPressed
+    }//GEN-LAST:event_btn_SairLogout1MouseExited
 
-    private void cmb_TipoCanalCadasKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_cmb_TipoCanalCadasKeyPressed
+    private void btn_SairLogout1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_SairLogout1ActionPerformed
         // TODO add your handling code here:
-        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
-            cmb_padAutCadas.requestFocus();
+        Dimension telaOriginal = getPreferredSize();
+        Dimension telaRecente = getSize();
+
+        int tamanhoTelaOriginal = (int) telaOriginal.getWidth();
+        int tamanhoTelaRecente = (int) telaRecente.getWidth();
+
+        if (tamanhoTelaOriginal < tamanhoTelaRecente) {
+            TelaPrincipal telaPrincipal = new TelaPrincipal();
+            telaPrincipal.setExtendedState(Frame.MAXIMIZED_BOTH);
+            telaPrincipal.setVisible(true);
+            this.dispose();
+        } else {
+            TelaPrincipal telaPrincipal = new TelaPrincipal();
+            telaPrincipal.setVisible(true);
+            this.dispose();
         }
-    }//GEN-LAST:event_cmb_TipoCanalCadasKeyPressed
+    }//GEN-LAST:event_btn_SairLogout1ActionPerformed
+
+    private void btn_SairLogout1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_btn_SairLogout1KeyPressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btn_SairLogout1KeyPressed
+
+    private void btn_EditarPerfilMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_EditarPerfilMouseEntered
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btn_EditarPerfilMouseEntered
+
+    private void btn_EditarPerfilMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_EditarPerfilMouseExited
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btn_EditarPerfilMouseExited
+
+    private void btn_EditarPerfilActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_EditarPerfilActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btn_EditarPerfilActionPerformed
+
+    private void btn_EditarPerfilKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_btn_EditarPerfilKeyPressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btn_EditarPerfilKeyPressed
+
+    private void btn_AjudaMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_AjudaMouseEntered
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btn_AjudaMouseEntered
+
+    private void btn_AjudaMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_AjudaMouseExited
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btn_AjudaMouseExited
+
+    private void btn_AjudaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_AjudaActionPerformed
+        // TODO add your handling code here:
+        PaginaAjuda paginaajuda = new PaginaAjuda();
+        paginaajuda.setVisible(true);
+
+    }//GEN-LAST:event_btn_AjudaActionPerformed
+
+    private void btn_AjudaKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_btn_AjudaKeyPressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btn_AjudaKeyPressed
 
     private void jPanel2KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jPanel2KeyPressed
         // TODO add your handling code here:
     }//GEN-LAST:event_jPanel2KeyPressed
+
+    private void btn_CadastrarCanalMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_CadastrarCanalMouseEntered
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btn_CadastrarCanalMouseEntered
+
+    private void btn_CadastrarCanalMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_CadastrarCanalMouseExited
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btn_CadastrarCanalMouseExited
+
+    private void btn_CadastrarCanalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_CadastrarCanalActionPerformed
+        // TODO add your handling code here:
+        Dimension telaOriginal = getPreferredSize();
+        Dimension telaRecente = getSize();
+
+        int tamanhoTelaOriginal = (int) telaOriginal.getWidth();
+        int tamanhoTelaRecente = (int) telaRecente.getWidth();
+
+        if (tamanhoTelaOriginal < tamanhoTelaRecente) {
+            PaginaCadastrosAtivos paginaCadastroAtivos = new PaginaCadastrosAtivos(user);
+            paginaCadastroAtivos.setExtendedState(Frame.MAXIMIZED_BOTH);
+            paginaCadastroAtivos.setVisible(true);
+            this.dispose();
+        } else {
+            PaginaCadastrosAtivos paginaCadastroAtivos = new PaginaCadastrosAtivos(user);
+            paginaCadastroAtivos.setVisible(true);
+            this.dispose();
+        }
+    }//GEN-LAST:event_btn_CadastrarCanalActionPerformed
+
+    private void btn_CadastrarCanalKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_btn_CadastrarCanalKeyPressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btn_CadastrarCanalKeyPressed
+
+    private void btn_ConfigAtivasADMMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_ConfigAtivasADMMouseEntered
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btn_ConfigAtivasADMMouseEntered
+
+    private void btn_ConfigAtivasADMMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_ConfigAtivasADMMouseExited
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btn_ConfigAtivasADMMouseExited
+
+    private void btn_ConfigAtivasADMActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_ConfigAtivasADMActionPerformed
+        // TODO add your handling code here:
+        Dimension telaOriginal = getPreferredSize();
+        Dimension telaRecente = getSize();
+
+        int tamanhoTelaOriginal = (int) telaOriginal.getWidth();
+        int tamanhoTelaRecente = (int) telaRecente.getWidth();
+
+        if (tamanhoTelaOriginal < tamanhoTelaRecente) {
+            PaginaCadastrosAtivosAdm paginaCadastrosAtivosAdm = new PaginaCadastrosAtivosAdm(user);
+            paginaCadastrosAtivosAdm.setExtendedState(Frame.MAXIMIZED_BOTH);
+            paginaCadastrosAtivosAdm.setVisible(true);
+            this.dispose();
+        } else {
+            PaginaCadastrosAtivosAdm paginaCadastrosAtivosAdm = new PaginaCadastrosAtivosAdm(user);
+            paginaCadastrosAtivosAdm.setVisible(true);
+            this.dispose();
+        }
+    }//GEN-LAST:event_btn_ConfigAtivasADMActionPerformed
+
+    private void btn_ConfigAtivasADMKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_btn_ConfigAtivasADMKeyPressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btn_ConfigAtivasADMKeyPressed
 
     /**
      * @param args the command line arguments
@@ -8880,17 +9035,24 @@ public class PaginaCadastroCanal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btn_Ajuda;
     private javax.swing.JButton btn_CadastrarCanal;
     private javax.swing.JButton btn_ConfigAtivasADM;
-    private javax.swing.JButton btn_SairLogout;
+    private javax.swing.JButton btn_EditarPerfil;
+    private javax.swing.JButton btn_SairLogout1;
     private javax.swing.JButton btn_limparCadCanal;
     private javax.swing.JButton btn_salvarCadas;
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JComboBox<String> cmb_TipoCanalCadas;
     private javax.swing.JComboBox<String> cmb_padAutCadas;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel10;
+    private javax.swing.JPanel jPanel11;
+    private javax.swing.JPanel jPanel12;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
@@ -8899,12 +9061,9 @@ public class PaginaCadastroCanal extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel7;
     private javax.swing.JPanel jPanel8;
     private javax.swing.JPanel jPanel9;
-    private javax.swing.JLabel lbl_4dGroupCadas;
     private javax.swing.JLabel lbl_NomeUser;
     private javax.swing.JLabel lbl_TipoCanalCadas;
-    private javax.swing.JLabel lbl_cadasCanaisCadas;
     private javax.swing.JLabel lbl_canalCadas1;
-    private javax.swing.JLabel lbl_companyCadas;
     private javax.swing.JLabel lbl_padAutCadas;
     private javax.swing.JTextField txt_canalCadas;
     // End of variables declaration//GEN-END:variables

@@ -8,7 +8,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.Vector;
+import java.util.*;
+import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
@@ -16,7 +17,12 @@ import model.bean.Usuario;
 
 public class Table {
 
-    private DefaultTableModel CarregarTabelaConfig(DefaultTableModel modelo, Usuario user) {
+    private String table;
+    private int totalPag;
+    private int offset;
+    private int limite = 10;
+
+    private DefaultTableModel CarregarTabelaConfig(DefaultTableModel modelo) {
 
         modelo.setNumRows(0);
 
@@ -25,7 +31,7 @@ public class Table {
             PreparedStatement stmt;
             ResultSet rs;
 
-            stmt = con.prepareStatement("SELECT * FROM tbl_Config");
+            stmt = con.prepareStatement("SELECT * FROM tbl_Config LIMIT 10 OFFSET " + this.offset + ";");
             rs = stmt.executeQuery();
 
             while (rs.next()) {
@@ -55,7 +61,7 @@ public class Table {
             ResultSet rs;
 
             stmt = con.prepareStatement("SELECT * FROM tbl_Canal JOIN tbl_Config WHERE "
-                    + "tbl_Canal.Usuario_pertencente = " + '"' + user.getId() + '"' + " AND  id_Config = Config_pertencente");
+                    + "tbl_Canal.Usuario_pertencente = " + '"' + user.getId() + '"' + " AND  id_Config = Config_pertencente LIMIT 10 OFFSET " + this.offset + ";");
             rs = stmt.executeQuery();
 
             while (rs.next()) {
@@ -77,7 +83,7 @@ public class Table {
         }
     }
 
-    private DefaultTableModel CarregarTabelaUser(DefaultTableModel modelo, Usuario user) {
+    private DefaultTableModel CarregarTabelaUser(DefaultTableModel modelo) {
 
         modelo.setNumRows(0);
 
@@ -86,7 +92,7 @@ public class Table {
             PreparedStatement stmt;
             ResultSet rs;
 
-            stmt = con.prepareStatement("SELECT * FROM tbl_usuario");
+            stmt = con.prepareStatement("SELECT * FROM tbl_usuario LIMIT 10 OFFSET " + this.offset + ";");
             rs = stmt.executeQuery();
 
             while (rs.next()) {
@@ -205,35 +211,8 @@ public class Table {
         Metodos sem Retorno (Static void || void)
         
      */
-    
-    public static void carregarTableCanal(JTable modelTable, Usuario user) {
 
-        DefaultTableModel modelo = (DefaultTableModel) modelTable.getModel();
-        DefaultTableModel modeloBD = new Table().CarregarTabelaCanal(modelo, user);
-
-        modelo = modeloBD;
-
-    }
-
-    public static void carregarTableConfig(JTable modelTable, Usuario user) {
-
-        DefaultTableModel modelo = (DefaultTableModel) modelTable.getModel();
-        DefaultTableModel modeloBD = new Table().CarregarTabelaConfig(modelo, user);
-
-        modelo = modeloBD;
-
-    }
-
-    public static void carregarTableConta(JTable modelTable, Usuario user) {
-
-        DefaultTableModel modelo = (DefaultTableModel) modelTable.getModel();
-        DefaultTableModel modeloBD = new Table().CarregarTabelaUser(modelo, user);
-
-        modelo = modeloBD;
-
-    }
-
-    public static void excluirCanal(JTable modelTable, Usuario user) {
+    public void excluirCanal(JTable modelTable, Usuario user, JComboBox cbx) {
 
         if (modelTable.getSelectedRow() == -1) {
             JOptionPane.showMessageDialog(null, "Selecione um canal para excluir!");
@@ -241,11 +220,11 @@ public class Table {
             Object indice = modelTable.getValueAt(modelTable.getSelectedRow(), 0);
             String indiceS = indice.toString();
             Dados.deleteCanal(indiceS);
-            carregarTableCanal(modelTable, user);
+            updateCBX(modelTable, user, cbx);
         }
     }
 
-    public static void excluirConfig(JTable modelTable, Usuario user) {
+    public void excluirConfig(JTable modelTable, Usuario user, JComboBox cbx) {
 
         if (modelTable.getSelectedRow() == -1) {
             JOptionPane.showMessageDialog(null, "Selecione uma config para excluir!");
@@ -253,76 +232,192 @@ public class Table {
             Object indice = modelTable.getValueAt(modelTable.getSelectedRow(), 1);
             String indiceS = indice.toString();
             Dados.deleteConfig(indiceS);
-            carregarTableConfig(modelTable, user);
+            updateCBX(modelTable, user, cbx);
         }
 
     }
 
-    public static void excluirConta(JTable modelTable, Usuario user) {
-        
+    public void excluirConta(JTable modelTable, Usuario user, JComboBox cbx) {
+
         if (modelTable.getSelectedRow() == -1) {
             JOptionPane.showMessageDialog(null, "Selecione um usuario para excluir!");
         } else {
             Object indice = modelTable.getValueAt(modelTable.getSelectedRow(), 0);
             int indiceS = Integer.parseInt(indice.toString());
             Dados.deleteUser(indiceS);
-            carregarTableConta(modelTable, user);
+            updateCBX(modelTable, user, cbx);
         }
-        
-    }
-
-    public static void filtroBuscaCanal(JTable modelTable, String busca, String campo, String ordem, PesqCanal DAO) {
-
-        if (campo.equals("Usuario")) {
-            campo = campo + "_Config";
-        } else {
-            campo = campo + "_Canal";
-        }
-        if (ordem.equals("Crescente")) {
-            ordem = "asc";
-        } else {
-            ordem = "desc";
-        }
-
-        DefaultTableModel table = (DefaultTableModel) modelTable.getModel();
-        table = new Table().filtroBuscaCanal(campo, ordem, busca, DAO, table);
-        modelTable.setModel(table);
 
     }
 
-    public static void filtroBuscaConfig(JTable modelTable, String busca, String campo, String ordem, PesquCanalADM DAO) {
+    public void filtroBuscaCanal(JTable modelTable, String busca, String campo, String ordem, PesqCanal DAO, Usuario user) {
+        if (!busca.equals("")) {
+            if (campo.equals("Usuario")) {
+                campo = campo + "_Config";
+            } else {
+                campo = campo + "_Canal";
+            }
+            if (ordem.equals("Crescente")) {
+                ordem = "asc";
+            } else {
+                ordem = "desc";
+            }
 
-        if (!campo.equals("id_Config")) {
-            campo = campo + "_Config";
-        }
-
-        if (ordem.equals("Crescente")) {
-            ordem = "asc";
+            DefaultTableModel table = (DefaultTableModel) modelTable.getModel();
+            table = new Table().filtroBuscaCanal(campo, ordem, busca, DAO, table);
+            modelTable.setModel(table);
         } else {
-            ordem = "desc";
+            setPag(modelTable, user);
         }
 
-        DefaultTableModel table = (DefaultTableModel) modelTable.getModel();
-        table = new Table().filtroBuscaADM(campo, ordem, busca, DAO, table);
-
-        modelTable.setModel(table);
     }
 
-    public static void filtroBuscaConta(JTable modelTable, String busca, String campo, String ordem, PesqUser DAO) {
+    public void filtroBuscaConfig(JTable modelTable, String busca, String campo, String ordem, PesquCanalADM DAO, Usuario user) {
+        if (!busca.equals("")) {
+            if (!campo.equals("id_Config")) {
+                campo = campo + "_Config";
+            }
 
-        if (!campo.equals("Usuario")) {
-            campo = campo + "_Usuario";
-        }
+            if (ordem.equals("Crescente")) {
+                ordem = "asc";
+            } else {
+                ordem = "desc";
+            }
 
-        if (ordem.equals("Crescente")) {
-            ordem = "asc";
+            DefaultTableModel table = (DefaultTableModel) modelTable.getModel();
+            table = new Table().filtroBuscaADM(campo, ordem, busca, DAO, table);
+
+            modelTable.setModel(table);
         } else {
-            ordem = "desc";
+            setPag(modelTable, user);
         }
+    }
 
-        DefaultTableModel table = (DefaultTableModel) modelTable.getModel();
-        table = new Table().filtroBuscaUser(campo, ordem, busca, DAO, table);
+    public void filtroBuscaConta(JTable modelTable, String busca, String campo, String ordem, PesqUser DAO, Usuario user) {
+        if (!busca.equals("")) {
+            if (!campo.equals("Usuario")) {
+                campo = campo + "_Usuario";
+            }
 
-        modelTable.setModel(table);
+            if (ordem.equals("Crescente")) {
+                ordem = "asc";
+            } else {
+                ordem = "desc";
+            }
+
+            DefaultTableModel table = (DefaultTableModel) modelTable.getModel();
+            table = new Table().filtroBuscaUser(campo, ordem, busca, DAO, table);
+            modelTable.setModel(table);
+
+        } else {
+            setPag(modelTable, user);
+        }
+    }
+
+    /*
+    
+        Paginação
+        Void ou Static Void (Sem Retorno)
+    
+     */
+    
+    public int countPag(String tbl) throws SQLException {
+
+        try {
+            Connection con = ConnectionFactory.getConnection();
+            PreparedStatement stmt = con.prepareStatement("SELECT COUNT(*) FROM " + tbl + ";");
+            ResultSet rs = stmt.executeQuery();
+
+            while (rs.next()) {
+                int total_registros = rs.getInt(1);
+                int total_pag;
+                if (total_registros % 10 != 0) {
+                    total_pag = (total_registros / 10) + 1;
+                } else {
+                    total_pag = total_registros / 10;
+                }
+                return total_pag;
+            }
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Erro ao carregar paginacao!");
+        }
+        return 0;
+    }
+
+    public void back(JTable modelTable, Usuario user, int pag, JComboBox cbx) {
+        if(pag-- > 1){
+            cbx.setSelectedItem(pag);
+            this.offset = (pag * 10) - 10;
+        }else{
+            this.offset = 0;
+        }
+        setPag(modelTable, user);
+    }
+
+    public void next(JTable modelTable, Usuario user, int pag, JComboBox cbx) {
+        if(pag++ < this.totalPag){
+            cbx.setSelectedItem(pag);
+            this.offset = (pag * 10) - 10;
+        }
+        setPag(modelTable, user);
+    }
+
+    public void setCBX(JTable modelTable, Usuario user, int pag, JComboBox cbx) {
+        this.offset = 0;
+        if (pag != 1) {
+            this.offset = (pag * 10) - 10;
+        }
+        cbx.setSelectedItem(pag);
+        setPag(modelTable, user);
+    }
+
+    public void setPag(JTable modelTable, Usuario user) {
+        DefaultTableModel modelo = (DefaultTableModel) modelTable.getModel();
+        switch (this.table) {
+            case "tbl_Canal":
+                DefaultTableModel modeloCanal = CarregarTabelaCanal(modelo, user);
+                modelo = modeloCanal;
+                break;
+            case "tbl_Config":
+                DefaultTableModel modeloConfig = CarregarTabelaConfig(modelo);
+                modelo = modeloConfig;
+                break;
+            default:
+                DefaultTableModel modeloUser = CarregarTabelaUser(modelo);
+                modelo = modeloUser;
+                break;
+        }
+    }
+
+    public void updateCBX(JTable modelTable, Usuario user, JComboBox cbx) {
+        try {
+            if (modelTable.getRowCount() > 0) {
+                String tbl = modelTable.getColumnName(0);
+                switch (tbl) {
+                    case "idConfig":
+                        this.table = "tbl_Config";
+                        break;
+                    case "Empresa":
+                        this.table = "tbl_Canal";
+                        break;
+                    default:
+                        this.table = "tbl_Usuario";
+                        break;
+                }
+                cbx.removeAllItems();
+                this.totalPag = countPag(this.table);
+                for (int itemCBX = 1; itemCBX <= this.totalPag; itemCBX++) {
+                    cbx.addItem(itemCBX);
+                }
+                this.offset = 0;
+                setPag(modelTable, user);
+            }
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Erro ao carregar ComboBox Page!\n" + ex);
+        }
+    }
+
+    public int getTotalPag() {
+        return this.totalPag;
     }
 }
