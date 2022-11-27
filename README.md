@@ -89,6 +89,7 @@
 3	| Exibição de todos os canais e usuários contidos registrados para o usuário administrador	| Baixa | OK		
 3	| Sistema de paginação na lista de exibição de canais cadastrados pelo usuário	| Baixa	|	OK
 4	| Revisão e correção de possíveis bugs	| Alta |	:black_square_button:	
+4	| Utilização da Lei Geral de Proteção de Dados Pessoais no Cadastro Inicial do Usuário	| Alta |	:black_square_button:	
 4	| Possível melhorias no funcionamento do sistema	| Baixa | :black_square_button:			
 
 ##### Timeline
