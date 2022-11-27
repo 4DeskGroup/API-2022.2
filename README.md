@@ -41,6 +41,7 @@
     <img src="https://img.shields.io/badge/Java-292A2D?style=for-the-badge&logo=java&logoColor=54C5CE" />
     <img src="https://img.shields.io/badge/NetBeans-292A2D?style=for-the-badge&logo=netbeans&logoColor=54C5CE"/> 
     <img src="https://img.shields.io/badge/MySQL-292A2D?style=for-the-badge&logo=mysql&logoColor=54C5CE"/>
+     <img src="https://img.shields.io/badge/AWS-292A2D?style=for-the-badge&logo=awsl&logoColor=54C5CE"/>
 </p>
   
 <a href="#inicio">[Voltar ao início]</a>
