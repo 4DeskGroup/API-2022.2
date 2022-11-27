@@ -154,7 +154,7 @@ Sprint ID | Data | Tag | Vídeo | Status
 #1 | 29.08.2022 - 18.09.2022 | <a href="https://github.com/4DeskGroup/API-2022.2/releases/tag/%23Sprint1">Aqui</a> | :stop_sign: | :heavy_check_mark:
 #2 | 19.09.2022 - 09.10.2022 | <a href="https://github.com/4DeskGroup/API-2022.2/releases/tag/%23Sprint2">Aqui</a> | :stop_sign: | :heavy_check_mark:
 #3 | 17.10.2022 - 06.11.2022 | <a href="https://github.com/4DeskGroup/API-2022.2/releases/tag/%23Sprint3">Aqui</a> | :stop_sign:  | :heavy_check_mark: 
-#4 | 07.11.2022 - 27.11.2022 | <a href="">Aqui</a> | :stop_sign: | :black_square_button:
+#4 | 07.11.2022 - 27.11.2022 | <a href="https://github.com/4DeskGroup/API-2022.2/releases/tag/%23Sprint4">Aqui</a> | :stop_sign: | :heavy_check_mark: 
 
  
 <a href="#inicio">[Voltar ao início]</a>
