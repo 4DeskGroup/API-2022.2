@@ -10,6 +10,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import model.bean.Usuario;
 import javax.swing.JOptionPane;
+import javax.swing.ImageIcon;
 
 public class LoginGUI extends javax.swing.JFrame {
 
@@ -45,6 +46,7 @@ public class LoginGUI extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Login");
         setBackground(new java.awt.Color(204, 204, 204));
+        setIconImage(new ImageIcon(getClass().getResource("/View/imagens/4Desk_Gigante.png")).getImage());
         setMinimumSize(new java.awt.Dimension(810, 500));
         setResizable(false);
         setSize(new java.awt.Dimension(810, 500));

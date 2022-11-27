@@ -8,6 +8,7 @@ import java.awt.Frame;
 import java.awt.event.KeyEvent;
 import javax.swing.JOptionPane;
 import model.bean.Usuario;
+import javax.swing.ImageIcon;
 
 public class PaginaCadastrosAtivosAdm extends javax.swing.JFrame {
 
@@ -57,6 +58,7 @@ public class PaginaCadastrosAtivosAdm extends javax.swing.JFrame {
         jPanel8 = new javax.swing.JPanel();
         jPanel9 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
         jPanel10 = new javax.swing.JPanel();
         jPanel11 = new javax.swing.JPanel();
         jPanel12 = new javax.swing.JPanel();
@@ -85,6 +87,7 @@ public class PaginaCadastrosAtivosAdm extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Canais Ativos ADM");
+        setIconImage(new ImageIcon(getClass().getResource("/View/imagens/4Desk_Gigante.png")).getImage());
         setMinimumSize(new java.awt.Dimension(800, 730));
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowIconified(java.awt.event.WindowEvent evt) {
@@ -107,12 +110,11 @@ public class PaginaCadastrosAtivosAdm extends javax.swing.JFrame {
                 jPanel2KeyPressed(evt);
             }
         });
-        jPanel2.setLayout(null);
+        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         lbl_NomeUser.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         lbl_NomeUser.setForeground(new java.awt.Color(255, 255, 255));
-        jPanel2.add(lbl_NomeUser);
-        lbl_NomeUser.setBounds(4, 5, 330, 30);
+        jPanel2.add(lbl_NomeUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(4, 5, 330, 30));
 
         btn_SairLogout.setBackground(new java.awt.Color(255, 62, 21));
         btn_SairLogout.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
@@ -140,8 +142,7 @@ public class PaginaCadastrosAtivosAdm extends javax.swing.JFrame {
                 btn_SairLogoutKeyPressed(evt);
             }
         });
-        jPanel2.add(btn_SairLogout);
-        btn_SairLogout.setBounds(332, 40, 144, 40);
+        jPanel2.add(btn_SairLogout, new org.netbeans.lib.awtextra.AbsoluteConstraints(332, 40, 144, -1));
 
         btn_EditarPerfil.setBackground(new java.awt.Color(255, 62, 21));
         btn_EditarPerfil.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
@@ -169,8 +170,7 @@ public class PaginaCadastrosAtivosAdm extends javax.swing.JFrame {
                 btn_EditarPerfilKeyPressed(evt);
             }
         });
-        jPanel2.add(btn_EditarPerfil);
-        btn_EditarPerfil.setBounds(24, 40, 144, 40);
+        jPanel2.add(btn_EditarPerfil, new org.netbeans.lib.awtextra.AbsoluteConstraints(24, 40, 144, -1));
 
         btn_Ajuda.setBackground(new java.awt.Color(255, 62, 21));
         btn_Ajuda.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
@@ -198,8 +198,7 @@ public class PaginaCadastrosAtivosAdm extends javax.swing.JFrame {
                 btn_AjudaKeyPressed(evt);
             }
         });
-        jPanel2.add(btn_Ajuda);
-        btn_Ajuda.setBounds(178, 40, 144, 40);
+        jPanel2.add(btn_Ajuda, new org.netbeans.lib.awtextra.AbsoluteConstraints(178, 40, 144, -1));
 
         jPanel1.add(jPanel2, java.awt.BorderLayout.LINE_END);
 
@@ -356,18 +355,31 @@ public class PaginaCadastrosAtivosAdm extends javax.swing.JFrame {
         jPanel8.setLayout(new java.awt.BorderLayout());
 
         jPanel9.setBackground(new java.awt.Color(87, 65, 111));
+        jPanel9.setPreferredSize(new java.awt.Dimension(0, 80));
         jPanel9.setLayout(new java.awt.GridBagLayout());
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel3.setText("Copyright 2022 - 4Desk Group Company® - Versão 4.0.0");
+        jLabel3.setText("SUPORTE, FALE CONOSCO: apifatec2@gmail.com");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
         gridBagConstraints.ipadx = 1;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(30, 410, 30, 410);
+        gridBagConstraints.insets = new java.awt.Insets(10, 435, 0, 0);
         jPanel9.add(jLabel3, gridBagConstraints);
+
+        jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel5.setText("Copyright 2022 - 4Desk Group Company® - Versão 4.0.0");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.ipadx = 1;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(10, 410, 20, 410);
+        jPanel9.add(jLabel5, gridBagConstraints);
 
         jPanel8.add(jPanel9, java.awt.BorderLayout.PAGE_END);
 
@@ -676,6 +688,7 @@ public class PaginaCadastrosAtivosAdm extends javax.swing.JFrame {
 
         lbl_NomeUser.setText("Olá, " + user.getNome());
 
+
     }//GEN-LAST:event_formWindowOpened
 
     private void formWindowIconified(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowIconified
@@ -726,6 +739,9 @@ public class PaginaCadastrosAtivosAdm extends javax.swing.JFrame {
 
     private void btn_EditarPerfilActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_EditarPerfilActionPerformed
         // TODO add your handling code here:
+        PaginaEditarUserProprio paginaEditarUserProprio = new PaginaEditarUserProprio(user);
+        paginaEditarUserProprio.setVisible(true);
+
     }//GEN-LAST:event_btn_EditarPerfilActionPerformed
 
     private void btn_EditarPerfilKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_btn_EditarPerfilKeyPressed
@@ -932,6 +948,7 @@ public class PaginaCadastrosAtivosAdm extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel_filtros;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel10;

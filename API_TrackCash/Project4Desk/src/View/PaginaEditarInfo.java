@@ -10,6 +10,7 @@ import java.sql.SQLException;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import model.bean.Usuario;
+import javax.swing.ImageIcon;
 
 public class PaginaEditarInfo extends javax.swing.JFrame {
 
@@ -57,6 +58,7 @@ public class PaginaEditarInfo extends javax.swing.JFrame {
         jPanel8 = new javax.swing.JPanel();
         jPanel9 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
         jPanel10 = new javax.swing.JPanel();
         jPanel11 = new javax.swing.JPanel();
         jPanel12 = new javax.swing.JPanel();
@@ -98,6 +100,7 @@ public class PaginaEditarInfo extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Edição de Informações");
+        setIconImage(new ImageIcon(getClass().getResource("/View/imagens/4Desk_Gigante.png")).getImage());
         setMinimumSize(new java.awt.Dimension(800, 730));
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowOpened(java.awt.event.WindowEvent evt) {
@@ -117,19 +120,11 @@ public class PaginaEditarInfo extends javax.swing.JFrame {
                 jPanel2KeyPressed(evt);
             }
         });
-        jPanel2.setLayout(new java.awt.GridBagLayout());
+        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         lbl_NomeUser.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         lbl_NomeUser.setForeground(new java.awt.Color(255, 255, 255));
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 0;
-        gridBagConstraints.gridwidth = 2;
-        gridBagConstraints.ipadx = 219;
-        gridBagConstraints.ipady = 30;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(5, 4, 0, 0);
-        jPanel2.add(lbl_NomeUser, gridBagConstraints);
+        jPanel2.add(lbl_NomeUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(4, 5, 330, 30));
 
         btn_SairLogout.setBackground(new java.awt.Color(255, 62, 21));
         btn_SairLogout.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
@@ -157,13 +152,7 @@ public class PaginaEditarInfo extends javax.swing.JFrame {
                 btn_SairLogoutKeyPressed(evt);
             }
         });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 4;
-        gridBagConstraints.gridy = 1;
-        gridBagConstraints.ipady = 9;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(5, 10, 20, 24);
-        jPanel2.add(btn_SairLogout, gridBagConstraints);
+        jPanel2.add(btn_SairLogout, new org.netbeans.lib.awtextra.AbsoluteConstraints(332, 40, 144, -1));
 
         btn_EditarPerfil.setBackground(new java.awt.Color(255, 62, 21));
         btn_EditarPerfil.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
@@ -191,13 +180,7 @@ public class PaginaEditarInfo extends javax.swing.JFrame {
                 btn_EditarPerfilKeyPressed(evt);
             }
         });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 1;
-        gridBagConstraints.ipady = 9;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(5, 24, 20, 0);
-        jPanel2.add(btn_EditarPerfil, gridBagConstraints);
+        jPanel2.add(btn_EditarPerfil, new org.netbeans.lib.awtextra.AbsoluteConstraints(24, 40, 144, -1));
 
         btn_Ajuda.setBackground(new java.awt.Color(255, 62, 21));
         btn_Ajuda.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
@@ -225,14 +208,7 @@ public class PaginaEditarInfo extends javax.swing.JFrame {
                 btn_AjudaKeyPressed(evt);
             }
         });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 1;
-        gridBagConstraints.gridwidth = 3;
-        gridBagConstraints.ipady = 9;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(5, 10, 20, 0);
-        jPanel2.add(btn_Ajuda, gridBagConstraints);
+        jPanel2.add(btn_Ajuda, new org.netbeans.lib.awtextra.AbsoluteConstraints(178, 40, 144, -1));
 
         jPanel1.add(jPanel2, java.awt.BorderLayout.LINE_END);
 
@@ -309,13 +285,13 @@ public class PaginaEditarInfo extends javax.swing.JFrame {
         jPanel7.setBackground(new java.awt.Color(132, 132, 132));
         jPanel7.setMinimumSize(new java.awt.Dimension(700, 100));
         jPanel7.setPreferredSize(new java.awt.Dimension(700, 100));
-        jPanel7.setLayout(new java.awt.GridBagLayout());
+        jPanel7.setLayout(null);
 
         btn_EditarCanal.setBackground(new java.awt.Color(51, 51, 51));
-        btn_EditarCanal.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btn_EditarCanal.setFont(new java.awt.Font("Segoe UI", 1, 9)); // NOI18N
         btn_EditarCanal.setForeground(new java.awt.Color(255, 255, 255));
-        btn_EditarCanal.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/imagens/Canais_Ativos_FFFFFF.png"))); // NOI18N
-        btn_EditarCanal.setText("Canais Ativos");
+        btn_EditarCanal.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/imagens/Configuracoes_Ativas_FFFFFF.png"))); // NOI18N
+        btn_EditarCanal.setText("Configurações Ativas");
         btn_EditarCanal.setMaximumSize(new java.awt.Dimension(144, 31));
         btn_EditarCanal.setMinimumSize(new java.awt.Dimension(144, 31));
         btn_EditarCanal.setPreferredSize(new java.awt.Dimension(100, 40));
@@ -337,14 +313,8 @@ public class PaginaEditarInfo extends javax.swing.JFrame {
                 btn_EditarCanalKeyPressed(evt);
             }
         });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 0;
-        gridBagConstraints.ipadx = 6;
-        gridBagConstraints.ipady = 29;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(10, 530, 10, 20);
-        jPanel7.add(btn_EditarCanal, gridBagConstraints);
+        jPanel7.add(btn_EditarCanal);
+        btn_EditarCanal.setBounds(530, 10, 150, 60);
 
         jPanel5.add(jPanel7, java.awt.BorderLayout.LINE_END);
 
@@ -354,18 +324,31 @@ public class PaginaEditarInfo extends javax.swing.JFrame {
         jPanel8.setLayout(new java.awt.BorderLayout());
 
         jPanel9.setBackground(new java.awt.Color(87, 65, 111));
+        jPanel9.setPreferredSize(new java.awt.Dimension(0, 80));
         jPanel9.setLayout(new java.awt.GridBagLayout());
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel3.setText("Copyright 2022 - 4Desk Group Company® - Versão 4.0.0");
+        jLabel3.setText("SUPORTE, FALE CONOSCO: apifatec2@gmail.com");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
         gridBagConstraints.ipadx = 1;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(30, 410, 30, 410);
+        gridBagConstraints.insets = new java.awt.Insets(10, 435, 0, 0);
         jPanel9.add(jLabel3, gridBagConstraints);
+
+        jLabel7.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel7.setText("Copyright 2022 - 4Desk Group Company® - Versão 4.0.0");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.ipadx = 1;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(10, 410, 20, 410);
+        jPanel9.add(jLabel7, gridBagConstraints);
 
         jPanel8.add(jPanel9, java.awt.BorderLayout.PAGE_END);
 
@@ -377,7 +360,7 @@ public class PaginaEditarInfo extends javax.swing.JFrame {
         jPanel11.setPreferredSize(new java.awt.Dimension(1200, 160));
         jPanel11.setLayout(new java.awt.BorderLayout());
 
-        jPanel12.setBorder(javax.swing.BorderFactory.createTitledBorder("Configurações Ativas"));
+        jPanel12.setBorder(javax.swing.BorderFactory.createTitledBorder("Edição de Informações"));
         jPanel12.setMinimumSize(new java.awt.Dimension(1200, 165));
         jPanel12.setPreferredSize(new java.awt.Dimension(1200, 165));
         jPanel12.setLayout(new java.awt.BorderLayout());
@@ -785,6 +768,7 @@ public class PaginaEditarInfo extends javax.swing.JFrame {
 
         lbl_NomeUser.setText("Olá, " + user.getNome());
 
+
     }//GEN-LAST:event_formWindowOpened
 
     private void btn_SairLogoutMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_SairLogoutMouseEntered
@@ -797,6 +781,22 @@ public class PaginaEditarInfo extends javax.swing.JFrame {
 
     private void btn_SairLogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_SairLogoutActionPerformed
         // TODO add your handling code here:
+        Dimension telaOriginal = getPreferredSize();
+        Dimension telaRecente = getSize();
+
+        int tamanhoTelaOriginal = (int) telaOriginal.getWidth();
+        int tamanhoTelaRecente = (int) telaRecente.getWidth();
+
+        if (tamanhoTelaOriginal < tamanhoTelaRecente) {
+            TelaPrincipal telaPrincipal = new TelaPrincipal();
+            telaPrincipal.setExtendedState(Frame.MAXIMIZED_BOTH);
+            telaPrincipal.setVisible(true);
+            this.dispose();
+        } else {
+            TelaPrincipal telaPrincipal = new TelaPrincipal();
+            telaPrincipal.setVisible(true);
+            this.dispose();
+        }
     }//GEN-LAST:event_btn_SairLogoutActionPerformed
 
     private void btn_SairLogoutKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_btn_SairLogoutKeyPressed
@@ -813,6 +813,8 @@ public class PaginaEditarInfo extends javax.swing.JFrame {
 
     private void btn_EditarPerfilActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_EditarPerfilActionPerformed
         // TODO add your handling code here:
+        PaginaEditarUserProprio paginaEditarUserProprio = new PaginaEditarUserProprio(user);
+        paginaEditarUserProprio.setVisible(true);
     }//GEN-LAST:event_btn_EditarPerfilActionPerformed
 
     private void btn_EditarPerfilKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_btn_EditarPerfilKeyPressed
@@ -1037,6 +1039,7 @@ public class PaginaEditarInfo extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel_filtros;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel10;

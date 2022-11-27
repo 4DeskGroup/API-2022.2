@@ -3,6 +3,9 @@ package View;
 import GUI.CadastroGUI;
 import GUI.LoginGUI;
 import java.awt.event.KeyEvent;
+import javax.swing.ImageIcon;
+
+
 
 public class TelaPrincipal extends javax.swing.JFrame {
 
@@ -75,6 +78,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Bem Vindo");
+        setIconImage(new ImageIcon(getClass().getResource("/View/imagens/4Desk_Gigante.png")).getImage());
         setMinimumSize(new java.awt.Dimension(800, 730));
         setPreferredSize(new java.awt.Dimension(1200, 735));
 

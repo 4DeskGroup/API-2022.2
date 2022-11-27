@@ -9,6 +9,7 @@ import model.DTO.CanalDTO;
 import model.bean.Canal;
 import model.bean.Usuario;
 import model.dao.CanalConfigDAO;
+import javax.swing.ImageIcon;
 
 public class PaginaConfiguracaoCanal extends javax.swing.JFrame {
 
@@ -50,6 +51,7 @@ public class PaginaConfiguracaoCanal extends javax.swing.JFrame {
         jPanel8 = new javax.swing.JPanel();
         jPanel9 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
         jPanel10 = new javax.swing.JPanel();
         jPanel11 = new javax.swing.JPanel();
         jPanel12 = new javax.swing.JPanel();
@@ -72,6 +74,7 @@ public class PaginaConfiguracaoCanal extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Configuração de Canal");
         setAutoRequestFocus(false);
+        setIconImage(new ImageIcon(getClass().getResource("/View/imagens/4Desk_Gigante.png")).getImage());
         setMinimumSize(new java.awt.Dimension(800, 680));
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowOpened(java.awt.event.WindowEvent evt) {
@@ -328,18 +331,31 @@ public class PaginaConfiguracaoCanal extends javax.swing.JFrame {
         jPanel8.setLayout(new java.awt.BorderLayout());
 
         jPanel9.setBackground(new java.awt.Color(87, 65, 111));
+        jPanel9.setPreferredSize(new java.awt.Dimension(0, 80));
         jPanel9.setLayout(new java.awt.GridBagLayout());
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel3.setText("Copyright 2022 - 4Desk Group Company® - Versão 4.0.0");
+        jLabel3.setText("SUPORTE, FALE CONOSCO: apifatec2@gmail.com");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
         gridBagConstraints.ipadx = 1;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(30, 410, 30, 410);
+        gridBagConstraints.insets = new java.awt.Insets(10, 435, 0, 0);
         jPanel9.add(jLabel3, gridBagConstraints);
+
+        jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel5.setText("Copyright 2022 - 4Desk Group Company® - Versão 4.0.0");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.ipadx = 1;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(10, 410, 20, 410);
+        jPanel9.add(jLabel5, gridBagConstraints);
 
         jPanel8.add(jPanel9, java.awt.BorderLayout.PAGE_END);
 
@@ -663,6 +679,8 @@ public class PaginaConfiguracaoCanal extends javax.swing.JFrame {
 
     private void btn_EditarPerfilActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_EditarPerfilActionPerformed
         // TODO add your handling code here:
+        PaginaEditarUserProprio paginaEditarUserProprio = new PaginaEditarUserProprio(user);
+        paginaEditarUserProprio.setVisible(true);
     }//GEN-LAST:event_btn_EditarPerfilActionPerformed
 
     private void btn_EditarPerfilKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_btn_EditarPerfilKeyPressed
@@ -5136,6 +5154,7 @@ public class PaginaConfiguracaoCanal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel10;
     private javax.swing.JPanel jPanel11;

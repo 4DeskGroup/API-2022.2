@@ -20,7 +20,7 @@ public class PesqUser {
     
     public Vector PesquisarUser() throws Exception {
         Vector tb = new Vector();
-        String url = "SELECT * FROM tbl_usuario";
+        String url = "SELECT * FROM tbl_Usuario";
         PreparedStatement stmt = getConnection().prepareStatement(url);
         ResultSet rs = stmt.executeQuery();
         while (rs.next()) {
@@ -39,7 +39,7 @@ public class PesqUser {
 
     public Vector PesquisarUser(String pesq) throws Exception {
         Vector tb = new Vector();
-        String url = "SELECT * FROM tbl_usuario WHERE Usuario LIKE '%" + pesq + "%'";
+        String url = "SELECT * FROM tbl_Usuario WHERE Usuario LIKE '%" + pesq + "%'";
         PreparedStatement stmt = getConnection().prepareStatement(url);
         ResultSet rs = stmt.executeQuery();
         while (rs.next()) {
@@ -58,7 +58,7 @@ public class PesqUser {
 
     public Vector PesquisarUser(String campo, String ordem) throws Exception {
         Vector tb = new Vector();
-        String url = "SELECT * FROM tbl_usuario ORDER BY " + campo + " " + ordem;
+        String url = "SELECT * FROM tbl_Usuario ORDER BY " + campo + " " + ordem;
         PreparedStatement stmt = getConnection().prepareStatement(url);
         ResultSet rs = stmt.executeQuery();
         while (rs.next()) {
@@ -80,7 +80,7 @@ public class PesqUser {
         String campoString = campo;
 
         Vector tb = new Vector();
-        String sql = "SELECT * FROM tbl_usuario WHERE " + campo + " LIKE '%" + pesq + "%' ORDER BY " + campoString + " " + ordem;
+        String sql = "SELECT * FROM tbl_Usuario WHERE " + campo + " LIKE '%" + pesq + "%' ORDER BY " + campoString + " " + ordem;
         PreparedStatement stmt = getConnection().prepareStatement(sql);
         ResultSet rs = stmt.executeQuery();
         while (rs.next()) {

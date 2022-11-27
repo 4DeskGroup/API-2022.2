@@ -5,6 +5,7 @@ import java.awt.Font;
 import java.awt.event.KeyEvent;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
+import javax.swing.ImageIcon;
 
 public class PaginaAjuda extends javax.swing.JFrame {
     public PaginaAjuda() {
@@ -47,6 +48,7 @@ public class PaginaAjuda extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Dúvidas Frequentes");
+        setIconImage(new ImageIcon(getClass().getResource("/View/imagens/4Desk_Gigante.png")).getImage());
         setMinimumSize(new java.awt.Dimension(800, 600));
         setPreferredSize(new java.awt.Dimension(1000, 600));
 

@@ -92,7 +92,7 @@ public class Table {
             PreparedStatement stmt;
             ResultSet rs;
 
-            stmt = con.prepareStatement("SELECT * FROM tbl_usuario LIMIT 10 OFFSET " + this.offset + ";");
+            stmt = con.prepareStatement("SELECT * FROM tbl_Usuario LIMIT 10 OFFSET " + this.offset + ";");
             rs = stmt.executeQuery();
 
             while (rs.next()) {

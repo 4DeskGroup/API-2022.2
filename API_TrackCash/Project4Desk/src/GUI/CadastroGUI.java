@@ -10,7 +10,11 @@ import java.awt.Frame;
 import java.awt.event.KeyEvent;
 import java.io.File;
 import java.net.URI;
+import java.util.ArrayList;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import javax.swing.JOptionPane;
+import javax.swing.ImageIcon;
 
 public class CadastroGUI extends javax.swing.JFrame {
 
@@ -78,6 +82,7 @@ public class CadastroGUI extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Cadastro");
+        setIconImage(new ImageIcon(getClass().getResource("/View/imagens/4Desk_Gigante.png")).getImage());
         setMinimumSize(new java.awt.Dimension(850, 550));
         setResizable(false);
         setSize(new java.awt.Dimension(850, 550));
@@ -802,15 +807,16 @@ public class CadastroGUI extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Senha tem que ter mais de 3 caracters");
         } else if (strPass.equals(strRPass) == false) {
             JOptionPane.showMessageDialog(null, "Repetir senha e Senha devem ser iguais!");
-        } else {
+        } 
+          
+        else {
+            if (Email_Validation() == true){
             Usuario cliente = new Usuario(txt_Nome.getText(), txt_Sobrenome.getText(), txt_User.getText(), txt_Email.getText(), strPass);
             Dados.addConta(cliente);
-
+            }
+            
+            
         }
-        
-        
-        
-        
         strPass = null;
         strRPass = null;
     }//GEN-LAST:event_btn_cadastrarActionPerformed
@@ -826,7 +832,7 @@ public class CadastroGUI extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         try{
-            URI link = new URI("https://drive.google.com/file/d/1REKcVZyHgZIJBiUwh6YGw4a8UIwMHREb/view?usp=sharing");
+            URI link = new URI("https://drive.google.com/file/d/1LJwB3C0FBLlrqbzFSFoNR-GPI-wzqgx7/view?usp=share_link");
             
             if(link.equals(link)){
                 if(Desktop.isDesktopSupported()){
@@ -848,7 +854,7 @@ public class CadastroGUI extends javax.swing.JFrame {
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
         try{
-            URI link = new URI("https://drive.google.com/file/d/1oYcObZ2bsRmgbvtSYMpYboHCd1ND1VEd/view?usp=share_link");
+            URI link = new URI("https://drive.google.com/file/d/1uWcRtT2pvh9KkIILEPnnbrOlX6do4MXa/view?usp=share_link");
             
             if(link.equals(link)){
                 if(Desktop.isDesktopSupported()){
@@ -966,4 +972,27 @@ public class CadastroGUI extends javax.swing.JFrame {
     private javax.swing.JTextField txt_Sobrenome;
     private javax.swing.JTextField txt_User;
     // End of variables declaration//GEN-END:variables
+public boolean Email_Validation(){
+    {
+        ArrayList<String> email = new ArrayList<String>();
+        email.add(txt_Email.getText());
+
+        //Regular Expression   
+        String regx = "^(.+)@(.+)$";
+        //Compile regular expression to get the pattern  
+        Pattern pattern = Pattern.compile(regx);
+        //Iterate emails array list  
+        for(String email1 : email){
+            //Create instance of matcher   
+            Matcher matcher = pattern.matcher(email1);
+            //System.out.println(email1 +" : "+ matcher.matches()+"\n");
+         if (matcher.matches() == false){
+              JOptionPane.showMessageDialog(null, "E-mail inválido! ");
+         
+         return matcher.matches();
+         } 
+        }
+        
+        return true;
+    }}
 }

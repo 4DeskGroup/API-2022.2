@@ -1,4 +1,3 @@
-
 package View;
 
 import Controller.Dados;
@@ -10,6 +9,7 @@ import java.awt.Frame;
 import java.awt.event.KeyEvent;
 import javax.swing.JOptionPane;
 import model.bean.Usuario;
+import javax.swing.ImageIcon;
 
 public class PaginaEditarUser extends javax.swing.JFrame {
 
@@ -53,6 +53,7 @@ public class PaginaEditarUser extends javax.swing.JFrame {
         jPanel8 = new javax.swing.JPanel();
         jPanel9 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
         jPanel10 = new javax.swing.JPanel();
         jPanel11 = new javax.swing.JPanel();
         jPanel12 = new javax.swing.JPanel();
@@ -60,9 +61,9 @@ public class PaginaEditarUser extends javax.swing.JFrame {
         jPanel14 = new javax.swing.JPanel();
         lbl_idUserStatic = new javax.swing.JLabel();
         lbl_Filtros = new javax.swing.JLabel();
-        txt_Busca = new javax.swing.JTextField();
         lbl_idUser = new javax.swing.JLabel();
         lbl_Pesquisar = new javax.swing.JLabel();
+        txt_Busca = new javax.swing.JFormattedTextField();
         jPanel15 = new javax.swing.JPanel();
         jPanel16 = new javax.swing.JPanel();
         jPanel17 = new javax.swing.JPanel();
@@ -97,6 +98,7 @@ public class PaginaEditarUser extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Edição de Usuário");
+        setIconImage(new ImageIcon(getClass().getResource("/View/imagens/4Desk_Gigante.png")).getImage());
         setMinimumSize(new java.awt.Dimension(800, 730));
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowOpened(java.awt.event.WindowEvent evt) {
@@ -116,19 +118,11 @@ public class PaginaEditarUser extends javax.swing.JFrame {
                 jPanel2KeyPressed(evt);
             }
         });
-        jPanel2.setLayout(new java.awt.GridBagLayout());
+        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         lbl_NomeUser.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         lbl_NomeUser.setForeground(new java.awt.Color(255, 255, 255));
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 0;
-        gridBagConstraints.gridwidth = 2;
-        gridBagConstraints.ipadx = 219;
-        gridBagConstraints.ipady = 30;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(5, 4, 0, 0);
-        jPanel2.add(lbl_NomeUser, gridBagConstraints);
+        jPanel2.add(lbl_NomeUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(4, 5, 330, 30));
 
         btn_SairLogout.setBackground(new java.awt.Color(255, 62, 21));
         btn_SairLogout.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
@@ -156,13 +150,7 @@ public class PaginaEditarUser extends javax.swing.JFrame {
                 btn_SairLogoutKeyPressed(evt);
             }
         });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 4;
-        gridBagConstraints.gridy = 1;
-        gridBagConstraints.ipady = 9;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(5, 10, 20, 24);
-        jPanel2.add(btn_SairLogout, gridBagConstraints);
+        jPanel2.add(btn_SairLogout, new org.netbeans.lib.awtextra.AbsoluteConstraints(332, 40, 144, -1));
 
         btn_EditarPerfil.setBackground(new java.awt.Color(255, 62, 21));
         btn_EditarPerfil.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
@@ -190,13 +178,7 @@ public class PaginaEditarUser extends javax.swing.JFrame {
                 btn_EditarPerfilKeyPressed(evt);
             }
         });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 1;
-        gridBagConstraints.ipady = 9;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(5, 24, 20, 0);
-        jPanel2.add(btn_EditarPerfil, gridBagConstraints);
+        jPanel2.add(btn_EditarPerfil, new org.netbeans.lib.awtextra.AbsoluteConstraints(24, 40, 144, -1));
 
         btn_Ajuda.setBackground(new java.awt.Color(255, 62, 21));
         btn_Ajuda.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
@@ -224,14 +206,7 @@ public class PaginaEditarUser extends javax.swing.JFrame {
                 btn_AjudaKeyPressed(evt);
             }
         });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 1;
-        gridBagConstraints.gridwidth = 3;
-        gridBagConstraints.ipady = 9;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(5, 10, 20, 0);
-        jPanel2.add(btn_Ajuda, gridBagConstraints);
+        jPanel2.add(btn_Ajuda, new org.netbeans.lib.awtextra.AbsoluteConstraints(178, 40, 144, -1));
 
         jPanel1.add(jPanel2, java.awt.BorderLayout.LINE_END);
 
@@ -353,18 +328,31 @@ public class PaginaEditarUser extends javax.swing.JFrame {
         jPanel8.setLayout(new java.awt.BorderLayout());
 
         jPanel9.setBackground(new java.awt.Color(87, 65, 111));
+        jPanel9.setPreferredSize(new java.awt.Dimension(0, 80));
         jPanel9.setLayout(new java.awt.GridBagLayout());
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel3.setText("Copyright 2022 - 4Desk Group Company® - Versão 4.0.0");
+        jLabel3.setText("SUPORTE, FALE CONOSCO: apifatec2@gmail.com");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
         gridBagConstraints.ipadx = 1;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(30, 410, 30, 410);
+        gridBagConstraints.insets = new java.awt.Insets(10, 435, 0, 0);
         jPanel9.add(jLabel3, gridBagConstraints);
+
+        jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel5.setText("Copyright 2022 - 4Desk Group Company® - Versão 4.0.0");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.ipadx = 1;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(10, 410, 20, 410);
+        jPanel9.add(jLabel5, gridBagConstraints);
 
         jPanel8.add(jPanel9, java.awt.BorderLayout.PAGE_END);
 
@@ -389,65 +377,72 @@ public class PaginaEditarUser extends javax.swing.JFrame {
         jPanel14.setMinimumSize(new java.awt.Dimension(1200, 100));
         jPanel14.setLayout(new java.awt.GridBagLayout());
 
-        lbl_idUserStatic.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
+        lbl_idUserStatic.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         lbl_idUserStatic.setForeground(new java.awt.Color(45, 18, 75));
         lbl_idUserStatic.setText("ID User");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
-        gridBagConstraints.ipadx = 15;
+        gridBagConstraints.gridheight = 2;
+        gridBagConstraints.ipadx = 22;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(0, 175, 0, 0);
+        gridBagConstraints.insets = new java.awt.Insets(5, 210, 0, 0);
         jPanel14.add(lbl_idUserStatic, gridBagConstraints);
 
-        lbl_Filtros.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
+        lbl_Filtros.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         lbl_Filtros.setForeground(new java.awt.Color(45, 18, 75));
         lbl_Filtros.setText("Filtros");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 0;
-        gridBagConstraints.ipadx = 53;
+        gridBagConstraints.ipadx = 59;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(0, 275, 0, 0);
+        gridBagConstraints.insets = new java.awt.Insets(0, 240, 0, 0);
         jPanel14.add(lbl_Filtros, gridBagConstraints);
-
-        txt_Busca.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        txt_Busca.setToolTipText("");
-        txt_Busca.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txt_BuscaActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 1;
-        gridBagConstraints.gridwidth = 2;
-        gridBagConstraints.ipadx = 176;
-        gridBagConstraints.ipady = -1;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(3, 275, 5, 0);
-        jPanel14.add(txt_Busca, gridBagConstraints);
 
         lbl_idUser.setBackground(new java.awt.Color(204, 204, 204));
         lbl_idUser.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         lbl_idUser.setForeground(new java.awt.Color(45, 18, 75));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 1;
+        gridBagConstraints.gridy = 2;
         gridBagConstraints.gridwidth = 2;
         gridBagConstraints.ipadx = 240;
-        gridBagConstraints.ipady = 30;
+        gridBagConstraints.ipady = 25;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(3, 175, 5, 0);
+        gridBagConstraints.insets = new java.awt.Insets(0, 210, 0, 0);
         jPanel14.add(lbl_idUser, gridBagConstraints);
 
         lbl_Pesquisar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/imagens/icons8-pesquisar-30.png"))); // NOI18N
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 4;
-        gridBagConstraints.gridy = 1;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridheight = 2;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(3, 10, 5, 220);
+        gridBagConstraints.insets = new java.awt.Insets(0, 5, 5, 195);
         jPanel14.add(lbl_Pesquisar, gridBagConstraints);
+
+        txt_Busca.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        txt_Busca.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txt_BuscaActionPerformed(evt);
+            }
+        });
+        txt_Busca.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txt_BuscaKeyReleased(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.gridheight = 2;
+        gridBagConstraints.ipadx = 206;
+        gridBagConstraints.ipady = -1;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(0, 240, 5, 0);
+        jPanel14.add(txt_Busca, gridBagConstraints);
 
         jPanel13.add(jPanel14, java.awt.BorderLayout.CENTER);
 
@@ -464,7 +459,7 @@ public class PaginaEditarUser extends javax.swing.JFrame {
         jPanel17.setPreferredSize(new java.awt.Dimension(100, 80));
         jPanel17.setLayout(new java.awt.GridBagLayout());
 
-        txt_Usuario.setFont(new java.awt.Font("Segoe UI", 0, 22)); // NOI18N
+        txt_Usuario.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         txt_Usuario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txt_UsuarioActionPerformed(evt);
@@ -594,7 +589,6 @@ public class PaginaEditarUser extends javax.swing.JFrame {
         jPanel25.setMinimumSize(new java.awt.Dimension(1200, 100));
         jPanel25.setLayout(new java.awt.GridBagLayout());
 
-        tbl_Contas.setFont(new java.awt.Font("Segoe UI", 0, 10)); // NOI18N
         tbl_Contas.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null, null, null, null},
@@ -893,6 +887,8 @@ public class PaginaEditarUser extends javax.swing.JFrame {
 
     private void btn_EditarPerfilActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_EditarPerfilActionPerformed
         // TODO add your handling code here:
+        PaginaEditarUserProprio paginaEditarUserProprio = new PaginaEditarUserProprio(user);
+        paginaEditarUserProprio.setVisible(true);
     }//GEN-LAST:event_btn_EditarPerfilActionPerformed
 
     private void btn_EditarPerfilKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_btn_EditarPerfilKeyPressed
@@ -939,13 +935,13 @@ public class PaginaEditarUser extends javax.swing.JFrame {
         int tamanhoTelaRecente = (int) telaRecente.getWidth();
 
         if (tamanhoTelaOriginal < tamanhoTelaRecente) {
-            PaginaCadastrosAtivos paginaCadastroAtivos = new PaginaCadastrosAtivos(user);
-            paginaCadastroAtivos.setExtendedState(Frame.MAXIMIZED_BOTH);
-            paginaCadastroAtivos.setVisible(true);
+            PaginaUsuariosCadas paginaUsuarioCadas = new PaginaUsuariosCadas(user);
+            paginaUsuarioCadas.setExtendedState(Frame.MAXIMIZED_BOTH);
+            paginaUsuarioCadas.setVisible(true);
             this.dispose();
         } else {
-            PaginaCadastrosAtivos paginaCadastroAtivos = new PaginaCadastrosAtivos(user);
-            paginaCadastroAtivos.setVisible(true);
+            PaginaUsuariosCadas paginaUsuarioCadas = new PaginaUsuariosCadas(user);
+            paginaUsuarioCadas.setVisible(true);
             this.dispose();
         }
     }//GEN-LAST:event_btn_CadastrarCanalActionPerformed
@@ -996,7 +992,6 @@ public class PaginaEditarUser extends javax.swing.JFrame {
     private void cbx_pagActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbx_pagActionPerformed
 
         int cbxSelected = Integer.parseInt(cbx_pag.getSelectedItem().toString());
-        JOptionPane.showMessageDialog(null, cbxSelected);
         this.table.setCBX(tbl_Contas, user, cbxSelected, cbx_pag);
     }//GEN-LAST:event_cbx_pagActionPerformed
 
@@ -1007,10 +1002,6 @@ public class PaginaEditarUser extends javax.swing.JFrame {
             this.table.next(tbl_Contas, user, cbxSelected, cbx_pag);
         }
     }//GEN-LAST:event_nextActionPerformed
-
-    private void txt_BuscaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_BuscaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txt_BuscaActionPerformed
 
     private void txt_UsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_UsuarioActionPerformed
 
@@ -1071,6 +1062,20 @@ public class PaginaEditarUser extends javax.swing.JFrame {
             }
         }
     }//GEN-LAST:event_btn_AtualizarDadosActionPerformed
+
+    private void txt_BuscaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_BuscaActionPerformed
+
+    }//GEN-LAST:event_txt_BuscaActionPerformed
+
+    private void txt_BuscaKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_BuscaKeyReleased
+
+        String busca = txt_Busca.getText();
+        String campo = "Usuario";
+        String ordem = "asc";
+
+        this.table.filtroBuscaConta(tbl_Contas, busca, campo, ordem, DAO, user);
+
+    }//GEN-LAST:event_txt_BuscaKeyReleased
 
     /**
      * @param args the command line arguments
@@ -1161,6 +1166,7 @@ public class PaginaEditarUser extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel10;
     private javax.swing.JPanel jPanel11;
@@ -1200,7 +1206,7 @@ public class PaginaEditarUser extends javax.swing.JFrame {
     private javax.swing.JButton next;
     private javax.swing.JButton prev;
     private javax.swing.JTable tbl_Contas;
-    private javax.swing.JTextField txt_Busca;
+    private javax.swing.JFormattedTextField txt_Busca;
     private javax.swing.JTextField txt_Email;
     private javax.swing.JTextField txt_Senha;
     private javax.swing.JTextField txt_Usuario;

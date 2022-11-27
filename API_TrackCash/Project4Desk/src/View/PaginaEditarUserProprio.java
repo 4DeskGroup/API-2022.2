@@ -9,6 +9,7 @@ import java.awt.Frame;
 import java.awt.event.KeyEvent;
 import javax.swing.JOptionPane;
 import model.bean.Usuario;
+import javax.swing.ImageIcon;
 
 public class PaginaEditarUserProprio extends javax.swing.JFrame {
 
@@ -44,7 +45,6 @@ public class PaginaEditarUserProprio extends javax.swing.JFrame {
         javax.swing.JLabel jLabel6 = new javax.swing.JLabel();
         jPanel8 = new javax.swing.JPanel();
         jPanel9 = new javax.swing.JPanel();
-        jLabel3 = new javax.swing.JLabel();
         jPanel10 = new javax.swing.JPanel();
         jPanel11 = new javax.swing.JPanel();
         jPanel12 = new javax.swing.JPanel();
@@ -66,12 +66,12 @@ public class PaginaEditarUserProprio extends javax.swing.JFrame {
         jPanel19 = new javax.swing.JPanel();
         jPanel20 = new javax.swing.JPanel();
         btn_Excluir = new javax.swing.JButton();
-        btn_CadastrarCanal = new javax.swing.JButton();
+        btn_Voltar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Edição de Usuário");
+        setTitle("Editar Perfil");
+        setIconImage(new ImageIcon(getClass().getResource("/View/imagens/4Desk_Gigante.png")).getImage());
         setMinimumSize(new java.awt.Dimension(800, 600));
-        setPreferredSize(new java.awt.Dimension(1000, 600));
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowOpened(java.awt.event.WindowEvent evt) {
                 formWindowOpened(evt);
@@ -178,19 +178,8 @@ public class PaginaEditarUserProprio extends javax.swing.JFrame {
         jPanel8.setLayout(new java.awt.BorderLayout());
 
         jPanel9.setBackground(new java.awt.Color(87, 65, 111));
+        jPanel9.setPreferredSize(new java.awt.Dimension(0, 80));
         jPanel9.setLayout(new java.awt.GridBagLayout());
-
-        jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel3.setText("Copyright 2022 - 4Desk Group Company® - Versão 4.0.0");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 0;
-        gridBagConstraints.ipadx = 1;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(30, 410, 30, 410);
-        jPanel9.add(jLabel3, gridBagConstraints);
-
         jPanel8.add(jPanel9, java.awt.BorderLayout.PAGE_END);
 
         jPanel10.setBackground(new java.awt.Color(241, 241, 241));
@@ -222,7 +211,7 @@ public class PaginaEditarUserProprio extends javax.swing.JFrame {
         gridBagConstraints.gridy = 0;
         gridBagConstraints.ipadx = 15;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(0, 150, 0, 0);
+        gridBagConstraints.insets = new java.awt.Insets(10, 150, 0, 0);
         jPanel14.add(lbl_idUserStatic, gridBagConstraints);
 
         lbl_idUserProprio.setBackground(new java.awt.Color(204, 204, 204));
@@ -235,7 +224,7 @@ public class PaginaEditarUserProprio extends javax.swing.JFrame {
         gridBagConstraints.ipadx = 240;
         gridBagConstraints.ipady = 30;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(3, 150, 15, 600);
+        gridBagConstraints.insets = new java.awt.Insets(8, 150, 0, 600);
         jPanel14.add(lbl_idUserProprio, gridBagConstraints);
 
         jPanel13.add(jPanel14, java.awt.BorderLayout.CENTER);
@@ -253,7 +242,7 @@ public class PaginaEditarUserProprio extends javax.swing.JFrame {
         jPanel17.setPreferredSize(new java.awt.Dimension(100, 80));
         jPanel17.setLayout(new java.awt.GridBagLayout());
 
-        txt_UsuarioProprio.setFont(new java.awt.Font("Segoe UI", 0, 22)); // NOI18N
+        txt_UsuarioProprio.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         txt_UsuarioProprio.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txt_UsuarioProprioActionPerformed(evt);
@@ -383,14 +372,14 @@ public class PaginaEditarUserProprio extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(20, 290, 20, 170);
         jPanel20.add(btn_Excluir, gridBagConstraints);
 
-        btn_CadastrarCanal.setBackground(new java.awt.Color(255, 62, 21));
-        btn_CadastrarCanal.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
-        btn_CadastrarCanal.setForeground(new java.awt.Color(255, 255, 255));
-        btn_CadastrarCanal.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/imagens/Voltar_FFFFFF_pequeno.png"))); // NOI18N
-        btn_CadastrarCanal.setText("Voltar");
-        btn_CadastrarCanal.addActionListener(new java.awt.event.ActionListener() {
+        btn_Voltar.setBackground(new java.awt.Color(255, 62, 21));
+        btn_Voltar.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
+        btn_Voltar.setForeground(new java.awt.Color(255, 255, 255));
+        btn_Voltar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/imagens/Voltar_FFFFFF_pequeno.png"))); // NOI18N
+        btn_Voltar.setText("Voltar");
+        btn_Voltar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_CadastrarCanalActionPerformed(evt);
+                btn_VoltarActionPerformed(evt);
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -400,7 +389,7 @@ public class PaginaEditarUserProprio extends javax.swing.JFrame {
         gridBagConstraints.ipady = 6;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(20, 190, 20, 0);
-        jPanel20.add(btn_CadastrarCanal, gridBagConstraints);
+        jPanel20.add(btn_Voltar, gridBagConstraints);
 
         jPanel19.add(jPanel20, java.awt.BorderLayout.PAGE_START);
 
@@ -514,25 +503,10 @@ public class PaginaEditarUserProprio extends javax.swing.JFrame {
 
     }//GEN-LAST:event_btn_ExcluirActionPerformed
 
-    private void btn_CadastrarCanalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_CadastrarCanalActionPerformed
+    private void btn_VoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_VoltarActionPerformed
 
-        Dimension telaOriginal = getPreferredSize();
-        Dimension telaRecente = getSize();
-
-        int tamanhoTelaOriginal = (int) telaOriginal.getWidth();
-        int tamanhoTelaRecente = (int) telaRecente.getWidth();
-
-        if (tamanhoTelaOriginal < tamanhoTelaRecente) {
-            PaginaConfiguracaoCanal paginaConfiguracaoCanal = new PaginaConfiguracaoCanal(user);
-            paginaConfiguracaoCanal.setExtendedState(Frame.MAXIMIZED_BOTH);
-            paginaConfiguracaoCanal.setVisible(true);
-            this.dispose();
-        } else {
-            PaginaConfiguracaoCanal paginaConfiguracaoCanal = new PaginaConfiguracaoCanal(user);
-            paginaConfiguracaoCanal.setVisible(true);
-            this.dispose();
-        }
-    }//GEN-LAST:event_btn_CadastrarCanalActionPerformed
+       this.dispose();
+    }//GEN-LAST:event_btn_VoltarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -567,11 +541,10 @@ public class PaginaEditarUserProprio extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn_AtualizarDados;
-    private javax.swing.JButton btn_CadastrarCanal;
     private javax.swing.JButton btn_Excluir;
+    private javax.swing.JButton btn_Voltar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel10;
