@@ -64,8 +64,8 @@
 3	| Cadastro prévio de usuário e seu tipo feito pelo desenvolvedor	| Alta |	OK
 3	| Usuário comum é filtrado na interface de login, tendo acesso apenas ao que ele deve ter. |	Alta |	OK	
 3	| Administrador é filtrado na interface de login, tendo acesso apenas ao que ele deve ter. |	Alta |	OK
-4	| Administrador tem acesso a um sistema integrado e completamente funcional.	| Alta |	:black_square_button:		
-4 |	Usuário comum tem acesso a um sistema integrado e completamente funcional.|	Alta |	:black_square_button:			
+4	| Administrador tem acesso a um sistema integrado e completamente funcional.	| Alta |	OK		
+4 |	Usuário comum tem acesso a um sistema integrado e completamente funcional.|	Alta |	OK	
 
 
 ##### Requisitos Não Funcionais
@@ -88,9 +88,9 @@
 3	| Menu de acesso às interfaces desenvolvidas |	Baixa | OK
 3	| Exibição de todos os canais e usuários contidos registrados para o usuário administrador	| Baixa | OK		
 3	| Sistema de paginação na lista de exibição de canais cadastrados pelo usuário	| Baixa	|	OK
-4	| Revisão e correção de possíveis bugs	| Alta |	:black_square_button:	
-4	| Utilização da Lei Geral de Proteção de Dados Pessoais no Cadastro Inicial do Usuário	| Alta |	:black_square_button:	
-4	| Possível melhorias no funcionamento do sistema	| Baixa | :black_square_button:			
+4	| Revisão e correção de possíveis bugs	| Alta |	OK
+4	| Utilização da Lei Geral de Proteção de Dados Pessoais no Cadastro Inicial do Usuário	| Alta |	OK
+4	| Possível melhorias no funcionamento do sistema	| Baixa | OK	
 
 ##### Timeline
 <div align='center'>
